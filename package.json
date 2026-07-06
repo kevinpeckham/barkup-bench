@@ -20,7 +20,7 @@
 	},
 	"dependencies": {
 		"@ai-sdk/gateway": "latest",
-		"@kevinpeckham/barkup": "^0.1.2",
+		"@kevinpeckham/barkup": "^0.2.0",
 		"ai": "latest",
 		"fast-json-patch": "^3.1.1",
 		"zod": "^3.24.0"

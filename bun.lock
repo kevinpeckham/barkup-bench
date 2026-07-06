@@ -6,7 +6,7 @@
       "name": "barkup-bench",
       "dependencies": {
         "@ai-sdk/gateway": "latest",
-        "@kevinpeckham/barkup": "^0.1.2",
+        "@kevinpeckham/barkup": "^0.2.0",
         "ai": "latest",
         "fast-json-patch": "^3.1.1",
         "zod": "^3.24.0",
@@ -48,7 +48,7 @@
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@2.5.2", "", { "os": "win32", "cpu": "x64" }, "sha512-4InchVpdVmdkkkgjQqKpgvyu+VPnoF/7RPSw5YATgEVpt2j72wcCAeV5TwaE9ZGJUZWZn7v2CwSAj6CrMJEx8A=="],
 
-    "@kevinpeckham/barkup": ["@kevinpeckham/barkup@0.1.2", "", { "peerDependencies": { "fast-check": ">=3.0.0" }, "optionalPeers": ["fast-check"] }, "sha512-fKjnzdZkFpXFQEIpLzGfX9qP6SL42khvMgyeFHqX9IGDx1QC6bFActgOMHAPnU7EcnC7Po/aJwX8it3mfGV0Pw=="],
+    "@kevinpeckham/barkup": ["@kevinpeckham/barkup@0.2.0", "", { "peerDependencies": { "fast-check": ">=3.0.0" }, "optionalPeers": ["fast-check"] }, "sha512-ROfv3i4TZYG0Bqvy+qhpdPj4Zkrm5r3pIZtJ1suxHBSEREuNhYLjeKeIO5E80RtKhtOQ3wWbmOnoLDDGi3VRKw=="],
 
     "@resvg/resvg-js": ["@resvg/resvg-js@2.6.2", "", { "optionalDependencies": { "@resvg/resvg-js-android-arm-eabi": "2.6.2", "@resvg/resvg-js-android-arm64": "2.6.2", "@resvg/resvg-js-darwin-arm64": "2.6.2", "@resvg/resvg-js-darwin-x64": "2.6.2", "@resvg/resvg-js-linux-arm-gnueabihf": "2.6.2", "@resvg/resvg-js-linux-arm64-gnu": "2.6.2", "@resvg/resvg-js-linux-arm64-musl": "2.6.2", "@resvg/resvg-js-linux-x64-gnu": "2.6.2", "@resvg/resvg-js-linux-x64-musl": "2.6.2", "@resvg/resvg-js-win32-arm64-msvc": "2.6.2", "@resvg/resvg-js-win32-ia32-msvc": "2.6.2", "@resvg/resvg-js-win32-x64-msvc": "2.6.2" } }, "sha512-xBaJish5OeGmniDj9cW5PRa/PtmuVU3ziqrbr5xJj901ZDN4TosrVaNZpEiLZAxdfnhAe7uQ7QFWfjPe9d9K2Q=="],
 
