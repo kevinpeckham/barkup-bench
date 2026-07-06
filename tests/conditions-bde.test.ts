@@ -146,8 +146,15 @@ describe("condition E (JSON Patch)", () => {
 });
 
 describe("regimes", () => {
-	test("five conditions, parity prompts differ from best-effort", () => {
-		expect(ALL_CONDITIONS.map((c) => c.id)).toEqual(["A", "B", "C", "D", "E"]);
+	test("six conditions, parity prompts differ from best-effort", () => {
+		expect(ALL_CONDITIONS.map((c) => c.id)).toEqual([
+			"A",
+			"B",
+			"C",
+			"D",
+			"E",
+			"F",
+		]);
 		const parity = conditionsForRegime("parity");
 		const best = conditionsForRegime("best");
 		for (let i = 0; i < parity.length; i += 1) {
