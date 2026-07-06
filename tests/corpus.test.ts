@@ -158,7 +158,9 @@ describe("pilot corpus", () => {
 		const kinds = new Set(
 			corpus.tasks
 				.filter((task) => task.family === "transformation")
-				.map((task) => (task.family === "transformation" ? task.edit.kind : "")),
+				.map((task) =>
+					task.family === "transformation" ? task.edit.kind : "",
+				),
 		);
 		expect([...kinds].sort()).toEqual([
 			"insert-node",
@@ -174,7 +176,9 @@ describe("pilot corpus", () => {
 			.filter((task) => task.family === "reading")
 			.map((task) => (task.family === "reading" ? task.question.prompt : ""));
 		// Four different templates → four different phrasings.
-		const shapes = new Set(prompts.map((p) => p.split(" ").slice(0, 3).join(" ")));
+		const shapes = new Set(
+			prompts.map((p) => p.split(" ").slice(0, 3).join(" ")),
+		);
 		expect(shapes.size).toBeGreaterThanOrEqual(3);
 	});
 

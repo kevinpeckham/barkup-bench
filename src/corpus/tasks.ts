@@ -47,6 +47,8 @@ export interface ConstructionTask extends TaskBase {
 	target: BarkupNode;
 	/** Held-out describer output; null until scripts/describe-construction.ts runs. */
 	spec: string | null;
+	/** True once the spec passed the mechanical + rebuild audits; unverified tasks are excluded from scored runs. */
+	specVerified?: boolean;
 }
 
 export interface ReferenceTask extends TaskBase {
@@ -83,39 +85,115 @@ export interface Corpus {
 	tasks: PilotTask[];
 }
 
-/** Pre-registered pilot distribution: 20 tasks. */
-const PILOT_PLAN: { family: Family; buckets: BucketName[] }[] = [
-	{
-		family: "transformation",
-		buckets: ["xs", "xs", "s", "s", "m", "m", "l", "l"],
-	},
-	{ family: "construction", buckets: ["xs", "xs", "s", "s"] },
-	{ family: "reference", buckets: ["s", "s", "m", "m"] },
-	{ family: "reading", buckets: ["xs", "s", "m", "l"] },
-];
+export interface CorpusPlanEntry {
+	family: Family;
+	buckets: BucketName[];
+	/**
+	 * Kind cycles (pre-registered): kinds are assigned round-robin per
+	 * task index so every edit/question kind is exercised evenly, instead
+	 * of left entirely to the seeded draw. A kind inapplicable to its
+	 * tree falls back to the seeded order.
+	 */
+	editKinds?: Edit["kind"][];
+	questionKinds?: QuestionKind[];
+}
 
-/**
- * Pre-registered kind cycles: the pilot must exercise every edit kind
- * and question kind at least once (its whole purpose is validating the
- * grading end-to-end), so kinds are assigned round-robin per task index
- * instead of left entirely to the seeded draw. A kind that is
- * inapplicable to its tree falls back to the seeded order.
- */
-const TRANSFORMATION_KIND_CYCLE: Edit["kind"][] = [
+const EDIT_KINDS: Edit["kind"][] = [
 	"set-attribute",
 	"set-name",
 	"remove-node",
 	"insert-node",
 	"move-node",
-	"set-attribute",
-	"insert-node",
-	"move-node",
 ];
-const READING_KIND_CYCLE: QuestionKind[] = [
+const QUESTION_KINDS: QuestionKind[] = [
 	"count-type-global",
 	"count-direct-children",
 	"attribute-value",
 	"nth-child-type",
+	"count-type-under",
+];
+
+function repeat(buckets: BucketName[], times: number): BucketName[] {
+	const out: BucketName[] = [];
+	for (const bucket of buckets) {
+		for (let i = 0; i < times; i += 1) out.push(bucket);
+	}
+	return out;
+}
+
+/** Pre-registered pilot distribution: 20 tasks (kept verbatim so corpus/pilot.json stays reproducible). */
+export const PILOT_PLAN: CorpusPlanEntry[] = [
+	{
+		family: "transformation",
+		buckets: ["xs", "xs", "s", "s", "m", "m", "l", "l"],
+		editKinds: [
+			"set-attribute",
+			"set-name",
+			"remove-node",
+			"insert-node",
+			"move-node",
+			"set-attribute",
+			"insert-node",
+			"move-node",
+		],
+	},
+	{ family: "construction", buckets: ["xs", "xs", "s", "s"] },
+	{ family: "reference", buckets: ["s", "s", "m", "m"] },
+	{
+		family: "reading",
+		buckets: ["xs", "s", "m", "l"],
+		questionKinds: [
+			"count-type-global",
+			"count-direct-children",
+			"attribute-value",
+			"nth-child-type",
+		],
+	},
+];
+
+/**
+ * Pre-registered main-corpus distribution: 200 tasks.
+ * transformation 80 (20/bucket, all 5 edit kinds), construction 24
+ * (xs/s only — the describer-fidelity limit found in the pilot),
+ * reference 40, reading 56 (all 5 question kinds).
+ */
+export const MAIN_PLAN: CorpusPlanEntry[] = [
+	{
+		family: "transformation",
+		buckets: repeat(["xs", "s", "m", "l"], 20),
+		editKinds: EDIT_KINDS,
+	},
+	{ family: "construction", buckets: repeat(["xs", "s"], 12) },
+	{
+		family: "reference",
+		buckets: [
+			...repeat(["xs"], 8),
+			...repeat(["s"], 12),
+			...repeat(["m"], 12),
+			...repeat(["l"], 8),
+		],
+	},
+	{
+		family: "reading",
+		buckets: repeat(["xs", "s", "m", "l"], 14),
+		questionKinds: QUESTION_KINDS,
+	},
+];
+
+/** Dev split (separate seed; used ONLY for best-effort prompt checks, never scored). */
+export const DEV_PLAN: CorpusPlanEntry[] = [
+	{
+		family: "transformation",
+		buckets: ["xs", "xs", "s", "s", "m", "m", "l", "l"],
+		editKinds: EDIT_KINDS,
+	},
+	{ family: "construction", buckets: ["xs", "xs", "s", "s"] },
+	{ family: "reference", buckets: ["s", "s", "m", "m"] },
+	{
+		family: "reading",
+		buckets: ["xs", "s", "m", "l"],
+		questionKinds: QUESTION_KINDS,
+	},
 ];
 
 const FAMILY_SEED_OFFSET: Record<Family, number> = {
@@ -134,8 +212,12 @@ function formatValue(value: AttributeValue): string {
 }
 
 export function generatePilotCorpus(seed: number): Corpus {
+	return generateCorpus(PILOT_PLAN, seed);
+}
+
+export function generateCorpus(plan: CorpusPlanEntry[], seed: number): Corpus {
 	const tasks: PilotTask[] = [];
-	for (const { family, buckets } of PILOT_PLAN) {
+	for (const { family, buckets, editKinds, questionKinds } of plan) {
 		// One tree per task; per-bucket sampling seeds are decorrelated.
 		const byBucket = new Map<BucketName, BarkupNode[]>();
 		for (const bucket of new Set(buckets)) {
@@ -156,7 +238,10 @@ export function generatePilotCorpus(seed: number): Corpus {
 				seed + FAMILY_SEED_OFFSET[family] + bucketOffset(bucket) + index * 97;
 			const id = `${family.slice(0, 5)}-${bucket}-${index + 1}`;
 			tasks.push(
-				buildTask(family, id, bucket, tree, createRng(taskSeed), index),
+				buildTask(family, id, bucket, tree, createRng(taskSeed), index, {
+					...(editKinds !== undefined ? { editKinds } : {}),
+					...(questionKinds !== undefined ? { questionKinds } : {}),
+				}),
 			);
 		});
 	}
@@ -174,14 +259,12 @@ function buildTask(
 	tree: BarkupNode,
 	rng: Rng,
 	index: number,
+	kinds: { editKinds?: Edit["kind"][]; questionKinds?: QuestionKind[] },
 ): PilotTask {
 	switch (family) {
 		case "transformation": {
-			const edit = generateEdit(
-				tree,
-				rng,
-				TRANSFORMATION_KIND_CYCLE[index % TRANSFORMATION_KIND_CYCLE.length],
-			);
+			const cycle = kinds.editKinds;
+			const edit = generateEdit(tree, rng, cycle?.[index % cycle.length]);
 			return {
 				id,
 				family,
@@ -196,18 +279,16 @@ function buildTask(
 			return { id, family, bucket, target: tree, spec: null };
 		case "reference":
 			return buildReferenceTask(id, bucket, tree, rng);
-		case "reading":
+		case "reading": {
+			const cycle = kinds.questionKinds;
 			return {
 				id,
 				family,
 				bucket,
 				tree,
-				question: generateQuestion(
-					tree,
-					rng,
-					READING_KIND_CYCLE[index % READING_KIND_CYCLE.length],
-				),
+				question: generateQuestion(tree, rng, cycle?.[index % cycle.length]),
 			};
+		}
 	}
 }
 

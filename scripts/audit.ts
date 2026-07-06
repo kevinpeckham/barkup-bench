@@ -9,8 +9,8 @@ import { readFileSync } from "node:fs";
 import { conditionA } from "../src/conditions/a.js";
 import { conditionC } from "../src/conditions/c.js";
 import type { Corpus } from "../src/corpus/tasks.js";
-import { runTask } from "../src/harness/runner.js";
 import { eraseIdsExcept } from "../src/grading/equal.js";
+import { runTask } from "../src/harness/runner.js";
 import { allIds } from "../src/tree.js";
 
 const [model, ...cells] = process.argv.slice(2);

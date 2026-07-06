@@ -14,12 +14,15 @@
 		"corpus": "bun run scripts/generate-corpus.ts",
 		"describe": "bun run scripts/describe-construction.ts",
 		"pilot": "bun run scripts/run-pilot.ts",
+		"matrix": "bun run scripts/run-matrix.ts",
+		"prompts": "bun run scripts/render-prompts.ts",
 		"report": "bun run scripts/report.ts"
 	},
 	"dependencies": {
 		"@ai-sdk/gateway": "latest",
 		"@kevinpeckham/barkup": "^0.1.2",
 		"ai": "latest",
+		"fast-json-patch": "^3.1.1",
 		"zod": "^3.24.0"
 	},
 	"devDependencies": {

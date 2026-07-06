@@ -8,9 +8,14 @@ import type { BarkupNode } from "@kevinpeckham/barkup";
 import type { Condition } from "../conditions/types.js";
 
 function deliverySentence(condition: Condition): string {
-	return condition.kind === "rewrite"
-		? `Reply with the complete updated ${condition.artifactName}.`
-		: "Make the changes with the tools, then reply DONE.";
+	switch (condition.kind) {
+		case "rewrite":
+			return `Reply with the complete updated ${condition.artifactName}.`;
+		case "tools":
+			return "Make the changes with the tools, then reply DONE.";
+		case "patch":
+			return "Reply with a JSON Patch that makes this change.";
+	}
 }
 
 export function editMessage(
@@ -47,7 +52,9 @@ ${spec}
 ${
 	condition.kind === "rewrite"
 		? `Reply with the complete ${condition.artifactName}.`
-		: "Build the tree with the tools, then reply DONE."
+		: condition.kind === "patch"
+			? "Reply with a JSON Patch that builds the tree."
+			: "Build the tree with the tools, then reply DONE."
 }`;
 }
 

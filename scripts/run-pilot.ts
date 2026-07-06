@@ -24,6 +24,7 @@ if (missingSpecs.length > 0) {
 const outPath = `results/raw/pilot-${model.replace(/[^a-z0-9.-]+/gi, "_")}.jsonl`;
 const records = await runAll({
 	model,
+	regime: "parity",
 	conditions: [conditionA, conditionC],
 	tasks: corpus.tasks,
 	outPath,

@@ -9,6 +9,10 @@ export interface CallLog {
 	round: number;
 	inputTokens: number;
 	outputTokens: number;
+	/** Provider-reported cached-input reads, for the with/without-cache cost views. */
+	cacheReadTokens?: number;
+	/** Provider-reported reasoning tokens (subset of output). */
+	reasoningTokens?: number;
 	latencyMs: number;
 	/** Tool-loop steps in this call (tools arms only). */
 	steps?: number;
@@ -22,6 +26,7 @@ export interface TaskRunRecord {
 	bucket: BucketName;
 	condition: string;
 	model: string;
+	regime: string;
 	/** Task solved (validity + semantic correctness; both phases for reference). */
 	success: boolean;
 	/** First artifact was already valid (null where validity does not apply, i.e. reading). */

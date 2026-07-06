@@ -12,6 +12,7 @@ import { generateText, stepCountIs } from "ai";
 import { formatIssuesFeedback } from "../conditions/shared.js";
 import type {
 	Condition,
+	PatchCondition,
 	RewriteCondition,
 	ToolsCondition,
 } from "../conditions/types.js";
@@ -47,6 +48,7 @@ export const MAX_TOOL_STEPS = 48;
 
 export interface RunOptions {
 	model: string;
+	regime: string;
 	conditions: Condition[];
 	tasks: PilotTask[];
 	outPath: string;
@@ -59,6 +61,8 @@ interface CallOutcome {
 	responseMessages: ModelMessage[];
 	inputTokens: number;
 	outputTokens: number;
+	cacheReadTokens: number;
+	reasoningTokens: number;
 	latencyMs: number;
 	steps: number;
 }
@@ -85,8 +89,34 @@ async function callModel(
 		responseMessages: result.response.messages as ModelMessage[],
 		inputTokens: result.totalUsage.inputTokens ?? 0,
 		outputTokens: result.totalUsage.outputTokens ?? 0,
+		cacheReadTokens: result.totalUsage.inputTokenDetails?.cacheReadTokens ?? 0,
+		reasoningTokens: result.totalUsage.outputTokenDetails?.reasoningTokens ?? 0,
 		latencyMs: Math.round(performance.now() - started),
 		steps: result.steps.length,
+	};
+}
+
+function toCallLog(
+	outcome: CallOutcome,
+	phase: number,
+	round: number,
+	issueCodes: string[],
+	steps?: number,
+): CallLog {
+	return {
+		phase,
+		round,
+		inputTokens: outcome.inputTokens,
+		outputTokens: outcome.outputTokens,
+		...(outcome.cacheReadTokens > 0
+			? { cacheReadTokens: outcome.cacheReadTokens }
+			: {}),
+		...(outcome.reasoningTokens > 0
+			? { reasoningTokens: outcome.reasoningTokens }
+			: {}),
+		latencyMs: outcome.latencyMs,
+		...(steps !== undefined ? { steps } : {}),
+		issueCodes,
 	};
 }
 
@@ -111,14 +141,7 @@ async function rewriteLoop(
 		messages.push({ role: "assistant", content: outcome.text });
 		const parsed = condition.parseArtifact(outcome.text);
 		const issueCodes = parsed.ok ? [] : parsed.issues.map((i) => i.code);
-		calls.push({
-			phase,
-			round,
-			inputTokens: outcome.inputTokens,
-			outputTokens: outcome.outputTokens,
-			latencyMs: outcome.latencyMs,
-			issueCodes,
-		});
+		calls.push(toCallLog(outcome, phase, round, issueCodes));
 		if (parsed.ok) {
 			if (round === 1) firstPassValid = true;
 			return { tree: parsed.node, calls, messages, firstPassValid };
@@ -127,6 +150,43 @@ async function rewriteLoop(
 			messages.push({
 				role: "user",
 				content: formatIssuesFeedback(parsed.issues, condition.artifactName),
+			});
+		}
+	}
+	return { tree: null, calls, messages, firstPassValid };
+}
+
+/**
+ * Patch loop (condition E): each attempt is a fresh patch against the
+ * SAME base tree (a failed patch is never partially applied), with the
+ * structured issues returned verbatim.
+ */
+async function patchLoop(
+	condition: PatchCondition,
+	model: string,
+	messages: ModelMessage[],
+	phase: number,
+	base: BarkupNode,
+): Promise<LoopResult> {
+	const calls: CallLog[] = [];
+	let firstPassValid = false;
+	for (let round = 1; round <= MAX_ROUNDS; round += 1) {
+		const outcome = await callModel(model, condition.systemPrompt, messages);
+		messages.push({ role: "assistant", content: outcome.text });
+		const applied = condition.applyArtifact(outcome.text, base);
+		const issueCodes = applied.ok ? [] : applied.issues.map((i) => i.code);
+		calls.push(toCallLog(outcome, phase, round, issueCodes));
+		if (applied.ok) {
+			if (round === 1) firstPassValid = true;
+			return { tree: applied.node, calls, messages, firstPassValid };
+		}
+		if (round < MAX_ROUNDS) {
+			messages.push({
+				role: "user",
+				content: `${formatIssuesFeedback(
+					applied.issues,
+					condition.artifactName,
+				)} The patch was NOT applied — reply with a complete corrected patch against the tree exactly as originally shown.`,
 			});
 		}
 	}
@@ -153,15 +213,7 @@ async function toolsLoop(
 		messages.push(...outcome.responseMessages);
 		const validated = condition.validateState(session.state.tree);
 		const issueCodes = validated.ok ? [] : validated.issues.map((i) => i.code);
-		calls.push({
-			phase,
-			round,
-			inputTokens: outcome.inputTokens,
-			outputTokens: outcome.outputTokens,
-			latencyMs: outcome.latencyMs,
-			steps: outcome.steps,
-			issueCodes,
-		});
+		calls.push(toCallLog(outcome, phase, round, issueCodes, outcome.steps));
 		if (validated.ok) {
 			if (round === 1) firstPassValid = true;
 			return {
@@ -202,6 +254,7 @@ function baseRecord(
 	task: PilotTask,
 	condition: Condition,
 	model: string,
+	regime: string,
 ): TaskRunRecord {
 	return {
 		taskId: task.id,
@@ -209,6 +262,7 @@ function baseRecord(
 		bucket: task.bucket,
 		condition: condition.id,
 		model,
+		regime,
 		success: false,
 		firstPassValid: null,
 		passAt1: false,
@@ -263,6 +317,12 @@ async function runEditLoop(
 			session: null,
 		};
 	}
+	if (condition.kind === "patch") {
+		return {
+			loop: await patchLoop(condition, model, messages, 1, tree),
+			session: null,
+		};
+	}
 	const session = condition.createSession(tree);
 	return {
 		loop: await toolsLoop(condition, model, session, messages, 1),
@@ -274,8 +334,9 @@ async function runTransformation(
 	task: TransformationTask,
 	condition: Condition,
 	model: string,
+	regime: string,
 ): Promise<TaskRunRecord> {
-	const record = baseRecord(task, condition, model);
+	const record = baseRecord(task, condition, model, regime);
 	const { loop, session } = await runEditLoop(
 		condition,
 		model,
@@ -298,13 +359,14 @@ async function runConstruction(
 	task: ConstructionTask,
 	condition: Condition,
 	model: string,
+	regime: string,
 ): Promise<TaskRunRecord> {
 	if (task.spec === null) {
 		throw new Error(
 			`Construction task ${task.id} has no spec — run \`bun run describe\` first.`,
 		);
 	}
-	const record = baseRecord(task, condition, model);
+	const record = baseRecord(task, condition, model, regime);
 	if (condition.kind === "rewrite") {
 		const messages: ModelMessage[] = [
 			{
@@ -320,13 +382,21 @@ async function runConstruction(
 		return record;
 	}
 	const initial: BarkupNode = { type: "document", id: "root" };
-	const session = condition.createSession(initial);
 	const messages: ModelMessage[] = [
 		{
 			role: "user",
 			content: constructionMessage(condition, task.spec, initial),
 		},
 	];
+	if (condition.kind === "patch") {
+		const loop = await patchLoop(condition, model, messages, 1, initial);
+		record.firstPassValid = loop.firstPassValid;
+		if (loop.tree) record.success = equalModuloAllIds(task.target, loop.tree);
+		record.detail = { finalTree: loop.tree };
+		accumulate(record, loop.calls);
+		return record;
+	}
+	const session = condition.createSession(initial);
 	const loop = await toolsLoop(condition, model, session, messages, 1);
 	record.firstPassValid = loop.firstPassValid;
 	record.toolErrorCount = session.toolErrorCount;
@@ -340,8 +410,9 @@ async function runReference(
 	task: ReferenceTask,
 	condition: Condition,
 	model: string,
+	regime: string,
 ): Promise<TaskRunRecord> {
-	const record = baseRecord(task, condition, model);
+	const record = baseRecord(task, condition, model, regime);
 
 	// Phase 1: the insert edit.
 	const messages: ModelMessage[] = [
@@ -354,6 +425,8 @@ async function runReference(
 	let loop1: LoopResult;
 	if (condition.kind === "rewrite") {
 		loop1 = await rewriteLoop(condition, model, messages, 1);
+	} else if (condition.kind === "patch") {
+		loop1 = await patchLoop(condition, model, messages, 1, task.tree);
 	} else {
 		session = condition.createSession(task.tree);
 		loop1 = await toolsLoop(condition, model, session, messages, 1);
@@ -403,6 +476,9 @@ async function runReference(
 	let loop2: LoopResult;
 	if (condition.kind === "rewrite") {
 		loop2 = await rewriteLoop(condition, model, messages, 2);
+	} else if (condition.kind === "patch") {
+		// Phase 2 patches apply against the model's own phase-1 tree.
+		loop2 = await patchLoop(condition, model, messages, 2, loop1.tree);
 	} else {
 		loop2 = await toolsLoop(
 			condition,
@@ -435,8 +511,9 @@ async function runReading(
 	task: ReadingTask,
 	condition: Condition,
 	model: string,
+	regime: string,
 ): Promise<TaskRunRecord> {
-	const record = baseRecord(task, condition, model);
+	const record = baseRecord(task, condition, model, regime);
 	const messages: ModelMessage[] = [
 		{
 			role: "user",
@@ -448,14 +525,7 @@ async function runReading(
 		condition.readingSystemPrompt,
 		messages,
 	);
-	record.calls.push({
-		phase: 1,
-		round: 1,
-		inputTokens: outcome.inputTokens,
-		outputTokens: outcome.outputTokens,
-		latencyMs: outcome.latencyMs,
-		issueCodes: [],
-	});
+	record.calls.push(toCallLog(outcome, 1, 1, []));
 	record.success = answersMatch(task.question.answer, outcome.text);
 	record.detail = {
 		expected: task.question.answer,
@@ -469,21 +539,27 @@ export async function runTask(
 	task: PilotTask,
 	condition: Condition,
 	model: string,
+	regime = "parity",
 ): Promise<TaskRunRecord> {
 	switch (task.family) {
 		case "transformation":
-			return finalize(await runTransformation(task, condition, model));
+			return finalize(await runTransformation(task, condition, model, regime));
 		case "construction":
-			return finalize(await runConstruction(task, condition, model));
+			return finalize(await runConstruction(task, condition, model, regime));
 		case "reference":
-			return finalize(await runReference(task, condition, model));
+			return finalize(await runReference(task, condition, model, regime));
 		case "reading":
-			return finalize(await runReading(task, condition, model));
+			return finalize(await runReading(task, condition, model, regime));
 	}
 }
 
-function recordKey(taskId: string, conditionId: string, model: string): string {
-	return `${taskId}::${conditionId}::${model}`;
+function recordKey(
+	taskId: string,
+	conditionId: string,
+	model: string,
+	regime: string,
+): string {
+	return `${taskId}::${conditionId}::${model}::${regime}`;
 }
 
 export function loadExistingKeys(outPath: string): Set<string> {
@@ -492,7 +568,14 @@ export function loadExistingKeys(outPath: string): Set<string> {
 	for (const line of readFileSync(outPath, "utf8").split("\n")) {
 		if (line.trim() === "") continue;
 		const record = JSON.parse(line) as TaskRunRecord;
-		keys.add(recordKey(record.taskId, record.condition, record.model));
+		keys.add(
+			recordKey(
+				record.taskId,
+				record.condition,
+				record.model,
+				record.regime ?? "parity",
+			),
+		);
 	}
 	return keys;
 }
@@ -505,13 +588,17 @@ export async function runAll(options: RunOptions): Promise<TaskRunRecord[]> {
 	const queue: { task: PilotTask; condition: Condition }[] = [];
 	for (const task of options.tasks) {
 		for (const condition of options.conditions) {
-			if (!done.has(recordKey(task.id, condition.id, options.model))) {
+			if (
+				!done.has(
+					recordKey(task.id, condition.id, options.model, options.regime),
+				)
+			) {
 				queue.push({ task, condition });
 			}
 		}
 	}
 	log(
-		`Running ${queue.length} task×condition pairs (${done.size} already done) with model ${options.model}`,
+		`Running ${queue.length} task×condition pairs (${done.size} already done) with model ${options.model}, regime ${options.regime}`,
 	);
 
 	const records: TaskRunRecord[] = [];
@@ -523,14 +610,24 @@ export async function runAll(options: RunOptions): Promise<TaskRunRecord[]> {
 			cursor += 1;
 			const label = `${item.task.id} × ${item.condition.id}`;
 			try {
-				const record = await runTask(item.task, item.condition, options.model);
+				const record = await runTask(
+					item.task,
+					item.condition,
+					options.model,
+					options.regime,
+				);
 				records.push(record);
 				appendFileSync(options.outPath, `${JSON.stringify(record)}\n`);
 				log(
 					`  ${label}: ${record.success ? "PASS" : "fail"} (rounds=${record.rounds}, tokens=${record.totalInputTokens}+${record.totalOutputTokens})`,
 				);
 			} catch (error) {
-				const record = baseRecord(item.task, item.condition, options.model);
+				const record = baseRecord(
+					item.task,
+					item.condition,
+					options.model,
+					options.regime,
+				);
 				record.error = error instanceof Error ? error.message : String(error);
 				records.push(record);
 				appendFileSync(options.outPath, `${JSON.stringify(record)}\n`);

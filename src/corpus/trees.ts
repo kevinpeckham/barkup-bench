@@ -88,7 +88,7 @@ export const BUCKETS: Record<BucketName, BucketSpec> = {
 		max: 80,
 		maxDepth: 5,
 		maxChildren: 5,
-		sampleSize: 1000,
+		sampleSize: 2000,
 	},
 	l: {
 		name: "l",
@@ -97,7 +97,7 @@ export const BUCKETS: Record<BucketName, BucketSpec> = {
 		max: 190,
 		maxDepth: 6,
 		maxChildren: 6,
-		sampleSize: 1000,
+		sampleSize: 4000,
 	},
 };
 

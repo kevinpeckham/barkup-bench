@@ -8,8 +8,9 @@ import type {
 	AttributeSpec,
 	BarkupNode,
 	GrammarConfig,
-	GrammarIssue,
 } from "@kevinpeckham/barkup";
+import { BENCH_CONFIG } from "../grammar.js";
+import type { BenchIssue } from "./types.js";
 
 function camelToKebab(key: string): string {
 	return key.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`);
@@ -79,9 +80,49 @@ export function extractArtifact(text: string): string {
 	return text.trim();
 }
 
+/**
+ * The two format sections are deliberately parallel — same clause
+ * structure, same level of detail — and are shared by every condition of
+ * the same format so parity holds by construction.
+ */
+export function formatSection(style: "html" | "json"): string {
+	if (style === "html") {
+		return `Trees are written in an HTML dialect.
+
+Format rules:
+- Every node is one element carrying data-type="<node type>".
+- A node may have data-name="<name>" (its name) and id="<its unique id>".
+- Declared attributes are written as data-* attributes with kebab-case names (maxLength becomes data-max-length="80"). Value types: string, number, boolean (written "true"/"false"), json (JSON-encoded into the attribute).
+- Elements contain only child elements — never text content. Only id and data-* attributes are allowed.
+
+Node types:
+${grammarTypeLines(BENCH_CONFIG, "html")}`;
+	}
+	return `Trees are represented as JSON.
+
+Format rules:
+- Every node is an object carrying "type": "<node type>".
+- A node may have "name" (its name) and "id" (its unique id) as string properties.
+- Declared attributes live in the node's "attributes" object. Value types: string, number, boolean, json (any JSON value).
+- Nodes contain only child nodes in their "children" array — never text content. No properties other than type, name, id, attributes, children exist on a node.
+
+Node types:
+${grammarTypeLines(BENCH_CONFIG, "json")}`;
+}
+
+export function readingSystemPrompt(style: "html" | "json"): string {
+	return `You answer questions about typed content trees accurately.
+
+${formatSection(style)}
+
+Answering rules:
+- Read the tree carefully before answering.
+- Answer with only the requested value — no explanation, no extra formatting.`;
+}
+
 /** Issues formatted for the correction loop — the structured issues verbatim, one per line. */
 export function formatIssuesFeedback(
-	issues: readonly GrammarIssue[],
+	issues: readonly BenchIssue[],
 	artifactName: string,
 ): string {
 	const lines = issues.map(
