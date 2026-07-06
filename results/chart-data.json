@@ -1,0 +1,590 @@
+{
+	"crossover": {
+		"A": [
+			{
+				"bucket": "xs",
+				"n": 216,
+				"ok": 207,
+				"rate": 95.8,
+				"low": 92.3,
+				"high": 97.8
+			},
+			{
+				"bucket": "s",
+				"n": 232,
+				"ok": 225,
+				"rate": 97,
+				"low": 93.9,
+				"high": 98.5
+			},
+			{
+				"bucket": "m",
+				"n": 184,
+				"ok": 160,
+				"rate": 87,
+				"low": 81.3,
+				"high": 91.1
+			},
+			{
+				"bucket": "l",
+				"n": 168,
+				"ok": 143,
+				"rate": 85.1,
+				"low": 79,
+				"high": 89.7
+			}
+		],
+		"B": [
+			{
+				"bucket": "xs",
+				"n": 216,
+				"ok": 209,
+				"rate": 96.8,
+				"low": 93.5,
+				"high": 98.4
+			},
+			{
+				"bucket": "s",
+				"n": 232,
+				"ok": 223,
+				"rate": 96.1,
+				"low": 92.8,
+				"high": 97.9
+			},
+			{
+				"bucket": "m",
+				"n": 184,
+				"ok": 165,
+				"rate": 89.7,
+				"low": 84.4,
+				"high": 93.3
+			},
+			{
+				"bucket": "l",
+				"n": 168,
+				"ok": 151,
+				"rate": 89.9,
+				"low": 84.4,
+				"high": 93.6
+			}
+		],
+		"C": [
+			{
+				"bucket": "xs",
+				"n": 216,
+				"ok": 204,
+				"rate": 94.4,
+				"low": 90.5,
+				"high": 96.8
+			},
+			{
+				"bucket": "s",
+				"n": 232,
+				"ok": 207,
+				"rate": 89.2,
+				"low": 84.6,
+				"high": 92.6
+			},
+			{
+				"bucket": "m",
+				"n": 184,
+				"ok": 147,
+				"rate": 79.9,
+				"low": 73.5,
+				"high": 85
+			},
+			{
+				"bucket": "l",
+				"n": 168,
+				"ok": 135,
+				"rate": 80.4,
+				"low": 73.7,
+				"high": 85.7
+			}
+		],
+		"D": [
+			{
+				"bucket": "xs",
+				"n": 216,
+				"ok": 202,
+				"rate": 93.5,
+				"low": 89.4,
+				"high": 96.1
+			},
+			{
+				"bucket": "s",
+				"n": 232,
+				"ok": 210,
+				"rate": 90.5,
+				"low": 86.1,
+				"high": 93.7
+			},
+			{
+				"bucket": "m",
+				"n": 184,
+				"ok": 145,
+				"rate": 78.8,
+				"low": 72.3,
+				"high": 84.1
+			},
+			{
+				"bucket": "l",
+				"n": 168,
+				"ok": 137,
+				"rate": 81.5,
+				"low": 75,
+				"high": 86.7
+			}
+		],
+		"E": [
+			{
+				"bucket": "xs",
+				"n": 216,
+				"ok": 202,
+				"rate": 93.5,
+				"low": 89.4,
+				"high": 96.1
+			},
+			{
+				"bucket": "s",
+				"n": 232,
+				"ok": 218,
+				"rate": 94,
+				"low": 90.1,
+				"high": 96.4
+			},
+			{
+				"bucket": "m",
+				"n": 184,
+				"ok": 155,
+				"rate": 84.2,
+				"low": 78.3,
+				"high": 88.8
+			},
+			{
+				"bucket": "l",
+				"n": 168,
+				"ok": 117,
+				"rate": 69.6,
+				"low": 62.3,
+				"high": 76.1
+			}
+		]
+	},
+	"tokens": {
+		"A": [
+			{
+				"bucket": "xs",
+				"tokens": 1137
+			},
+			{
+				"bucket": "s",
+				"tokens": 2919
+			},
+			{
+				"bucket": "m",
+				"tokens": 7615
+			},
+			{
+				"bucket": "l",
+				"tokens": 15638
+			}
+		],
+		"B": [
+			{
+				"bucket": "xs",
+				"tokens": 1250
+			},
+			{
+				"bucket": "s",
+				"tokens": 3672
+			},
+			{
+				"bucket": "m",
+				"tokens": 10766
+			},
+			{
+				"bucket": "l",
+				"tokens": 22961
+			}
+		],
+		"C": [
+			{
+				"bucket": "xs",
+				"tokens": 4820
+			},
+			{
+				"bucket": "s",
+				"tokens": 14609
+			},
+			{
+				"bucket": "m",
+				"tokens": 10699
+			},
+			{
+				"bucket": "l",
+				"tokens": 20808
+			}
+		],
+		"D": [
+			{
+				"bucket": "xs",
+				"tokens": 4783
+			},
+			{
+				"bucket": "s",
+				"tokens": 13209
+			},
+			{
+				"bucket": "m",
+				"tokens": 8626
+			},
+			{
+				"bucket": "l",
+				"tokens": 15289
+			}
+		],
+		"E": [
+			{
+				"bucket": "xs",
+				"tokens": 1284
+			},
+			{
+				"bucket": "s",
+				"tokens": 2999
+			},
+			{
+				"bucket": "m",
+				"tokens": 6497
+			},
+			{
+				"bucket": "l",
+				"tokens": 15412
+			}
+		]
+	},
+	"reference": [
+		{
+			"model": "anthropic/claude-haiku-4.5",
+			"cells": [
+				{
+					"condition": "A",
+					"ok": 34,
+					"n": 40,
+					"rate": 85,
+					"low": 70.9,
+					"high": 92.9
+				},
+				{
+					"condition": "B",
+					"ok": 35,
+					"n": 40,
+					"rate": 87.5,
+					"low": 73.9,
+					"high": 94.5
+				},
+				{
+					"condition": "C",
+					"ok": 10,
+					"n": 40,
+					"rate": 25,
+					"low": 14.2,
+					"high": 40.2
+				},
+				{
+					"condition": "D",
+					"ok": 13,
+					"n": 40,
+					"rate": 32.5,
+					"low": 20.1,
+					"high": 48
+				},
+				{
+					"condition": "E",
+					"ok": 28,
+					"n": 40,
+					"rate": 70,
+					"low": 54.6,
+					"high": 81.9
+				}
+			]
+		},
+		{
+			"model": "anthropic/claude-sonnet-4.5",
+			"cells": [
+				{
+					"condition": "A",
+					"ok": 37,
+					"n": 40,
+					"rate": 92.5,
+					"low": 80.1,
+					"high": 97.4
+				},
+				{
+					"condition": "B",
+					"ok": 36,
+					"n": 40,
+					"rate": 90,
+					"low": 76.9,
+					"high": 96
+				},
+				{
+					"condition": "C",
+					"ok": 38,
+					"n": 40,
+					"rate": 95,
+					"low": 83.5,
+					"high": 98.6
+				},
+				{
+					"condition": "D",
+					"ok": 39,
+					"n": 40,
+					"rate": 97.5,
+					"low": 87.1,
+					"high": 99.6
+				},
+				{
+					"condition": "E",
+					"ok": 30,
+					"n": 40,
+					"rate": 75,
+					"low": 59.8,
+					"high": 85.8
+				}
+			]
+		},
+		{
+			"model": "google/gemini-3.5-flash",
+			"cells": [
+				{
+					"condition": "A",
+					"ok": 31,
+					"n": 40,
+					"rate": 77.5,
+					"low": 62.5,
+					"high": 87.7
+				},
+				{
+					"condition": "B",
+					"ok": 34,
+					"n": 40,
+					"rate": 85,
+					"low": 70.9,
+					"high": 92.9
+				},
+				{
+					"condition": "C",
+					"ok": 1,
+					"n": 40,
+					"rate": 2.5,
+					"low": 0.4,
+					"high": 12.9
+				},
+				{
+					"condition": "D",
+					"ok": 2,
+					"n": 40,
+					"rate": 5,
+					"low": 1.4,
+					"high": 16.5
+				},
+				{
+					"condition": "E",
+					"ok": 30,
+					"n": 40,
+					"rate": 75,
+					"low": 59.8,
+					"high": 85.8
+				}
+			]
+		},
+		{
+			"model": "openai/gpt-5.4",
+			"cells": [
+				{
+					"condition": "A",
+					"ok": 39,
+					"n": 40,
+					"rate": 97.5,
+					"low": 87.1,
+					"high": 99.6
+				},
+				{
+					"condition": "B",
+					"ok": 39,
+					"n": 40,
+					"rate": 97.5,
+					"low": 87.1,
+					"high": 99.6
+				},
+				{
+					"condition": "C",
+					"ok": 39,
+					"n": 40,
+					"rate": 97.5,
+					"low": 87.1,
+					"high": 99.6
+				},
+				{
+					"condition": "D",
+					"ok": 38,
+					"n": 40,
+					"rate": 95,
+					"low": 83.5,
+					"high": 98.6
+				},
+				{
+					"condition": "E",
+					"ok": 31,
+					"n": 40,
+					"rate": 77.5,
+					"low": 62.5,
+					"high": 87.7
+				}
+			]
+		}
+	],
+	"perModel": [
+		{
+			"model": "anthropic/claude-haiku-4.5",
+			"cells": [
+				{
+					"condition": "A",
+					"ok": 182,
+					"n": 200,
+					"rate": 91
+				},
+				{
+					"condition": "B",
+					"ok": 185,
+					"n": 200,
+					"rate": 92.5
+				},
+				{
+					"condition": "C",
+					"ok": 161,
+					"n": 200,
+					"rate": 80.5
+				},
+				{
+					"condition": "D",
+					"ok": 163,
+					"n": 200,
+					"rate": 81.5
+				},
+				{
+					"condition": "E",
+					"ok": 161,
+					"n": 200,
+					"rate": 80.5
+				}
+			]
+		},
+		{
+			"model": "anthropic/claude-sonnet-4.5",
+			"cells": [
+				{
+					"condition": "A",
+					"ok": 189,
+					"n": 200,
+					"rate": 94.5
+				},
+				{
+					"condition": "B",
+					"ok": 188,
+					"n": 200,
+					"rate": 94
+				},
+				{
+					"condition": "C",
+					"ok": 189,
+					"n": 200,
+					"rate": 94.5
+				},
+				{
+					"condition": "D",
+					"ok": 191,
+					"n": 200,
+					"rate": 95.5
+				},
+				{
+					"condition": "E",
+					"ok": 177,
+					"n": 200,
+					"rate": 88.5
+				}
+			]
+		},
+		{
+			"model": "google/gemini-3.5-flash",
+			"cells": [
+				{
+					"condition": "A",
+					"ok": 173,
+					"n": 200,
+					"rate": 86.5
+				},
+				{
+					"condition": "B",
+					"ok": 184,
+					"n": 200,
+					"rate": 92
+				},
+				{
+					"condition": "C",
+					"ok": 151,
+					"n": 200,
+					"rate": 75.5
+				},
+				{
+					"condition": "D",
+					"ok": 148,
+					"n": 200,
+					"rate": 74
+				},
+				{
+					"condition": "E",
+					"ok": 175,
+					"n": 200,
+					"rate": 87.5
+				}
+			]
+		},
+		{
+			"model": "openai/gpt-5.4",
+			"cells": [
+				{
+					"condition": "A",
+					"ok": 191,
+					"n": 200,
+					"rate": 95.5
+				},
+				{
+					"condition": "B",
+					"ok": 191,
+					"n": 200,
+					"rate": 95.5
+				},
+				{
+					"condition": "C",
+					"ok": 192,
+					"n": 200,
+					"rate": 96
+				},
+				{
+					"condition": "D",
+					"ok": 192,
+					"n": 200,
+					"rate": 96
+				},
+				{
+					"condition": "E",
+					"ok": 179,
+					"n": 200,
+					"rate": 89.5
+				}
+			]
+		}
+	]
+}
