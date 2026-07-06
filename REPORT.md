@@ -274,9 +274,15 @@ nondeterminism noise applies.
 
 ## Correction (2026-07-06): the tool-history artifact and protocol v2
 
-**The defect.** In the AI SDK (v7), `result.response.messages`
-contains only the final step's assistant text; intermediate
-tool-call/tool-result messages live in `steps[i].response.messages`.
+**The defect.** In the AI SDK, `result.response.messages` was the
+documented v5 pattern for appending a tool run to conversation
+history (all steps' assistant and tool messages). In v7 that accessor
+still exists and typechecks but returns only the final step's
+assistant text; the accumulated history moved to a new top-level
+`result.responseMessages` (documented in the v7 migration guide),
+with per-step messages in `steps[i].response.messages`. Our harness
+used the v5-era accessor — no error, no warning, silently truncated
+history.
 Our tools loop pushed the former into conversation history, so in
 every multi-turn tools conversation the model saw its own prior turns
 as bare text ("DONE") with **no record of the tools it had called** —
