@@ -45,6 +45,49 @@ import type { CallLog, TaskRunRecord } from "./records.js";
 export const MAX_ROUNDS = 4;
 /** Cap on tool-calling steps per round (tools arms). */
 export const MAX_TOOL_STEPS = 48;
+/** Flag-gated transcript capture (BENCH_LOG_TRANSCRIPTS=1) for failure audits. */
+function transcriptsEnabled(): boolean {
+	return process.env.BENCH_LOG_TRANSCRIPTS === "1";
+}
+
+/**
+ * Compact, JSONL-friendly view of a conversation: text is truncated,
+ * tool calls/results are summarized structurally so failure modes can
+ * be classified deterministically from the record.
+ */
+export function compactTranscript(
+	messages: ModelMessage[],
+): Record<string, unknown>[] {
+	const out: Record<string, unknown>[] = [];
+	for (const message of messages) {
+		if (typeof message.content === "string") {
+			out.push({ role: message.role, text: message.content.slice(0, 600) });
+			continue;
+		}
+		const parts: Record<string, unknown>[] = [];
+		for (const part of message.content as Array<Record<string, unknown>>) {
+			if (part.type === "text") {
+				parts.push({ type: "text", text: String(part.text).slice(0, 600) });
+			} else if (part.type === "tool-call") {
+				parts.push({
+					type: "tool-call",
+					tool: part.toolName,
+					input: JSON.stringify(part.input ?? part.args ?? {}).slice(0, 400),
+				});
+			} else if (part.type === "tool-result") {
+				parts.push({
+					type: "tool-result",
+					tool: part.toolName,
+					output: JSON.stringify(part.output ?? part.result ?? {}).slice(0, 300),
+				});
+			} else {
+				parts.push({ type: String(part.type) });
+			}
+		}
+		out.push({ role: message.role, parts });
+	}
+	return out;
+}
 
 export interface RunOptions {
 	model: string;
@@ -503,6 +546,7 @@ async function runReference(
 		referencedId,
 		phase1Tree: loop1.tree,
 		finalTree: loop2.tree,
+		...(transcriptsEnabled() ? { transcript: compactTranscript(messages) } : {}),
 	};
 	return record;
 }
