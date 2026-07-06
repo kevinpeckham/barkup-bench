@@ -16,4 +16,27 @@ neither an advantage nor a handicap against an equal-quality JSON twin;
 JSON Patch collapses on large trees. [BRIEF.md](BRIEF.md) is the
 pre-registration (hypotheses, conditions, protocol, honesty rules).
 
+<picture>
+	<source srcset="docs/img/crossover-success-dark.svg" media="(prefers-color-scheme: dark)" />
+	<img src="docs/img/crossover-success-light.svg" alt="Line chart: task success rate versus tree size for five conditions. Whole-tree rewrite conditions stay on top at every size; JSON Patch drops to 69.6% at about 150 nodes." width="960" />
+</picture>
+
+<picture>
+	<source srcset="docs/img/reference-stability-dark.svg" media="(prefers-color-scheme: dark)" />
+	<img src="docs/img/reference-stability-light.svg" alt="Dot plot: multi-turn reference-edit success for four models across five conditions. gpt-5.4 and sonnet-4.5 score high everywhere; haiku-4.5 and gemini-3.5-flash drop to 2.5–32.5% in the mutation-tool conditions." width="960" />
+</picture>
+
+## Reproduce
+
+```sh
+bun install                                  # needs AI_GATEWAY_API_KEY in .env.local
+bun test                                     # graders, twin validator, corpus generators
+bun run corpus                               # regenerate corpora from committed seeds (byte-identical)
+bun run matrix                               # full matrix (~$225 of API spend); resumable
+bun run scripts/analyze.ts results/raw/main-*.jsonl
+```
+
+Everything scored is reproducible from the committed corpus, prompts,
+and seeds — see the reproduction section of [REPORT.md](REPORT.md).
+
 MIT © Kevin Peckham
