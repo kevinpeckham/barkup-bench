@@ -84,7 +84,8 @@ function classify(record: TaskRunRecord): Mode | null {
 	const setAttrs = finalCalls.filter((c) => c.tool === "setAttribute");
 	if (setAttrs.length > 0) {
 		const hitsTarget = setAttrs.some(
-			(c) => referencedId !== undefined && c.input?.includes(`"${referencedId}"`),
+			(c) =>
+				referencedId !== undefined && c.input?.includes(`"${referencedId}"`),
 		);
 		return hitsTarget ? "right-call-other-failure" : "wrong-target";
 	}
@@ -98,7 +99,8 @@ for (const path of paths) {
 		.split("\n")
 		.map((line) => JSON.parse(line) as TaskRunRecord);
 	const failures = records.filter(
-		(r) => !r.success && r.detail?.phase1Correct === true && r.error === undefined,
+		(r) =>
+			!r.success && r.detail?.phase1Correct === true && r.error === undefined,
 	);
 	const counts = new Map<string, number>();
 	for (const record of failures) {

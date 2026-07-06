@@ -78,7 +78,10 @@ export function compactTranscript(
 				parts.push({
 					type: "tool-result",
 					tool: part.toolName,
-					output: JSON.stringify(part.output ?? part.result ?? {}).slice(0, 300),
+					output: JSON.stringify(part.output ?? part.result ?? {}).slice(
+						0,
+						300,
+					),
 				});
 			} else {
 				parts.push({ type: String(part.type) });
@@ -171,7 +174,7 @@ interface LoopResult {
 }
 
 /** Whole-artifact loop: reply → parse → issues verbatim → retry. */
-async function rewriteLoop(
+export async function rewriteLoop(
 	condition: RewriteCondition,
 	model: string,
 	messages: ModelMessage[],
@@ -237,7 +240,7 @@ async function patchLoop(
 }
 
 /** Tools loop: tool calls → DONE → validate state → issues verbatim → continue. */
-async function toolsLoop(
+export async function toolsLoop(
 	condition: ToolsCondition,
 	model: string,
 	session: ReturnType<ToolsCondition["createSession"]>,
@@ -279,7 +282,7 @@ async function toolsLoop(
 	return { tree: null, calls, messages, firstPassValid };
 }
 
-function findByTypeAndName(
+export function findByTypeAndName(
 	tree: BarkupNode,
 	type: string,
 	name: string,
@@ -546,7 +549,9 @@ async function runReference(
 		referencedId,
 		phase1Tree: loop1.tree,
 		finalTree: loop2.tree,
-		...(transcriptsEnabled() ? { transcript: compactTranscript(messages) } : {}),
+		...(transcriptsEnabled()
+			? { transcript: compactTranscript(messages) }
+			: {}),
 	};
 	return record;
 }

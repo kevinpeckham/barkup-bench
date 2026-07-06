@@ -293,14 +293,16 @@ function buildTask(
 }
 
 /** Attribute used for the step-2 edit, per created-node type. */
-const EDIT2_ATTRIBUTE: Record<string, { key: string; value: AttributeValue }> =
-	{
-		page: { key: "layoutSize", value: "wide" },
-		block: { key: "featured", value: true },
-		"widget-slot": { key: "requireBleed", value: true },
-		"text-atom": { key: "textStyle", value: "caption" },
-		"image-atom": { key: "aspectRatio", value: "1:1" },
-	};
+export const EDIT2_ATTRIBUTE: Record<
+	string,
+	{ key: string; value: AttributeValue }
+> = {
+	page: { key: "layoutSize", value: "wide" },
+	block: { key: "featured", value: true },
+	"widget-slot": { key: "requireBleed", value: true },
+	"text-atom": { key: "textStyle", value: "caption" },
+	"image-atom": { key: "aspectRatio", value: "1:1" },
+};
 
 function buildReferenceTask(
 	id: string,
