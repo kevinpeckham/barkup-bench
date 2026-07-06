@@ -338,7 +338,18 @@ mkdirSync("docs/img", { recursive: true });
 for (const theme of [LIGHT, DARK]) {
 	for (const [name, svg] of Object.entries(renderAll(theme))) {
 		const base = `docs/img/${name}-${theme.name}`;
-		writeFileSync(`${base}.svg`, `${svg}\n`);
+		// Belt and braces against mojibake (– × · “ ”): declare the
+		// encoding AND emit non-ASCII as numeric character references so
+		// the file is pure ASCII — immune to charset sniffing and wrong
+		// Content-Type headers alike.
+		const asciiSvg = svg.replace(
+			/[\u0080-\uffff]/g,
+			(ch) => `&#${ch.codePointAt(0)};`,
+		);
+		writeFileSync(
+			`${base}.svg`,
+			`<?xml version="1.0" encoding="UTF-8"?>\n${asciiSvg}\n`,
+		);
 		const png = new Resvg(svg, {
 			fitTo: { mode: "zoom", value: 2 },
 			font: { loadSystemFonts: true },
