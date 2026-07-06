@@ -1,0 +1,108 @@
+# Study G analysis — 2160 records, 0 harness errors, 52 phase-1 failures (excluded)
+
+## Final-edit execution rate by model × arm × depth (phase-1-ok cells)
+
+  anthropic/claude-haiku-4.5
+    G1: N=0: 40/40 (100.0% [91.2%,100.0%])  N=2: 40/40 (100.0% [91.2%,100.0%])  N=6: 40/40 (100.0% [91.2%,100.0%])
+    G5: N=0: 40/40 (100.0% [91.2%,100.0%])  N=2: 40/40 (100.0% [91.2%,100.0%])  N=6: 40/40 (100.0% [91.2%,100.0%])
+    G2: N=2: 40/40 (100.0% [91.2%,100.0%])
+    G3: N=2: 40/40 (100.0% [91.2%,100.0%])
+    G4: N=2: 40/40 (100.0% [91.2%,100.0%])
+
+  anthropic/claude-sonnet-4.5
+    G1: N=0: 40/40 (100.0% [91.2%,100.0%])  N=2: 40/40 (100.0% [91.2%,100.0%])  N=6: 40/40 (100.0% [91.2%,100.0%])
+    G5: N=0: 40/40 (100.0% [91.2%,100.0%])  N=2: 40/40 (100.0% [91.2%,100.0%])  N=6: 40/40 (100.0% [91.2%,100.0%])
+    G2: N=2: 40/40 (100.0% [91.2%,100.0%])
+    G3: N=2: 40/40 (100.0% [91.2%,100.0%])
+    G4: N=2: 40/40 (100.0% [91.2%,100.0%])
+
+  google/gemini-2.5-flash-lite
+    G1: N=0: 33/33 (100.0% [89.6%,100.0%])  N=2: 30/30 (100.0% [88.6%,100.0%])  N=6: 32/32 (100.0% [89.3%,100.0%])
+    G5: N=0: 39/39 (100.0% [91.0%,100.0%])  N=2: 39/39 (100.0% [91.0%,100.0%])  N=6: 39/39 (100.0% [91.0%,100.0%])
+    G2: N=2: 31/31 (100.0% [89.0%,100.0%])
+    G3: N=2: 32/32 (100.0% [89.3%,100.0%])
+    G4: N=2: 33/33 (100.0% [89.6%,100.0%])
+
+  google/gemini-3.5-flash
+    G1: N=0: 40/40 (100.0% [91.2%,100.0%])  N=2: 40/40 (100.0% [91.2%,100.0%])  N=6: 40/40 (100.0% [91.2%,100.0%])
+    G5: N=0: 40/40 (100.0% [91.2%,100.0%])  N=2: 40/40 (100.0% [91.2%,100.0%])  N=6: 40/40 (100.0% [91.2%,100.0%])
+    G2: N=2: 40/40 (100.0% [91.2%,100.0%])
+    G3: N=2: 40/40 (100.0% [91.2%,100.0%])
+    G4: N=2: 40/40 (100.0% [91.2%,100.0%])
+
+  openai/gpt-5.4
+    G1: N=0: 40/40 (100.0% [91.2%,100.0%])  N=2: 40/40 (100.0% [91.2%,100.0%])  N=6: 40/40 (100.0% [91.2%,100.0%])
+    G5: N=0: 40/40 (100.0% [91.2%,100.0%])  N=2: 40/40 (100.0% [91.2%,100.0%])  N=6: 40/40 (100.0% [91.2%,100.0%])
+    G2: N=2: 40/40 (100.0% [91.2%,100.0%])
+    G3: N=2: 40/40 (100.0% [91.2%,100.0%])
+    G4: N=2: 40/40 (100.0% [91.2%,100.0%])
+
+  openai/gpt-5.4-mini
+    G1: N=0: 40/40 (100.0% [91.2%,100.0%])  N=2: 40/40 (100.0% [91.2%,100.0%])  N=6: 40/40 (100.0% [91.2%,100.0%])
+    G5: N=0: 40/40 (100.0% [91.2%,100.0%])  N=2: 40/40 (100.0% [91.2%,100.0%])  N=6: 40/40 (100.0% [91.2%,100.0%])
+    G2: N=2: 40/40 (100.0% [91.2%,100.0%])
+    G3: N=2: 40/40 (100.0% [91.2%,100.0%])
+    G4: N=2: 40/40 (100.0% [91.2%,100.0%])
+
+## G-H1 — depth effect on tools baseline (G1 N=6 vs N=0)
+  anthropic/claude-haiku-4.5: N6 100.0% vs N0 100.0%  discordant 0/0  p=1.0000 (n=40)
+  anthropic/claude-sonnet-4.5: N6 100.0% vs N0 100.0%  discordant 0/0  p=1.0000 (n=40)
+  google/gemini-2.5-flash-lite: N6 100.0% vs N0 100.0%  discordant 0/0  p=1.0000 (n=32)
+  google/gemini-3.5-flash: N6 100.0% vs N0 100.0%  discordant 0/0  p=1.0000 (n=40)
+  openai/gpt-5.4: N6 100.0% vs N0 100.0%  discordant 0/0  p=1.0000 (n=40)
+  openai/gpt-5.4-mini: N6 100.0% vs N0 100.0%  discordant 0/0  p=1.0000 (n=40)
+
+## G-H2/H3 — mitigation arms vs G1 at N=2
+  anthropic/claude-haiku-4.5 G2 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  anthropic/claude-haiku-4.5 G3 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  anthropic/claude-haiku-4.5 G4 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  anthropic/claude-sonnet-4.5 G2 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  anthropic/claude-sonnet-4.5 G3 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  anthropic/claude-sonnet-4.5 G4 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  google/gemini-2.5-flash-lite G2 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  google/gemini-2.5-flash-lite G3 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  google/gemini-2.5-flash-lite G4 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  google/gemini-3.5-flash G2 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  google/gemini-3.5-flash G3 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  google/gemini-3.5-flash G4 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  openai/gpt-5.4 G2 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  openai/gpt-5.4 G3 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  openai/gpt-5.4 G4 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  openai/gpt-5.4-mini G2 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  openai/gpt-5.4-mini G3 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+  openai/gpt-5.4-mini G4 vs G1: 100.0% vs 100.0%  Δ=0.0pp  discordant 0/0  p=1.0000
+
+## G-H4 — interface control (G5 vs G1, by depth)
+  anthropic/claude-haiku-4.5 N=0: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  anthropic/claude-haiku-4.5 N=2: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  anthropic/claude-haiku-4.5 N=6: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  anthropic/claude-sonnet-4.5 N=0: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  anthropic/claude-sonnet-4.5 N=2: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  anthropic/claude-sonnet-4.5 N=6: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  google/gemini-2.5-flash-lite N=0: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  google/gemini-2.5-flash-lite N=2: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  google/gemini-2.5-flash-lite N=6: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  google/gemini-3.5-flash N=0: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  google/gemini-3.5-flash N=2: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  google/gemini-3.5-flash N=6: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  openai/gpt-5.4 N=0: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  openai/gpt-5.4 N=2: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  openai/gpt-5.4 N=6: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  openai/gpt-5.4-mini N=0: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  openai/gpt-5.4-mini N=2: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+  openai/gpt-5.4-mini N=6: G5 100.0% vs G1 100.0%  discordant 0/0  p=1.0000
+
+## Failure anatomy (tools arms, phase-1 ok, final not applied)
+  anthropic/claude-haiku-4.5: 0 failures — no action in final turn: 0; acted but wrong: 0
+  anthropic/claude-sonnet-4.5: 0 failures — no action in final turn: 0; acted but wrong: 0
+  google/gemini-2.5-flash-lite: 0 failures — no action in final turn: 0; acted but wrong: 0
+  google/gemini-3.5-flash: 0 failures — no action in final turn: 0; acted but wrong: 0
+  openai/gpt-5.4: 0 failures — no action in final turn: 0; acted but wrong: 0
+  openai/gpt-5.4-mini: 0 failures — no action in final turn: 0; acted but wrong: 0
+
+## Tokens (mean per cell, by arm; all models pooled)
+  G1 (N=2): 32,688 tokens
+  G2 (N=2): 31,960 tokens
+  G3 (N=2): 37,597 tokens
+  G4 (N=2): 32,833 tokens
+  G5 (N=2): 27,802 tokens

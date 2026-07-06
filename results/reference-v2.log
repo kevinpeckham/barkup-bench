@@ -1,0 +1,7 @@
+
+=== anthropic/claude-sonnet-4.5 × parity → results/raw/reference-v2-anthropic_claude-sonnet-4.5-parity.jsonl
+Running 80 task×condition pairs (0 already done) with model anthropic/claude-sonnet-4.5, regime parity
+  refer-xs-1 × C: PASS (rounds=2, tokens=11212+220)
+  refer-xs-2 × C: PASS (rounds=2, tokens=9505+206)
+  refer-xs-1 × D: PASS (rounds=2, tokens=11053+256)
+  refer-xs-2 × D: PASS (rounds=2, tokens=9659+258)
