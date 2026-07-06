@@ -80,14 +80,24 @@ function checkAttributes(
 	return null;
 }
 
+// Array/object items are explicitly typed (not z.any()) because some
+// providers (Gemini) reject array schemas without an items field. The
+// accepted value space is unchanged: json attributes in the benchmark
+// grammar are primitives, arrays of primitives, or flat objects.
+const jsonPrimitiveSchema = z.union([
+	z.string(),
+	z.number(),
+	z.boolean(),
+	z.null(),
+]);
 const attributeValueSchema = z
 	.union([
 		z.string(),
 		z.number(),
 		z.boolean(),
 		z.null(),
-		z.array(z.any()),
-		z.record(z.any()),
+		z.array(jsonPrimitiveSchema),
+		z.record(jsonPrimitiveSchema),
 	])
 	.describe(
 		"The attribute value, matching the attribute's declared type (string, number, boolean, or any JSON value for json attributes).",
