@@ -241,6 +241,12 @@ are paired against the existing records.
 - **Small-model bonus:** F is a top-two condition for both fragile
   models (haiku-4.5 184/200, gemini-3.5-flash 182/200, parity) —
   single-artifact patches avoid the multi-turn tool surface entirely.
+  *⚠ Corrected under protocol v2: the "fragile models" framing was the
+  tool-history artifact — with corrected history, haiku's tools scores
+  (190/200) edge past F. F's absolute scores, its parity with rewrite,
+  and its cost advantage are unchanged; the surviving structural point
+  is that single-artifact interfaces cannot be affected by
+  history-construction defects at all.*
 
 Revised practical guidance: id-anchored patches match whole-tree
 rewrite's reliability at the lowest cost measured, provided your
