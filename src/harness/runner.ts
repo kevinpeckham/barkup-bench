@@ -132,7 +132,14 @@ async function callModel(
 	});
 	return {
 		text: result.text,
-		responseMessages: result.response.messages as ModelMessage[],
+		// v7 footgun: result.response.messages contains ONLY the final
+		// step's assistant text — intermediate tool-call/tool-result
+		// messages live per step. Without flattening, multi-turn tool
+		// conversations lose the model's own tool history (discovered
+		// 2026-07-06; affected cells re-run as protocol v2 — see REPORT).
+		responseMessages: result.steps.flatMap(
+			(step) => step.response.messages,
+		) as ModelMessage[],
 		inputTokens: result.totalUsage.inputTokens ?? 0,
 		outputTokens: result.totalUsage.outputTokens ?? 0,
 		cacheReadTokens: result.totalUsage.inputTokenDetails?.cacheReadTokens ?? 0,
