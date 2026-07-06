@@ -14,6 +14,7 @@ import { BEST_EFFORT_SYSTEM } from "./best-effort.js";
 import { conditionC } from "./c.js";
 import { conditionD } from "./d.js";
 import { conditionE } from "./e.js";
+import { conditionF } from "./f.js";
 import type { Condition } from "./types.js";
 
 export type Regime = "parity" | "best";
@@ -24,6 +25,7 @@ export const ALL_CONDITIONS: Condition[] = [
 	conditionC,
 	conditionD,
 	conditionE,
+	conditionF,
 ];
 
 export function conditionsForRegime(

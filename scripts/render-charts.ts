@@ -103,7 +103,10 @@ function esc(s: string): string {
 }
 
 /** Keep >= minGap between label y positions (labels sorted by y). */
-function resolveLabels<T extends { y: number }>(items: T[], minGap: number): T[] {
+function resolveLabels<T extends { y: number }>(
+	items: T[],
+	minGap: number,
+): T[] {
 	const sorted = [...items].sort((a, b) => a.y - b.y);
 	for (let i = 1; i < sorted.length; i += 1) {
 		const prev = sorted[i - 1] as T;
@@ -173,8 +176,11 @@ function lineChart(
 	const B = 88;
 	const iw = W - L - R;
 	const ih = H - TOP - B;
-	const xs = BUCKET_LABELS.map((_, i) => L + (iw * i) / (BUCKET_LABELS.length - 1));
-	const yOf = (v: number) => TOP + ih - ((v - opts.yMin) / (opts.yMax - opts.yMin)) * ih;
+	const xs = BUCKET_LABELS.map(
+		(_, i) => L + (iw * i) / (BUCKET_LABELS.length - 1),
+	);
+	const yOf = (v: number) =>
+		TOP + ih - ((v - opts.yMin) / (opts.yMax - opts.yMin)) * ih;
 
 	let g = header(theme, W, opts.title, opts.subtitle);
 	for (const tick of opts.ticks) {

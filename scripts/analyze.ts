@@ -36,6 +36,7 @@ const records: TaskRunRecord[] = paths.flatMap((path) =>
 );
 
 const models = [...new Set(records.map((r) => r.model))].sort();
+const conditionIds = [...new Set(records.map((r) => r.condition))].sort();
 const regimes = [...new Set(records.map((r) => r.regime))].sort();
 const buckets = ["xs", "s", "m", "l"] as const;
 
@@ -106,7 +107,9 @@ function printPaired(label: string, p: Paired): void {
 	console.log(
 		`  ${label}: n=${p.n}  ${pct(p.firstRate)} vs ${pct(p.secondRate)}  Δ=${(
 			100 * p.riskDiff
-		).toFixed(1)}pp  discordant ${p.firstOnly}/${p.secondOnly}  p=${p.p.toFixed(4)}`,
+		).toFixed(
+			1,
+		)}pp  discordant ${p.firstOnly}/${p.secondOnly}  p=${p.p.toFixed(4)}`,
 	);
 }
 
@@ -158,9 +161,18 @@ for (const model of models) {
 console.log("\n## H2 — strategy (success; crossover by bucket)");
 for (const regime of regimes) {
 	const inRegime = (r: TaskRunRecord) => r.regime === regime;
-	printPaired(`[${regime}] A vs C`, paired(records, "A", "C", SUCCESS, inRegime));
-	printPaired(`[${regime}] A vs E`, paired(records, "A", "E", SUCCESS, inRegime));
-	printPaired(`[${regime}] B vs C`, paired(records, "B", "C", SUCCESS, inRegime));
+	printPaired(
+		`[${regime}] A vs C`,
+		paired(records, "A", "C", SUCCESS, inRegime),
+	);
+	printPaired(
+		`[${regime}] A vs E`,
+		paired(records, "A", "E", SUCCESS, inRegime),
+	);
+	printPaired(
+		`[${regime}] B vs C`,
+		paired(records, "B", "C", SUCCESS, inRegime),
+	);
 }
 for (const bucket of buckets) {
 	printPaired(
@@ -175,8 +187,10 @@ for (const bucket of buckets) {
 	);
 }
 
-console.log("\n## Success by condition × bucket (parity, pooled models) — crossover data");
-for (const condition of ["A", "B", "C", "D", "E"]) {
+console.log(
+	"\n## Success by condition × bucket (parity, pooled models) — crossover data",
+);
+for (const condition of conditionIds) {
 	const line = buckets
 		.map((bucket) => {
 			const rows = cellRows(
@@ -192,7 +206,7 @@ for (const condition of ["A", "B", "C", "D", "E"]) {
 }
 
 console.log("\n## H3 — cost (tokens per SOLVED task, parity, pooled models)");
-for (const condition of ["A", "B", "C", "D", "E"]) {
+for (const condition of conditionIds) {
 	const line = buckets
 		.map((bucket) => {
 			const rows = cellRows(
@@ -228,7 +242,7 @@ for (const pair of [
 		),
 	);
 }
-for (const condition of ["A", "B", "C", "D", "E"]) {
+for (const condition of conditionIds) {
 	const rows = cellRows(
 		condition,
 		(r) => r.regime === "parity" && r.family === "reference",
@@ -264,10 +278,57 @@ for (const model of models) {
 	);
 }
 
+if (conditionIds.includes("F")) {
+	console.log("\n## H6 — id-anchored patches (F vs E, F vs A)");
+	for (const regime of regimes) {
+		const inRegime = (r: TaskRunRecord) => r.regime === regime;
+		printPaired(
+			`[${regime}] F vs E`,
+			paired(records, "F", "E", SUCCESS, inRegime),
+		);
+		printPaired(
+			`[${regime}] F vs A`,
+			paired(records, "F", "A", SUCCESS, inRegime),
+		);
+	}
+	for (const bucket of buckets) {
+		printPaired(
+			`[parity, bucket ${bucket}] F vs E`,
+			paired(
+				records,
+				"F",
+				"E",
+				SUCCESS,
+				(r) => r.regime === "parity" && r.bucket === bucket,
+			),
+		);
+	}
+	printPaired(
+		"[parity, reference family] F vs A",
+		paired(
+			records,
+			"F",
+			"A",
+			SUCCESS,
+			(r) => r.regime === "parity" && r.family === "reference",
+		),
+	);
+	printPaired(
+		"[parity, reference family] F vs E",
+		paired(
+			records,
+			"F",
+			"E",
+			SUCCESS,
+			(r) => r.regime === "parity" && r.family === "reference",
+		),
+	);
+}
+
 console.log("\n## Per model × regime × condition (success overall)");
 for (const model of models) {
 	for (const regime of regimes) {
-		const line = ["A", "B", "C", "D", "E"]
+		const line = conditionIds
 			.map((condition) => {
 				const rows = records.filter(
 					(r) =>
@@ -289,7 +350,8 @@ for (const model of models) {
 	const input = rows.reduce((s, r) => s + r.totalInputTokens, 0);
 	const output = rows.reduce((s, r) => s + r.totalOutputTokens, 0);
 	const cached = rows.reduce(
-		(s, r) => s + r.calls.reduce((c, call) => c + (call.cacheReadTokens ?? 0), 0),
+		(s, r) =>
+			s + r.calls.reduce((c, call) => c + (call.cacheReadTokens ?? 0), 0),
 		0,
 	);
 	const latency = rows.reduce((s, r) => s + r.totalLatencyMs, 0);

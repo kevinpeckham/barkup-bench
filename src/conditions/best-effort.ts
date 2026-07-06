@@ -18,6 +18,7 @@ import { conditionB } from "./b.js";
 import { conditionC } from "./c.js";
 import { conditionD } from "./d.js";
 import { conditionE } from "./e.js";
+import { conditionF } from "./f.js";
 
 const EXAMPLE_TREE: BarkupNode = {
 	type: "document",
@@ -113,6 +114,16 @@ ${GUARDRAILS}`,
 	E: `${conditionE.systemPrompt}
 
 ${patchExample(conditionE.serialize(EXAMPLE_TREE))}
+
+${GUARDRAILS}`,
+	F: `${conditionF.systemPrompt}
+
+Worked example:
+Request: ${EXAMPLE_REQUEST}
+Current tree:
+${conditionF.serialize(EXAMPLE_TREE).trimEnd()}
+Correct reply:
+[{"op":"set-attribute","id":"t1","key":"content","value":"Hello."}]
 
 ${GUARDRAILS}`,
 };
