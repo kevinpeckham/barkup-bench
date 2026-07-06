@@ -8,7 +8,7 @@ import { appendFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname } from "node:path";
 import type { BarkupNode } from "@kevinpeckham/barkup";
 import type { ModelMessage, ToolSet } from "ai";
-import { generateText, stepCountIs } from "ai";
+import { generateText, stepCountIs, streamText } from "ai";
 import { formatIssuesFeedback } from "../conditions/shared.js";
 import type {
 	Condition,
@@ -123,7 +123,7 @@ async function callModel(
 	// Study H (BRIEF-H.md) raises the output budget for large-tree
 	// rewrites; default (unset) preserves the main-study protocol.
 	const maxOut = process.env.BENCH_MAX_OUTPUT_TOKENS;
-	const result = await generateText({
+	const params = {
 		model,
 		system,
 		messages,
@@ -133,7 +133,31 @@ async function callModel(
 		...(tools !== undefined
 			? { tools, stopWhen: stepCountIs(MAX_TOOL_STEPS) }
 			: {}),
-	});
+	} as const;
+	// BENCH_STREAM=1: stream the response to keep long generations from
+	// exceeding gateway HTTP limits (multi-minute large-tree rewrites).
+	// Same request semantics; transport only. Used by Study H re-runs.
+	if (process.env.BENCH_STREAM === "1") {
+		const stream = streamText(params as Parameters<typeof streamText>[0]);
+		const [text, steps, totalUsage] = await Promise.all([
+			stream.text,
+			stream.steps,
+			stream.totalUsage,
+		]);
+		return {
+			text,
+			responseMessages: steps.flatMap(
+				(step) => step.response.messages,
+			) as ModelMessage[],
+			inputTokens: totalUsage.inputTokens ?? 0,
+			outputTokens: totalUsage.outputTokens ?? 0,
+			cacheReadTokens: totalUsage.inputTokenDetails?.cacheReadTokens ?? 0,
+			reasoningTokens: totalUsage.outputTokenDetails?.reasoningTokens ?? 0,
+			latencyMs: Math.round(performance.now() - started),
+			steps: steps.length,
+		};
+	}
+	const result = await generateText(params as Parameters<typeof generateText>[0]);
 	return {
 		text: result.text,
 		// v7 footgun: result.response.messages contains ONLY the final
