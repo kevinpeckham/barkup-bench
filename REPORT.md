@@ -185,6 +185,45 @@ bun run matrix                               # full matrix (~$225); resumable; p
 bun run scripts/analyze.ts results/raw/main-*.jsonl
 ```
 
+## Addendum (2026-07-06): Condition F — id-anchored patches
+
+Pre-registered in [docs/BRIEF-F.md](docs/BRIEF-F.md) after the main
+study, motivated by E's large-tree collapse: a patch dialect whose
+operations address nodes exclusively by id (`before`/`after` sibling
+anchors or `parentId` append — no positional indexes), applied
+atomically and validated by the same twin. 1,600 new cells (F × 200
+tasks × 2 regimes × 4 models), zero harness errors; A/E comparisons
+are paired against the existing records.
+
+- **H6a (reliability) — CONFIRMED.** F vs E on the l bucket: 85.1% vs
+  69.6%, Δ = +15.5pp, discordant 30/4, p < 0.0001. E's collapse was
+  positional path arithmetic; anchoring removes it entirely — F at
+  ~150 nodes lands exactly on A (85.1%).
+- **H6b (economy) — CONFIRMED.** F is the cheapest condition at every
+  size (xs 1.2k / s 2.7k / m 6.4k / l 13.2k tokens per solved task) —
+  cheaper than E, and 16% cheaper than A at l.
+- **H6c (parity with rewrite) — CONFIRMED.** F vs A overall (parity):
+  92.6% vs 91.9%, Δ = +0.8pp, p = 0.53 — statistical parity with the
+  best strategy from the main study, including on the reference family
+  (90.6% vs 88.1%, n.s.).
+- **Small-model bonus:** F is a top-two condition for both fragile
+  models (haiku-4.5 184/200, gemini-3.5-flash 182/200, parity) —
+  single-artifact patches avoid the multi-turn tool surface entirely.
+
+Revised practical guidance: id-anchored patches match whole-tree
+rewrite's reliability at the lowest cost measured, provided your
+pipeline guarantees stable node ids — which is precisely what barkup's
+id-preservation guarantee provides. Whole-tree rewrite remains the
+simplest robust interface; anchored patches are the optimization to
+reach for when token cost or latency matters. Positional formats (RFC
+6902) and granular mutation tools remain the approaches to avoid below
+the frontier tier.
+
+Caveat: F was designed with knowledge of the main-study results (the
+motivation is disclosed in BRIEF-F.md); its comparisons reuse the A/E
+records rather than re-running them, and the same temperature-0
+nondeterminism noise applies.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

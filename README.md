@@ -13,12 +13,15 @@ and the [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/bar
 the whole-artifact rewrite strategy wins (+5–7pp over granular tools,
 +33pp on multi-turn id-referencing tasks); the HTML dialect itself is
 neither an advantage nor a handicap against an equal-quality JSON twin;
-JSON Patch collapses on large trees. [BRIEF.md](BRIEF.md) is the
+JSON Patch collapses on large trees — and the pre-registered addendum
+condition F (id-anchored patches, [docs/BRIEF-F.md](docs/BRIEF-F.md))
+matches rewrite reliability at the lowest cost measured, confirming the
+collapse was positional path arithmetic. [BRIEF.md](BRIEF.md) is the
 pre-registration (hypotheses, conditions, protocol, honesty rules).
 
 <picture>
 	<source srcset="docs/img/crossover-success-dark.svg" media="(prefers-color-scheme: dark)" />
-	<img src="docs/img/crossover-success-light.svg" alt="Line chart: task success rate versus tree size for five conditions. Whole-tree rewrite conditions stay on top at every size; JSON Patch drops to 69.6% at about 150 nodes." width="960" />
+	<img src="docs/img/crossover-success-light.svg" alt="Line chart: task success rate versus tree size for six conditions. Whole-tree rewrite and id-anchored patches stay on top at every size; RFC 6902 JSON Patch drops to 69.6% at about 150 nodes." width="960" />
 </picture>
 
 <picture>

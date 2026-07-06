@@ -1,4 +1,4 @@
-# barkup-bench analysis — 8000 records
+# barkup-bench analysis — 9600 records
 models: anthropic/claude-haiku-4.5, anthropic/claude-sonnet-4.5, google/gemini-3.5-flash, openai/gpt-5.4
 regimes: best, parity
 
@@ -32,6 +32,7 @@ harness errors: 0
   C: xs: 204/216 (94.4% [90.5%,96.8%])  s: 207/232 (89.2% [84.6%,92.6%])  m: 147/184 (79.9% [73.5%,85.0%])  l: 135/168 (80.4% [73.7%,85.7%])
   D: xs: 202/216 (93.5% [89.4%,96.1%])  s: 210/232 (90.5% [86.1%,93.7%])  m: 145/184 (78.8% [72.3%,84.1%])  l: 137/168 (81.5% [75.0%,86.7%])
   E: xs: 202/216 (93.5% [89.4%,96.1%])  s: 218/232 (94.0% [90.1%,96.4%])  m: 155/184 (84.2% [78.3%,88.8%])  l: 117/168 (69.6% [62.3%,76.1%])
+  F: xs: 210/216 (97.2% [94.1%,98.7%])  s: 226/232 (97.4% [94.5%,98.8%])  m: 162/184 (88.0% [82.6%,92.0%])  l: 143/168 (85.1% [79.0%,89.7%])
 
 ## H3 — cost (tokens per SOLVED task, parity, pooled models)
   A: xs: 1.1k  s: 2.9k  m: 7.6k  l: 15.6k
@@ -39,6 +40,7 @@ harness errors: 0
   C: xs: 4.8k  s: 14.6k  m: 10.7k  l: 20.8k
   D: xs: 4.8k  s: 13.2k  m: 8.6k  l: 15.3k
   E: xs: 1.3k  s: 3k  m: 6.5k  l: 15.4k
+  F: xs: 1.2k  s: 2.7k  m: 6.4k  l: 13.2k
 
 ## H4 — reference stability (reference family, parity)
   A vs C (success): n=160  88.1% vs 55.0%  Δ=33.1pp  discordant 59/6  p=0.0000
@@ -49,6 +51,7 @@ harness errors: 0
   C: idRefFailures 0/160
   D: idRefFailures 0/160
   E: idRefFailures 0/160
+  F: idRefFailures 0/160
 
 ## H5 — reading (accuracy, HTML vs JSON serialization)
   [best] A vs B (primary): n=224  86.2% vs 87.5%  Δ=-1.3pp  discordant 7/10  p=0.6291
@@ -58,18 +61,30 @@ harness errors: 0
   [parity, google/gemini-3.5-flash] A vs B (reading): n=56  89.3% vs 89.3%  Δ=0.0pp  discordant 3/3  p=1.0000
   [parity, openai/gpt-5.4] A vs B (reading): n=56  87.5% vs 89.3%  Δ=-1.8pp  discordant 0/1  p=1.0000
 
+## H6 — id-anchored patches (F vs E, F vs A)
+  [best] F vs E: n=800  92.5% vs 87.4%  Δ=5.1pp  discordant 54/13  p=0.0000
+  [best] F vs A: n=800  92.5% vs 92.5%  Δ=0.0pp  discordant 30/30  p=1.0000
+  [parity] F vs E: n=800  92.6% vs 86.5%  Δ=6.1pp  discordant 56/7  p=0.0000
+  [parity] F vs A: n=800  92.6% vs 91.9%  Δ=0.8pp  discordant 34/28  p=0.5258
+  [parity, bucket xs] F vs E: n=216  97.2% vs 93.5%  Δ=3.7pp  discordant 8/0  p=0.0078
+  [parity, bucket s] F vs E: n=232  97.4% vs 94.0%  Δ=3.4pp  discordant 8/0  p=0.0078
+  [parity, bucket m] F vs E: n=184  88.0% vs 84.2%  Δ=3.8pp  discordant 10/3  p=0.0923
+  [parity, bucket l] F vs E: n=168  85.1% vs 69.6%  Δ=15.5pp  discordant 30/4  p=0.0000
+  [parity, reference family] F vs A: n=160  90.6% vs 88.1%  Δ=2.5pp  discordant 11/7  p=0.4807
+  [parity, reference family] F vs E: n=160  90.6% vs 74.4%  Δ=16.3pp  discordant 28/2  p=0.0000
+
 ## Per model × regime × condition (success overall)
-  anthropic/claude-haiku-4.5 [best]: A 181/200  B 185/200  C 166/200  D 169/200  E 165/200
-  anthropic/claude-haiku-4.5 [parity]: A 182/200  B 185/200  C 161/200  D 163/200  E 161/200
-  anthropic/claude-sonnet-4.5 [best]: A 189/200  B 188/200  C 188/200  D 189/200  E 175/200
-  anthropic/claude-sonnet-4.5 [parity]: A 189/200  B 188/200  C 189/200  D 191/200  E 177/200
-  google/gemini-3.5-flash [best]: A 177/200  B 191/200  C 161/200  D 158/200  E 181/200
-  google/gemini-3.5-flash [parity]: A 173/200  B 184/200  C 151/200  D 148/200  E 175/200
-  openai/gpt-5.4 [best]: A 193/200  B 193/200  C 194/200  D 190/200  E 178/200
-  openai/gpt-5.4 [parity]: A 191/200  B 191/200  C 192/200  D 192/200  E 179/200
+  anthropic/claude-haiku-4.5 [best]: A 181/200  B 185/200  C 166/200  D 169/200  E 165/200  F 182/200
+  anthropic/claude-haiku-4.5 [parity]: A 182/200  B 185/200  C 161/200  D 163/200  E 161/200  F 184/200
+  anthropic/claude-sonnet-4.5 [best]: A 189/200  B 188/200  C 188/200  D 189/200  E 175/200  F 183/200
+  anthropic/claude-sonnet-4.5 [parity]: A 189/200  B 188/200  C 189/200  D 191/200  E 177/200  F 187/200
+  google/gemini-3.5-flash [best]: A 177/200  B 191/200  C 161/200  D 158/200  E 181/200  F 188/200
+  google/gemini-3.5-flash [parity]: A 173/200  B 184/200  C 151/200  D 148/200  E 175/200  F 182/200
+  openai/gpt-5.4 [best]: A 193/200  B 193/200  C 194/200  D 190/200  E 178/200  F 187/200
+  openai/gpt-5.4 [parity]: A 191/200  B 191/200  C 192/200  D 192/200  E 179/200  F 188/200
 
 ## Totals (for the cost table)
-  anthropic/claude-haiku-4.5: 2000 records, 17982173 in (0 cached) + 2578386 out, 4.8h model-time
-  anthropic/claude-sonnet-4.5: 2000 records, 17579967 in (0 cached) + 2562465 out, 8.8h model-time
-  google/gemini-3.5-flash: 2000 records, 17131940 in (3676546 cached) + 2355516 out, 3.5h model-time
-  openai/gpt-5.4: 2000 records, 12157351 in (4855040 cached) + 1963266 out, 4.2h model-time
+  anthropic/claude-haiku-4.5: 2400 records, 20440558 in (0 cached) + 2658946 out, 5.1h model-time
+  anthropic/claude-sonnet-4.5: 2400 records, 19839782 in (0 cached) + 2639837 out, 9.3h model-time
+  google/gemini-3.5-flash: 2400 records, 19125466 in (3926901 cached) + 2424245 out, 3.7h model-time
+  openai/gpt-5.4: 2400 records, 13861467 in (5111040 cached) + 2020241 out, 4.4h model-time

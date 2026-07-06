@@ -36,13 +36,14 @@ const DATA = JSON.parse(
 	readFileSync("results/chart-data.json", "utf8"),
 ) as ChartData;
 
-const CONDITIONS = ["A", "B", "C", "D", "E"] as const;
+const CONDITIONS = ["A", "B", "C", "D", "E", "F"] as const;
 const COND_NAMES: Record<string, string> = {
 	A: "HTML + rewrite",
 	B: "JSON + rewrite",
 	C: "JSON + tools",
 	D: "HTML + tools",
 	E: "JSON Patch",
+	F: "anchored patch",
 };
 const SHORT_MODEL: Record<string, string> = {
 	"openai/gpt-5.4": "gpt-5.4",
@@ -76,6 +77,7 @@ const LIGHT: Theme = {
 		C: "#eda100",
 		D: "#008300",
 		E: "#4a3aa7",
+		F: "#e34948",
 	},
 };
 const DARK: Theme = {
@@ -92,6 +94,7 @@ const DARK: Theme = {
 		C: "#c98500",
 		D: "#008300",
 		E: "#9085e9",
+		F: "#e66767",
 	},
 };
 
@@ -292,9 +295,10 @@ function referenceDotPlot(theme: Theme): string {
 function renderAll(theme: Theme): Record<string, string> {
 	return {
 		"crossover-success": lineChart(theme, {
-			title: "The crossover never came: whole-tree rewrite leads at every size",
+			title:
+				"The crossover never came — and id-anchored patches (F) match rewrite",
 			subtitle:
-				"Task success by tree size — 5 conditions × 4 models pooled, parity prompts, Wilson 95% CI · barkup-bench",
+				"Task success by tree size — 6 conditions × 4 models pooled, parity prompts, Wilson 95% CI · barkup-bench (F added per docs/BRIEF-F.md)",
 			series: Object.fromEntries(
 				CONDITIONS.map((c) => [
 					c,
@@ -315,7 +319,8 @@ function renderAll(theme: Theme): Record<string, string> {
 			note: "n per cell: 168–232 tasks",
 		}),
 		"tokens-per-solved": lineChart(theme, {
-			title: "Tokens per solved task: rewrite is 4–5× cheaper on small trees",
+			title:
+				"Tokens per solved task: anchored patches (F) are the cheapest condition at every size",
 			subtitle:
 				"Mean total tokens (input + output) per successfully solved task — parity prompts, models pooled · barkup-bench",
 			series: Object.fromEntries(
