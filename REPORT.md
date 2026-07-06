@@ -282,7 +282,7 @@ assistant text; the accumulated history moved to a new top-level
 `result.responseMessages` (documented in the v7 migration guide),
 with per-step messages in `steps[i].response.messages`. Our harness
 used the v5-era accessor — no error, no warning, silently truncated
-history.
+history. Reported upstream: https://github.com/vercel/ai/issues/16840.
 Our tools loop pushed the former into conversation history, so in
 every multi-turn tools conversation the model saw its own prior turns
 as bare text ("DONE") with **no record of the tools it had called** —
