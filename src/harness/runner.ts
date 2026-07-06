@@ -120,12 +120,16 @@ async function callModel(
 	tools?: ToolSet,
 ): Promise<CallOutcome> {
 	const started = performance.now();
+	// Study H (BRIEF-H.md) raises the output budget for large-tree
+	// rewrites; default (unset) preserves the main-study protocol.
+	const maxOut = process.env.BENCH_MAX_OUTPUT_TOKENS;
 	const result = await generateText({
 		model,
 		system,
 		messages,
 		temperature: 0,
 		maxRetries: 4,
+		...(maxOut ? { maxOutputTokens: Number(maxOut) } : {}),
 		...(tools !== undefined
 			? { tools, stopWhen: stepCountIs(MAX_TOOL_STEPS) }
 			: {}),

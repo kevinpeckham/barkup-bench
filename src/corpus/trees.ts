@@ -48,7 +48,14 @@ const SHAPE_CONFIG: GrammarConfig = {
 	),
 };
 
-export type BucketName = "xs" | "s" | "m" | "l";
+export type BucketName =
+	| "xs"
+	| "s"
+	| "m"
+	| "l"
+	| "xl"
+	| "xxl"
+	| "xxxl";
 
 export interface BucketSpec {
 	name: BucketName;
@@ -98,6 +105,34 @@ export const BUCKETS: Record<BucketName, BucketSpec> = {
 		maxDepth: 6,
 		maxChildren: 6,
 		sampleSize: 4000,
+	},
+	// Study H size-extension buckets (docs/BRIEF-H.md).
+	xl: {
+		name: "xl",
+		target: 300,
+		min: 240,
+		max: 380,
+		maxDepth: 7,
+		maxChildren: 7,
+		sampleSize: 3000,
+	},
+	xxl: {
+		name: "xxl",
+		target: 600,
+		min: 480,
+		max: 750,
+		maxDepth: 8,
+		maxChildren: 8,
+		sampleSize: 3000,
+	},
+	xxxl: {
+		name: "xxxl",
+		target: 1000,
+		min: 800,
+		max: 1250,
+		maxDepth: 9,
+		maxChildren: 9,
+		sampleSize: 3000,
 	},
 };
 

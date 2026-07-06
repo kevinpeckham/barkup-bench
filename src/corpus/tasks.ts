@@ -249,7 +249,7 @@ export function generateCorpus(plan: CorpusPlanEntry[], seed: number): Corpus {
 }
 
 function bucketOffset(bucket: BucketName): number {
-	return { xs: 10, s: 20, m: 30, l: 40 }[bucket];
+	return { xs: 10, s: 20, m: 30, l: 40, xl: 50, xxl: 60, xxxl: 70 }[bucket];
 }
 
 function buildTask(

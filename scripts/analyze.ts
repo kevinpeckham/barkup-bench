@@ -38,7 +38,9 @@ const records: TaskRunRecord[] = paths.flatMap((path) =>
 const models = [...new Set(records.map((r) => r.model))].sort();
 const conditionIds = [...new Set(records.map((r) => r.condition))].sort();
 const regimes = [...new Set(records.map((r) => r.regime))].sort();
-const buckets = ["xs", "s", "m", "l"] as const;
+const buckets = (["xs", "s", "m", "l", "xl", "xxl", "xxxl"] as const).filter((b) =>
+	records.some((r) => r.bucket === b),
+);
 
 function pct(x: number): string {
 	return Number.isNaN(x) ? "—" : `${(100 * x).toFixed(1)}%`;
