@@ -9,15 +9,24 @@ Companion to the article
 [HTML as a Native Data Format for LLMs](https://www.lightningjar.com/blog/ast-as-html)
 and the [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup) package.
 
-**Status: complete.** See [REPORT.md](REPORT.md) for the findings — TL;DR:
-the whole-artifact rewrite strategy wins (+5–7pp over granular tools,
-+33pp on multi-turn id-referencing tasks); the HTML dialect itself is
-neither an advantage nor a handicap against an equal-quality JSON twin;
-JSON Patch collapses on large trees — and the pre-registered addendum
-condition F (id-anchored patches, [docs/BRIEF-F.md](docs/BRIEF-F.md))
-matches rewrite reliability at the lowest cost measured, confirming the
-collapse was positional path arithmetic. [BRIEF.md](BRIEF.md) is the
-pre-registration (hypotheses, conditions, protocol, honesty rules).
+**Status: complete, with a major published correction.** See
+[REPORT.md](REPORT.md). Corrected TL;DR: with correct conversation
+history, every id-stable editing interface — whole-tree rewrite,
+granular mutation tools, and id-anchored patches — lands within a few
+points of the others; the HTML dialect is accuracy-neutral against an
+equal-quality JSON twin (its case is human legibility and ~30% fewer
+tokens than JSON at scale); positional (RFC 6902) JSON Patch still
+collapses on large trees while id-anchored patches (condition F,
+[docs/BRIEF-F.md](docs/BRIEF-F.md)) match rewrite at the lowest cost
+measured. The interface-reliability gaps this benchmark originally
+reported (+5.3pp rewrite over tools; +33pp on multi-turn edits) were
+manufactured by a silent SDK defect — conversation histories that
+omitted the model's own tool calls — and vanish under the corrected
+protocol (Study G, [docs/BRIEF-G.md](docs/BRIEF-G.md)): a one-line
+history mistake collapses small-model multi-turn tool reliability to
+as low as 5% while frontier models mask it. [BRIEF.md](BRIEF.md) is
+the pre-registration (hypotheses, conditions, protocol, honesty
+rules).
 
 <picture>
 	<source srcset="docs/img/crossover-success-dark.svg" media="(prefers-color-scheme: dark)" />

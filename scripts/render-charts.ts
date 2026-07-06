@@ -16,7 +16,15 @@ interface CrossoverCell {
 	low: number;
 	high: number;
 }
+interface FootgunCell {
+	ok: number;
+	n: number;
+	rate: number;
+	low: number;
+	high: number;
+}
 interface ChartData {
+	footgun: { model: string; v1: FootgunCell; v2: FootgunCell }[];
 	crossover: Record<string, CrossoverCell[]>;
 	tokens: Record<string, { bucket: string; tokens: number }[]>;
 	reference: {
@@ -258,8 +266,8 @@ function referenceDotPlot(theme: Theme): string {
 	let g = header(
 		theme,
 		W,
-		"Multi-turn reference edits: tools fragility is a small-model problem",
-		"Success on “insert a node, then edit it by the id from your own output” — parity prompts, n = 40 per cell, Wilson 95% CI",
+		"Corrected: multi-turn reference edits are near-parity under correct tool history",
+		"Success on “insert a node, then edit it by the id from your own output” — protocol v2, parity prompts, n = 40 per cell, Wilson 95% CI",
 	);
 	for (const tick of [0, 25, 50, 75, 100]) {
 		const x = xOf(tick);
@@ -280,25 +288,56 @@ function referenceDotPlot(theme: Theme): string {
 			g += `<circle cx="${xOf(cell.rate)}" cy="${cy}" r="6" fill="${theme.series[c]}" stroke="${theme.surface}" stroke-width="2"/>`;
 		}
 	});
-	// Direct labels on the two collapse dots (the story).
-	const gem = rows.find((r) => r.short === "gemini-3.5-flash");
-	if (gem) {
-		const cy = TOP + rows.indexOf(gem) * ROW + ROW / 2;
-		const cCell = gem.cells.find((x) => x.condition === "C");
-		if (cCell) {
-			g += `<text x="${xOf(cCell.rate) + 2}" y="${cy - 14}" font-family="${MONO}" font-size="11.5" font-weight="700" fill="${theme.series.C}">C · 2.5%</text>`;
-		}
+	return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${g}${footerNote(theme, W, H, "barkup-bench · zero stale-id failures in every arm · gemini-3.5-flash residual failures are phase-1 tools accuracy, not follow-up dropout")}</svg>`;
+}
+
+function footgunChart(theme: Theme): string {
+	const W = 960;
+	const ROW = 76;
+	const TOP = 112;
+	const B = 92;
+	const L = 190;
+	const R = 40;
+	const rows = DATA.footgun
+		.map((r) => ({ ...r, short: SHORT_MODEL[r.model] ?? r.model }))
+		.sort((a, b) => a.v1.rate - b.v1.rate);
+	const H = TOP + rows.length * ROW + B;
+	const iw = W - L - R;
+	const xOf = (v: number) => L + (v / 100) * iw;
+	let g =
+		`<rect width="${W}" height="100%" fill="${theme.surface}"/>` +
+		`<text x="32" y="38" font-family="${SANS}" font-size="19" font-weight="700" fill="${theme.ink}">One hidden SDK default, two very different benchmarks</text>` +
+		`<text x="32" y="60" font-family="${SANS}" font-size="12.5" fill="${theme.ink2}">Reference-edit success, tools arms, per model — v1: the model's own tool calls hidden from history (SDK footgun) vs v2: corrected</text>`;
+	for (const tick of [0, 25, 50, 75, 100]) {
+		const x = xOf(tick);
+		g += `<line x1="${x}" x2="${x}" y1="${TOP}" y2="${H - B}" stroke="${theme.grid}" stroke-width="1"/>`;
+		g += `<text x="${x}" y="${H - B + 22}" text-anchor="middle" font-family="${MONO}" font-size="12" fill="${theme.ink2}">${tick}%</text>`;
 	}
-	return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${g}${footerNote(theme, W, H, "barkup-bench · 8,000 runs · zero stale-id failures — the tools arms fail by not executing the follow-up edit")}</svg>`;
+	g += `<text x="${L + iw / 2}" y="${H - B + 44}" text-anchor="middle" font-family="${SANS}" font-size="11.5" fill="${theme.ink3}">reference-task success, tools conditions (C + D pooled, parity)</text>`;
+	rows.forEach((row, ri) => {
+		const cy = TOP + ri * ROW + ROW / 2;
+		g += `<text x="${L - 14}" y="${cy + 4}" text-anchor="end" font-family="${MONO}" font-size="13" fill="${theme.ink}">${row.short}</text>`;
+		const x1 = xOf(row.v1.rate);
+		const x2 = xOf(row.v2.rate);
+		g += `<line x1="${x1}" x2="${x2}" y1="${cy}" y2="${cy}" stroke="${theme.series.C}" stroke-width="3" opacity="0.35"/>`;
+		g += `<circle cx="${x1}" cy="${cy}" r="6" fill="${theme.surface}" stroke="${theme.series.C}" stroke-width="2.5"/>`;
+		g += `<circle cx="${x2}" cy="${cy}" r="6.5" fill="${theme.series.A}" stroke="${theme.surface}" stroke-width="2"/>`;
+		g += `<text x="${x1}" y="${cy + 26}" text-anchor="middle" font-family="${MONO}" font-size="11.5" font-weight="700" fill="${theme.ink2}">${row.v1.rate}%</text>`;
+		g += `<text x="${x2}" y="${cy - 14}" text-anchor="middle" font-family="${MONO}" font-size="11.5" font-weight="700" fill="${theme.series.A}">${row.v2.rate}%</text>`;
+	});
+	// Key: hollow = v1 (broken history), filled = v2 (fixed).
+	g += `<circle cx="32" cy="84" r="6" fill="${theme.surface}" stroke="${theme.series.C}" stroke-width="2.5"/><text x="46" y="88" font-family="${SANS}" font-size="12" fill="${theme.ink2}">v1 — tool calls hidden from history</text>`;
+	g += `<circle cx="300" cy="84" r="6.5" fill="${theme.series.A}" stroke="${theme.surface}" stroke-width="2"/><text x="314" y="88" font-family="${SANS}" font-size="12" fill="${theme.ink2}">v2 — corrected history</text>`;
+	return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${g}${footerNote(theme, W, H, "barkup-bench protocol correction, 2026-07-06 · same tasks, same models, same prompts — only the history construction differs")}</svg>`;
 }
 
 function renderAll(theme: Theme): Record<string, string> {
 	return {
 		"crossover-success": lineChart(theme, {
 			title:
-				"The crossover never came — and id-anchored patches (F) match rewrite",
+				"Corrected (protocol v2): no interface dominates — positional JSON Patch is the outlier at scale",
 			subtitle:
-				"Task success by tree size — 6 conditions × 4 models pooled, parity prompts, Wilson 95% CI · barkup-bench (F added per docs/BRIEF-F.md)",
+				"Task success by tree size — 6 conditions × 4 models pooled, parity prompts, protocol v2 (corrected tool history), Wilson 95% CI · barkup-bench",
 			series: Object.fromEntries(
 				CONDITIONS.map((c) => [
 					c,
@@ -342,6 +381,7 @@ function renderAll(theme: Theme): Record<string, string> {
 			note: "at ~150 nodes, HTML rewrite (A) undercuts JSON rewrite (B) by ~30%",
 		}),
 		"reference-stability": referenceDotPlot(theme),
+		"tool-history-footgun": footgunChart(theme),
 	};
 }
 

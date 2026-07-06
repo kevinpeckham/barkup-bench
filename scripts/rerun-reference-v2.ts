@@ -10,8 +10,8 @@
  *   bun run scripts/rerun-reference-v2.ts [--models a,b] [--regimes parity,best]
  */
 import { readFileSync } from "node:fs";
-import { conditionsForRegime } from "../src/conditions/index.js";
 import type { Regime } from "../src/conditions/index.js";
+import { conditionsForRegime } from "../src/conditions/index.js";
 import type { Corpus } from "../src/corpus/tasks.js";
 import { runAll } from "../src/harness/runner.js";
 
