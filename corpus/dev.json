@@ -8201,7 +8201,8 @@
 				],
 				"id": "n2"
 			},
-			"spec": null
+			"spec": "The root node is a document named \"cedar-amber\" whose sole attribute is theme with value \"high-contrast\". This document has exactly three children in the following order. Its first child is a page named \"vale-alpine\" whose sole attribute is layoutSize with value \"full-bleed\"; that page has exactly one child, which is a widget-slot named \"sage-meadow\" whose attributes are defaultWidgetId with value \"wgt-onyx\", allowedWidgetIds with value the list containing only \"wgt-moss\", and requireBleed with value false. The document's second child is a page named \"amber-sparrow\" whose sole attribute is layoutSize with value \"narrow\". The document's third child is a page named \"tundra-violet\" that has no attributes.",
+			"specVerified": true
 		},
 		{
 			"id": "const-xs-2",
@@ -8275,7 +8276,8 @@
 				],
 				"id": "n3"
 			},
-			"spec": null
+			"spec": "The root node is a document with attributes title equal to \"Slate Cedar Fable\" and theme equal to \"dark\". This document has exactly three child pages, ordered as follows:\n\n- The first child is a page named \"monsoon-arbor\" whose only attribute is layoutSize equal to \"wide\"; this page has no children.\n- The second child is a page named \"violet-lantern\" whose only attribute is layoutSize equal to \"full-bleed\"; this page has exactly one child, which is a block whose only attribute is containerClasses equal to \"bg-muted\" and which itself has no children.\n- The third child is a page named \"kestrel-river\" whose only attribute is layoutSize equal to \"wide\"; this page has exactly two children, ordered as follows:\n  - The first child is a block named \"lumen-orchid\" whose only attribute is containerClasses equal to \"p-4 border\"; this block has no children.\n  - The second child is a widget-slot named \"cedar-umber\" whose attributes are exactly defaultWidgetId equal to \"wgt-umber\", allowedWidgetIds equal to [\"wgt-linen\",\"wgt-fable\",\"wgt-hazel\",\"wgt-breeze\"], and requireBleed equal to true; this widget-slot has no children.",
+			"specVerified": true
 		},
 		{
 			"id": "const-s-3",
@@ -8476,7 +8478,8 @@
 				],
 				"id": "n10"
 			},
-			"spec": null
+			"spec": "The root node is a document named \"kestrel-sierra\" whose attributes are exactly title = \"Fable Aurora\" and theme = \"high-contrast\". This document contains exactly two child nodes in the following order.\n\nThe first child is a page whose sole attribute is layoutSize = \"full-bleed\". This page contains exactly four child nodes in the following order.\n\nThe first of those children is a block named \"timber-pebble\" whose sole attribute is containerClasses = \"border\". This block contains exactly three child nodes in the following order: first, a block named \"linen-onyx\" whose attributes are exactly containerClasses = \"grid p-8 p-4\" and featured = true; second, a text-atom named \"linen-walnut\" whose attributes are exactly textStyle = \"caption\", maxLength = 130, minLength = 12, and content = \"Basalt willow cobalt summit.\"; third, an image-atom named \"birch-amber\" whose sole attribute is src = \"/images/iris-bloom.jpg\".\n\nThe second child of the page is a block named \"ember-iris\" whose sole attribute is featured = true. This block contains exactly three child nodes in the following order: first, a text-atom named \"canyon-lantern\" whose attributes are exactly maxLength = 154, minLength = 3, and content = \"Breeze saffron moss fable pine canyon.\"; second, an image-atom named \"maple-orchid\" whose attributes are exactly src = \"/images/fern-cobalt.jpg\" and aspectRatio = \"1:1\"; third, a block named \"quartz-quartz\" whose sole attribute is featured = true.\n\nThe third child of the page is a widget-slot named \"larch-amber\" whose attributes are exactly defaultWidgetId = \"wgt-grove\" and requireBleed = true.\n\nThe fourth child of the page is absent; the page has no further children.\n\nThe second child of the root document is a page named \"birch-coral\". This page contains exactly three child nodes in the following order.\n\nThe first of those children is a widget-slot named \"bloom-canyon\" whose attributes are exactly defaultWidgetId = \"wgt-horizon\" and requireBleed = false.\n\nThe second child of the page is a block named \"mesa-timber\" whose sole attribute is containerClasses = \"flex\". This block contains exactly two child nodes in the following order: first, an image-atom whose attributes are exactly src = \"/images/opal-indigo.jpg\" and aspectRatio = \"3:2\"; second, a text-atom named \"breeze-ember\" whose attributes are exactly textStyle = \"heading\", maxLength = 175, minLength = 7, and content = \"Birch north comet canyon orchid ember.\"\n\nThe third child of the page is a block named \"alpine-aurora\" whose attributes are exactly containerClasses = \"gap-4\" and featured = true. This block contains exactly four child nodes in the following order: first, a block named \"pine-hazel\" whose sole attribute is featured = true; second, a text-atom named \"river-jasper\" whose sole attribute is textStyle = \"heading\" and maxLength = 48; third, a text-atom named \"prairie-jasper\" whose attributes are exactly textStyle = \"quote\", maxLength = 108, minLength = 0, and content = \"Larch willow mesa topaz.\"; fourth, an image-atom whose attributes are exactly src = \"/images/sparrow-ember.jpg\".\n\nThe page has no further children, and the document has no further children.",
+			"specVerified": true
 		},
 		{
 			"id": "const-s-4",
@@ -8674,7 +8677,8 @@
 				],
 				"id": "n9"
 			},
-			"spec": null
+			"spec": "The root node is a document named \"aurora-raven\" whose attributes are exactly title = \"Beacon Fable Juniper\" and theme = \"light\".  \n\nIts first child is a page named \"drift-meadow\" whose sole attribute is layoutSize = \"full-bleed\". This page has exactly three children in the following order:  \n- The first child is a block named \"alpine-indigo\" whose sole attribute is featured = false; this block itself has exactly three children in the following order: a text-atom named \"bloom-tundra\" whose attributes are exactly textStyle = \"quote\", maxLength = 62, minLength = 7 and content = \"Birch raven fern.\", followed by an image-atom named \"orchid-monsoon\" whose attributes are exactly src = \"/images/delta-opal.jpg\" and aspectRatio = \"21:9\", followed by a text-atom named \"sierra-umber\" whose attributes are exactly maxLength = 111, minLength = 14 and content = \"Umber aurora mica mesa.\"  \n- The second child is a widget-slot (unnamed) whose attributes are exactly defaultWidgetId = \"wgt-lagoon\", allowedWidgetIds = [\"wgt-meadow\",\"wgt-sage\",\"wgt-slate\",\"wgt-sparrow\"] and requireBleed = true.  \n- The third child is a widget-slot named \"raven-coral\" whose attributes are exactly allowedWidgetIds = [\"wgt-north\",\"wgt-tundra\",\"wgt-cobalt\"] and requireBleed = false.  \n\nThe document’s second child is a page named \"ridge-tundra\" whose sole attribute is layoutSize = \"narrow\". This page has exactly three children in the following order:  \n- The first child is a block named \"aurora-raven-moss\" whose sole attribute is featured = true; this block itself has exactly three children in the following order: a block (unnamed) whose attributes are exactly containerClasses = \"gap-4\" and featured = false, followed by a text-atom (unnamed) whose attributes are exactly textStyle = \"caption\", maxLength = 111 and minLength = 10, followed by a text-atom named \"grove-birch\" whose attributes are exactly textStyle = \"body\", maxLength = 63, minLength = 15 and content = \"Maple timber amber.\"  \n- The second child is a widget-slot (unnamed) whose attributes are exactly defaultWidgetId = \"wgt-river\", allowedWidgetIds = [\"wgt-sage\"] and requireBleed = true.  \n- The third child is a block (unnamed) whose attributes are exactly containerClasses = \"shadow grid rounded-lg\" and featured = false; this block itself has exactly three children in the following order: a block named \"mica-juniper\" whose sole attribute is containerClasses = \"centered\", followed by an image-atom named \"meadow-cobalt\" whose attributes are exactly src = \"/images/moss-maple.jpg\" and aspectRatio = \"16:9\", followed by a block named \"tundra-flint\" whose attributes are exactly containerClasses = \"p-8 bg-muted flex\" and featured = true, followed by an image-atom named \"reef-pebble\" whose attributes are exactly src = \"/images/basalt-slate.jpg\" and aspectRatio = \"3:2\".",
+			"specVerified": true
 		},
 		{
 			"id": "refer-s-1",
@@ -13370,5 +13374,6 @@
 				"answer": "image-atom"
 			}
 		}
-	]
+	],
+	"describer": "xai/grok-4.3"
 }
