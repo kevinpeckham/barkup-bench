@@ -1,0 +1,3174 @@
+$ bun run scripts/run-matrix.ts --models "google/gemini-3.5-flash" --concurrency "5"
+
+=== google/gemini-3.5-flash × parity → results/raw/main-google_gemini-3.5-flash-parity.jsonl
+Running 1000 task×condition pairs (0 already done) with model google/gemini-3.5-flash, regime parity
+  trans-xs-1 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-1 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-1 × E: PASS (rounds=1, tokens=718+52)
+  trans-xs-1 × A: PASS (rounds=1, tokens=671+139)
+  trans-xs-2 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-1 × B: PASS (rounds=1, tokens=656+212)
+  trans-xs-2 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-2 × A: PASS (rounds=1, tokens=849+305)
+  trans-xs-2 × E: PASS (rounds=1, tokens=973+49)
+  trans-xs-3 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-3 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-2 × B: PASS (rounds=1, tokens=911+445)
+  trans-xs-3 × A: PASS (rounds=1, tokens=941+295)
+  trans-xs-3 × E: PASS (rounds=1, tokens=1056+36)
+  trans-xs-4 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-4 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-3 × B: PASS (rounds=1, tokens=994+414)
+  trans-xs-4 × A: PASS (rounds=1, tokens=794+280)
+  trans-xs-5 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-4 × E: fail (rounds=1, tokens=904+113)
+  trans-xs-5 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-5 × A: PASS (rounds=1, tokens=811+244)
+  trans-xs-5 × B: PASS (rounds=1, tokens=840+357)
+  trans-xs-4 × B: PASS (rounds=1, tokens=842+433)
+  trans-xs-6 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-6 × A: PASS (rounds=1, tokens=713+180)
+  trans-xs-6 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-5 × E: PASS (rounds=2, tokens=1951+132)
+  trans-xs-6 × E: PASS (rounds=1, tokens=784+47)
+  trans-xs-6 × B: PASS (rounds=1, tokens=722+267)
+  trans-xs-7 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-7 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-7 × A: PASS (rounds=1, tokens=689+147)
+  trans-xs-8 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-7 × E: PASS (rounds=1, tokens=726+50)
+  trans-xs-8 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-7 × B: PASS (rounds=1, tokens=664+200)
+  trans-xs-8 × A: PASS (rounds=1, tokens=728+116)
+  trans-xs-9 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-8 × B: PASS (rounds=1, tokens=730+178)
+  trans-xs-8 × E: PASS (rounds=1, tokens=792+36)
+  trans-xs-9 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-9 × E: PASS (rounds=1, tokens=1157+102)
+  trans-xs-10 × A: PASS (rounds=1, tokens=645+111)
+  trans-xs-10 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-10 × B: PASS (rounds=1, tokens=627+181)
+  trans-xs-10 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-9 × A: PASS (rounds=1, tokens=1025+504)
+  trans-xs-10 × E: PASS (rounds=1, tokens=689+52)
+  trans-xs-9 × B: PASS (rounds=1, tokens=1095+682)
+  trans-xs-11 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-11 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-11 × A: PASS (rounds=1, tokens=773+232)
+  trans-xs-12 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-11 × E: PASS (rounds=1, tokens=854+45)
+  trans-xs-11 × B: PASS (rounds=1, tokens=792+329)
+  trans-xs-12 × A: PASS (rounds=1, tokens=690+148)
+  trans-xs-12 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-12 × B: PASS (rounds=1, tokens=683+219)
+  trans-xs-13 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-12 × E: PASS (rounds=1, tokens=745+49)
+  trans-xs-13 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-13 × E: PASS (rounds=1, tokens=963+36)
+  trans-xs-13 × A: PASS (rounds=1, tokens=845+260)
+  trans-xs-14 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-14 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-13 × B: PASS (rounds=1, tokens=901+372)
+  trans-xs-14 × A: PASS (rounds=1, tokens=773+251)
+  trans-xs-15 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-14 × B: PASS (rounds=1, tokens=790+364)
+  trans-xs-14 × E: PASS (rounds=1, tokens=852+99)
+  trans-xs-15 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-15 × A: PASS (rounds=1, tokens=806+239)
+  trans-xs-16 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-16 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-15 × B: PASS (rounds=1, tokens=835+353)
+  trans-xs-16 × A: PASS (rounds=1, tokens=787+253)
+  trans-xs-15 × E: PASS (rounds=2, tokens=1949+144)
+  trans-xs-17 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-16 × B: PASS (rounds=1, tokens=853+407)
+  trans-xs-16 × E: PASS (rounds=1, tokens=915+54)
+  trans-xs-17 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-17 × A: PASS (rounds=1, tokens=711+171)
+  trans-xs-18 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-18 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-17 × B: PASS (rounds=1, tokens=708+246)
+  trans-xs-17 × E: PASS (rounds=1, tokens=770+45)
+  trans-xs-18 × E: PASS (rounds=1, tokens=1029+32)
+  trans-xs-18 × A: PASS (rounds=1, tokens=912+353)
+  trans-xs-19 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-19 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-18 × B: PASS (rounds=1, tokens=967+470)
+  trans-xs-19 × A: PASS (rounds=1, tokens=813+289)
+  trans-xs-19 × B: PASS (rounds=1, tokens=852+423)
+  trans-xs-20 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-20 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-19 × E: PASS (rounds=1, tokens=914+97)
+  trans-xs-20 × A: PASS (rounds=1, tokens=794+233)
+  trans-s-21 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-20 × E: PASS (rounds=1, tokens=909+50)
+  trans-s-21 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-20 × B: PASS (rounds=1, tokens=847+361)
+  trans-s-21 × E: PASS (rounds=1, tokens=2180+51)
+  trans-s-22 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-22 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-22 × E: PASS (rounds=1, tokens=1583+53)
+  trans-s-22 × A: PASS (rounds=1, tokens=1289+746)
+  trans-s-21 × A: PASS (rounds=1, tokens=1661+1121)
+  trans-s-23 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-23 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-22 × B: PASS (rounds=1, tokens=1521+1056)
+  trans-s-21 × B: PASS (rounds=1, tokens=2118+1656)
+  trans-s-23 × A: PASS (rounds=1, tokens=1611+658)
+  trans-s-24 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-24 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-23 × E: PASS (rounds=1, tokens=2045+32)
+  trans-s-24 × E: PASS (rounds=1, tokens=1531+90)
+  trans-s-23 × B: PASS (rounds=1, tokens=1983+918)
+  trans-s-25 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-25 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-24 × A: PASS (rounds=1, tokens=1250+728)
+  trans-s-24 × B: PASS (rounds=1, tokens=1469+1048)
+  trans-s-26 × A: PASS (rounds=1, tokens=1527+983)
+  trans-s-25 × A: PASS (rounds=1, tokens=1756+1185)
+  trans-s-26 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-26 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-25 × E: PASS (rounds=4, tokens=9834+344)
+  trans-s-26 × E: PASS (rounds=1, tokens=1917+54)
+  trans-s-25 × B: PASS (rounds=1, tokens=2125+1639)
+  trans-s-27 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-27 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-26 × B: PASS (rounds=1, tokens=1855+1389)
+  trans-s-27 × E: PASS (rounds=1, tokens=2503+52)
+  trans-s-28 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-28 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-28 × E: PASS (rounds=1, tokens=2329+32)
+  trans-s-28 × A: PASS (rounds=1, tokens=1858+922)
+  trans-s-27 × A: PASS (rounds=1, tokens=1976+1451)
+  trans-s-29 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-29 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-28 × B: PASS (rounds=1, tokens=2267+1331)
+  trans-s-29 × E: PASS (rounds=1, tokens=1656+99)
+  trans-s-27 × B: PASS (rounds=1, tokens=2441+1996)
+  trans-s-29 × A: PASS (rounds=1, tokens=1327+806)
+  trans-s-30 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-30 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-30 × E: PASS (rounds=1, tokens=1656+58)
+  trans-s-29 × B: PASS (rounds=1, tokens=1594+1167)
+  trans-s-31 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-31 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-30 × A: PASS (rounds=1, tokens=1369+806)
+  trans-s-31 × A: PASS (rounds=1, tokens=1228+681)
+  trans-s-31 × E: PASS (rounds=1, tokens=1520+51)
+  trans-s-32 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-32 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-30 × B: PASS (rounds=1, tokens=1594+1109)
+  trans-s-32 × E: PASS (rounds=1, tokens=1919+52)
+  trans-s-31 × B: PASS (rounds=1, tokens=1458+989)
+  trans-s-33 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-33 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-33 × E: PASS (rounds=1, tokens=1745+40)
+  trans-s-32 × A: PASS (rounds=1, tokens=1517+977)
+  trans-s-33 × A: PASS (rounds=1, tokens=1388+784)
+  trans-s-34 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-34 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-32 × B: PASS (rounds=1, tokens=1857+1395)
+  trans-s-33 × B: PASS (rounds=1, tokens=1683+1138)
+  trans-s-34 × E: PASS (rounds=1, tokens=1518+116)
+  trans-s-34 × A: PASS (rounds=1, tokens=1254+737)
+  trans-s-35 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-35 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-35 × E: PASS (rounds=1, tokens=2170+58)
+  trans-s-34 × B: PASS (rounds=1, tokens=1456+1035)
+  trans-s-36 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-36 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-36 × E: PASS (rounds=1, tokens=1748+51)
+  trans-s-35 × A: PASS (rounds=1, tokens=1733+1163)
+  trans-s-36 × A: PASS (rounds=1, tokens=1390+846)
+  trans-s-37 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-37 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-37 × E: PASS (rounds=1, tokens=1765+48)
+  trans-s-36 × B: PASS (rounds=1, tokens=1686+1220)
+  trans-s-35 × B: PASS (rounds=1, tokens=2108+1616)
+  trans-s-38 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-37 × A: PASS (rounds=1, tokens=1396+855)
+  trans-s-38 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-38 × E: PASS (rounds=1, tokens=1561+40)
+  trans-s-37 × B: PASS (rounds=1, tokens=1703+1240)
+  trans-s-39 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-38 × A: PASS (rounds=1, tokens=1288+701)
+  trans-s-39 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-39 × E: PASS (rounds=1, tokens=1857+86)
+  trans-s-38 × B: PASS (rounds=1, tokens=1499+971)
+  trans-s-40 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-39 × A: PASS (rounds=1, tokens=1481+958)
+  trans-s-40 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-40 × E: PASS (rounds=1, tokens=1482+54)
+  trans-s-40 × A: PASS (rounds=1, tokens=1182+613)
+  trans-m-41 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-41 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-39 × B: PASS (rounds=1, tokens=1795+1372)
+  trans-s-40 × B: PASS (rounds=1, tokens=1420+929)
+  trans-m-41 × E: PASS (rounds=1, tokens=5298+50)
+  trans-m-42 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-42 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-42 × E: PASS (rounds=1, tokens=5957+58)
+  trans-m-41 × A: PASS (rounds=1, tokens=3859+3320)
+  trans-m-43 × A: PASS (rounds=1, tokens=2720+2139)
+  trans-m-43 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-43 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-43 × E: PASS (rounds=1, tokens=3678+44)
+  trans-m-42 × A: PASS (rounds=1, tokens=4350+3807)
+  trans-m-41 × B: PASS (rounds=1, tokens=5236+4775)
+  trans-m-44 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-44 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-44 × E: fail (rounds=1, tokens=3950+103)
+  trans-m-42 × B: PASS (rounds=1, tokens=5895+5430)
+  trans-m-43 × B: PASS (rounds=1, tokens=3616+3094)
+  trans-m-45 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-44 × A: PASS (rounds=1, tokens=3030+2508)
+  trans-m-45 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-45 × E: fail (rounds=1, tokens=3987+58)
+  trans-m-44 × B: fail (rounds=1, tokens=3888+3480)
+  trans-m-46 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-46 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-46 × E: PASS (rounds=1, tokens=4065+56)
+  trans-m-45 × A: PASS (rounds=1, tokens=3014+2451)
+  trans-m-46 × A: PASS (rounds=1, tokens=3069+2523)
+  trans-m-45 × B: PASS (rounds=1, tokens=3925+3440)
+  trans-m-47 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-47 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-47 × E: PASS (rounds=1, tokens=4061+56)
+  trans-m-47 × A: PASS (rounds=1, tokens=2985+2442)
+  trans-m-48 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-46 × B: PASS (rounds=1, tokens=4003+3535)
+  trans-m-48 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-48 × E: PASS (rounds=1, tokens=5024+40)
+  trans-m-47 × B: PASS (rounds=1, tokens=3999+3534)
+  trans-m-49 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-49 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-49 × E: fail (rounds=1, tokens=3980+103)
+  trans-m-48 × A: PASS (rounds=1, tokens=3724+3145)
+  trans-m-49 × A: PASS (rounds=1, tokens=2984+2461)
+  trans-m-50 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-50 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-48 × B: fail (rounds=1, tokens=4962+4447)
+  trans-m-50 × E: PASS (rounds=2, tokens=8135+152)
+  trans-m-49 × B: PASS (rounds=1, tokens=3918+3490)
+  trans-m-51 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-51 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-50 × A: PASS (rounds=1, tokens=2987+2417)
+  trans-m-51 × E: PASS (rounds=1, tokens=4050+45)
+  trans-m-50 × B: PASS (rounds=1, tokens=3924+3438)
+  trans-m-52 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-52 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-51 × A: PASS (rounds=1, tokens=3011+2467)
+  trans-m-52 × E: PASS (rounds=1, tokens=5186+49)
+  trans-m-51 × B: PASS (rounds=1, tokens=3988+3522)
+  trans-m-53 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-52 × A: PASS (rounds=1, tokens=3759+3221)
+  trans-m-53 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-53 × E: PASS (rounds=1, tokens=5175+40)
+  trans-m-52 × B: PASS (rounds=1, tokens=5124+4664)
+  trans-m-54 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-54 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-53 × A: PASS (rounds=1, tokens=3774+2935)
+  trans-m-54 × E: PASS (rounds=1, tokens=5617+97)
+  trans-m-53 × B: PASS (rounds=1, tokens=5113+4228)
+  trans-m-55 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-55 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-55 × A: PASS (rounds=1, tokens=2710+2135)
+  trans-m-55 × E: PASS (rounds=1, tokens=3674+66)
+  trans-m-54 × A: PASS (rounds=1, tokens=4094+3572)
+  trans-m-56 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-56 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-56 × E: PASS (rounds=1, tokens=5102+58)
+  trans-m-54 × B: PASS (rounds=1, tokens=5555+5132)
+  trans-m-55 × B: PASS (rounds=1, tokens=3612+3115)
+  trans-m-57 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-57 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-57 × E: PASS (rounds=1, tokens=4844+54)
+  trans-m-56 × A: PASS (rounds=1, tokens=3684+3140)
+  trans-m-57 × A: PASS (rounds=1, tokens=3526+2985)
+  trans-m-58 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-58 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-58 × E: PASS (rounds=1, tokens=4880+40)
+  trans-m-56 × B: PASS (rounds=1, tokens=5040+4574)
+  trans-m-58 × A: fail (rounds=1, tokens=3536+2823)
+  trans-m-59 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-59 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-59 × E: PASS (rounds=1, tokens=4299+119)
+  trans-m-57 × B: PASS (rounds=1, tokens=4782+4319)
+  trans-m-59 × A: fail (rounds=1, tokens=3176+2647)
+  trans-m-60 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-60 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-58 × B: PASS (rounds=1, tokens=4818+4105)
+  trans-m-60 × E: PASS (rounds=1, tokens=6058+58)
+  trans-m-59 × B: PASS (rounds=1, tokens=4237+3816)
+  trans-l-61 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-61 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-61 × E: PASS (rounds=2, tokens=21878+126)
+  trans-m-60 × A: fail (rounds=1, tokens=4417+3846)
+  trans-m-60 × B: PASS (rounds=1, tokens=5996+5503)
+  trans-l-62 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-62 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-62 × E: fail (rounds=1, tokens=10802+48)
+  trans-l-61 × A: fail (rounds=1, tokens=7753+7205)
+  trans-l-62 × A: fail (rounds=1, tokens=7686+7162)
+  trans-l-63 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-63 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-63 × E: PASS (rounds=1, tokens=9327+36)
+  trans-l-61 × B: PASS (rounds=1, tokens=10791+10321)
+  trans-l-63 × A: PASS (rounds=1, tokens=6746+5368)
+  trans-l-64 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-64 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-64 × E: PASS (rounds=1, tokens=8893+88)
+  trans-l-62 × B: PASS (rounds=1, tokens=10740+10296)
+  trans-l-63 × B: PASS (rounds=1, tokens=9265+7580)
+  trans-l-65 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-65 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-65 × E: PASS (rounds=1, tokens=9260+62)
+  trans-l-64 × A: PASS (rounds=1, tokens=6420+5899)
+  trans-l-65 × A: PASS (rounds=1, tokens=6803+6229)
+  trans-l-66 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-66 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-64 × B: PASS (rounds=1, tokens=8831+8397)
+  trans-l-66 × E: fail (rounds=4, tokens=40256+234)
+  trans-l-66 × A: PASS (rounds=1, tokens=7140+6606)
+  trans-l-67 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-67 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-65 × B: PASS (rounds=1, tokens=9198+8702)
+  trans-l-67 × E: PASS (rounds=3, tokens=27267+194)
+  trans-l-66 × B: PASS (rounds=1, tokens=9759+9304)
+  trans-l-67 × A: fail (rounds=1, tokens=6432+5888)
+  trans-l-68 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-68 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-68 × E: PASS (rounds=1, tokens=8810+40)
+  trans-l-68 × A: PASS (rounds=1, tokens=6345+5752)
+  trans-l-67 × B: PASS (rounds=1, tokens=8849+8382)
+  trans-l-69 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-69 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-69 × E: PASS (rounds=1, tokens=10132+102)
+  trans-l-68 × B: PASS (rounds=1, tokens=8748+8212)
+  trans-l-70 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-70 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-70 × E: fail (rounds=4, tokens=39210+308)
+  trans-l-69 × A: PASS (rounds=1, tokens=7279+6758)
+  trans-l-70 × A: PASS (rounds=1, tokens=6803+6233)
+  trans-l-71 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-71 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-71 × E: PASS (rounds=1, tokens=8679+63)
+  trans-l-69 × B: PASS (rounds=1, tokens=10070+9644)
+  trans-l-70 × B: PASS (rounds=1, tokens=9442+8957)
+  trans-l-72 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-72 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-72 × E: PASS (rounds=1, tokens=11697+55)
+  trans-l-71 × A: fail (rounds=1, tokens=6274+5733)
+  trans-l-71 × B: PASS (rounds=1, tokens=8617+8163)
+  trans-l-73 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-73 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-73 × E: PASS (rounds=1, tokens=12763+40)
+  trans-l-72 × A: fail (rounds=1, tokens=8395+7852)
+  trans-l-73 × A: PASS (rounds=1, tokens=9154+8541)
+  trans-l-74 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-74 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-74 × E: PASS (rounds=1, tokens=9607+108)
+  trans-l-74 × A: fail (rounds=1, tokens=6887+6365)
+  trans-l-72 × B: PASS (rounds=1, tokens=11635+11170)
+  trans-l-75 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-75 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-75 × E: PASS (rounds=1, tokens=10019+66)
+  trans-l-73 × B: PASS (rounds=1, tokens=12701+12146)
+  trans-l-74 × B: PASS (rounds=1, tokens=9545+9120)
+  trans-l-76 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-76 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-75 × A: PASS (rounds=1, tokens=7252+6679)
+  trans-l-76 × E: fail (rounds=4, tokens=37714+240)
+  trans-l-76 × A: PASS (rounds=1, tokens=6660+6115)
+  trans-l-77 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-77 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-77 × E: PASS (rounds=1, tokens=11907+58)
+  trans-l-75 × B: PASS (rounds=1, tokens=9957+9462)
+  trans-l-76 × B: PASS (rounds=1, tokens=9116+8649)
+  trans-l-78 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-78 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-78 × E: PASS (rounds=1, tokens=10081+48)
+  trans-l-77 × A: fail (rounds=1, tokens=8567+8029)
+  trans-l-78 × A: fail (rounds=1, tokens=7264+6668)
+  trans-l-79 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-79 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-79 × E: fail (rounds=1, tokens=8811+84)
+  trans-l-79 × A: PASS (rounds=1, tokens=6324+5802)
+  trans-l-77 × B: PASS (rounds=1, tokens=11845+11377)
+  trans-l-80 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-80 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-80 × E: PASS (rounds=4, tokens=54025+314)
+  trans-l-78 × B: PASS (rounds=1, tokens=10019+9481)
+  const-xs-1 × A: PASS (rounds=1, tokens=792+349)
+  const-xs-1 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-1 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-1 × B: PASS (rounds=1, tokens=714+517)
+  const-xs-2 × A: PASS (rounds=1, tokens=726+211)
+  const-xs-1 × E: PASS (rounds=1, tokens=811+523)
+  const-xs-2 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-2 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-79 × B: fail (rounds=1, tokens=8749+8320)
+  const-xs-2 × B: PASS (rounds=1, tokens=648+335)
+  const-xs-3 × A: PASS (rounds=1, tokens=620+116)
+  const-xs-3 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-3 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-2 × E: PASS (rounds=1, tokens=745+360)
+  const-xs-3 × B: PASS (rounds=1, tokens=542+198)
+  const-xs-3 × E: PASS (rounds=1, tokens=639+233)
+  const-xs-4 × A: PASS (rounds=1, tokens=656+171)
+  const-xs-4 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-4 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-4 × B: PASS (rounds=1, tokens=578+289)
+  const-xs-5 × A: PASS (rounds=1, tokens=643+163)
+  const-xs-5 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-5 × B: PASS (rounds=1, tokens=565+251)
+  const-xs-4 × E: PASS (rounds=1, tokens=675+317)
+  const-xs-5 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-6 × A: fail (rounds=1, tokens=650+97)
+  const-xs-6 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-6 × B: PASS (rounds=1, tokens=572+196)
+  const-xs-6 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-5 × E: PASS (rounds=1, tokens=662+271)
+  trans-l-80 × A: PASS (rounds=1, tokens=9507+8932)
+  const-xs-7 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-7 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-6 × E: PASS (rounds=1, tokens=669+238)
+  const-xs-7 × A: PASS (rounds=1, tokens=856+364)
+  const-xs-7 × B: PASS (rounds=1, tokens=778+592)
+  const-xs-8 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-8 × A: PASS (rounds=1, tokens=849+373)
+  const-xs-8 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-7 × E: PASS (rounds=1, tokens=875+625)
+  const-xs-8 × B: PASS (rounds=1, tokens=771+544)
+  const-xs-9 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-9 × A: PASS (rounds=1, tokens=674+188)
+  const-xs-9 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-9 × B: PASS (rounds=1, tokens=596+314)
+  const-xs-8 × E: PASS (rounds=1, tokens=868+570)
+  const-xs-10 × A: PASS (rounds=1, tokens=703+232)
+  const-xs-10 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-9 × E: PASS (rounds=1, tokens=693+345)
+  const-xs-10 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-10 × B: PASS (rounds=1, tokens=625+348)
+  const-xs-11 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-11 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-11 × A: PASS (rounds=1, tokens=794+318)
+  const-xs-10 × E: PASS (rounds=1, tokens=722+371)
+  const-xs-11 × B: PASS (rounds=1, tokens=716+475)
+  const-xs-12 × A: PASS (rounds=1, tokens=619+106)
+  const-xs-12 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-12 × B: PASS (rounds=1, tokens=541+189)
+  const-xs-12 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-11 × E: PASS (rounds=1, tokens=813+496)
+  const-s-13 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-13 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-12 × E: PASS (rounds=1, tokens=638+222)
+  const-s-13 × A: PASS (rounds=1, tokens=1027+664)
+  const-s-13 × B: PASS (rounds=1, tokens=949+1063)
+  const-s-14 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-14 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-14 × A: PASS (rounds=1, tokens=981+621)
+  const-s-13 × E: PASS (rounds=1, tokens=1046+1056)
+  const-s-14 × B: PASS (rounds=1, tokens=903+990)
+  const-s-15 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-15 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-15 × A: PASS (rounds=1, tokens=1411+1028)
+  const-s-14 × E: PASS (rounds=1, tokens=1000+999)
+  trans-l-80 × B: fail (rounds=1, tokens=13184+12693)
+  const-s-16 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-16 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-15 × B: PASS (rounds=1, tokens=1333+1596)
+  const-s-15 × E: PASS (rounds=1, tokens=1430+1592)
+  const-s-16 × A: PASS (rounds=1, tokens=1385+1144)
+  const-s-17 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-17 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-16 × B: PASS (rounds=1, tokens=1307+1688)
+  const-s-17 × A: PASS (rounds=1, tokens=1137+810)
+  const-s-18 × A: PASS (rounds=1, tokens=1127+617)
+  const-s-18 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-18 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-17 × B: PASS (rounds=1, tokens=1059+1204)
+  const-s-16 × E: PASS (rounds=1, tokens=1404+1732)
+  const-s-17 × E: PASS (rounds=1, tokens=1156+1213)
+  const-s-19 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-19 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-18 × B: PASS (rounds=1, tokens=1049+1037)
+  const-s-18 × E: PASS (rounds=1, tokens=1146+957)
+  const-s-19 × A: PASS (rounds=1, tokens=1402+1172)
+  const-s-20 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-20 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-20 × A: PASS (rounds=1, tokens=1224+945)
+  const-s-19 × B: PASS (rounds=1, tokens=1324+1708)
+  const-s-19 × E: PASS (rounds=1, tokens=1421+1684)
+  const-s-21 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-21 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-21 × A: PASS (rounds=1, tokens=1298+935)
+  const-s-20 × B: PASS (rounds=1, tokens=1146+1476)
+  const-s-20 × E: PASS (rounds=1, tokens=1243+1519)
+  const-s-22 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-22 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-22 × A: PASS (rounds=1, tokens=1141+718)
+  const-s-21 × B: PASS (rounds=1, tokens=1220+1444)
+  const-s-21 × E: PASS (rounds=1, tokens=1317+1428)
+  const-s-22 × B: PASS (rounds=1, tokens=1063+1148)
+  const-s-23 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-23 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-23 × A: PASS (rounds=1, tokens=1312+990)
+  const-s-22 × E: PASS (rounds=1, tokens=1160+1139)
+  const-s-24 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-24 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-24 × A: PASS (rounds=1, tokens=1408+1063)
+  const-s-23 × B: PASS (rounds=1, tokens=1234+1538)
+  const-s-23 × E: PASS (rounds=1, tokens=1331+1552)
+  refer-xs-1 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-1 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-24 × B: PASS (rounds=1, tokens=1330+1624)
+  refer-xs-1 × E: fail (rounds=2, tokens=2479+144)
+  const-s-24 × E: PASS (rounds=1, tokens=1427+1582)
+  refer-xs-1 × A: fail (rounds=2, tokens=2632+1040)
+  refer-xs-2 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-2 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-1 × B: fail (rounds=2, tokens=2953+1394)
+  refer-xs-2 × E: fail (rounds=2, tokens=1670+144)
+  refer-xs-2 × B: fail (rounds=2, tokens=1737+584)
+  refer-xs-3 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-3 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-2 × A: fail (rounds=2, tokens=1718+518)
+  refer-xs-3 × A: PASS (rounds=2, tokens=1909+584)
+  refer-xs-4 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-4 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-3 × E: PASS (rounds=2, tokens=1884+178)
+  refer-xs-3 × B: PASS (rounds=2, tokens=2009+770)
+  refer-xs-4 × E: PASS (rounds=2, tokens=2333+177)
+  refer-xs-5 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-4 × A: PASS (rounds=2, tokens=2355+868)
+  refer-xs-5 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-4 × B: PASS (rounds=2, tokens=2682+1208)
+  refer-xs-5 × A: PASS (rounds=2, tokens=2240+774)
+  refer-xs-6 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-5 × E: PASS (rounds=2, tokens=2223+147)
+  refer-xs-6 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-6 × A: PASS (rounds=2, tokens=1921+564)
+  refer-xs-5 × B: PASS (rounds=2, tokens=2563+1126)
+  refer-xs-7 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-6 × E: PASS (rounds=2, tokens=1922+158)
+  refer-xs-7 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-6 × B: PASS (rounds=2, tokens=2093+814)
+  refer-xs-7 × E: fail (rounds=2, tokens=2245+141)
+  refer-xs-7 × A: PASS (rounds=2, tokens=2225+766)
+  refer-xs-8 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-8 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-8 × A: PASS (rounds=2, tokens=1754+456)
+  refer-xs-8 × E: PASS (rounds=2, tokens=1809+153)
+  refer-s-9 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-9 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-7 × B: fail (rounds=2, tokens=2601+1154)
+  refer-xs-8 × B: PASS (rounds=2, tokens=1945+724)
+  refer-s-9 × E: PASS (rounds=2, tokens=5070+131)
+  refer-s-10 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-10 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-10 × E: PASS (rounds=2, tokens=4240+145)
+  refer-s-9 × A: PASS (rounds=2, tokens=5322+2834)
+  refer-s-10 × A: PASS (rounds=2, tokens=4360+2190)
+  refer-s-11 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-11 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-11 × E: PASS (rounds=2, tokens=5313+174)
+  refer-s-10 × B: PASS (rounds=2, tokens=5577+3130)
+  refer-s-9 × B: PASS (rounds=2, tokens=6851+3986)
+  refer-s-12 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-12 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-12 × E: PASS (rounds=2, tokens=3877+162)
+  refer-s-11 × A: PASS (rounds=2, tokens=5635+3042)
+  refer-s-12 × A: PASS (rounds=2, tokens=3901+1882)
+  refer-s-13 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-13 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-13 × E: PASS (rounds=2, tokens=4801+164)
+  refer-s-12 × B: PASS (rounds=2, tokens=5024+2771)
+  refer-s-11 × B: PASS (rounds=2, tokens=7166+4203)
+  refer-s-14 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-14 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-13 × A: PASS (rounds=2, tokens=4951+2596)
+  refer-s-14 × E: fail (rounds=2, tokens=4611+142)
+  refer-s-13 × B: PASS (rounds=2, tokens=6408+3697)
+  refer-s-15 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-15 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-14 × A: fail (rounds=2, tokens=4729+2444)
+  refer-s-15 × A: PASS (rounds=2, tokens=3727+1766)
+  refer-s-15 × E: fail (rounds=4, tokens=7759+344)
+  refer-s-16 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-16 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-14 × B: fail (rounds=2, tokens=6147+3522)
+  refer-s-15 × B: PASS (rounds=2, tokens=4565+2452)
+  refer-s-16 × E: PASS (rounds=2, tokens=4350+183)
+  refer-s-17 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-17 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-17 × E: PASS (rounds=2, tokens=3564+147)
+  refer-s-16 × A: PASS (rounds=2, tokens=4467+2259)
+  refer-s-17 × A: PASS (rounds=2, tokens=3698+1748)
+  refer-s-18 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-18 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-17 × B: PASS (rounds=2, tokens=4560+2450)
+  refer-s-16 × B: PASS (rounds=2, tokens=5711+3225)
+  refer-s-18 × E: PASS (rounds=2, tokens=4104+183)
+  refer-s-19 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-19 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-18 × A: PASS (rounds=2, tokens=4260+2117)
+  refer-s-19 × E: PASS (rounds=2, tokens=4012+159)
+  refer-s-18 × B: PASS (rounds=2, tokens=5345+2981)
+  refer-s-20 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-20 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-19 × A: PASS (rounds=2, tokens=4091+2006)
+  refer-s-20 × E: fail (rounds=2, tokens=4458+203)
+  refer-s-19 × B: PASS (rounds=2, tokens=5222+2891)
+  refer-m-21 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-21 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-20 × A: PASS (rounds=2, tokens=4541+2314)
+  refer-m-21 × E: PASS (rounds=2, tokens=7769+184)
+  refer-s-20 × B: fail (rounds=2, tokens=5868+3368)
+  refer-m-22 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-22 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-22 × E: PASS (rounds=2, tokens=9802+185)
+  refer-m-21 × A: PASS (rounds=2, tokens=8083+4676)
+  refer-m-21 × B: PASS (rounds=2, tokens=10840+6653)
+  refer-m-23 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-23 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-22 × A: PASS (rounds=2, tokens=10262+6130)
+  refer-m-23 × E: PASS (rounds=2, tokens=8063+168)
+  refer-m-23 × A: fail (rounds=2, tokens=8466+4930)
+  refer-m-24 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-24 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-24 × E: PASS (rounds=2, tokens=9117+161)
+  refer-m-22 × B: PASS (rounds=2, tokens=13879+8671)
+  refer-m-23 × B: PASS (rounds=2, tokens=11304+6960)
+  refer-m-25 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-25 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-25 × E: PASS (rounds=2, tokens=8448+159)
+  refer-m-24 × A: PASS (rounds=2, tokens=9469+5592)
+  refer-m-24 × B: PASS (rounds=2, tokens=12880+7996)
+  refer-m-25 × A: PASS (rounds=2, tokens=8847+5178)
+  refer-m-26 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-26 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-26 × E: PASS (rounds=2, tokens=11111+172)
+  refer-m-25 × B: PASS (rounds=2, tokens=11877+7329)
+  refer-m-27 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-27 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-27 × E: PASS (rounds=2, tokens=8582+156)
+  refer-m-26 × A: fail (rounds=2, tokens=11565+6995)
+  refer-m-27 × A: PASS (rounds=2, tokens=8967+5260)
+  refer-m-28 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-28 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-28 × E: PASS (rounds=2, tokens=11263+182)
+  refer-m-26 × B: PASS (rounds=2, tokens=15845+9979)
+  refer-m-27 × B: PASS (rounds=2, tokens=12087+7470)
+  refer-m-29 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-29 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-29 × E: PASS (rounds=2, tokens=10451+160)
+  refer-m-28 × A: PASS (rounds=2, tokens=11786+7146)
+  refer-m-29 × A: PASS (rounds=2, tokens=10938+6576)
+  refer-m-30 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-30 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-30 × E: fail (rounds=2, tokens=7823+188)
+  refer-m-30 × A: PASS (rounds=2, tokens=8071+4666)
+  refer-m-28 × B: PASS (rounds=2, tokens=16073+10143)
+  refer-m-31 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-31 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-31 × E: fail (rounds=2, tokens=9422+160)
+  refer-m-30 × B: fail (rounds=2, tokens=10946+6742)
+  refer-m-29 × B: PASS (rounds=2, tokens=14887+9339)
+  refer-m-32 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-32 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-32 × E: PASS (rounds=2, tokens=7686+203)
+  refer-m-31 × A: fail (rounds=2, tokens=9990+5942)
+  refer-m-32 × A: PASS (rounds=2, tokens=7881+4540)
+  refer-l-33 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-33 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-33 × E: PASS (rounds=2, tokens=17018+164)
+  refer-m-31 × B: PASS (rounds=2, tokens=13335+8307)
+  refer-m-32 × B: PASS (rounds=2, tokens=10693+6554)
+  refer-l-34 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-34 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-34 × E: fail (rounds=4, tokens=46922+428)
+  refer-l-33 × A: PASS (rounds=2, tokens=17649+11060)
+  refer-l-33 × B: PASS (rounds=2, tokens=24742+15929)
+  refer-l-35 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-35 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-35 × E: PASS (rounds=2, tokens=16974+161)
+  refer-l-34 × A: PASS (rounds=2, tokens=24202+15420)
+  refer-l-35 × A: fail (rounds=2, tokens=17748+11114)
+  refer-l-36 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-36 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-36 × E: PASS (rounds=2, tokens=21317+198)
+  refer-l-35 × B: PASS (rounds=2, tokens=24676+15858)
+  refer-l-34 × B: PASS (rounds=2, tokens=33603+21821)
+  refer-l-37 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-37 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-37 × E: PASS (rounds=2, tokens=19379+189)
+  refer-l-36 × A: PASS (rounds=2, tokens=22280+14144)
+  refer-l-37 × A: PASS (rounds=2, tokens=20178+12735)
+  refer-l-38 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-38 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-38 × E: PASS (rounds=4, tokens=48615+402)
+  refer-l-36 × B: PASS (rounds=2, tokens=31148+20195)
+  refer-l-38 × A: fail (rounds=2, tokens=24966+15929)
+  refer-l-39 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-39 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-39 × E: fail (rounds=4, tokens=35063+568)
+  refer-l-37 × B: PASS (rounds=2, tokens=28252+18249)
+  refer-l-39 × A: PASS (rounds=2, tokens=17372+10862)
+  refer-l-40 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-40 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-40 × E: PASS (rounds=2, tokens=24367+188)
+  readi-xs-1 × A: PASS (rounds=1, tokens=697+1)
+  readi-xs-1 × B: PASS (rounds=1, tokens=746+1)
+  readi-xs-1 × C: PASS (rounds=1, tokens=746+1)
+  readi-xs-1 × D: PASS (rounds=1, tokens=697+1)
+  readi-xs-1 × E: PASS (rounds=1, tokens=746+1)
+  readi-xs-2 × A: PASS (rounds=1, tokens=789+1)
+  readi-xs-2 × B: PASS (rounds=1, tokens=858+1)
+  readi-xs-2 × C: PASS (rounds=1, tokens=858+1)
+  readi-xs-2 × D: PASS (rounds=1, tokens=789+1)
+  readi-xs-2 × E: PASS (rounds=1, tokens=858+1)
+  readi-xs-3 × A: PASS (rounds=1, tokens=591+4)
+  readi-xs-3 × B: PASS (rounds=1, tokens=583+4)
+  readi-xs-3 × C: PASS (rounds=1, tokens=583+4)
+  readi-xs-3 × D: PASS (rounds=1, tokens=591+4)
+  readi-xs-3 × E: PASS (rounds=1, tokens=583+4)
+  readi-xs-4 × A: PASS (rounds=1, tokens=640+1)
+  readi-xs-4 × B: PASS (rounds=1, tokens=664+1)
+  readi-xs-4 × C: PASS (rounds=1, tokens=664+1)
+  readi-xs-4 × D: PASS (rounds=1, tokens=640+1)
+  readi-xs-4 × E: PASS (rounds=1, tokens=664+1)
+  readi-xs-5 × A: PASS (rounds=1, tokens=729+1)
+  refer-l-38 × B: PASS (rounds=2, tokens=34880+22667)
+  readi-xs-5 × B: PASS (rounds=1, tokens=777+1)
+  readi-xs-5 × D: PASS (rounds=1, tokens=729+1)
+  readi-xs-5 × C: PASS (rounds=1, tokens=777+1)
+  readi-xs-5 × E: PASS (rounds=1, tokens=777+1)
+  readi-xs-6 × A: PASS (rounds=1, tokens=712+1)
+  readi-xs-6 × B: PASS (rounds=1, tokens=748+1)
+  readi-xs-6 × C: PASS (rounds=1, tokens=748+1)
+  readi-xs-6 × E: PASS (rounds=1, tokens=748+1)
+  readi-xs-6 × D: PASS (rounds=1, tokens=712+1)
+  readi-xs-7 × A: PASS (rounds=1, tokens=664+1)
+  readi-xs-7 × B: PASS (rounds=1, tokens=687+1)
+  readi-xs-7 × C: PASS (rounds=1, tokens=687+1)
+  readi-xs-7 × D: PASS (rounds=1, tokens=664+1)
+  readi-xs-7 × E: PASS (rounds=1, tokens=687+1)
+  readi-xs-8 × A: PASS (rounds=1, tokens=609+1)
+  readi-xs-8 × C: PASS (rounds=1, tokens=574+1)
+  readi-xs-8 × B: PASS (rounds=1, tokens=574+1)
+  readi-xs-8 × D: PASS (rounds=1, tokens=609+1)
+  readi-xs-8 × E: PASS (rounds=1, tokens=574+1)
+  readi-xs-9 × A: PASS (rounds=1, tokens=722+1)
+  readi-xs-9 × B: PASS (rounds=1, tokens=744+1)
+  readi-xs-9 × C: PASS (rounds=1, tokens=744+1)
+  readi-xs-9 × E: PASS (rounds=1, tokens=744+1)
+  refer-l-39 × B: PASS (rounds=2, tokens=24516+15765)
+  readi-xs-9 × D: PASS (rounds=1, tokens=722+1)
+  readi-xs-10 × A: PASS (rounds=1, tokens=736+1)
+  readi-xs-10 × B: PASS (rounds=1, tokens=760+1)
+  readi-xs-10 × C: PASS (rounds=1, tokens=760+1)
+  readi-xs-10 × D: PASS (rounds=1, tokens=736+1)
+  readi-xs-10 × E: PASS (rounds=1, tokens=760+1)
+  readi-xs-11 × B: PASS (rounds=1, tokens=623+1)
+  readi-xs-11 × A: PASS (rounds=1, tokens=612+1)
+  readi-xs-11 × C: PASS (rounds=1, tokens=623+1)
+  readi-xs-11 × D: PASS (rounds=1, tokens=612+1)
+  readi-xs-11 × E: PASS (rounds=1, tokens=623+1)
+  readi-xs-12 × A: PASS (rounds=1, tokens=706+1)
+  readi-xs-12 × B: PASS (rounds=1, tokens=730+1)
+  readi-xs-12 × D: PASS (rounds=1, tokens=706+1)
+  readi-xs-12 × C: PASS (rounds=1, tokens=730+1)
+  readi-xs-12 × E: PASS (rounds=1, tokens=730+1)
+  readi-xs-13 × A: PASS (rounds=1, tokens=672+3)
+  readi-xs-13 × B: PASS (rounds=1, tokens=724+3)
+  readi-xs-13 × C: PASS (rounds=1, tokens=724+3)
+  readi-xs-13 × E: PASS (rounds=1, tokens=724+3)
+  readi-xs-13 × D: PASS (rounds=1, tokens=672+3)
+  readi-xs-14 × B: PASS (rounds=1, tokens=618+1)
+  readi-xs-14 × A: PASS (rounds=1, tokens=609+1)
+  readi-xs-14 × C: PASS (rounds=1, tokens=618+1)
+  readi-xs-14 × D: fail (rounds=1, tokens=609+1)
+  readi-xs-14 × E: PASS (rounds=1, tokens=618+1)
+  readi-s-15 × A: PASS (rounds=1, tokens=1344+1)
+  readi-s-15 × C: PASS (rounds=1, tokens=1680+1)
+  readi-s-15 × D: PASS (rounds=1, tokens=1344+1)
+  readi-s-15 × B: PASS (rounds=1, tokens=1680+1)
+  readi-s-15 × E: PASS (rounds=1, tokens=1680+1)
+  readi-s-16 × B: PASS (rounds=1, tokens=1580+1)
+  readi-s-16 × A: PASS (rounds=1, tokens=1265+1)
+  readi-s-16 × C: PASS (rounds=1, tokens=1580+1)
+  readi-s-16 × D: PASS (rounds=1, tokens=1265+1)
+  readi-s-16 × E: PASS (rounds=1, tokens=1580+1)
+  readi-s-17 × A: PASS (rounds=1, tokens=1719+1)
+  readi-s-17 × B: PASS (rounds=1, tokens=2181+1)
+  readi-s-17 × C: PASS (rounds=1, tokens=2181+1)
+  readi-s-17 × D: PASS (rounds=1, tokens=1719+1)
+  readi-s-17 × E: PASS (rounds=1, tokens=2181+1)
+  readi-s-18 × A: PASS (rounds=1, tokens=1487+23)
+  readi-s-18 × C: fail (rounds=1, tokens=1762+37)
+  readi-s-18 × B: fail (rounds=1, tokens=1762+37)
+  readi-s-18 × D: PASS (rounds=1, tokens=1487+23)
+  readi-s-18 × E: fail (rounds=1, tokens=1762+37)
+  readi-s-19 × A: PASS (rounds=1, tokens=1369+3)
+  readi-s-19 × B: PASS (rounds=1, tokens=1649+3)
+  readi-s-19 × C: PASS (rounds=1, tokens=1649+3)
+  readi-s-19 × D: PASS (rounds=1, tokens=1369+3)
+  readi-s-20 × A: PASS (rounds=1, tokens=1489+1)
+  readi-s-19 × E: PASS (rounds=1, tokens=1649+3)
+  readi-s-20 × B: PASS (rounds=1, tokens=1801+1)
+  readi-s-20 × C: PASS (rounds=1, tokens=1801+1)
+  readi-s-20 × D: PASS (rounds=1, tokens=1489+1)
+  readi-s-21 × A: PASS (rounds=1, tokens=1164+1)
+  readi-s-20 × E: PASS (rounds=1, tokens=1801+1)
+  readi-s-21 × B: PASS (rounds=1, tokens=1387+1)
+  readi-s-21 × C: PASS (rounds=1, tokens=1387+1)
+  readi-s-21 × D: PASS (rounds=1, tokens=1164+1)
+  readi-s-21 × E: PASS (rounds=1, tokens=1387+1)
+  readi-s-22 × A: PASS (rounds=1, tokens=1731+1)
+  readi-s-22 × B: PASS (rounds=1, tokens=2159+1)
+  readi-s-22 × C: PASS (rounds=1, tokens=2159+1)
+  readi-s-23 × A: PASS (rounds=1, tokens=1716+1)
+  readi-s-22 × E: PASS (rounds=1, tokens=2159+1)
+  readi-s-22 × D: PASS (rounds=1, tokens=1731+1)
+  readi-s-23 × C: PASS (rounds=1, tokens=2175+1)
+  readi-s-23 × B: PASS (rounds=1, tokens=2175+1)
+  readi-s-23 × D: PASS (rounds=1, tokens=1716+1)
+  readi-s-23 × E: PASS (rounds=1, tokens=2175+1)
+  readi-s-24 × A: PASS (rounds=1, tokens=1683+1)
+  readi-s-24 × B: PASS (rounds=1, tokens=2157+1)
+  readi-s-24 × C: PASS (rounds=1, tokens=2157+1)
+  readi-s-24 × D: PASS (rounds=1, tokens=1683+1)
+  readi-s-24 × E: PASS (rounds=1, tokens=2157+1)
+  readi-s-25 × A: PASS (rounds=1, tokens=1134+1)
+  readi-s-25 × B: PASS (rounds=1, tokens=1345+1)
+  refer-l-40 × A: fail (rounds=2, tokens=25845+16512)
+  readi-s-25 × C: PASS (rounds=1, tokens=1345+1)
+  readi-s-25 × D: PASS (rounds=1, tokens=1134+1)
+  readi-s-25 × E: PASS (rounds=1, tokens=1345+1)
+  readi-s-26 × A: PASS (rounds=1, tokens=1165+1)
+  readi-s-26 × B: PASS (rounds=1, tokens=1446+1)
+  readi-s-26 × C: PASS (rounds=1, tokens=1446+1)
+  readi-s-26 × D: PASS (rounds=1, tokens=1165+1)
+  readi-s-26 × E: PASS (rounds=1, tokens=1446+1)
+  readi-s-27 × A: PASS (rounds=1, tokens=1372+1)
+  readi-s-27 × B: PASS (rounds=1, tokens=1688+1)
+  readi-s-27 × C: PASS (rounds=1, tokens=1688+1)
+  readi-s-27 × D: PASS (rounds=1, tokens=1372+1)
+  readi-s-27 × E: PASS (rounds=1, tokens=1688+1)
+  readi-s-28 × A: PASS (rounds=1, tokens=1249+6)
+  readi-s-28 × B: PASS (rounds=1, tokens=1473+6)
+  readi-s-28 × C: PASS (rounds=1, tokens=1473+6)
+  readi-s-28 × E: PASS (rounds=1, tokens=1473+6)
+  readi-s-28 × D: PASS (rounds=1, tokens=1249+6)
+  readi-m-29 × A: PASS (rounds=1, tokens=3501+3)
+  readi-m-29 × B: PASS (rounds=1, tokens=4646+3)
+  readi-m-29 × D: PASS (rounds=1, tokens=3501+3)
+  readi-m-29 × C: PASS (rounds=1, tokens=4646+3)
+  readi-m-29 × E: PASS (rounds=1, tokens=4646+3)
+  readi-m-30 × A: PASS (rounds=1, tokens=2898+1)
+  readi-m-30 × B: PASS (rounds=1, tokens=3867+1)
+  readi-m-30 × C: PASS (rounds=1, tokens=3867+1)
+  readi-m-30 × D: PASS (rounds=1, tokens=2898+1)
+  readi-m-31 × A: PASS (rounds=1, tokens=3883+2)
+  readi-m-30 × E: PASS (rounds=1, tokens=3867+1)
+  readi-m-31 × B: fail (rounds=1, tokens=5342+2)
+  readi-m-31 × C: fail (rounds=1, tokens=5342+2)
+  readi-m-31 × D: PASS (rounds=1, tokens=3883+2)
+  readi-m-32 × A: PASS (rounds=1, tokens=3250+1)
+  readi-m-31 × E: fail (rounds=1, tokens=5342+2)
+  readi-m-32 × C: PASS (rounds=1, tokens=4380+1)
+  readi-m-32 × B: PASS (rounds=1, tokens=4380+1)
+  readi-m-32 × D: PASS (rounds=1, tokens=3250+1)
+  readi-m-32 × E: PASS (rounds=1, tokens=4380+1)
+  readi-m-33 × A: PASS (rounds=1, tokens=3150+1)
+  readi-m-33 × B: PASS (rounds=1, tokens=4250+1)
+  readi-m-33 × C: PASS (rounds=1, tokens=4250+1)
+  readi-m-33 × D: PASS (rounds=1, tokens=3150+1)
+  readi-m-34 × A: fail (rounds=1, tokens=3309+1)
+  readi-m-33 × E: PASS (rounds=1, tokens=4250+1)
+  readi-m-34 × B: PASS (rounds=1, tokens=4460+1)
+  readi-m-34 × C: PASS (rounds=1, tokens=4460+1)
+  readi-m-34 × E: PASS (rounds=1, tokens=4460+1)
+  readi-m-34 × D: fail (rounds=1, tokens=3309+1)
+  readi-m-35 × A: PASS (rounds=1, tokens=2913+1)
+  readi-m-35 × C: PASS (rounds=1, tokens=3902+1)
+  readi-m-35 × B: PASS (rounds=1, tokens=3902+1)
+  readi-m-35 × E: PASS (rounds=1, tokens=3902+1)
+  readi-m-36 × A: PASS (rounds=1, tokens=4158+2)
+  readi-m-35 × D: PASS (rounds=1, tokens=2913+1)
+  readi-m-36 × B: fail (rounds=1, tokens=5685+2)
+  readi-m-36 × C: PASS (rounds=1, tokens=5685+2)
+  readi-m-37 × A: PASS (rounds=1, tokens=3281+1)
+  readi-m-36 × D: fail (rounds=1, tokens=4158+2)
+  readi-m-36 × E: fail (rounds=1, tokens=5685+2)
+  readi-m-37 × D: PASS (rounds=1, tokens=3281+1)
+  readi-m-37 × B: PASS (rounds=1, tokens=4384+1)
+  readi-m-37 × E: PASS (rounds=1, tokens=4384+1)
+  readi-m-37 × C: PASS (rounds=1, tokens=4384+1)
+  readi-m-38 × B: PASS (rounds=1, tokens=3905+3)
+  readi-m-38 × C: PASS (rounds=1, tokens=3905+3)
+  readi-m-38 × D: PASS (rounds=1, tokens=2926+3)
+  readi-m-38 × A: PASS (rounds=1, tokens=2926+3)
+  readi-m-38 × E: PASS (rounds=1, tokens=3905+3)
+  readi-m-39 × B: PASS (rounds=1, tokens=3865+1)
+  readi-m-39 × C: PASS (rounds=1, tokens=3865+1)
+  readi-m-39 × A: fail (rounds=1, tokens=2889+1)
+  readi-m-39 × D: fail (rounds=1, tokens=2889+1)
+  readi-m-40 × A: PASS (rounds=1, tokens=2763+1)
+  readi-m-39 × E: PASS (rounds=1, tokens=3865+1)
+  readi-m-40 × B: PASS (rounds=1, tokens=3676+1)
+  readi-m-40 × C: PASS (rounds=1, tokens=3676+1)
+  readi-m-40 × D: PASS (rounds=1, tokens=2763+1)
+  readi-m-41 × A: fail (rounds=1, tokens=2824+2)
+  readi-m-40 × E: PASS (rounds=1, tokens=3676+1)
+  readi-m-41 × B: PASS (rounds=1, tokens=3724+1)
+  readi-m-41 × E: PASS (rounds=1, tokens=3724+1)
+  readi-m-41 × C: PASS (rounds=1, tokens=3724+1)
+  readi-m-42 × A: PASS (rounds=1, tokens=3113+1)
+  readi-m-41 × D: fail (rounds=1, tokens=2824+2)
+  readi-m-42 × B: PASS (rounds=1, tokens=4224+1)
+  readi-m-42 × C: PASS (rounds=1, tokens=4224+1)
+  readi-m-42 × D: PASS (rounds=1, tokens=3113+1)
+  readi-m-42 × E: PASS (rounds=1, tokens=4224+1)
+  readi-l-43 × A: PASS (rounds=1, tokens=5998+1)
+  readi-l-43 × C: PASS (rounds=1, tokens=8307+1)
+  readi-l-43 × B: PASS (rounds=1, tokens=8307+1)
+  readi-l-43 × D: PASS (rounds=1, tokens=5998+1)
+  readi-l-43 × E: PASS (rounds=1, tokens=8307+1)
+  readi-l-44 × A: PASS (rounds=1, tokens=6853+3)
+  refer-l-40 × B: PASS (rounds=2, tokens=35733+23242)
+  readi-l-44 × B: PASS (rounds=1, tokens=9439+3)
+  readi-l-44 × C: PASS (rounds=1, tokens=9439+3)
+  readi-l-44 × D: PASS (rounds=1, tokens=6853+3)
+  readi-l-44 × E: PASS (rounds=1, tokens=9439+3)
+  readi-l-45 × A: PASS (rounds=1, tokens=6418+1)
+  readi-l-45 × C: PASS (rounds=1, tokens=8864+1)
+  readi-l-45 × D: PASS (rounds=1, tokens=6418+1)
+  readi-l-45 × E: PASS (rounds=1, tokens=8864+1)
+  readi-l-45 × B: PASS (rounds=1, tokens=8864+1)
+  readi-l-46 × A: fail (rounds=1, tokens=7981+2)
+  readi-l-46 × B: fail (rounds=1, tokens=11109+2)
+  readi-l-46 × C: fail (rounds=1, tokens=11109+2)
+  readi-l-46 × E: fail (rounds=1, tokens=11109+2)
+  readi-l-47 × A: PASS (rounds=1, tokens=9501+1)
+  readi-l-46 × D: fail (rounds=1, tokens=7981+2)
+  readi-l-47 × B: PASS (rounds=1, tokens=13297+1)
+  readi-l-47 × C: PASS (rounds=1, tokens=13297+1)
+  readi-l-47 × E: PASS (rounds=1, tokens=13297+1)
+  readi-l-47 × D: PASS (rounds=1, tokens=9501+1)
+  readi-l-48 × A: PASS (rounds=1, tokens=7997+1)
+  readi-l-48 × B: PASS (rounds=1, tokens=10928+1)
+  readi-l-48 × C: PASS (rounds=1, tokens=10928+1)
+  readi-l-48 × D: PASS (rounds=1, tokens=7997+1)
+  readi-l-48 × E: PASS (rounds=1, tokens=10928+1)
+  readi-l-49 × C: PASS (rounds=1, tokens=9216+1)
+  readi-l-49 × D: fail (rounds=1, tokens=6803+1)
+  readi-l-49 × A: PASS (rounds=1, tokens=6803+1)
+  readi-l-49 × E: PASS (rounds=1, tokens=9216+1)
+  readi-l-49 × B: PASS (rounds=1, tokens=9216+1)
+  readi-l-50 × A: fail (rounds=1, tokens=8022+2)
+  readi-l-50 × B: fail (rounds=1, tokens=11137+2)
+  readi-l-50 × C: fail (rounds=1, tokens=11137+2)
+  readi-l-50 × E: fail (rounds=1, tokens=11137+2)
+  readi-l-50 × D: fail (rounds=1, tokens=8022+2)
+  readi-l-51 × A: PASS (rounds=1, tokens=7905+2)
+  readi-l-51 × B: PASS (rounds=1, tokens=10907+2)
+  readi-l-51 × E: PASS (rounds=1, tokens=10907+2)
+  readi-l-52 × A: PASS (rounds=1, tokens=6004+1)
+  readi-l-51 × C: PASS (rounds=1, tokens=10907+2)
+  readi-l-51 × D: PASS (rounds=1, tokens=7905+2)
+  readi-l-52 × B: PASS (rounds=1, tokens=8368+1)
+  readi-l-52 × C: PASS (rounds=1, tokens=8368+1)
+  readi-l-52 × D: PASS (rounds=1, tokens=6004+1)
+  readi-l-52 × E: PASS (rounds=1, tokens=8368+1)
+  readi-l-53 × B: PASS (rounds=1, tokens=8852+8)
+  readi-l-53 × A: PASS (rounds=1, tokens=6424+8)
+  readi-l-53 × C: PASS (rounds=1, tokens=8852+8)
+  readi-l-53 × D: PASS (rounds=1, tokens=6424+8)
+  readi-l-54 × A: PASS (rounds=1, tokens=6235+3)
+  readi-l-54 × C: PASS (rounds=1, tokens=8549+3)
+  readi-l-54 × B: PASS (rounds=1, tokens=8549+3)
+  readi-l-54 × E: PASS (rounds=1, tokens=8549+3)
+  readi-l-54 × D: PASS (rounds=1, tokens=6235+3)
+  readi-l-53 × E: PASS (rounds=1, tokens=8852+8)
+  readi-l-55 × A: PASS (rounds=1, tokens=6234+1)
+  readi-l-55 × B: PASS (rounds=1, tokens=8545+1)
+  readi-l-55 × D: PASS (rounds=1, tokens=6234+1)
+  readi-l-55 × C: PASS (rounds=1, tokens=8545+1)
+  readi-l-55 × E: PASS (rounds=1, tokens=8545+1)
+  readi-l-56 × A: fail (rounds=1, tokens=8129+2)
+  readi-l-56 × B: fail (rounds=1, tokens=11297+2)
+  readi-l-56 × C: fail (rounds=1, tokens=11297+2)
+  readi-l-56 × E: fail (rounds=1, tokens=11297+2)
+  readi-l-56 × D: fail (rounds=1, tokens=8129+2)
+=== done: 630/1000 new records passed
+
+=== google/gemini-3.5-flash × best → results/raw/main-google_gemini-3.5-flash-best.jsonl
+Running 1000 task×condition pairs (0 already done) with model google/gemini-3.5-flash, regime best
+  trans-xs-1 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-1 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-1 × E: PASS (rounds=1, tokens=965+52)
+  trans-xs-2 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-1 × A: PASS (rounds=1, tokens=915+139)
+  trans-xs-2 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-1 × B: PASS (rounds=1, tokens=1006+212)
+  trans-xs-2 × E: PASS (rounds=1, tokens=1220+49)
+  trans-xs-2 × A: PASS (rounds=1, tokens=1093+305)
+  trans-xs-3 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-2 × B: PASS (rounds=1, tokens=1261+445)
+  trans-xs-3 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-3 × E: PASS (rounds=1, tokens=1303+36)
+  trans-xs-3 × A: PASS (rounds=1, tokens=1185+295)
+  trans-xs-4 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-4 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-3 × B: PASS (rounds=1, tokens=1344+414)
+  trans-xs-4 × A: PASS (rounds=1, tokens=1038+280)
+  trans-xs-5 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-4 × E: PASS (rounds=1, tokens=1151+109)
+  trans-xs-5 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-4 × B: PASS (rounds=1, tokens=1192+433)
+  trans-xs-5 × A: PASS (rounds=1, tokens=1055+244)
+  trans-xs-6 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-6 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-5 × B: PASS (rounds=1, tokens=1190+357)
+  trans-xs-6 × A: PASS (rounds=1, tokens=957+180)
+  trans-xs-6 × B: PASS (rounds=1, tokens=1072+267)
+  trans-xs-5 × E: PASS (rounds=2, tokens=2445+132)
+  trans-xs-6 × E: PASS (rounds=1, tokens=1031+47)
+  trans-xs-7 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-7 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-7 × A: PASS (rounds=1, tokens=933+147)
+  trans-xs-7 × E: PASS (rounds=1, tokens=973+50)
+  trans-xs-8 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-7 × B: PASS (rounds=1, tokens=1014+200)
+  trans-xs-8 × A: PASS (rounds=1, tokens=972+116)
+  trans-xs-8 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-8 × B: PASS (rounds=1, tokens=1080+178)
+  trans-xs-9 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-9 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-8 × E: PASS (rounds=1, tokens=1039+36)
+  trans-xs-9 × E: PASS (rounds=1, tokens=1404+102)
+  trans-xs-10 × A: PASS (rounds=1, tokens=889+111)
+  trans-xs-10 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-10 × B: PASS (rounds=1, tokens=977+181)
+  trans-xs-9 × A: PASS (rounds=1, tokens=1269+504)
+  trans-xs-10 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-11 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-9 × B: PASS (rounds=1, tokens=1445+679)
+  trans-xs-11 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-10 × E: PASS (rounds=1, tokens=936+52)
+  trans-xs-11 × E: PASS (rounds=1, tokens=1101+45)
+  trans-xs-11 × B: PASS (rounds=1, tokens=1142+329)
+  trans-xs-12 × A: PASS (rounds=1, tokens=934+148)
+  trans-xs-12 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-12 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-12 × B: PASS (rounds=1, tokens=1033+219)
+  trans-xs-11 × A: PASS (rounds=1, tokens=1017+232)
+  trans-xs-13 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-13 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-12 × E: PASS (rounds=1, tokens=992+49)
+  trans-xs-13 × E: PASS (rounds=1, tokens=1210+36)
+  trans-xs-13 × A: PASS (rounds=1, tokens=1089+260)
+  trans-xs-14 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-14 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-13 × B: PASS (rounds=1, tokens=1251+372)
+  trans-xs-14 × A: PASS (rounds=1, tokens=1017+251)
+  trans-xs-15 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-14 × E: PASS (rounds=1, tokens=1099+99)
+  trans-xs-14 × B: PASS (rounds=1, tokens=1140+364)
+  trans-xs-15 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-15 × A: PASS (rounds=1, tokens=1050+239)
+  trans-xs-16 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-15 × B: PASS (rounds=1, tokens=1185+353)
+  trans-xs-16 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-16 × A: PASS (rounds=1, tokens=1031+253)
+  trans-xs-15 × E: PASS (rounds=2, tokens=2495+192)
+  trans-xs-16 × B: PASS (rounds=1, tokens=1203+407)
+  trans-xs-16 × E: PASS (rounds=1, tokens=1162+54)
+  trans-xs-17 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-17 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-17 × A: PASS (rounds=1, tokens=955+171)
+  trans-xs-18 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-17 × E: PASS (rounds=1, tokens=1017+45)
+  trans-xs-17 × B: PASS (rounds=1, tokens=1058+246)
+  trans-xs-18 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-18 × E: PASS (rounds=1, tokens=1276+32)
+  trans-xs-18 × A: PASS (rounds=1, tokens=1156+353)
+  trans-xs-19 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-19 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-18 × B: PASS (rounds=1, tokens=1317+470)
+  trans-xs-19 × A: PASS (rounds=1, tokens=1057+289)
+  trans-xs-19 × B: PASS (rounds=1, tokens=1202+423)
+  trans-xs-20 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-20 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-xs-19 × E: PASS (rounds=1, tokens=1161+88)
+  trans-xs-20 × E: PASS (rounds=1, tokens=1156+50)
+  trans-xs-20 × B: PASS (rounds=1, tokens=1197+361)
+  trans-xs-20 × A: PASS (rounds=1, tokens=1038+233)
+  trans-s-21 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-21 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-21 × E: PASS (rounds=1, tokens=2427+51)
+  trans-s-22 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-22 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-22 × E: PASS (rounds=1, tokens=1830+53)
+  trans-s-21 × A: PASS (rounds=1, tokens=1905+1121)
+  trans-s-22 × A: PASS (rounds=1, tokens=1533+746)
+  trans-s-23 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-22 × B: PASS (rounds=1, tokens=1871+1056)
+  trans-s-23 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-23 × E: PASS (rounds=1, tokens=2292+32)
+  trans-s-21 × B: PASS (rounds=1, tokens=2468+1656)
+  trans-s-23 × A: PASS (rounds=1, tokens=1855+658)
+  trans-s-24 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-24 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-23 × B: PASS (rounds=1, tokens=2333+918)
+  trans-s-24 × E: PASS (rounds=1, tokens=1778+90)
+  trans-s-25 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-25 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-24 × A: PASS (rounds=1, tokens=1494+728)
+  trans-s-24 × B: PASS (rounds=1, tokens=1819+1048)
+  trans-s-25 × E: PASS (rounds=3, tokens=7791+224)
+  trans-s-26 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-25 × A: PASS (rounds=1, tokens=2000+1185)
+  trans-s-26 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-26 × A: PASS (rounds=1, tokens=1771+983)
+  trans-s-26 × E: PASS (rounds=1, tokens=2164+54)
+  trans-s-25 × B: PASS (rounds=1, tokens=2475+1639)
+  trans-s-27 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-27 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-27 × E: PASS (rounds=1, tokens=2750+52)
+  trans-s-26 × B: PASS (rounds=1, tokens=2205+1389)
+  trans-s-28 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-27 × A: PASS (rounds=1, tokens=2220+1451)
+  trans-s-28 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-28 × A: PASS (rounds=1, tokens=2102+922)
+  trans-s-28 × E: PASS (rounds=1, tokens=2576+32)
+  trans-s-29 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-29 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-29 × E: PASS (rounds=1, tokens=1903+95)
+  trans-s-28 × B: PASS (rounds=1, tokens=2617+1331)
+  trans-s-27 × B: PASS (rounds=1, tokens=2791+1996)
+  trans-s-29 × A: PASS (rounds=1, tokens=1571+806)
+  trans-s-30 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-30 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-30 × E: PASS (rounds=1, tokens=1903+58)
+  trans-s-30 × A: PASS (rounds=1, tokens=1613+806)
+  trans-s-29 × B: PASS (rounds=1, tokens=1944+1167)
+  trans-s-31 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-31 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-31 × A: PASS (rounds=1, tokens=1472+681)
+  trans-s-31 × E: PASS (rounds=1, tokens=1767+51)
+  trans-s-32 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-32 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-30 × B: PASS (rounds=1, tokens=1944+1109)
+  trans-s-31 × B: PASS (rounds=1, tokens=1808+989)
+  trans-s-32 × E: PASS (rounds=1, tokens=2166+52)
+  trans-s-33 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-33 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-33 × E: PASS (rounds=1, tokens=1992+40)
+  trans-s-33 × A: PASS (rounds=1, tokens=1632+784)
+  trans-s-32 × A: PASS (rounds=1, tokens=1761+977)
+  trans-s-34 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-34 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-32 × B: PASS (rounds=1, tokens=2207+1395)
+  trans-s-34 × E: PASS (rounds=1, tokens=1765+116)
+  trans-s-34 × A: PASS (rounds=1, tokens=1498+737)
+  trans-s-33 × B: PASS (rounds=1, tokens=2033+1138)
+  trans-s-35 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-35 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-35 × E: PASS (rounds=1, tokens=2417+58)
+  trans-s-34 × B: PASS (rounds=1, tokens=1806+1035)
+  trans-s-36 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-36 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-36 × E: PASS (rounds=1, tokens=1995+51)
+  trans-s-36 × A: PASS (rounds=1, tokens=1634+846)
+  trans-s-35 × A: PASS (rounds=1, tokens=1977+1163)
+  trans-s-37 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-37 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-36 × B: PASS (rounds=1, tokens=2036+1220)
+  trans-s-37 × E: PASS (rounds=1, tokens=2012+48)
+  trans-s-35 × B: PASS (rounds=1, tokens=2458+1616)
+  trans-s-38 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-38 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-37 × A: PASS (rounds=1, tokens=1640+855)
+  trans-s-38 × E: PASS (rounds=1, tokens=1808+40)
+  trans-s-38 × A: PASS (rounds=1, tokens=1532+701)
+  trans-s-37 × B: PASS (rounds=1, tokens=2053+1240)
+  trans-s-39 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-39 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-39 × E: PASS (rounds=1, tokens=2104+80)
+  trans-s-38 × B: PASS (rounds=1, tokens=1849+971)
+  trans-s-40 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-40 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-40 × A: PASS (rounds=1, tokens=1426+613)
+  trans-s-40 × E: PASS (rounds=1, tokens=1729+54)
+  trans-s-39 × B: PASS (rounds=1, tokens=2145+1372)
+  trans-m-41 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-41 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-s-40 × B: PASS (rounds=1, tokens=1770+929)
+  trans-m-41 × E: PASS (rounds=1, tokens=5545+50)
+  trans-s-39 × A: PASS (rounds=2, tokens=4456+1915)
+  trans-m-42 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-42 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-42 × E: PASS (rounds=1, tokens=6204+58)
+  trans-m-41 × A: PASS (rounds=1, tokens=4103+3320)
+  trans-m-43 × A: PASS (rounds=1, tokens=2964+2139)
+  trans-m-43 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-43 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-43 × E: PASS (rounds=1, tokens=3925+44)
+  trans-m-41 × B: PASS (rounds=1, tokens=5586+4775)
+  trans-m-42 × A: PASS (rounds=1, tokens=4594+3807)
+  trans-m-44 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-44 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-44 × E: PASS (rounds=1, tokens=4197+89)
+  trans-m-42 × B: PASS (rounds=1, tokens=6245+5430)
+  trans-m-43 × B: PASS (rounds=1, tokens=3966+3094)
+  trans-m-45 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-45 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-45 × E: PASS (rounds=1, tokens=4234+58)
+  trans-m-44 × A: PASS (rounds=1, tokens=3274+2508)
+  trans-m-45 × A: PASS (rounds=1, tokens=3258+2451)
+  trans-m-46 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-46 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-44 × B: PASS (rounds=1, tokens=4238+3468)
+  trans-m-46 × E: PASS (rounds=1, tokens=4312+56)
+  trans-m-45 × B: PASS (rounds=1, tokens=4275+3440)
+  trans-m-46 × A: PASS (rounds=1, tokens=3313+2523)
+  trans-m-47 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-47 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-47 × E: PASS (rounds=1, tokens=4308+56)
+  trans-m-46 × B: PASS (rounds=1, tokens=4353+3535)
+  trans-m-48 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-48 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-47 × A: PASS (rounds=1, tokens=3229+2442)
+  trans-m-48 × E: PASS (rounds=1, tokens=5271+40)
+  trans-m-47 × B: PASS (rounds=1, tokens=4349+3534)
+  trans-m-49 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-49 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-49 × E: PASS (rounds=1, tokens=4227+71)
+  trans-m-48 × A: PASS (rounds=1, tokens=3968+3145)
+  trans-m-49 × A: PASS (rounds=1, tokens=3228+2461)
+  trans-m-50 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-48 × B: PASS (rounds=1, tokens=5312+4445)
+  trans-m-50 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-50 × E: PASS (rounds=2, tokens=8629+152)
+  trans-m-49 × B: PASS (rounds=1, tokens=4268+3486)
+  trans-m-51 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-51 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-50 × A: PASS (rounds=1, tokens=3231+2417)
+  trans-m-51 × E: PASS (rounds=1, tokens=4297+45)
+  trans-m-50 × B: PASS (rounds=1, tokens=4274+3432)
+  trans-m-51 × A: PASS (rounds=1, tokens=3255+2467)
+  trans-m-52 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-52 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-52 × E: PASS (rounds=1, tokens=5433+49)
+  trans-m-51 × B: PASS (rounds=1, tokens=4338+3522)
+  trans-m-53 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-53 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-53 × E: PASS (rounds=1, tokens=5422+40)
+  trans-m-52 × A: PASS (rounds=1, tokens=4003+3221)
+  trans-m-53 × A: PASS (rounds=1, tokens=4018+2935)
+  trans-m-54 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-54 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-52 × B: PASS (rounds=1, tokens=5474+4664)
+  trans-m-54 × E: PASS (rounds=1, tokens=5864+101)
+  trans-m-53 × B: PASS (rounds=1, tokens=5463+4228)
+  trans-m-55 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-55 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-55 × E: PASS (rounds=1, tokens=3921+66)
+  trans-m-54 × A: PASS (rounds=1, tokens=4338+3573)
+  trans-m-55 × A: PASS (rounds=1, tokens=2954+2135)
+  trans-m-56 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-56 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-56 × E: PASS (rounds=1, tokens=5349+58)
+  trans-m-55 × B: PASS (rounds=1, tokens=3962+3115)
+  trans-m-54 × B: PASS (rounds=1, tokens=5905+5128)
+  trans-m-57 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-57 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-57 × E: PASS (rounds=1, tokens=5091+54)
+  trans-m-56 × A: PASS (rounds=1, tokens=3928+3140)
+  trans-m-57 × A: PASS (rounds=1, tokens=3770+2985)
+  trans-m-58 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-58 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-58 × E: PASS (rounds=1, tokens=5127+40)
+  trans-m-56 × B: PASS (rounds=1, tokens=5390+4574)
+  trans-m-58 × A: PASS (rounds=1, tokens=3780+2823)
+  trans-m-59 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-59 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-57 × B: PASS (rounds=1, tokens=5132+4319)
+  trans-m-59 × E: PASS (rounds=1, tokens=4546+119)
+  trans-m-58 × B: PASS (rounds=1, tokens=5168+4105)
+  trans-m-60 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-60 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-m-59 × A: PASS (rounds=1, tokens=3420+2657)
+  trans-m-60 × E: PASS (rounds=1, tokens=6305+58)
+  trans-m-59 × B: PASS (rounds=1, tokens=4587+3816)
+  trans-l-61 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-61 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-61 × E: PASS (rounds=2, tokens=22372+126)
+  trans-m-60 × A: PASS (rounds=1, tokens=4661+3846)
+  trans-m-60 × B: fail (rounds=1, tokens=6346+5503)
+  trans-l-62 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-62 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-62 × E: fail (rounds=1, tokens=11049+48)
+  trans-l-61 × A: PASS (rounds=1, tokens=7997+7205)
+  trans-l-62 × A: PASS (rounds=1, tokens=7930+7162)
+  trans-l-63 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-63 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-63 × E: PASS (rounds=1, tokens=9574+36)
+  trans-l-63 × A: PASS (rounds=1, tokens=6990+5368)
+  trans-l-61 × B: PASS (rounds=1, tokens=11141+10321)
+  trans-l-64 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-64 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-64 × E: PASS (rounds=1, tokens=9140+88)
+  trans-l-62 × B: PASS (rounds=1, tokens=11090+10296)
+  trans-l-63 × B: PASS (rounds=1, tokens=9615+7580)
+  trans-l-65 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-65 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-64 × A: PASS (rounds=1, tokens=6664+5899)
+  trans-l-65 × E: PASS (rounds=1, tokens=9507+62)
+  trans-l-65 × A: fail (rounds=1, tokens=7047+6220)
+  trans-l-66 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-66 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-64 × B: PASS (rounds=1, tokens=9181+8397)
+  trans-l-66 × E: fail (rounds=4, tokens=41226+234)
+  trans-l-65 × B: PASS (rounds=1, tokens=9548+8702)
+  trans-l-67 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-67 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-67 × E: PASS (rounds=2, tokens=18494+128)
+  trans-l-66 × A: PASS (rounds=1, tokens=7384+6606)
+  trans-l-67 × A: PASS (rounds=1, tokens=6676+5887)
+  trans-l-68 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-68 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-68 × E: PASS (rounds=1, tokens=9057+40)
+  trans-l-66 × B: PASS (rounds=1, tokens=10109+9304)
+  trans-l-68 × A: fail (rounds=1, tokens=6589+5752)
+  trans-l-67 × B: PASS (rounds=1, tokens=9199+8382)
+  trans-l-69 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-69 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-69 × E: PASS (rounds=1, tokens=10379+96)
+  trans-l-68 × B: PASS (rounds=1, tokens=9098+8212)
+  trans-l-70 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-70 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-69 × A: PASS (rounds=1, tokens=7523+6758)
+  trans-l-70 × E: fail (rounds=4, tokens=40174+296)
+  trans-l-70 × A: PASS (rounds=1, tokens=7047+6233)
+  trans-l-71 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-71 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-71 × E: PASS (rounds=1, tokens=8926+63)
+  trans-l-69 × B: PASS (rounds=1, tokens=10420+9644)
+  trans-l-70 × B: PASS (rounds=1, tokens=9792+8957)
+  trans-l-71 × A: fail (rounds=1, tokens=6518+5740)
+  trans-l-72 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-72 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-72 × E: PASS (rounds=1, tokens=11944+55)
+  trans-l-71 × B: PASS (rounds=1, tokens=8967+8163)
+  trans-l-73 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-73 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-73 × E: PASS (rounds=1, tokens=13010+40)
+  trans-l-72 × A: PASS (rounds=1, tokens=8639+7852)
+  trans-l-73 × A: PASS (rounds=1, tokens=9398+8541)
+  trans-l-74 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-74 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-74 × E: PASS (rounds=1, tokens=9854+108)
+  trans-l-72 × B: PASS (rounds=1, tokens=11985+11170)
+  trans-l-74 × A: fail (rounds=1, tokens=7131+6366)
+  trans-l-75 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-75 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-75 × E: fail (rounds=1, tokens=10266+70)
+  trans-l-73 × B: PASS (rounds=1, tokens=13051+12146)
+  trans-l-74 × B: PASS (rounds=1, tokens=9895+9120)
+  trans-l-76 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-76 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-76 × E: PASS (rounds=3, tokens=28776+180)
+  trans-l-75 × A: PASS (rounds=1, tokens=7496+6679)
+  trans-l-76 × A: PASS (rounds=1, tokens=6904+6115)
+  trans-l-77 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-77 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-77 × E: PASS (rounds=1, tokens=12154+58)
+  trans-l-75 × B: PASS (rounds=1, tokens=10307+9462)
+  trans-l-76 × B: fail (rounds=1, tokens=9466+8649)
+  trans-l-78 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-78 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-78 × E: PASS (rounds=1, tokens=10328+48)
+  trans-l-77 × A: fail (rounds=1, tokens=8811+8021)
+  trans-l-78 × A: fail (rounds=1, tokens=7508+6669)
+  trans-l-79 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-79 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-79 × E: fail (rounds=1, tokens=9058+84)
+  trans-l-77 × B: PASS (rounds=1, tokens=12195+11377)
+  trans-l-79 × A: PASS (rounds=1, tokens=6568+5802)
+  trans-l-80 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-80 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-80 × E: fail (rounds=3, tokens=40968+174)
+  trans-l-78 × B: PASS (rounds=1, tokens=10369+9481)
+  const-xs-1 × A: PASS (rounds=1, tokens=1036+337)
+  const-xs-1 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-1 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-1 × B: PASS (rounds=1, tokens=1064+535)
+  const-xs-1 × E: PASS (rounds=1, tokens=1058+523)
+  const-xs-2 × A: PASS (rounds=1, tokens=970+211)
+  const-xs-2 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-2 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-2 × B: PASS (rounds=1, tokens=998+330)
+  const-xs-3 × A: PASS (rounds=1, tokens=864+116)
+  trans-l-79 × B: PASS (rounds=1, tokens=9099+8314)
+  const-xs-3 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-2 × E: PASS (rounds=1, tokens=992+360)
+  const-xs-3 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-3 × B: PASS (rounds=1, tokens=892+183)
+  const-xs-3 × E: PASS (rounds=1, tokens=886+231)
+  const-xs-4 × A: PASS (rounds=1, tokens=900+171)
+  const-xs-4 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-4 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-4 × B: PASS (rounds=1, tokens=928+267)
+  const-xs-5 × A: PASS (rounds=1, tokens=887+175)
+  const-xs-4 × E: PASS (rounds=1, tokens=922+315)
+  trans-l-80 × A: PASS (rounds=1, tokens=9751+8932)
+  const-xs-5 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-5 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-5 × B: PASS (rounds=1, tokens=915+238)
+  const-xs-6 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-5 × E: PASS (rounds=1, tokens=909+271)
+  const-xs-6 × B: PASS (rounds=1, tokens=922+189)
+  const-xs-6 × A: PASS (rounds=1, tokens=894+121)
+  const-xs-6 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-7 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-7 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-6 × E: PASS (rounds=1, tokens=916+231)
+  const-xs-7 × A: PASS (rounds=1, tokens=1100+378)
+  const-xs-7 × B: PASS (rounds=1, tokens=1128+560)
+  const-xs-8 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-8 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-8 × A: PASS (rounds=1, tokens=1093+392)
+  const-xs-7 × E: PASS (rounds=1, tokens=1122+590)
+  const-xs-8 × B: PASS (rounds=1, tokens=1121+526)
+  const-xs-9 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-9 × A: fail (rounds=1, tokens=918+153)
+  const-xs-9 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-9 × B: PASS (rounds=1, tokens=946+287)
+  const-xs-8 × E: PASS (rounds=1, tokens=1115+552)
+  const-xs-10 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-10 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-10 × A: PASS (rounds=1, tokens=947+228)
+  const-xs-9 × E: PASS (rounds=1, tokens=940+329)
+  const-xs-10 × B: PASS (rounds=1, tokens=975+348)
+  const-xs-10 × E: PASS (rounds=1, tokens=969+374)
+  const-xs-11 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-11 × A: PASS (rounds=1, tokens=1038+314)
+  const-xs-11 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-11 × B: PASS (rounds=1, tokens=1066+460)
+  const-xs-12 × A: PASS (rounds=1, tokens=863+106)
+  const-xs-12 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-12 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-12 × B: PASS (rounds=1, tokens=891+174)
+  const-xs-11 × E: PASS (rounds=1, tokens=1060+483)
+  const-s-13 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-13 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-xs-12 × E: PASS (rounds=1, tokens=885+222)
+  const-s-13 × A: PASS (rounds=1, tokens=1271+664)
+  const-s-14 × A: fail (rounds=1, tokens=1225+549)
+  const-s-14 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-13 × B: PASS (rounds=1, tokens=1299+1026)
+  const-s-14 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-13 × E: PASS (rounds=1, tokens=1293+1068)
+  const-s-14 × B: PASS (rounds=1, tokens=1253+957)
+  const-s-15 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-15 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-14 × E: PASS (rounds=1, tokens=1247+962)
+  const-s-15 × A: PASS (rounds=1, tokens=1655+1087)
+  const-s-15 × B: PASS (rounds=1, tokens=1683+1532)
+  const-s-16 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-16 × A: fail (rounds=1, tokens=1629+932)
+  const-s-16 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  trans-l-80 × B: fail (rounds=1, tokens=13534+12693)
+  const-s-15 × E: PASS (rounds=1, tokens=1677+1592)
+  const-s-17 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-17 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-17 × A: PASS (rounds=1, tokens=1381+770)
+  const-s-16 × B: PASS (rounds=1, tokens=1657+1614)
+  const-s-18 × A: PASS (rounds=1, tokens=1371+619)
+  const-s-17 × B: PASS (rounds=1, tokens=1409+1186)
+  const-s-18 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-18 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-16 × E: PASS (rounds=1, tokens=1651+1732)
+  const-s-17 × E: PASS (rounds=1, tokens=1403+1154)
+  const-s-18 × B: PASS (rounds=1, tokens=1399+967)
+  const-s-19 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-19 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-18 × E: PASS (rounds=1, tokens=1393+957)
+  const-s-19 × A: PASS (rounds=1, tokens=1646+1186)
+  const-s-20 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-20 × A: PASS (rounds=1, tokens=1468+945)
+  const-s-20 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-19 × B: PASS (rounds=1, tokens=1674+1636)
+  const-s-19 × E: PASS (rounds=1, tokens=1668+1684)
+  const-s-21 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-20 × B: PASS (rounds=1, tokens=1496+1449)
+  const-s-21 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-21 × A: PASS (rounds=1, tokens=1542+935)
+  const-s-20 × E: PASS (rounds=1, tokens=1490+1461)
+  const-s-21 × B: PASS (rounds=1, tokens=1570+1380)
+  const-s-22 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-22 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-22 × A: PASS (rounds=1, tokens=1385+749)
+  const-s-22 × B: PASS (rounds=1, tokens=1413+1058)
+  const-s-23 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-21 × E: PASS (rounds=1, tokens=1564+1428)
+  const-s-23 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-23 × A: PASS (rounds=1, tokens=1556+1027)
+  const-s-22 × E: PASS (rounds=1, tokens=1407+1094)
+  const-s-24 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-24 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-23 × B: PASS (rounds=1, tokens=1584+1466)
+  const-s-24 × A: PASS (rounds=1, tokens=1652+1089)
+  const-s-23 × E: PASS (rounds=1, tokens=1578+1501)
+  refer-xs-1 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-1 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-24 × B: PASS (rounds=1, tokens=1680+1538)
+  refer-xs-1 × E: PASS (rounds=2, tokens=2945+128)
+  refer-xs-1 × A: PASS (rounds=2, tokens=3112+1032)
+  refer-xs-2 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-2 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  const-s-24 × E: PASS (rounds=1, tokens=1674+1582)
+  refer-xs-2 × A: PASS (rounds=2, tokens=2129+378)
+  refer-xs-1 × B: PASS (rounds=2, tokens=3621+1362)
+  refer-xs-2 × E: fail (rounds=2, tokens=2160+142)
+  refer-xs-3 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-3 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-2 × B: PASS (rounds=2, tokens=2419+566)
+  refer-xs-3 × E: PASS (rounds=2, tokens=2378+178)
+  refer-xs-3 × A: PASS (rounds=2, tokens=2397+584)
+  refer-xs-4 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-4 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-3 × B: PASS (rounds=2, tokens=2709+770)
+  refer-xs-4 × E: PASS (rounds=2, tokens=2827+177)
+  refer-xs-5 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-4 × A: PASS (rounds=2, tokens=2843+868)
+  refer-xs-5 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-4 × B: PASS (rounds=2, tokens=3382+1208)
+  refer-xs-5 × E: PASS (rounds=2, tokens=2717+147)
+  refer-xs-5 × A: PASS (rounds=2, tokens=2728+774)
+  refer-xs-6 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-6 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-6 × A: PASS (rounds=2, tokens=2409+564)
+  refer-xs-5 × B: PASS (rounds=2, tokens=3263+1126)
+  refer-xs-7 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-6 × E: PASS (rounds=2, tokens=2416+158)
+  refer-xs-7 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-6 × B: PASS (rounds=2, tokens=2803+824)
+  refer-xs-7 × A: PASS (rounds=2, tokens=2713+766)
+  refer-xs-8 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-8 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-7 × E: PASS (rounds=2, tokens=2724+133)
+  refer-xs-8 × A: PASS (rounds=2, tokens=2242+456)
+  refer-xs-7 × B: PASS (rounds=2, tokens=3292+1145)
+  refer-s-9 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-8 × E: PASS (rounds=2, tokens=2303+153)
+  refer-s-9 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-xs-8 × B: PASS (rounds=2, tokens=2645+724)
+  refer-s-9 × E: PASS (rounds=2, tokens=5558+128)
+  refer-s-10 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-10 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-10 × E: PASS (rounds=2, tokens=4734+145)
+  refer-s-9 × A: PASS (rounds=2, tokens=5802+2826)
+  refer-s-10 × A: PASS (rounds=2, tokens=4848+2190)
+  refer-s-11 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-11 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-11 × E: PASS (rounds=2, tokens=5807+174)
+  refer-s-9 × B: PASS (rounds=2, tokens=7549+3984)
+  refer-s-10 × B: PASS (rounds=2, tokens=6277+3130)
+  refer-s-12 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-12 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-11 × A: PASS (rounds=2, tokens=6123+3042)
+  refer-s-12 × E: PASS (rounds=2, tokens=4371+162)
+  refer-s-12 × A: PASS (rounds=2, tokens=4389+1882)
+  refer-s-13 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-13 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-13 × E: PASS (rounds=2, tokens=5295+164)
+  refer-s-12 × B: PASS (rounds=2, tokens=5724+2771)
+  refer-s-11 × B: PASS (rounds=2, tokens=7866+4203)
+  refer-s-14 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-14 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-14 × E: fail (rounds=2, tokens=5099+136)
+  refer-s-13 × B: PASS (rounds=2, tokens=7108+3697)
+  refer-s-14 × A: fail (rounds=2, tokens=5211+2438)
+  refer-s-15 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-15 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-13 × A: PASS (rounds=3, tokens=10199+3889)
+  refer-s-14 × B: PASS (rounds=2, tokens=6837+3512)
+  refer-s-15 × A: PASS (rounds=2, tokens=4215+1766)
+  refer-s-15 × E: PASS (rounds=2, tokens=4047+143)
+  refer-s-16 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-16 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-16 × E: PASS (rounds=2, tokens=4844+183)
+  refer-s-15 × B: PASS (rounds=2, tokens=5259+2446)
+  refer-s-17 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-17 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-16 × A: PASS (rounds=2, tokens=4955+2259)
+  refer-s-17 × E: PASS (rounds=2, tokens=4058+147)
+  refer-s-17 × A: PASS (rounds=2, tokens=4186+1748)
+  refer-s-18 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-18 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-18 × E: PASS (rounds=2, tokens=4598+183)
+  refer-s-16 × B: PASS (rounds=2, tokens=6411+3225)
+  refer-s-17 × B: PASS (rounds=2, tokens=5260+2450)
+  refer-s-19 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-19 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-18 × A: fail (rounds=2, tokens=4748+2117)
+  refer-s-19 × E: PASS (rounds=2, tokens=4506+159)
+  refer-s-18 × B: PASS (rounds=2, tokens=6045+2981)
+  refer-s-20 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-20 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-19 × A: PASS (rounds=2, tokens=4579+2006)
+  refer-s-20 × E: fail (rounds=2, tokens=4926+177)
+  refer-s-19 × B: PASS (rounds=2, tokens=5922+2891)
+  refer-m-21 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-21 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-s-20 × A: PASS (rounds=2, tokens=5029+2314)
+  refer-m-21 × E: PASS (rounds=2, tokens=8263+184)
+  refer-s-20 × B: PASS (rounds=2, tokens=6527+3306)
+  refer-m-22 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-22 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-22 × E: PASS (rounds=2, tokens=10296+185)
+  refer-m-22 × A: PASS (rounds=2, tokens=10750+6130)
+  refer-m-21 × B: PASS (rounds=2, tokens=11542+6655)
+  refer-m-23 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-23 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-21 × A: PASS (rounds=3, tokens=16491+7009)
+  refer-m-23 × E: PASS (rounds=2, tokens=8557+168)
+  refer-m-23 × A: fail (rounds=2, tokens=8954+4930)
+  refer-m-24 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-24 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-22 × B: PASS (rounds=2, tokens=14579+8671)
+  refer-m-24 × E: PASS (rounds=2, tokens=9617+164)
+  refer-m-24 × A: PASS (rounds=2, tokens=9957+5592)
+  refer-m-25 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-25 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-23 × B: PASS (rounds=2, tokens=12004+6960)
+  refer-m-25 × E: PASS (rounds=2, tokens=8942+159)
+  refer-m-25 × A: PASS (rounds=2, tokens=9337+5180)
+  refer-m-26 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-26 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-26 × E: PASS (rounds=2, tokens=11601+170)
+  refer-m-24 × B: PASS (rounds=2, tokens=13580+7996)
+  refer-m-25 × B: PASS (rounds=2, tokens=12579+7331)
+  refer-m-27 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-27 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-27 × E: PASS (rounds=2, tokens=9084+163)
+  refer-m-26 × A: PASS (rounds=2, tokens=12053+6996)
+  refer-m-27 × A: fail (rounds=2, tokens=9455+5260)
+  refer-m-28 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-28 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-28 × E: PASS (rounds=2, tokens=11761+184)
+  refer-m-27 × B: PASS (rounds=2, tokens=12783+7466)
+  refer-m-26 × B: PASS (rounds=2, tokens=16545+9979)
+  refer-m-29 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-29 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-29 × E: PASS (rounds=2, tokens=10945+160)
+  refer-m-28 × A: PASS (rounds=2, tokens=12274+7146)
+  refer-m-29 × A: PASS (rounds=2, tokens=11426+6576)
+  refer-m-30 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-30 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-30 × E: fail (rounds=2, tokens=8316+187)
+  refer-m-30 × A: PASS (rounds=2, tokens=8559+4666)
+  refer-m-28 × B: PASS (rounds=2, tokens=16773+10143)
+  refer-m-31 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-31 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-31 × E: PASS (rounds=2, tokens=9890+142)
+  refer-m-30 × B: PASS (rounds=2, tokens=11608+6692)
+  refer-m-29 × B: PASS (rounds=2, tokens=15581+9333)
+  refer-m-32 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-32 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-m-32 × E: PASS (rounds=2, tokens=8180+203)
+  refer-m-31 × A: PASS (rounds=2, tokens=10478+5942)
+  refer-m-32 × A: PASS (rounds=2, tokens=8371+4542)
+  refer-l-33 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-33 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-33 × E: PASS (rounds=2, tokens=17514+165)
+  refer-m-31 × B: PASS (rounds=2, tokens=14021+8287)
+  refer-m-32 × B: PASS (rounds=2, tokens=11393+6554)
+  refer-l-34 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-34 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-34 × E: fail (rounds=4, tokens=47962+448)
+  refer-l-33 × A: PASS (rounds=2, tokens=18137+11060)
+  refer-l-33 × B: PASS (rounds=2, tokens=25442+15929)
+  refer-l-35 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-35 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-34 × A: PASS (rounds=2, tokens=24690+15420)
+  refer-l-35 × A: fail (rounds=2, tokens=18236+11114)
+  refer-l-35 × E: PASS (rounds=2, tokens=17468+161)
+  refer-l-36 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-36 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-36 × E: PASS (rounds=2, tokens=21805+195)
+  refer-l-35 × B: PASS (rounds=2, tokens=25376+15858)
+  refer-l-36 × A: PASS (rounds=2, tokens=22768+14144)
+  refer-l-37 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-37 × A: PASS (rounds=2, tokens=20666+12735)
+  refer-l-37 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-34 × B: PASS (rounds=3, tokens=67960+32722)
+  refer-l-37 × E: PASS (rounds=2, tokens=19873+189)
+  refer-l-38 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-38 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-38 × E: fail (rounds=4, tokens=49678+460)
+  refer-l-36 × B: PASS (rounds=2, tokens=31848+20195)
+  refer-l-38 × A: fail (rounds=2, tokens=25454+15929)
+  refer-l-39 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-39 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-39 × E: PASS (rounds=2, tokens=17381+189)
+  refer-l-37 × B: PASS (rounds=2, tokens=28952+18249)
+  refer-l-39 × A: PASS (rounds=2, tokens=17860+10862)
+  refer-l-40 × C: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-40 × D: ERROR * GenerateContentRequest.tools[0].function_declarations[1].parameters.properties[value].any_of[3].items: missing field.
+
+  refer-l-40 × E: fail (rounds=4, tokens=50900+520)
+  readi-xs-1 × A: PASS (rounds=1, tokens=697+1)
+  readi-xs-1 × B: PASS (rounds=1, tokens=746+1)
+  readi-xs-1 × C: PASS (rounds=1, tokens=746+1)
+  readi-xs-1 × D: PASS (rounds=1, tokens=697+1)
+  readi-xs-1 × E: PASS (rounds=1, tokens=746+1)
+  readi-xs-2 × A: PASS (rounds=1, tokens=789+1)
+  readi-xs-2 × B: PASS (rounds=1, tokens=858+1)
+  readi-xs-2 × C: PASS (rounds=1, tokens=858+1)
+  readi-xs-2 × D: PASS (rounds=1, tokens=789+1)
+  readi-xs-2 × E: PASS (rounds=1, tokens=858+1)
+  readi-xs-3 × A: PASS (rounds=1, tokens=591+4)
+  readi-xs-3 × B: PASS (rounds=1, tokens=583+4)
+  readi-xs-3 × C: PASS (rounds=1, tokens=583+4)
+  readi-xs-3 × D: PASS (rounds=1, tokens=591+4)
+  readi-xs-3 × E: PASS (rounds=1, tokens=583+4)
+  readi-xs-4 × A: PASS (rounds=1, tokens=640+1)
+  readi-xs-4 × B: PASS (rounds=1, tokens=664+1)
+  readi-xs-4 × C: PASS (rounds=1, tokens=664+1)
+  readi-xs-4 × D: PASS (rounds=1, tokens=640+1)
+  readi-xs-4 × E: PASS (rounds=1, tokens=664+1)
+  readi-xs-5 × A: PASS (rounds=1, tokens=729+1)
+  readi-xs-5 × B: PASS (rounds=1, tokens=777+1)
+  refer-l-38 × B: PASS (rounds=2, tokens=35580+22667)
+  readi-xs-5 × C: PASS (rounds=1, tokens=777+1)
+  readi-xs-5 × D: PASS (rounds=1, tokens=729+1)
+  refer-l-39 × B: PASS (rounds=2, tokens=25216+15765)
+  readi-xs-5 × E: PASS (rounds=1, tokens=777+1)
+  readi-xs-6 × A: PASS (rounds=1, tokens=712+1)
+  readi-xs-6 × B: PASS (rounds=1, tokens=748+1)
+  readi-xs-6 × C: PASS (rounds=1, tokens=748+1)
+  readi-xs-6 × D: PASS (rounds=1, tokens=712+1)
+  readi-xs-7 × A: PASS (rounds=1, tokens=664+1)
+  readi-xs-6 × E: PASS (rounds=1, tokens=748+1)
+  readi-xs-7 × B: PASS (rounds=1, tokens=687+1)
+  readi-xs-7 × C: PASS (rounds=1, tokens=687+1)
+  readi-xs-7 × E: PASS (rounds=1, tokens=687+1)
+  readi-xs-7 × D: PASS (rounds=1, tokens=664+1)
+  readi-xs-8 × A: PASS (rounds=1, tokens=609+1)
+  readi-xs-8 × B: PASS (rounds=1, tokens=574+1)
+  readi-xs-8 × C: PASS (rounds=1, tokens=574+1)
+  readi-xs-8 × D: PASS (rounds=1, tokens=609+1)
+  readi-xs-8 × E: PASS (rounds=1, tokens=574+1)
+  readi-xs-9 × A: PASS (rounds=1, tokens=722+1)
+  readi-xs-9 × B: PASS (rounds=1, tokens=744+1)
+  readi-xs-9 × C: PASS (rounds=1, tokens=744+1)
+  readi-xs-9 × E: PASS (rounds=1, tokens=744+1)
+  readi-xs-9 × D: PASS (rounds=1, tokens=722+1)
+  readi-xs-10 × A: PASS (rounds=1, tokens=736+1)
+  readi-xs-10 × B: PASS (rounds=1, tokens=760+1)
+  readi-xs-10 × C: PASS (rounds=1, tokens=760+1)
+  readi-xs-10 × D: PASS (rounds=1, tokens=736+1)
+  readi-xs-10 × E: PASS (rounds=1, tokens=760+1)
+  readi-xs-11 × A: PASS (rounds=1, tokens=612+1)
+  readi-xs-11 × B: PASS (rounds=1, tokens=623+1)
+  readi-xs-11 × C: PASS (rounds=1, tokens=623+1)
+  readi-xs-11 × D: PASS (rounds=1, tokens=612+1)
+  readi-xs-11 × E: PASS (rounds=1, tokens=623+1)
+  readi-xs-12 × A: PASS (rounds=1, tokens=706+1)
+  readi-xs-12 × B: PASS (rounds=1, tokens=730+1)
+  readi-xs-12 × C: PASS (rounds=1, tokens=730+1)
+  readi-xs-12 × E: PASS (rounds=1, tokens=730+1)
+  readi-xs-12 × D: PASS (rounds=1, tokens=706+1)
+  readi-xs-13 × A: PASS (rounds=1, tokens=672+3)
+  readi-xs-13 × B: PASS (rounds=1, tokens=724+3)
+  readi-xs-13 × C: PASS (rounds=1, tokens=724+3)
+  readi-xs-13 × D: PASS (rounds=1, tokens=672+3)
+  readi-xs-13 × E: PASS (rounds=1, tokens=724+3)
+  readi-xs-14 × A: fail (rounds=1, tokens=609+1)
+  readi-xs-14 × B: PASS (rounds=1, tokens=618+1)
+  readi-xs-14 × C: PASS (rounds=1, tokens=618+1)
+  readi-xs-14 × D: fail (rounds=1, tokens=609+1)
+  readi-xs-14 × E: PASS (rounds=1, tokens=618+1)
+  readi-s-15 × A: PASS (rounds=1, tokens=1344+1)
+  readi-s-15 × B: PASS (rounds=1, tokens=1680+1)
+  readi-s-15 × C: PASS (rounds=1, tokens=1680+1)
+  readi-s-15 × D: PASS (rounds=1, tokens=1344+1)
+  readi-s-15 × E: PASS (rounds=1, tokens=1680+1)
+  readi-s-16 × A: PASS (rounds=1, tokens=1265+1)
+  readi-s-16 × B: PASS (rounds=1, tokens=1580+1)
+  readi-s-16 × C: PASS (rounds=1, tokens=1580+1)
+  readi-s-16 × D: PASS (rounds=1, tokens=1265+1)
+  readi-s-16 × E: PASS (rounds=1, tokens=1580+1)
+  readi-s-17 × A: PASS (rounds=1, tokens=1719+1)
+  readi-s-17 × B: PASS (rounds=1, tokens=2181+1)
+  readi-s-17 × C: PASS (rounds=1, tokens=2181+1)
+  readi-s-17 × D: PASS (rounds=1, tokens=1719+1)
+  readi-s-17 × E: PASS (rounds=1, tokens=2181+1)
+  readi-s-18 × A: PASS (rounds=1, tokens=1487+23)
+  readi-s-18 × B: fail (rounds=1, tokens=1762+37)
+  readi-s-18 × C: fail (rounds=1, tokens=1762+37)
+  readi-s-18 × D: PASS (rounds=1, tokens=1487+23)
+  readi-s-19 × A: PASS (rounds=1, tokens=1369+3)
+  readi-s-18 × E: fail (rounds=1, tokens=1762+37)
+  readi-s-19 × B: PASS (rounds=1, tokens=1649+3)
+  readi-s-19 × C: PASS (rounds=1, tokens=1649+3)
+  readi-s-19 × D: PASS (rounds=1, tokens=1369+3)
+  readi-s-19 × E: PASS (rounds=1, tokens=1649+3)
+  readi-s-20 × B: PASS (rounds=1, tokens=1801+1)
+  readi-s-20 × A: PASS (rounds=1, tokens=1489+1)
+  readi-s-20 × C: PASS (rounds=1, tokens=1801+1)
+  readi-s-20 × D: PASS (rounds=1, tokens=1489+1)
+  readi-s-20 × E: PASS (rounds=1, tokens=1801+1)
+  readi-s-21 × A: PASS (rounds=1, tokens=1164+1)
+  readi-s-21 × B: PASS (rounds=1, tokens=1387+1)
+  readi-s-21 × D: PASS (rounds=1, tokens=1164+1)
+  readi-s-21 × C: PASS (rounds=1, tokens=1387+1)
+  readi-s-21 × E: PASS (rounds=1, tokens=1387+1)
+  readi-s-22 × A: PASS (rounds=1, tokens=1731+1)
+  readi-s-22 × B: PASS (rounds=1, tokens=2159+1)
+  readi-s-22 × C: PASS (rounds=1, tokens=2159+1)
+  readi-s-22 × D: PASS (rounds=1, tokens=1731+1)
+  readi-s-22 × E: PASS (rounds=1, tokens=2159+1)
+  readi-s-23 × A: PASS (rounds=1, tokens=1716+1)
+  readi-s-23 × B: PASS (rounds=1, tokens=2175+1)
+  readi-s-23 × C: PASS (rounds=1, tokens=2175+1)
+  readi-s-23 × D: PASS (rounds=1, tokens=1716+1)
+  readi-s-24 × A: PASS (rounds=1, tokens=1683+1)
+  readi-s-23 × E: PASS (rounds=1, tokens=2175+1)
+  readi-s-24 × B: PASS (rounds=1, tokens=2157+1)
+  readi-s-24 × D: PASS (rounds=1, tokens=1683+1)
+  readi-s-24 × C: PASS (rounds=1, tokens=2157+1)
+  readi-s-24 × E: PASS (rounds=1, tokens=2157+1)
+  readi-s-25 × A: PASS (rounds=1, tokens=1134+1)
+  readi-s-25 × B: PASS (rounds=1, tokens=1345+1)
+  readi-s-25 × C: PASS (rounds=1, tokens=1345+1)
+  readi-s-25 × D: PASS (rounds=1, tokens=1134+1)
+  readi-s-25 × E: PASS (rounds=1, tokens=1345+1)
+  readi-s-26 × A: PASS (rounds=1, tokens=1165+1)
+  readi-s-26 × B: PASS (rounds=1, tokens=1446+1)
+  readi-s-26 × D: PASS (rounds=1, tokens=1165+1)
+  readi-s-26 × C: PASS (rounds=1, tokens=1446+1)
+  readi-s-26 × E: PASS (rounds=1, tokens=1446+1)
+  readi-s-27 × A: PASS (rounds=1, tokens=1372+1)
+  readi-s-27 × B: PASS (rounds=1, tokens=1688+1)
+  readi-s-27 × C: PASS (rounds=1, tokens=1688+1)
+  readi-s-27 × E: PASS (rounds=1, tokens=1688+1)
+  readi-s-27 × D: PASS (rounds=1, tokens=1372+1)
+  readi-s-28 × A: PASS (rounds=1, tokens=1249+6)
+  readi-s-28 × B: PASS (rounds=1, tokens=1473+6)
+  readi-s-28 × C: PASS (rounds=1, tokens=1473+6)
+  readi-s-28 × D: PASS (rounds=1, tokens=1249+6)
+  readi-s-28 × E: PASS (rounds=1, tokens=1473+6)
+  readi-m-29 × A: PASS (rounds=1, tokens=3501+3)
+  readi-m-29 × B: PASS (rounds=1, tokens=4646+3)
+  readi-m-29 × D: PASS (rounds=1, tokens=3501+3)
+  readi-m-29 × C: PASS (rounds=1, tokens=4646+3)
+  readi-m-29 × E: PASS (rounds=1, tokens=4646+3)
+  readi-m-30 × A: PASS (rounds=1, tokens=2898+1)
+  readi-m-30 × B: PASS (rounds=1, tokens=3867+1)
+  readi-m-30 × C: PASS (rounds=1, tokens=3867+1)
+  readi-m-30 × E: PASS (rounds=1, tokens=3867+1)
+  readi-m-30 × D: PASS (rounds=1, tokens=2898+1)
+  readi-m-31 × B: fail (rounds=1, tokens=5342+2)
+  readi-m-31 × C: fail (rounds=1, tokens=5342+2)
+  readi-m-31 × A: PASS (rounds=1, tokens=3883+2)
+  readi-m-31 × D: PASS (rounds=1, tokens=3883+2)
+  readi-m-31 × E: fail (rounds=1, tokens=5342+2)
+  readi-m-32 × A: PASS (rounds=1, tokens=3250+1)
+  refer-l-40 × A: PASS (rounds=2, tokens=26333+16512)
+  readi-m-32 × B: PASS (rounds=1, tokens=4380+1)
+  readi-m-32 × C: PASS (rounds=1, tokens=4380+1)
+  readi-m-32 × D: PASS (rounds=1, tokens=3250+1)
+  readi-m-32 × E: PASS (rounds=1, tokens=4380+1)
+  readi-m-33 × A: PASS (rounds=1, tokens=3150+1)
+  readi-m-33 × B: PASS (rounds=1, tokens=4250+1)
+  readi-m-33 × C: PASS (rounds=1, tokens=4250+1)
+  readi-m-33 × D: PASS (rounds=1, tokens=3150+1)
+  readi-m-33 × E: PASS (rounds=1, tokens=4250+1)
+  readi-m-34 × A: fail (rounds=1, tokens=3309+1)
+  readi-m-34 × B: PASS (rounds=1, tokens=4460+1)
+  readi-m-34 × D: fail (rounds=1, tokens=3309+1)
+  readi-m-34 × C: PASS (rounds=1, tokens=4460+1)
+  readi-m-35 × A: PASS (rounds=1, tokens=2913+1)
+  readi-m-34 × E: PASS (rounds=1, tokens=4460+1)
+  readi-m-35 × D: PASS (rounds=1, tokens=2913+1)
+  readi-m-35 × B: PASS (rounds=1, tokens=3902+1)
+  readi-m-35 × C: PASS (rounds=1, tokens=3902+1)
+  readi-m-35 × E: PASS (rounds=1, tokens=3902+1)
+  readi-m-36 × A: PASS (rounds=1, tokens=4158+2)
+  readi-m-36 × B: fail (rounds=1, tokens=5685+2)
+  readi-m-36 × D: PASS (rounds=1, tokens=4158+2)
+  readi-m-36 × C: fail (rounds=1, tokens=5685+2)
+  readi-m-37 × B: PASS (rounds=1, tokens=4384+1)
+  readi-m-37 × A: PASS (rounds=1, tokens=3281+1)
+  readi-m-36 × E: fail (rounds=1, tokens=5685+2)
+  readi-m-37 × D: PASS (rounds=1, tokens=3281+1)
+  readi-m-37 × E: PASS (rounds=1, tokens=4384+1)
+  readi-m-38 × A: PASS (rounds=1, tokens=2926+3)
+  readi-m-37 × C: PASS (rounds=1, tokens=4384+1)
+  readi-m-38 × B: PASS (rounds=1, tokens=3905+3)
+  readi-m-38 × C: PASS (rounds=1, tokens=3905+3)
+  readi-m-38 × E: PASS (rounds=1, tokens=3905+3)
+  readi-m-38 × D: PASS (rounds=1, tokens=2926+3)
+  readi-m-39 × B: PASS (rounds=1, tokens=3865+1)
+  readi-m-39 × C: PASS (rounds=1, tokens=3865+1)
+  readi-m-39 × A: fail (rounds=1, tokens=2889+1)
+  readi-m-39 × D: fail (rounds=1, tokens=2889+1)
+  readi-m-39 × E: PASS (rounds=1, tokens=3865+1)
+  readi-m-40 × A: PASS (rounds=1, tokens=2763+1)
+  readi-m-40 × B: PASS (rounds=1, tokens=3676+1)
+  readi-m-40 × C: PASS (rounds=1, tokens=3676+1)
+  readi-m-40 × D: PASS (rounds=1, tokens=2763+1)
+  readi-m-40 × E: PASS (rounds=1, tokens=3676+1)
+  readi-m-41 × A: fail (rounds=1, tokens=2824+2)
+  readi-m-41 × B: PASS (rounds=1, tokens=3724+1)
+  readi-m-41 × D: fail (rounds=1, tokens=2824+2)
+  readi-m-41 × C: PASS (rounds=1, tokens=3724+1)
+  readi-m-41 × E: PASS (rounds=1, tokens=3724+1)
+  readi-m-42 × A: PASS (rounds=1, tokens=3113+1)
+  readi-m-42 × B: PASS (rounds=1, tokens=4224+1)
+  readi-m-42 × C: PASS (rounds=1, tokens=4224+1)
+  readi-m-42 × D: PASS (rounds=1, tokens=3113+1)
+  readi-m-42 × E: PASS (rounds=1, tokens=4224+1)
+  readi-l-43 × B: PASS (rounds=1, tokens=8307+1)
+  readi-l-43 × A: PASS (rounds=1, tokens=5998+1)
+  readi-l-43 × C: PASS (rounds=1, tokens=8307+1)
+  readi-l-43 × E: PASS (rounds=1, tokens=8307+1)
+  readi-l-43 × D: PASS (rounds=1, tokens=5998+1)
+  readi-l-44 × A: PASS (rounds=1, tokens=6853+3)
+  readi-l-44 × B: PASS (rounds=1, tokens=9439+3)
+  readi-l-44 × D: PASS (rounds=1, tokens=6853+3)
+  readi-l-44 × E: PASS (rounds=1, tokens=9439+3)
+  readi-l-45 × A: PASS (rounds=1, tokens=6418+1)
+  readi-l-44 × C: PASS (rounds=1, tokens=9439+3)
+  readi-l-45 × B: PASS (rounds=1, tokens=8864+1)
+  readi-l-45 × C: PASS (rounds=1, tokens=8864+1)
+  readi-l-45 × D: PASS (rounds=1, tokens=6418+1)
+  readi-l-45 × E: PASS (rounds=1, tokens=8864+1)
+  readi-l-46 × B: fail (rounds=1, tokens=11109+2)
+  readi-l-46 × D: fail (rounds=1, tokens=7981+2)
+  readi-l-46 × C: fail (rounds=1, tokens=11109+2)
+  readi-l-46 × A: fail (rounds=1, tokens=7981+2)
+  readi-l-47 × A: PASS (rounds=1, tokens=9501+1)
+  readi-l-46 × E: fail (rounds=1, tokens=11109+2)
+  readi-l-47 × B: PASS (rounds=1, tokens=13297+1)
+  readi-l-47 × D: PASS (rounds=1, tokens=9501+1)
+  readi-l-47 × E: PASS (rounds=1, tokens=13297+1)
+  readi-l-48 × A: PASS (rounds=1, tokens=7997+1)
+  readi-l-47 × C: PASS (rounds=1, tokens=13297+1)
+  readi-l-48 × B: PASS (rounds=1, tokens=10928+1)
+  readi-l-48 × C: PASS (rounds=1, tokens=10928+1)
+  readi-l-48 × D: PASS (rounds=1, tokens=7997+1)
+  readi-l-49 × A: fail (rounds=1, tokens=6803+1)
+  readi-l-48 × E: PASS (rounds=1, tokens=10928+1)
+  readi-l-49 × B: PASS (rounds=1, tokens=9216+1)
+  readi-l-49 × C: PASS (rounds=1, tokens=9216+1)
+  readi-l-49 × D: fail (rounds=1, tokens=6803+1)
+  readi-l-49 × E: PASS (rounds=1, tokens=9216+1)
+  readi-l-50 × B: fail (rounds=1, tokens=11137+2)
+  readi-l-50 × A: fail (rounds=1, tokens=8022+2)
+  readi-l-50 × C: fail (rounds=1, tokens=11137+2)
+  readi-l-51 × A: PASS (rounds=1, tokens=7905+2)
+  readi-l-50 × E: fail (rounds=1, tokens=11137+2)
+  readi-l-50 × D: fail (rounds=1, tokens=8022+2)
+  readi-l-51 × B: PASS (rounds=1, tokens=10907+2)
+  readi-l-51 × C: PASS (rounds=1, tokens=10907+2)
+  readi-l-51 × D: PASS (rounds=1, tokens=7905+2)
+  readi-l-51 × E: PASS (rounds=1, tokens=10907+2)
+  readi-l-52 × A: PASS (rounds=1, tokens=6004+1)
+  readi-l-52 × B: PASS (rounds=1, tokens=8368+1)
+  readi-l-52 × C: PASS (rounds=1, tokens=8368+1)
+  readi-l-52 × D: PASS (rounds=1, tokens=6004+1)
+  readi-l-52 × E: PASS (rounds=1, tokens=8368+1)
+  readi-l-53 × A: PASS (rounds=1, tokens=6424+8)
+  readi-l-53 × B: PASS (rounds=1, tokens=8852+8)
+  readi-l-53 × D: PASS (rounds=1, tokens=6424+8)
+  readi-l-53 × C: PASS (rounds=1, tokens=8852+8)
+  readi-l-54 × A: PASS (rounds=1, tokens=6235+3)
+  readi-l-53 × E: PASS (rounds=1, tokens=8852+8)
+  readi-l-54 × B: PASS (rounds=1, tokens=8549+3)
+  readi-l-54 × C: PASS (rounds=1, tokens=8549+3)
+  readi-l-54 × E: PASS (rounds=1, tokens=8549+3)
+  readi-l-55 × A: PASS (rounds=1, tokens=6234+1)
+  readi-l-54 × D: PASS (rounds=1, tokens=6235+3)
+  readi-l-55 × B: PASS (rounds=1, tokens=8545+1)
+  readi-l-55 × D: PASS (rounds=1, tokens=6234+1)
+  readi-l-55 × C: PASS (rounds=1, tokens=8545+1)
+  readi-l-55 × E: PASS (rounds=1, tokens=8545+1)
+  readi-l-56 × A: fail (rounds=1, tokens=8129+2)
+  readi-l-56 × B: fail (rounds=1, tokens=11297+2)
+  readi-l-56 × C: fail (rounds=1, tokens=11297+2)
+  readi-l-56 × D: fail (rounds=1, tokens=8129+2)
+  readi-l-56 × E: fail (rounds=1, tokens=11297+2)
+  refer-l-40 × B: PASS (rounds=2, tokens=36433+23242)
+=== done: 647/1000 new records passed
+
+Matrix complete.
+$ bun run scripts/run-matrix.ts --models "google/gemini-3.5-flash" --concurrency "5"
+
+=== google/gemini-3.5-flash × parity → results/raw/main-google_gemini-3.5-flash-parity.jsonl
+Running 288 task×condition pairs (712 already done) with model google/gemini-3.5-flash, regime parity
+  trans-xs-3 × C: PASS (rounds=1, tokens=2798+18)
+  trans-xs-2 × C: PASS (rounds=1, tokens=2640+26)
+  trans-xs-1 × C: PASS (rounds=1, tokens=2127+32)
+  trans-xs-2 × D: PASS (rounds=1, tokens=2518+26)
+  trans-xs-1 × D: PASS (rounds=1, tokens=2159+30)
+  trans-xs-5 × C: PASS (rounds=1, tokens=2506+31)
+  trans-xs-3 × D: PASS (rounds=1, tokens=2694+18)
+  trans-xs-5 × D: PASS (rounds=1, tokens=2450+31)
+  trans-xs-4 × C: fail (rounds=1, tokens=3864+79)
+  trans-xs-4 × D: fail (rounds=1, tokens=3728+77)
+  trans-xs-6 × C: PASS (rounds=1, tokens=2261+32)
+  trans-xs-6 × D: PASS (rounds=1, tokens=2245+32)
+  trans-xs-7 × C: PASS (rounds=1, tokens=2148+27)
+  trans-xs-8 × C: PASS (rounds=1, tokens=2270+18)
+  trans-xs-7 × D: PASS (rounds=1, tokens=2200+27)
+  trans-xs-8 × D: PASS (rounds=1, tokens=2268+18)
+  trans-xs-9 × C: PASS (rounds=1, tokens=3030+45)
+  trans-xs-9 × D: PASS (rounds=1, tokens=2892+45)
+  trans-xs-10 × C: PASS (rounds=1, tokens=2069+30)
+  trans-xs-10 × D: PASS (rounds=1, tokens=2107+30)
+  trans-xs-11 × C: PASS (rounds=1, tokens=2399+30)
+  trans-xs-11 × D: PASS (rounds=1, tokens=2363+30)
+  trans-xs-12 × C: PASS (rounds=1, tokens=2184+26)
+  trans-xs-13 × C: PASS (rounds=1, tokens=2612+18)
+  trans-xs-12 × D: PASS (rounds=1, tokens=2200+26)
+  trans-xs-14 × C: PASS (rounds=1, tokens=2428+57)
+  trans-xs-13 × D: PASS (rounds=1, tokens=2502+18)
+  trans-xs-14 × D: PASS (rounds=1, tokens=3666+87)
+  trans-xs-15 × C: PASS (rounds=1, tokens=2496+31)
+  trans-xs-15 × D: PASS (rounds=1, tokens=2440+31)
+  trans-xs-16 × C: PASS (rounds=1, tokens=2523+32)
+  trans-xs-16 × D: PASS (rounds=1, tokens=2393+32)
+  trans-xs-17 × C: PASS (rounds=1, tokens=2234+26)
+  trans-xs-17 × D: PASS (rounds=1, tokens=2242+26)
+  trans-xs-18 × D: PASS (rounds=1, tokens=2636+18)
+  trans-xs-18 × C: PASS (rounds=1, tokens=2744+18)
+  trans-xs-19 × C: PASS (rounds=1, tokens=2545+44)
+  trans-xs-19 × D: PASS (rounds=1, tokens=2469+44)
+  trans-xs-20 × C: PASS (rounds=1, tokens=2520+31)
+  trans-xs-20 × D: PASS (rounds=1, tokens=2416+31)
+  trans-s-21 × C: PASS (rounds=1, tokens=5050+27)
+  trans-s-21 × D: PASS (rounds=1, tokens=4138+27)
+  trans-s-22 × C: PASS (rounds=1, tokens=3862+27)
+  trans-s-22 × D: PASS (rounds=1, tokens=3400+27)
+  trans-s-23 × D: PASS (rounds=1, tokens=4034+18)
+  trans-s-23 × C: PASS (rounds=1, tokens=4776+18)
+  trans-s-24 × C: PASS (rounds=1, tokens=3772+34)
+  trans-s-25 × C: PASS (rounds=1, tokens=5078+32)
+  trans-s-25 × D: PASS (rounds=1, tokens=4342+32)
+  trans-s-24 × D: PASS (rounds=1, tokens=5068+68)
+  trans-s-26 × D: PASS (rounds=1, tokens=3878+36)
+  trans-s-26 × C: PASS (rounds=1, tokens=4532+36)
+  trans-s-27 × C: PASS (rounds=1, tokens=5698+25)
+  trans-s-27 × D: PASS (rounds=1, tokens=4770+25)
+  trans-s-28 × C: PASS (rounds=1, tokens=5346+19)
+  trans-s-28 × D: PASS (rounds=1, tokens=4530+19)
+  trans-s-29 × C: PASS (rounds=1, tokens=4033+48)
+  trans-s-30 × C: PASS (rounds=1, tokens=4016+32)
+  trans-s-29 × D: PASS (rounds=1, tokens=3501+48)
+  trans-s-30 × D: PASS (rounds=1, tokens=3568+32)
+  trans-s-31 × C: PASS (rounds=1, tokens=3735+33)
+  trans-s-31 × D: PASS (rounds=1, tokens=3277+33)
+  trans-s-32 × D: PASS (rounds=1, tokens=3852+25)
+  trans-s-32 × C: PASS (rounds=1, tokens=4530+25)
+  trans-s-33 × C: PASS (rounds=1, tokens=4178+19)
+  trans-s-33 × D: PASS (rounds=1, tokens=3590+19)
+  trans-s-34 × C: PASS (rounds=1, tokens=3761+58)
+  trans-s-35 × C: PASS (rounds=1, tokens=5044+32)
+  trans-s-35 × D: PASS (rounds=1, tokens=4296+32)
+  trans-s-34 × D: fail (rounds=1, tokens=3360+63)
+  trans-s-36 × C: PASS (rounds=1, tokens=4189+32)
+  trans-s-36 × D: PASS (rounds=1, tokens=3599+32)
+  trans-s-37 × C: PASS (rounds=1, tokens=4224+26)
+  trans-s-38 × C: PASS (rounds=1, tokens=3808+18)
+  trans-s-37 × D: PASS (rounds=1, tokens=3612+26)
+  trans-s-38 × D: PASS (rounds=1, tokens=3388+18)
+  trans-s-39 × C: PASS (rounds=1, tokens=4422+33)
+  trans-s-40 × C: PASS (rounds=1, tokens=3666+31)
+  trans-s-39 × D: PASS (rounds=1, tokens=3796+33)
+  trans-s-40 × D: PASS (rounds=1, tokens=3192+31)
+  trans-m-41 × C: PASS (rounds=1, tokens=11287+28)
+  trans-m-41 × D: PASS (rounds=1, tokens=8535+28)
+  trans-m-42 × C: PASS (rounds=1, tokens=12612+28)
+  trans-m-42 × D: PASS (rounds=1, tokens=9524+28)
+  trans-m-43 × C: PASS (rounds=1, tokens=8044+19)
+  trans-m-43 × D: PASS (rounds=1, tokens=6254+19)
+  trans-m-45 × D: PASS (rounds=1, tokens=6860+33)
+  trans-m-44 × C: fail (rounds=1, tokens=12997+75)
+  trans-m-45 × C: PASS (rounds=1, tokens=8680+33)
+  trans-m-46 × C: PASS (rounds=1, tokens=8825+34)
+  trans-m-47 × D: PASS (rounds=1, tokens=6790+26)
+  trans-m-46 × D: PASS (rounds=1, tokens=6959+34)
+  trans-m-47 × C: PASS (rounds=1, tokens=8816+26)
+  trans-m-44 × D: fail (rounds=1, tokens=13984+98)
+  trans-m-48 × C: PASS (rounds=1, tokens=10734+18)
+  trans-m-48 × D: PASS (rounds=1, tokens=8260+18)
+  trans-m-50 × C: PASS (rounds=1, tokens=8676+32)
+  trans-m-49 × C: PASS (rounds=1, tokens=8665+27)
+  trans-m-49 × D: fail (rounds=1, tokens=6803+35)
+  trans-m-50 × D: PASS (rounds=1, tokens=6804+32)
+  trans-m-51 × C: PASS (rounds=1, tokens=8793+31)
+  trans-m-51 × D: PASS (rounds=1, tokens=6841+31)
+  trans-m-52 × D: PASS (rounds=1, tokens=8338+26)
+  trans-m-52 × C: PASS (rounds=1, tokens=11066+26)
+  trans-m-53 × C: PASS (rounds=1, tokens=11038+19)
+  trans-m-53 × D: PASS (rounds=1, tokens=8362+19)
+  trans-m-55 × C: PASS (rounds=1, tokens=8052+32)
+  trans-m-55 × D: PASS (rounds=1, tokens=6250+32)
+  trans-m-54 × D: fail (rounds=1, tokens=13617+79)
+  trans-m-56 × C: PASS (rounds=1, tokens=10898+32)
+  trans-m-56 × D: PASS (rounds=1, tokens=8188+32)
+  trans-m-54 × C: fail (rounds=1, tokens=24067+101)
+  trans-m-57 × D: PASS (rounds=1, tokens=7876+28)
+  trans-m-57 × C: PASS (rounds=1, tokens=10386+28)
+  trans-m-58 × C: PASS (rounds=1, tokens=10448+19)
+  trans-m-58 × D: PASS (rounds=1, tokens=7886+19)
+  trans-m-60 × C: PASS (rounds=1, tokens=12822+33)
+  trans-m-59 × C: PASS (rounds=1, tokens=14182+72)
+  trans-m-60 × D: PASS (rounds=1, tokens=9666+33)
+  trans-m-59 × D: PASS (rounds=1, tokens=10882+89)
+  trans-l-61 × C: PASS (rounds=1, tokens=22402+34)
+  trans-l-61 × D: PASS (rounds=1, tokens=16328+34)
+  trans-l-62 × C: PASS (rounds=1, tokens=22298+26)
+  trans-l-62 × D: PASS (rounds=1, tokens=16192+26)
+  trans-l-63 × C: PASS (rounds=1, tokens=19342+19)
+  trans-l-63 × D: PASS (rounds=1, tokens=14306+19)
+  trans-l-65 × C: PASS (rounds=1, tokens=19226+33)
+  trans-l-64 × C: PASS (rounds=1, tokens=18502+41)
+  trans-l-65 × D: PASS (rounds=1, tokens=14438+33)
+  trans-l-66 × C: PASS (rounds=1, tokens=20337+33)
+  trans-l-64 × D: PASS (rounds=1, tokens=20599+86)
+  trans-l-66 × D: PASS (rounds=1, tokens=15101+33)
+  trans-l-67 × C: PASS (rounds=1, tokens=18520+28)
+  trans-l-67 × D: PASS (rounds=1, tokens=13688+28)
+  trans-l-68 × C: PASS (rounds=1, tokens=18308+19)
+  trans-l-68 × D: PASS (rounds=1, tokens=13504+19)
+  trans-l-69 × D: PASS (rounds=1, tokens=15397+41)
+  trans-l-69 × C: PASS (rounds=1, tokens=20977+41)
+  trans-l-70 × C: PASS (rounds=1, tokens=19714+33)
+  trans-l-70 × D: PASS (rounds=1, tokens=14438+33)
+  trans-l-71 × C: PASS (rounds=1, tokens=18055+36)
+  trans-l-71 × D: PASS (rounds=1, tokens=13371+36)
+  trans-l-72 × D: PASS (rounds=1, tokens=17616+29)
+  trans-l-72 × C: PASS (rounds=1, tokens=24094+29)
+  trans-l-73 × C: PASS (rounds=1, tokens=26216+20)
+  trans-l-73 × D: PASS (rounds=1, tokens=19124+20)
+  trans-l-74 × D: PASS (rounds=1, tokens=14626+52)
+  trans-l-75 × D: PASS (rounds=1, tokens=15336+33)
+  trans-l-75 × C: PASS (rounds=1, tokens=20744+33)
+  trans-l-76 × C: PASS (rounds=1, tokens=19051+30)
+  trans-l-74 × C: fail (rounds=1, tokens=29982+78)
+  trans-l-76 × D: PASS (rounds=1, tokens=14141+30)
+  trans-l-77 × C: PASS (rounds=1, tokens=24514+29)
+  trans-l-77 × D: PASS (rounds=1, tokens=17960+29)
+  trans-l-78 × C: PASS (rounds=1, tokens=20850+19)
+  trans-l-78 × D: PASS (rounds=1, tokens=15342+19)
+  trans-l-79 × C: fail (rounds=1, tokens=18341+51)
+  trans-l-80 × C: PASS (rounds=1, tokens=27200+34)
+  trans-l-80 × D: PASS (rounds=1, tokens=19848+34)
+  trans-l-79 × D: PASS (rounds=1, tokens=20291+73)
+  const-xs-3 × C: PASS (rounds=1, tokens=5232+136)
+  const-xs-1 × C: PASS (rounds=1, tokens=12171+349)
+  const-xs-2 × C: PASS (rounds=1, tokens=9705+250)
+  const-xs-2 × D: PASS (rounds=1, tokens=10309+266)
+  const-xs-1 × D: PASS (rounds=1, tokens=12828+349)
+  const-xs-3 × D: PASS (rounds=1, tokens=5597+136)
+  const-xs-5 × C: PASS (rounds=1, tokens=5358+184)
+  const-xs-5 × D: PASS (rounds=1, tokens=5723+184)
+  const-xs-4 × C: PASS (rounds=1, tokens=9100+224)
+  const-xs-4 × D: PASS (rounds=1, tokens=9686+224)
+  const-xs-6 × C: PASS (rounds=1, tokens=6537+162)
+  const-xs-6 × D: PASS (rounds=1, tokens=6975+162)
+  const-xs-7 × C: PASS (rounds=1, tokens=15698+421)
+  const-xs-8 × C: PASS (rounds=1, tokens=12483+393)
+  const-xs-8 × D: PASS (rounds=1, tokens=13140+393)
+  const-xs-7 × D: PASS (rounds=1, tokens=16485+421)
+  const-xs-9 × C: PASS (rounds=1, tokens=9266+235)
+  const-xs-9 × D: PASS (rounds=1, tokens=9870+251)
+  const-xs-10 × C: PASS (rounds=1, tokens=8288+251)
+  const-xs-10 × D: PASS (rounds=1, tokens=8799+251)
+  const-xs-11 × D: PASS (rounds=1, tokens=12484+344)
+  const-xs-11 × C: PASS (rounds=1, tokens=11857+364)
+  const-xs-12 × C: PASS (rounds=1, tokens=5209+127)
+  const-xs-12 × D: PASS (rounds=1, tokens=5574+127)
+  const-s-13 × C: PASS (rounds=1, tokens=34928+753)
+  const-s-13 × D: PASS (rounds=1, tokens=36044+756)
+  const-s-14 × D: PASS (rounds=1, tokens=36997+726)
+  const-s-14 × C: PASS (rounds=1, tokens=35537+726)
+  const-s-15 × C: PASS (rounds=1, tokens=65496+1179)
+  const-s-17 × C: PASS (rounds=1, tokens=33072+866)
+  const-s-15 × D: PASS (rounds=1, tokens=62451+1145)
+  const-s-17 × D: PASS (rounds=1, tokens=34347+874)
+  const-s-16 × C: PASS (rounds=1, tokens=63216+1216)
+  const-s-16 × D: PASS (rounds=1, tokens=65114+1216)
+  const-s-18 × C: PASS (rounds=1, tokens=34123+679)
+  const-s-18 × D: PASS (rounds=1, tokens=35437+679)
+  const-s-19 × C: PASS (rounds=1, tokens=63883+1224)
+  const-s-19 × D: PASS (rounds=1, tokens=68531+1247)
+  const-s-20 × C: PASS (rounds=1, tokens=55485+1066)
+  const-s-20 × D: PASS (rounds=1, tokens=57318+1069)
+  const-s-21 × C: PASS (rounds=1, tokens=51563+1027)
+  const-s-22 × C: PASS (rounds=1, tokens=34619+795)
+  const-s-21 × D: PASS (rounds=1, tokens=53242+1027)
+  const-s-22 × D: PASS (rounds=1, tokens=35933+795)
+  refer-xs-1 × C: fail (rounds=2, tokens=7809+115)
+  refer-xs-1 × D: fail (rounds=2, tokens=7480+121)
+  const-s-23 × D: PASS (rounds=1, tokens=59909+1111)
+  refer-xs-2 × C: fail (rounds=2, tokens=6949+130)
+  refer-xs-2 × D: fail (rounds=2, tokens=5852+110)
+  refer-xs-3 × C: fail (rounds=2, tokens=6331+178)
+  const-s-24 × C: PASS (rounds=1, tokens=55514+1125)
+  refer-xs-3 × D: fail (rounds=2, tokens=6321+178)
+  const-s-24 × D: PASS (rounds=1, tokens=57193+1125)
+  refer-xs-4 × C: fail (rounds=2, tokens=7453+174)
+  refer-xs-4 × D: fail (rounds=2, tokens=7068+174)
+  refer-xs-5 × C: fail (rounds=2, tokens=7186+112)
+  refer-xs-6 × C: fail (rounds=2, tokens=6446+144)
+  refer-xs-5 × D: fail (rounds=2, tokens=9718+198)
+  refer-xs-6 × D: fail (rounds=2, tokens=6345+154)
+  refer-xs-7 × D: fail (rounds=2, tokens=5382+87)
+  refer-xs-8 × C: fail (rounds=2, tokens=7412+146)
+  refer-s-9 × C: fail (rounds=2, tokens=14336+103)
+  refer-xs-8 × D: fail (rounds=2, tokens=8608+191)
+  refer-xs-7 × C: fail (rounds=2, tokens=15093+261)
+  refer-s-9 × D: fail (rounds=2, tokens=11951+103)
+  refer-s-10 × D: fail (rounds=2, tokens=10382+130)
+  refer-s-11 × C: fail (rounds=2, tokens=14911+150)
+  refer-s-10 × C: fail (rounds=2, tokens=12242+130)
+  refer-s-11 × D: fail (rounds=2, tokens=15093+209)
+  refer-s-13 × C: fail (rounds=2, tokens=13640+145)
+  refer-s-12 × C: fail (rounds=2, tokens=13649+203)
+  refer-s-12 × D: fail (rounds=2, tokens=9656+156)
+  refer-s-13 × D: fail (rounds=2, tokens=13687+175)
+  refer-s-14 × C: fail (rounds=2, tokens=15801+144)
+  refer-s-15 × C: fail (rounds=2, tokens=10574+135)
+  refer-s-14 × D: fail (rounds=2, tokens=15510+210)
+  refer-s-16 × C: fail (rounds=2, tokens=12478+151)
+  refer-s-16 × D: fail (rounds=2, tokens=12738+195)
+  refer-s-15 × D: fail (rounds=2, tokens=11235+172)
+  refer-s-17 × C: fail (rounds=2, tokens=10564+132)
+  refer-s-17 × D: fail (rounds=2, tokens=9294+132)
+  refer-s-18 × C: fail (rounds=2, tokens=11882+161)
+  refer-s-19 × C: fail (rounds=2, tokens=9243+97)
+  refer-s-18 × D: fail (rounds=2, tokens=10257+161)
+  refer-s-20 × C: fail (rounds=2, tokens=12703+163)
+  refer-s-20 × D: fail (rounds=2, tokens=10728+172)
+  refer-s-19 × D: fail (rounds=2, tokens=16197+258)
+  refer-m-21 × C: fail (rounds=2, tokens=29513+193)
+  refer-m-22 × D: fail (rounds=2, tokens=20261+163)
+  refer-m-21 × D: fail (rounds=2, tokens=19948+168)
+  refer-m-23 × C: fail (rounds=2, tokens=21763+122)
+  refer-m-22 × C: fail (rounds=2, tokens=36741+246)
+  refer-m-23 × D: fail (rounds=2, tokens=17213+122)
+  refer-m-24 × C: fail (rounds=2, tokens=24415+130)
+  refer-m-24 × D: fail (rounds=2, tokens=18905+130)
+  refer-m-25 × C: fail (rounds=2, tokens=22784+150)
+  refer-m-26 × C: fail (rounds=2, tokens=35288+175)
+  refer-m-27 × C: fail (rounds=2, tokens=23075+120)
+  refer-m-25 × D: fail (rounds=2, tokens=29006+279)
+  refer-m-26 × D: fail (rounds=2, tokens=26931+178)
+  refer-m-28 × D: fail (rounds=2, tokens=22798+161)
+  refer-m-27 × D: fail (rounds=2, tokens=18050+120)
+  refer-m-29 × C: PASS (rounds=2, tokens=22114+88)
+  refer-m-28 × C: fail (rounds=2, tokens=35842+219)
+  refer-m-30 × D: fail (rounds=2, tokens=16601+154)
+  refer-m-29 × D: PASS (rounds=2, tokens=21302+148)
+  refer-m-31 × C: fail (rounds=2, tokens=25161+128)
+  refer-m-30 × C: fail (rounds=2, tokens=38424+262)
+  refer-m-32 × C: fail (rounds=2, tokens=20785+167)
+  refer-m-31 × D: fail (rounds=2, tokens=27818+184)
+  refer-l-33 × C: fail (rounds=2, tokens=35277+119)
+  refer-m-32 × D: fail (rounds=2, tokens=19568+193)
+  refer-l-35 × C: fail (rounds=2, tokens=44105+127)
+  refer-l-34 × C: fail (rounds=2, tokens=58934+104)
+  refer-l-33 × D: fail (rounds=2, tokens=52446+279)
+  refer-l-34 × D: fail (rounds=2, tokens=52265+158)
+  refer-l-36 × D: fail (rounds=2, tokens=48343+176)
+  refer-l-37 × C: fail (rounds=2, tokens=50071+165)
+  refer-l-36 × C: fail (rounds=2, tokens=88017+220)
+  refer-l-35 × D: fail (rounds=2, tokens=59280+277)
+  refer-l-37 × D: PASS (rounds=2, tokens=29306+99)
+  refer-l-39 × C: fail (rounds=2, tokens=43843+154)
+  refer-l-38 × D: fail (rounds=2, tokens=53721+171)
+  refer-l-38 × C: fail (rounds=2, tokens=110324+272)
+  refer-l-39 × D: fail (rounds=2, tokens=38610+249)
+  refer-l-40 × C: fail (rounds=2, tokens=62485+134)
+  refer-l-40 × D: fail (rounds=2, tokens=55451+166)
+  const-s-23 × C: PASS (rounds=1, tokens=372613+64019)
+=== done: 201/288 new records passed
+
+=== google/gemini-3.5-flash × best → results/raw/main-google_gemini-3.5-flash-best.jsonl
+Running 288 task×condition pairs (712 already done) with model google/gemini-3.5-flash, regime best
+  trans-xs-1 × C: PASS (rounds=1, tokens=2623+30)
+  trans-xs-2 × C: PASS (rounds=1, tokens=3136+26)
+  trans-xs-3 × C: PASS (rounds=1, tokens=3294+18)
+  trans-xs-2 × D: PASS (rounds=1, tokens=2910+26)
+  trans-xs-1 × D: PASS (rounds=1, tokens=2551+30)
+  trans-xs-3 × D: PASS (rounds=1, tokens=3086+18)
+  trans-xs-4 × D: PASS (rounds=1, tokens=2827+48)
+  trans-xs-5 × C: PASS (rounds=1, tokens=3002+31)
+  trans-xs-5 × D: PASS (rounds=1, tokens=2842+31)
+  trans-xs-6 × C: PASS (rounds=1, tokens=2757+32)
+  trans-xs-4 × C: fail (rounds=1, tokens=6208+93)
+  trans-xs-6 × D: PASS (rounds=1, tokens=2637+32)
+  trans-xs-7 × C: PASS (rounds=1, tokens=2644+27)
+  trans-xs-7 × D: PASS (rounds=1, tokens=2592+27)
+  trans-xs-8 × D: PASS (rounds=1, tokens=2660+18)
+  trans-xs-8 × C: PASS (rounds=1, tokens=2766+18)
+  trans-xs-9 × D: PASS (rounds=1, tokens=3284+45)
+  trans-xs-9 × C: PASS (rounds=1, tokens=3526+45)
+  trans-xs-10 × D: PASS (rounds=1, tokens=2499+30)
+  trans-xs-10 × C: PASS (rounds=1, tokens=2565+30)
+  trans-xs-11 × C: PASS (rounds=1, tokens=2895+30)
+  trans-xs-12 × C: PASS (rounds=1, tokens=2680+26)
+  trans-xs-13 × C: PASS (rounds=1, tokens=3108+18)
+  trans-xs-12 × D: PASS (rounds=1, tokens=2592+26)
+  trans-xs-13 × D: PASS (rounds=1, tokens=2894+18)
+  trans-xs-11 × D: PASS (rounds=1, tokens=2755+30)
+  trans-xs-15 × C: PASS (rounds=1, tokens=2992+31)
+  trans-xs-14 × D: PASS (rounds=1, tokens=4254+87)
+  trans-xs-15 × D: PASS (rounds=1, tokens=2832+31)
+  trans-xs-16 × C: PASS (rounds=1, tokens=3019+32)
+  trans-xs-14 × C: fail (rounds=1, tokens=6017+108)
+  trans-xs-16 × D: PASS (rounds=1, tokens=2785+32)
+  trans-xs-17 × D: PASS (rounds=1, tokens=2634+26)
+  trans-xs-18 × D: PASS (rounds=1, tokens=3028+18)
+  trans-xs-18 × C: PASS (rounds=1, tokens=3240+18)
+  trans-xs-17 × C: PASS (rounds=1, tokens=2730+26)
+  trans-xs-19 × C: PASS (rounds=1, tokens=3041+44)
+  trans-xs-20 × D: PASS (rounds=1, tokens=2808+31)
+  trans-s-21 × C: PASS (rounds=1, tokens=5546+27)
+  trans-xs-20 × C: PASS (rounds=1, tokens=3016+31)
+  trans-xs-19 × D: PASS (rounds=1, tokens=4362+81)
+  trans-s-21 × D: PASS (rounds=1, tokens=4530+27)
+  trans-s-22 × D: PASS (rounds=1, tokens=3792+27)
+  trans-s-22 × C: PASS (rounds=1, tokens=4358+27)
+  trans-s-23 × C: PASS (rounds=1, tokens=5272+18)
+  trans-s-23 × D: PASS (rounds=1, tokens=4426+18)
+  trans-s-24 × C: PASS (rounds=1, tokens=4268+34)
+  trans-s-25 × C: PASS (rounds=1, tokens=5574+32)
+  trans-s-25 × D: PASS (rounds=1, tokens=4734+32)
+  trans-s-24 × D: PASS (rounds=1, tokens=3728+34)
+  trans-s-26 × C: PASS (rounds=1, tokens=5028+36)
+  trans-s-26 × D: PASS (rounds=1, tokens=4270+36)
+  trans-s-27 × C: PASS (rounds=1, tokens=6194+25)
+  trans-s-27 × D: PASS (rounds=1, tokens=5162+25)
+  trans-s-28 × D: PASS (rounds=1, tokens=4922+19)
+  trans-s-28 × C: PASS (rounds=1, tokens=5842+19)
+  trans-s-29 × C: PASS (rounds=1, tokens=4529+48)
+  trans-s-30 × C: PASS (rounds=1, tokens=4512+32)
+  trans-s-29 × D: PASS (rounds=1, tokens=3893+48)
+  trans-s-30 × D: PASS (rounds=1, tokens=3960+32)
+  trans-s-31 × C: PASS (rounds=1, tokens=4231+33)
+  trans-s-31 × D: PASS (rounds=1, tokens=3669+33)
+  trans-s-32 × C: PASS (rounds=1, tokens=5026+25)
+  trans-s-32 × D: PASS (rounds=1, tokens=4244+25)
+  trans-s-33 × C: PASS (rounds=1, tokens=4674+19)
+  trans-s-33 × D: PASS (rounds=1, tokens=3982+19)
+  trans-s-34 × C: PASS (rounds=1, tokens=4257+58)
+  trans-s-35 × C: PASS (rounds=1, tokens=5540+32)
+  trans-s-35 × D: PASS (rounds=1, tokens=4688+32)
+  trans-s-34 × D: PASS (rounds=1, tokens=5711+119)
+  trans-s-36 × C: PASS (rounds=1, tokens=4685+32)
+  trans-s-36 × D: PASS (rounds=1, tokens=3991+32)
+  trans-s-37 × C: PASS (rounds=1, tokens=4720+26)
+  trans-s-37 × D: PASS (rounds=1, tokens=4004+26)
+  trans-s-38 × D: PASS (rounds=1, tokens=3780+18)
+  trans-s-38 × C: PASS (rounds=1, tokens=4304+18)
+  trans-s-39 × C: PASS (rounds=1, tokens=4918+33)
+  trans-s-39 × D: PASS (rounds=1, tokens=4188+33)
+  trans-s-40 × C: PASS (rounds=1, tokens=4162+31)
+  trans-s-40 × D: PASS (rounds=1, tokens=3584+31)
+  trans-m-41 × C: PASS (rounds=1, tokens=11783+28)
+  trans-m-41 × D: PASS (rounds=1, tokens=8927+28)
+  trans-m-42 × C: PASS (rounds=1, tokens=13108+28)
+  trans-m-42 × D: PASS (rounds=1, tokens=9916+28)
+  trans-m-43 × C: PASS (rounds=1, tokens=8540+19)
+  trans-m-43 × D: PASS (rounds=1, tokens=6646+19)
+  trans-m-44 × C: PASS (rounds=1, tokens=9109+41)
+  trans-m-45 × C: PASS (rounds=1, tokens=9176+33)
+  trans-m-45 × D: PASS (rounds=1, tokens=7252+33)
+  trans-m-46 × D: PASS (rounds=1, tokens=7351+34)
+  trans-m-44 × D: fail (rounds=1, tokens=10999+68)
+  trans-m-46 × C: PASS (rounds=1, tokens=9321+34)
+  trans-m-47 × C: PASS (rounds=1, tokens=9312+26)
+  trans-m-47 × D: PASS (rounds=1, tokens=7182+26)
+  trans-m-48 × D: PASS (rounds=1, tokens=8652+18)
+  trans-m-48 × C: PASS (rounds=1, tokens=11230+18)
+  trans-m-49 × D: PASS (rounds=1, tokens=7191+27)
+  trans-m-49 × C: PASS (rounds=1, tokens=9161+27)
+  trans-m-51 × C: PASS (rounds=1, tokens=9289+31)
+  trans-m-50 × D: PASS (rounds=1, tokens=7196+32)
+  trans-m-50 × C: PASS (rounds=1, tokens=9172+32)
+  trans-m-52 × C: PASS (rounds=1, tokens=11562+26)
+  trans-m-51 × D: PASS (rounds=1, tokens=7233+31)
+  trans-m-53 × C: PASS (rounds=1, tokens=11534+19)
+  trans-m-52 × D: PASS (rounds=1, tokens=8730+26)
+  trans-m-53 × D: PASS (rounds=1, tokens=8754+19)
+  trans-m-54 × C: PASS (rounds=1, tokens=12450+46)
+  trans-m-54 × D: PASS (rounds=1, tokens=9426+46)
+  trans-m-55 × C: PASS (rounds=1, tokens=8548+32)
+  trans-m-55 × D: PASS (rounds=1, tokens=6642+32)
+  trans-m-56 × C: PASS (rounds=1, tokens=11394+32)
+  trans-m-56 × D: PASS (rounds=1, tokens=8580+32)
+  trans-m-57 × C: PASS (rounds=1, tokens=10882+28)
+  trans-m-58 × C: PASS (rounds=1, tokens=10944+19)
+  trans-m-57 × D: PASS (rounds=1, tokens=8268+28)
+  trans-m-58 × D: PASS (rounds=1, tokens=8278+19)
+  trans-m-59 × D: PASS (rounds=1, tokens=7598+63)
+  trans-m-59 × C: PASS (rounds=1, tokens=9822+63)
+  trans-m-60 × D: PASS (rounds=1, tokens=10058+33)
+  trans-m-60 × C: PASS (rounds=1, tokens=13318+33)
+  trans-l-61 × C: PASS (rounds=1, tokens=22898+34)
+  trans-l-61 × D: PASS (rounds=1, tokens=16720+34)
+  trans-l-62 × C: PASS (rounds=1, tokens=22794+26)
+  trans-l-62 × D: PASS (rounds=1, tokens=16584+26)
+  trans-l-63 × D: PASS (rounds=1, tokens=14698+19)
+  trans-l-63 × C: PASS (rounds=1, tokens=19838+19)
+  trans-l-65 × C: PASS (rounds=1, tokens=19722+33)
+  trans-l-64 × C: PASS (rounds=1, tokens=18998+41)
+  trans-l-66 × C: PASS (rounds=1, tokens=20833+33)
+  trans-l-64 × D: PASS (rounds=1, tokens=21185+86)
+  trans-l-65 × D: PASS (rounds=1, tokens=14830+33)
+  trans-l-66 × D: PASS (rounds=1, tokens=15493+33)
+  trans-l-67 × D: PASS (rounds=1, tokens=14080+28)
+  trans-l-67 × C: PASS (rounds=1, tokens=19016+28)
+  trans-l-68 × D: PASS (rounds=1, tokens=13896+19)
+  trans-l-68 × C: PASS (rounds=1, tokens=18804+19)
+  trans-l-69 × D: PASS (rounds=1, tokens=15789+41)
+  trans-l-69 × C: PASS (rounds=1, tokens=21473+41)
+  trans-l-70 × C: PASS (rounds=1, tokens=20210+33)
+  trans-l-71 × C: PASS (rounds=1, tokens=18551+36)
+  trans-l-70 × D: PASS (rounds=1, tokens=14830+33)
+  trans-l-71 × D: PASS (rounds=1, tokens=13763+36)
+  trans-l-72 × C: PASS (rounds=1, tokens=24590+29)
+  trans-l-72 × D: PASS (rounds=1, tokens=18008+29)
+  trans-l-73 × D: PASS (rounds=1, tokens=19516+20)
+  trans-l-73 × C: PASS (rounds=1, tokens=26712+20)
+  trans-l-75 × C: PASS (rounds=1, tokens=21240+33)
+  trans-l-75 × D: PASS (rounds=1, tokens=15728+33)
+  trans-l-74 × D: PASS (rounds=1, tokens=22594+80)
+  trans-l-76 × C: PASS (rounds=1, tokens=19547+30)
+  trans-l-74 × C: fail (rounds=1, tokens=41055+102)
+  trans-l-76 × D: PASS (rounds=1, tokens=14533+30)
+  trans-l-78 × C: PASS (rounds=1, tokens=21346+19)
+  trans-l-77 × C: PASS (rounds=1, tokens=25010+29)
+  trans-l-77 × D: PASS (rounds=1, tokens=18352+29)
+  trans-l-78 × D: PASS (rounds=1, tokens=15734+19)
+  trans-l-80 × C: PASS (rounds=1, tokens=27696+34)
+  trans-l-80 × D: PASS (rounds=1, tokens=20240+34)
+  trans-l-79 × D: PASS (rounds=1, tokens=20879+73)
+  trans-l-79 × C: PASS (rounds=1, tokens=18830+39)
+  const-xs-3 × C: PASS (rounds=1, tokens=6472+136)
+  const-xs-2 × C: PASS (rounds=1, tokens=11689+250)
+  const-xs-1 × D: PASS (rounds=1, tokens=14592+349)
+  const-xs-2 × D: PASS (rounds=1, tokens=11857+250)
+  const-xs-1 × C: PASS (rounds=1, tokens=14403+349)
+  const-xs-3 × D: PASS (rounds=1, tokens=6577+136)
+  const-xs-5 × D: PASS (rounds=1, tokens=6703+184)
+  const-xs-5 × C: PASS (rounds=1, tokens=6598+184)
+  const-xs-4 × C: PASS (rounds=1, tokens=11086+224)
+  const-xs-4 × D: PASS (rounds=1, tokens=11258+227)
+  const-xs-6 × C: PASS (rounds=1, tokens=8025+162)
+  const-xs-6 × D: PASS (rounds=1, tokens=8151+162)
+  const-xs-7 × C: PASS (rounds=1, tokens=18410+421)
+  const-xs-8 × D: PASS (rounds=1, tokens=14904+393)
+  const-xs-8 × C: PASS (rounds=1, tokens=14715+393)
+  const-xs-7 × D: PASS (rounds=1, tokens=18641+421)
+  const-xs-9 × C: PASS (rounds=1, tokens=11250+235)
+  const-xs-10 × D: PASS (rounds=1, tokens=10171+251)
+  const-xs-9 × D: PASS (rounds=1, tokens=11418+235)
+  const-xs-10 × C: PASS (rounds=1, tokens=10024+251)
+  const-xs-11 × D: PASS (rounds=1, tokens=14278+364)
+  const-xs-11 × C: PASS (rounds=1, tokens=14089+364)
+  const-xs-12 × C: PASS (rounds=1, tokens=6449+127)
+  const-xs-12 × D: PASS (rounds=1, tokens=6554+127)
+  const-s-13 × C: PASS (rounds=1, tokens=39374+756)
+  const-s-14 × D: PASS (rounds=1, tokens=41228+794)
+  const-s-14 × C: PASS (rounds=1, tokens=40497+726)
+  const-s-13 × D: PASS (rounds=1, tokens=40008+816)
+  const-s-15 × C: PASS (rounds=1, tokens=66467+1140)
+  const-s-17 × C: PASS (rounds=1, tokens=37539+868)
+  const-s-15 × D: PASS (rounds=1, tokens=66992+1140)
+  const-s-16 × C: PASS (rounds=1, tokens=69516+1212)
+  const-s-17 × D: PASS (rounds=1, tokens=37645+866)
+  const-s-16 × D: PASS (rounds=1, tokens=70210+1216)
+  const-s-18 × C: PASS (rounds=1, tokens=38587+679)
+  const-s-18 × D: PASS (rounds=1, tokens=38965+679)
+  const-s-19 × C: PASS (rounds=1, tokens=73256+1247)
+  const-s-20 × C: PASS (rounds=1, tokens=62147+1150)
+  const-s-19 × D: PASS (rounds=1, tokens=71750+1317)
+  const-s-21 × C: PASS (rounds=1, tokens=57267+1027)
+  const-s-20 × D: PASS (rounds=1, tokens=62672+1150)
+  const-s-22 × C: PASS (rounds=1, tokens=39083+795)
+  const-s-22 × D: PASS (rounds=1, tokens=39461+795)
+  const-s-21 × D: PASS (rounds=1, tokens=57750+1027)
+  refer-xs-1 × C: fail (rounds=2, tokens=9049+115)
+  const-s-23 × C: PASS (rounds=1, tokens=64243+1105)
+  refer-xs-1 × D: fail (rounds=2, tokens=8449+106)
+  const-s-23 × D: PASS (rounds=1, tokens=64809+1111)
+  refer-xs-2 × C: fail (rounds=2, tokens=6951+98)
+  refer-xs-3 × C: PASS (rounds=2, tokens=5934+104)
+  const-s-24 × C: PASS (rounds=1, tokens=61218+1125)
+  refer-xs-2 × D: fail (rounds=2, tokens=9609+163)
+  refer-xs-4 × C: PASS (rounds=2, tokens=6833+102)
+  const-s-24 × D: PASS (rounds=1, tokens=61701+1125)
+  refer-xs-3 × D: PASS (rounds=2, tokens=7226+160)
+  refer-xs-4 × D: PASS (rounds=2, tokens=6317+102)
+  refer-xs-5 × C: PASS (rounds=2, tokens=8484+79)
+  refer-xs-5 × D: PASS (rounds=2, tokens=7750+113)
+  refer-xs-6 × C: PASS (rounds=2, tokens=7607+113)
+  refer-xs-6 × D: fail (rounds=2, tokens=7322+149)
+  refer-xs-7 × C: PASS (rounds=2, tokens=6696+64)
+  refer-xs-8 × C: PASS (rounds=2, tokens=5823+75)
+  refer-xs-7 × D: fail (rounds=2, tokens=9354+129)
+  refer-xs-8 × D: fail (rounds=2, tokens=8438+146)
+  refer-s-9 × D: fail (rounds=2, tokens=12931+103)
+  refer-s-9 × C: fail (rounds=2, tokens=15576+103)
+  refer-s-10 × C: fail (rounds=2, tokens=13482+130)
+  refer-s-10 × D: fail (rounds=2, tokens=11362+130)
+  refer-s-11 × C: fail (rounds=2, tokens=16141+141)
+  refer-s-12 × D: PASS (rounds=2, tokens=10557+142)
+  refer-s-12 × C: fail (rounds=2, tokens=15087+154)
+  refer-s-11 × D: fail (rounds=2, tokens=16269+209)
+  refer-s-13 × C: fail (rounds=2, tokens=14880+145)
+  refer-s-13 × D: fail (rounds=2, tokens=12360+145)
+  refer-s-14 × C: fail (rounds=2, tokens=14389+115)
+  refer-s-14 × D: fail (rounds=2, tokens=14347+152)
+  refer-s-15 × C: fail (rounds=2, tokens=11801+115)
+  refer-s-16 × C: fail (rounds=2, tokens=13718+151)
+  refer-s-17 × D: fail (rounds=2, tokens=10274+132)
+  refer-s-18 × C: PASS (rounds=2, tokens=10379+97)
+  refer-s-17 × C: fail (rounds=2, tokens=11804+132)
+  refer-s-16 × D: fail (rounds=2, tokens=16369+247)
+  refer-s-15 × D: fail (rounds=2, tokens=14491+170)
+  refer-s-18 × D: PASS (rounds=2, tokens=8871+97)
+  refer-s-19 × C: fail (rounds=2, tokens=15564+209)
+  refer-s-20 × C: fail (rounds=2, tokens=13935+159)
+  refer-s-20 × D: fail (rounds=2, tokens=14030+169)
+  refer-s-19 × D: PASS (rounds=2, tokens=10884+146)
+  refer-m-21 × C: fail (rounds=2, tokens=22259+141)
+  refer-m-23 × C: fail (rounds=2, tokens=23003+122)
+  refer-m-21 × D: fail (rounds=2, tokens=24698+199)
+  refer-m-23 × D: fail (rounds=2, tokens=21854+148)
+  refer-m-22 × C: fail (rounds=2, tokens=49611+302)
+  refer-m-22 × D: fail (rounds=2, tokens=47470+357)
+  refer-m-24 × C: fail (rounds=2, tokens=30810+156)
+  refer-m-25 × C: fail (rounds=2, tokens=24014+141)
+  refer-m-24 × D: fail (rounds=2, tokens=23886+156)
+  refer-m-26 × D: PASS (rounds=2, tokens=23313+118)
+  refer-m-25 × D: fail (rounds=2, tokens=30574+279)
+  refer-m-27 × D: fail (rounds=2, tokens=19030+120)
+  refer-m-27 × C: fail (rounds=2, tokens=29205+145)
+  refer-m-26 × C: fail (rounds=2, tokens=42959+204)
+  refer-m-28 × D: fail (rounds=2, tokens=23778+161)
+  refer-m-29 × C: fail (rounds=2, tokens=29022+143)
+  refer-m-28 × C: fail (rounds=2, tokens=37237+188)
+  refer-m-30 × C: fail (rounds=2, tokens=22406+154)
+  refer-m-29 × D: fail (rounds=2, tokens=36136+283)
+  refer-m-30 × D: fail (rounds=2, tokens=21095+169)
+  refer-m-32 × C: PASS (rounds=2, tokens=22059+108)
+  refer-m-31 × C: fail (rounds=2, tokens=31803+163)
+  refer-m-31 × D: fail (rounds=2, tokens=29178+185)
+  refer-m-32 × D: fail (rounds=2, tokens=17260+167)
+  refer-l-34 × C: fail (rounds=2, tokens=60180+110)
+  refer-l-33 × C: fail (rounds=2, tokens=45434+150)
+  refer-l-34 × D: fail (rounds=2, tokens=44416+113)
+  refer-l-35 × C: fail (rounds=2, tokens=45345+127)
+  refer-l-33 × D: fail (rounds=2, tokens=47148+257)
+  refer-l-37 × C: PASS (rounds=2, tokens=40926+99)
+  refer-l-36 × C: fail (rounds=2, tokens=56105+147)
+  refer-l-35 × D: fail (rounds=2, tokens=33696+136)
+  refer-l-36 × D: fail (rounds=2, tokens=41245+147)
+  refer-l-37 × D: fail (rounds=2, tokens=37766+165)
+  refer-l-38 × C: PASS (rounds=2, tokens=49764+87)
+  refer-l-38 × D: fail (rounds=2, tokens=45727+143)
+  refer-l-39 × C: fail (rounds=2, tokens=45073+145)
+  refer-l-40 × C: fail (rounds=2, tokens=63725+134)
+  refer-l-39 × D: fail (rounds=2, tokens=53326+287)
+  refer-l-40 × D: fail (rounds=2, tokens=66120+192)
+=== done: 221/288 new records passed
+
+Matrix complete.
