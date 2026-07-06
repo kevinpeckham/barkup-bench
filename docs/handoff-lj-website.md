@@ -15,6 +15,15 @@ Context you can read on this machine:
 - Benchmark findings: `~/newdev/barkup-bench/REPORT.md` (authoritative
   numbers) and `~/newdev/barkup-bench/results/analysis-main.txt`.
 - Companion post draft: `~/newdev/barkup-bench/docs/blog-draft.md`.
+- Figures, ready to embed: `~/newdev/barkup-bench/docs/img/` — three
+  charts (`crossover-success`, `reference-stability`,
+  `tokens-per-solved`), each as SVG and 2× PNG in `-light` and `-dark`
+  variants. Prefer the SVGs if the site supports them; serve the
+  light/dark pair via `<picture>` + `prefers-color-scheme` (or the
+  site's own theme mechanism). Place the crossover chart and the
+  reference-stability chart in the companion post at minimum; the
+  tokens chart fits the cost section. Regenerate anytime with
+  `bun run scripts/render-charts.ts` in barkup-bench.
 
 Hard rules:
 - Scientific integrity beats a good story. Do not soften, round up, or
