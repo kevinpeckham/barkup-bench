@@ -179,11 +179,16 @@ export function buildNewNode(
 }
 
 /**
- * Generate a random applicable edit for the tree. Kinds are tried in a
- * seeded order; the first applicable kind wins, so every tree yields an
- * edit deterministically.
+ * Generate a random applicable edit for the tree. When `preferredKind`
+ * is given it is tried first (the pilot cycles kinds across tasks so
+ * every edit kind's grading gets exercised); remaining kinds are tried
+ * in seeded order, so every tree yields an edit deterministically.
  */
-export function generateEdit(tree: BarkupNode, rng: Rng): Edit {
+export function generateEdit(
+	tree: BarkupNode,
+	rng: Rng,
+	preferredKind?: Edit["kind"],
+): Edit {
 	const kinds: Edit["kind"][] = [
 		"set-attribute",
 		"set-name",
@@ -197,6 +202,9 @@ export function generateEdit(tree: BarkupNode, rng: Rng): Edit {
 		const a = kinds[i] as Edit["kind"];
 		kinds[i] = kinds[j] as Edit["kind"];
 		kinds[j] = a;
+	}
+	if (preferredKind !== undefined) {
+		kinds.unshift(preferredKind);
 	}
 	for (const kind of kinds) {
 		const edit = tryGenerate(tree, rng, kind);

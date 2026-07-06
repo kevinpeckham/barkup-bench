@@ -33,20 +33,43 @@ const TYPES = [
 	"image-atom",
 ] as const;
 
-export function generateQuestion(tree: BarkupNode, rng: Rng): Question {
-	const kinds = [
-		countTypeGlobal,
-		countDirectChildren,
-		attributeValue,
-		nthChildType,
-		countTypeUnder,
-	];
+export type QuestionKind =
+	| "count-type-global"
+	| "count-direct-children"
+	| "attribute-value"
+	| "nth-child-type"
+	| "count-type-under";
+
+const GENERATORS: Record<
+	QuestionKind,
+	(tree: BarkupNode, rng: Rng) => Question | null
+> = {
+	"count-type-global": countTypeGlobal,
+	"count-direct-children": countDirectChildren,
+	"attribute-value": attributeValue,
+	"nth-child-type": nthChildType,
+	"count-type-under": countTypeUnder,
+};
+
+/**
+ * When `preferredKind` is given it is tried first (the pilot cycles
+ * kinds across tasks); remaining kinds follow in seeded order.
+ */
+export function generateQuestion(
+	tree: BarkupNode,
+	rng: Rng,
+	preferredKind?: QuestionKind,
+): Question {
+	const kinds = Object.values(GENERATORS);
 	// Seeded order; first generator that applies wins.
 	for (let i = kinds.length - 1; i > 0; i -= 1) {
 		const j = rng.int(0, i);
 		const a = kinds[i] as (typeof kinds)[number];
 		kinds[i] = kinds[j] as (typeof kinds)[number];
 		kinds[j] = a;
+	}
+	if (preferredKind !== undefined) {
+		kinds.unshift(GENERATORS[preferredKind]);
 	}
 	for (const kind of kinds) {
 		const question = kind(tree, rng);

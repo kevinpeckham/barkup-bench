@@ -154,6 +154,30 @@ describe("pilot corpus", () => {
 		expect(byFamily.get("reading")).toBe(4);
 	});
 
+	test("transformation tasks cover every edit kind", () => {
+		const kinds = new Set(
+			corpus.tasks
+				.filter((task) => task.family === "transformation")
+				.map((task) => (task.family === "transformation" ? task.edit.kind : "")),
+		);
+		expect([...kinds].sort()).toEqual([
+			"insert-node",
+			"move-node",
+			"remove-node",
+			"set-attribute",
+			"set-name",
+		]);
+	});
+
+	test("reading tasks cover distinct question kinds", () => {
+		const prompts = corpus.tasks
+			.filter((task) => task.family === "reading")
+			.map((task) => (task.family === "reading" ? task.question.prompt : ""));
+		// Four different templates → four different phrasings.
+		const shapes = new Set(prompts.map((p) => p.split(" ").slice(0, 3).join(" ")));
+		expect(shapes.size).toBeGreaterThanOrEqual(3);
+	});
+
 	test("transformation tasks: expected = applyEdit(tree), and differs from tree", () => {
 		for (const task of corpus.tasks) {
 			if (task.family !== "transformation") continue;

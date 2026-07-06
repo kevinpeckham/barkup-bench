@@ -15,7 +15,7 @@ import {
 	generateEdit,
 } from "./edits.js";
 import { word } from "./humanize.js";
-import type { Question } from "./questions.js";
+import type { Question, QuestionKind } from "./questions.js";
 import { generateQuestion } from "./questions.js";
 import type { Rng } from "./rng.js";
 import { createRng } from "./rng.js";
@@ -94,6 +94,30 @@ const PILOT_PLAN: { family: Family; buckets: BucketName[] }[] = [
 	{ family: "reading", buckets: ["xs", "s", "m", "l"] },
 ];
 
+/**
+ * Pre-registered kind cycles: the pilot must exercise every edit kind
+ * and question kind at least once (its whole purpose is validating the
+ * grading end-to-end), so kinds are assigned round-robin per task index
+ * instead of left entirely to the seeded draw. A kind that is
+ * inapplicable to its tree falls back to the seeded order.
+ */
+const TRANSFORMATION_KIND_CYCLE: Edit["kind"][] = [
+	"set-attribute",
+	"set-name",
+	"remove-node",
+	"insert-node",
+	"move-node",
+	"set-attribute",
+	"insert-node",
+	"move-node",
+];
+const READING_KIND_CYCLE: QuestionKind[] = [
+	"count-type-global",
+	"count-direct-children",
+	"attribute-value",
+	"nth-child-type",
+];
+
 const FAMILY_SEED_OFFSET: Record<Family, number> = {
 	transformation: 1_000,
 	construction: 2_000,
@@ -131,7 +155,9 @@ export function generatePilotCorpus(seed: number): Corpus {
 			const taskSeed =
 				seed + FAMILY_SEED_OFFSET[family] + bucketOffset(bucket) + index * 97;
 			const id = `${family.slice(0, 5)}-${bucket}-${index + 1}`;
-			tasks.push(buildTask(family, id, bucket, tree, createRng(taskSeed)));
+			tasks.push(
+				buildTask(family, id, bucket, tree, createRng(taskSeed), index),
+			);
 		});
 	}
 	return { version: 1, seed, tasks };
@@ -147,10 +173,15 @@ function buildTask(
 	bucket: BucketName,
 	tree: BarkupNode,
 	rng: Rng,
+	index: number,
 ): PilotTask {
 	switch (family) {
 		case "transformation": {
-			const edit = generateEdit(tree, rng);
+			const edit = generateEdit(
+				tree,
+				rng,
+				TRANSFORMATION_KIND_CYCLE[index % TRANSFORMATION_KIND_CYCLE.length],
+			);
 			return {
 				id,
 				family,
@@ -171,7 +202,11 @@ function buildTask(
 				family,
 				bucket,
 				tree,
-				question: generateQuestion(tree, rng),
+				question: generateQuestion(
+					tree,
+					rng,
+					READING_KIND_CYCLE[index % READING_KIND_CYCLE.length],
+				),
 			};
 	}
 }
