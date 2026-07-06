@@ -6,3 +6,6 @@ results/raw/
 *.env
 *.env.local
 *.tgz
+
+# Internal-only working files (agent handoff prompts, scratch notes)
+internal/
