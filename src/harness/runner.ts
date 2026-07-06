@@ -235,8 +235,17 @@ function accumulate(record: TaskRunRecord, calls: CallLog[]): void {
 		0,
 	);
 	record.totalLatencyMs = record.calls.reduce((sum, c) => sum + c.latencyMs, 0);
+}
+
+/**
+ * Derived fields that depend on `success`, which the family runners set
+ * AFTER their last accumulate() call — so this must run once, at the
+ * end, on the finished record (a pilot-caught ordering bug).
+ */
+function finalize(record: TaskRunRecord): TaskRunRecord {
 	record.passAt1 =
 		record.success && record.calls.every((call) => call.round === 1);
+	return record;
 }
 
 async function runEditLoop(
@@ -280,6 +289,7 @@ async function runTransformation(
 		record.success = equalModuloNewIds(task.expected, loop.tree, sourceIds);
 		record.drift = driftCount(task.tree, task.expected, loop.tree);
 	}
+	record.detail = { finalTree: loop.tree };
 	accumulate(record, loop.calls);
 	return record;
 }
@@ -305,6 +315,7 @@ async function runConstruction(
 		const loop = await rewriteLoop(condition, model, messages, 1);
 		record.firstPassValid = loop.firstPassValid;
 		if (loop.tree) record.success = equalModuloAllIds(task.target, loop.tree);
+		record.detail = { finalTree: loop.tree };
 		accumulate(record, loop.calls);
 		return record;
 	}
@@ -320,6 +331,7 @@ async function runConstruction(
 	record.firstPassValid = loop.firstPassValid;
 	record.toolErrorCount = session.toolErrorCount;
 	if (loop.tree) record.success = equalModuloAllIds(task.target, loop.tree);
+	record.detail = { finalTree: loop.tree };
 	accumulate(record, loop.calls);
 	return record;
 }
@@ -368,6 +380,7 @@ async function runReference(
 		record.detail = {
 			phase1Correct,
 			reason: "created node missing or has no id",
+			phase1Tree: loop1.tree,
 		};
 		return record;
 	}
@@ -409,7 +422,12 @@ async function runReference(
 	} else {
 		record.idRefFailure = false;
 	}
-	record.detail = { phase1Correct, referencedId };
+	record.detail = {
+		phase1Correct,
+		referencedId,
+		phase1Tree: loop1.tree,
+		finalTree: loop2.tree,
+	};
 	return record;
 }
 
@@ -454,13 +472,13 @@ export async function runTask(
 ): Promise<TaskRunRecord> {
 	switch (task.family) {
 		case "transformation":
-			return runTransformation(task, condition, model);
+			return finalize(await runTransformation(task, condition, model));
 		case "construction":
-			return runConstruction(task, condition, model);
+			return finalize(await runConstruction(task, condition, model));
 		case "reference":
-			return runReference(task, condition, model);
+			return finalize(await runReference(task, condition, model));
 		case "reading":
-			return runReading(task, condition, model);
+			return finalize(await runReading(task, condition, model));
 	}
 }
 

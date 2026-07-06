@@ -25,7 +25,11 @@ function summarize(rows: TaskRunRecord[]): string {
 	if (n === 0) return "n=0";
 	const success = rows.filter((r) => r.success).length;
 	const w = wilson(success, n);
-	const passAt1 = rows.filter((r) => r.passAt1).length;
+	// Derived from calls (not the stored passAt1 field): success with no
+	// correction round in any phase.
+	const passAt1 = rows.filter(
+		(r) => r.success && r.calls.every((call) => call.round === 1),
+	).length;
 	const validityRows = rows.filter((r) => r.firstPassValid !== null);
 	const firstValid = validityRows.filter((r) => r.firstPassValid).length;
 	const solved = rows.filter((r) => r.success);
