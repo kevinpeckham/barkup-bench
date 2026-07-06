@@ -251,6 +251,16 @@ reach for when token cost or latency matters. Positional formats (RFC
 6902) and granular mutation tools remain the approaches to avoid below
 the frontier tier.
 
+Shipped-artifact validation (Tier-1 QA, 2026-07-06): the dialect
+shipped as `@kevinpeckham/barkup` 0.2.0 (`applyAnchoredPatch`) and was
+verified behaviorally identical to the reference applier the benchmark
+validated — differential property tests (identical verdicts, trees,
+and blamed op indexes over random tree × op sequences), 40 committed
+conformance vectors (`corpus/patch-vectors.json`, replayable by any
+implementation of the dialect), and a paired dogfood run swapping the
+shipped applier into the harness (haiku-4.5, parity: F 184/200 vs
+shipped 184/200, discordant 1/1, p = 1.0).
+
 Caveat: F was designed with knowledge of the main-study results (the
 motivation is disclosed in BRIEF-F.md); its comparisons reuse the A/E
 records rather than re-running them, and the same temperature-0
