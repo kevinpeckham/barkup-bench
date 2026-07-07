@@ -1,0 +1,95 @@
+# Per-model reference-family success under protocol v1 vs v2
+#
+# Companion analysis for the correction (REPORT.md, 2026-07-06) and for
+# the per-model table quoted in internal/blog-draft-footgun.md. Computed
+# directly from the committed raw records (2026-07-07):
+#
+#   v1 (broken tool history):  results/raw/main-<model>-<regime>.jsonl,
+#       filtered to family = "reference", condition ∈ {C, D}
+#   v2 (corrected history):    results/raw/reference-v2-<model>-<regime>.jsonl
+#       (C and D only by construction; rewrite/patch arms were unaffected
+#       and never re-run — see scripts/rerun-reference-v2.ts)
+#
+# Success = TaskRunRecord.success (both phases correct: insert a node,
+# then edit it by the id returned from the model's own tool result).
+
+## Primary slice — the one the blog draft's table reports
+## reference family, tools conditions C + D pooled, PARITY regime only
+## n = 80 per model per protocol (40 reference tasks × 2 conditions)
+
+model                        v1 (broken)        v2 (corrected)
+gemini-3.5-flash              3/80 =  3.8%      57/80 =  71.2%
+claude-haiku-4.5             23/80 = 28.8%      79/80 =  98.8%
+claude-sonnet-4.5            77/80 = 96.2%      80/80 = 100.0%
+gpt-5.4                      77/80 = 96.2%      80/80 = 100.0%
+
+The draft's table (3.8 / 28.7 / 96.3 / 96.3 → 71.3 / 98.8 / 100 / 100)
+is this slice. The underlying counts match exactly; the draft rounded
+the exact-half values inconsistently (23/80 = 28.75% written as 28.7;
+77/80 = 96.25% written as 96.3; 57/80 = 71.25% written as 71.3).
+Consistent round-half-up gives 28.8 / 96.2... — prefer quoting counts.
+"Tools conditions, pooled" = C + D pooled; regimes are NOT pooled
+(parity only). For reference, the other slices:
+
+## Secondary — best regime only (n = 80 per model per protocol)
+gemini-3.5-flash             17/80 = 21.2%      65/80 =  81.2%
+claude-haiku-4.5             34/80 = 42.5%      78/80 =  97.5%
+claude-sonnet-4.5            74/80 = 92.5%      80/80 = 100.0%
+gpt-5.4                      77/80 = 96.2%      80/80 = 100.0%
+
+## Secondary — both regimes pooled (n = 160 per model per protocol)
+gemini-3.5-flash             20/160 = 12.5%    122/160 =  76.2%
+claude-haiku-4.5             57/160 = 35.6%    157/160 =  98.1%
+claude-sonnet-4.5           151/160 = 94.4%    160/160 = 100.0%
+gpt-5.4                     154/160 = 96.2%    160/160 = 100.0%
+
+All 640 v1 cells (4 models × 2 regimes × 2 conditions × 40 tasks) have
+matching v2 re-runs; zero harness errors in either protocol. Residual
+v2 failures are all phase-1 (detail.phase1Correct = false — the model
+fumbled the initial tools insert): gemini 23 parity + 15 best, haiku
+1 parity + 2 best. No v2 failure is follow-up dropout.
+
+## Follow-up-dropout failure counts: 110 vs 114 vs 116 vs 137
+
+Three distinct populations have been quoted; all reconcile from raw:
+
+1. 110 — ORIGINAL main run (v1), parity, C + D, haiku + gemini only:
+   failures with detail.phase1Correct = true (phase 2 never applied).
+   haiku 54 + gemini 56 = 110. This is REPORT.md's "110 audited
+   phase-2 failures" (H4 section, written from the main-run records,
+   which carry no transcripts). Across all four models the same
+   population is 116 (sonnet 3 + gpt-5.4 3 more).
+
+2. 114 — Study G Phase A dropout audit (scripts/dropout-audit.ts): a
+   FRESH re-run of the same cells under the v1 protocol with
+   transcript capture (parity, C + D, haiku + gemini,
+   results/raw/dropout-audit-*.jsonl, 80 records per model).
+   Phase-2 failures with phase 1 correct and no harness error:
+   haiku 58 + gemini 56 = 114 — every one classified "no-tool-call"
+   from the transcript (the model replied DONE without calling any
+   tool). This is the population behind the blog draft's "We had 114
+   of these", and it is the only transcript-verified count. The 110
+   vs 114 gap is run-to-run variance between the original run and the
+   audit re-run of the same protocol (54 vs 58 haiku phase-2
+   failures; gemini 56 in both).
+
+3. 137 — total "fail" lines in results/dropout-audit.log = ALL audit
+   re-run failures: the 114 above plus 23 phase-1 failures (haiku 3 +
+   gemini 20) where the initial insert itself was wrong — a tools-
+   accuracy problem, not follow-up dropout, so the audit correctly
+   excludes them from classification.
+
+So: "114" is correct for the draft IF stated as the transcript-audited
+count from the Study G Phase A re-run (v1 protocol, parity, C + D,
+haiku + gemini, phase 1 correct). If the draft instead means "failing
+cases in the original benchmark run", the number is 110 (haiku +
+gemini) or 116 (all four models), and those transcripts were never
+captured — only the audit re-run's were.
+
+## Reproduce
+
+  bun repl / python over:
+    results/raw/main-*.jsonl               (v1, filter family=reference, condition C|D)
+    results/raw/reference-v2-*.jsonl       (v2)
+    results/raw/dropout-audit-*.jsonl      (audit re-run; detail.phase1Correct)
+  or: bun run scripts/dropout-audit.ts --classify

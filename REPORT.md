@@ -314,6 +314,12 @@ as a controlled hidden-history ablation.
 | haiku-4.5 tools overall | 80.5% | **95.0%** |
 | gemini-3.5-flash tools overall | 75.5% | 88.5% |
 
+Per-model reference-family v1 → v2 success splits (parity, C+D pooled,
+n = 80 per model per protocol) and the reconciliation of the
+follow-up-dropout failure counts (110 audited in the original run vs
+114 transcript-classified in the Study G Phase A re-run vs 137 total
+audit-log failures) are in `results/analysis-permodel-reference.txt`.
+
 Unchanged by the correction: H1 and H5 null results; H3 token-cost
 findings (rewrite/patches 4–5× cheaper than tools on small/medium
 trees — a statement about tokens, not success); E's positional-patch
