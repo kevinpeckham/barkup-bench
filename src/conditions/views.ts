@@ -32,7 +32,7 @@ export function referencedIds(edit: Edit): string[] {
 	}
 }
 
-function spineOf(tree: BarkupNode, ids: string[]): Set<BarkupNode> {
+export function spineOf(tree: BarkupNode, ids: string[]): Set<BarkupNode> {
 	const spine = new Set<BarkupNode>();
 	const descend = (node: BarkupNode, targetId: string): boolean => {
 		if (node.id === targetId) {
