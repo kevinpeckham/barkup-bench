@@ -73,6 +73,8 @@ async function callPatchModel(
 	text: string;
 	inputTokens: number;
 	outputTokens: number;
+	cacheReadTokens: number;
+	reasoningTokens: number;
 	latencyMs: number;
 }> {
 	const started = performance.now();
@@ -89,6 +91,9 @@ async function callPatchModel(
 		text: result.text,
 		inputTokens: result.totalUsage.inputTokens ?? 0,
 		outputTokens: result.totalUsage.outputTokens ?? 0,
+		cacheReadTokens: result.totalUsage.inputTokenDetails?.cacheReadTokens ?? 0,
+		reasoningTokens:
+			result.totalUsage.outputTokenDetails?.reasoningTokens ?? 0,
 		latencyMs: Math.round(performance.now() - started),
 	};
 }
@@ -119,6 +124,12 @@ async function sessionPatchLoop(
 			round,
 			inputTokens: outcome.inputTokens,
 			outputTokens: outcome.outputTokens,
+			...(outcome.cacheReadTokens > 0
+				? { cacheReadTokens: outcome.cacheReadTokens }
+				: {}),
+			...(outcome.reasoningTokens > 0
+				? { reasoningTokens: outcome.reasoningTokens }
+				: {}),
 			latencyMs: outcome.latencyMs,
 			issueCodes,
 		});
