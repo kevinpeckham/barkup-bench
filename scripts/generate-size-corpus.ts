@@ -8,8 +8,8 @@ import type { Edit } from "../src/corpus/edits.js";
 import { applyEdit, describeEdit, generateEdit } from "../src/corpus/edits.js";
 import { createRng } from "../src/corpus/rng.js";
 import type { Corpus, TransformationTask } from "../src/corpus/tasks.js";
-import { BUCKETS, sampleTrees } from "../src/corpus/trees.js";
 import type { BucketName } from "../src/corpus/trees.js";
+import { BUCKETS, sampleTrees } from "../src/corpus/trees.js";
 import { countNodes } from "../src/tree.js";
 
 /** Pre-registered Study H seed. */

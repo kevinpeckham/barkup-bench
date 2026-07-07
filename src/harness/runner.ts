@@ -157,7 +157,9 @@ async function callModel(
 			steps: steps.length,
 		};
 	}
-	const result = await generateText(params as Parameters<typeof generateText>[0]);
+	const result = await generateText(
+		params as Parameters<typeof generateText>[0],
+	);
 	return {
 		text: result.text,
 		// v7 footgun: result.response.messages contains ONLY the final

@@ -48,14 +48,7 @@ const SHAPE_CONFIG: GrammarConfig = {
 	),
 };
 
-export type BucketName =
-	| "xs"
-	| "s"
-	| "m"
-	| "l"
-	| "xl"
-	| "xxl"
-	| "xxxl";
+export type BucketName = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
 
 export interface BucketSpec {
 	name: BucketName;

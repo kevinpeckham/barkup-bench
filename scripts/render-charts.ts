@@ -23,7 +23,13 @@ interface FootgunCell {
 	low: number;
 	high: number;
 }
+interface SizeExtSeries {
+	model: string;
+	condition: string;
+	cells: { bucket: string; ok: number; n: number; rate: number }[];
+}
 interface ChartData {
+	sizeext: SizeExtSeries[];
 	footgun: { model: string; v1: FootgunCell; v2: FootgunCell }[];
 	crossover: Record<string, CrossoverCell[]>;
 	tokens: Record<string, { bucket: string; tokens: number }[]>;
@@ -331,6 +337,71 @@ function footgunChart(theme: Theme): string {
 	return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${g}${footerNote(theme, W, H, "barkup-bench protocol correction, 2026-07-06 · same tasks, same models, same prompts — only the history construction differs")}</svg>`;
 }
 
+function sizeExtensionChart(theme: Theme): string {
+	const W = 960;
+	const H = 584;
+	const TOP = 116;
+	const L = 72;
+	const R = 200;
+	const B = 88;
+	const iw = W - L - R;
+	const ih = H - TOP - B;
+	const SIZES = ["~300 nodes", "~600", "~1000"];
+	const xs = SIZES.map((_, i) => L + (iw * i) / (SIZES.length - 1));
+	const yOf = (v: number) => TOP + ih - (v / 100) * ih;
+	let g =
+		`<rect width="${W}" height="100%" fill="${theme.surface}"/>` +
+		`<text x="32" y="38" font-family="${SANS}" font-size="19" font-weight="700" fill="${theme.ink}">The crossover, found: above ~300 nodes, only anchored patches hold</text>` +
+		`<text x="32" y="60" font-family="${SANS}" font-size="12.5" fill="${theme.ink2}">Task success at 300–1000 nodes — solid: claude-sonnet-4.5, dashed: gemini-3.5-flash; n = 15 per point · barkup-bench Study H</text>`;
+	// Legend: condition colors + line-style key.
+	let cx = 32;
+	for (const c of ["A", "E", "F"]) {
+		g += `<rect x="${cx}" y="80" width="14" height="4" rx="2" fill="${theme.series[c]}"/>`;
+		g += `<text x="${cx + 20}" y="85" font-family="${MONO}" font-size="12" font-weight="700" fill="${theme.ink}">${c}</text>`;
+		g += `<text x="${cx + 32}" y="85" font-family="${SANS}" font-size="12" fill="${theme.ink2}">${COND_NAMES[c]}</text>`;
+		cx += 40 + (COND_NAMES[c] as string).length * 6.4 + 22;
+	}
+	for (const tick of [0, 25, 50, 75, 100]) {
+		const y = yOf(tick);
+		g += `<line x1="${L}" x2="${L + iw}" y1="${y}" y2="${y}" stroke="${theme.grid}" stroke-width="1"/>`;
+		g += `<text x="${L - 10}" y="${y + 4}" text-anchor="end" font-family="${MONO}" font-size="12" fill="${theme.ink2}">${tick}%</text>`;
+	}
+	SIZES.forEach((lab, i) => {
+		g += `<text x="${xs[i]}" y="${H - B + 24}" text-anchor="middle" font-family="${MONO}" font-size="12" fill="${theme.ink2}">${lab}</text>`;
+	});
+	g += `<text x="${L + iw / 2}" y="${H - B + 44}" text-anchor="middle" font-family="${SANS}" font-size="11.5" fill="${theme.ink3}">tree size</text>`;
+	let marks = "";
+	const endLabels: { text: string; color: string; x: number; y: number }[] = [];
+	for (const series of DATA.sizeext) {
+		const c = series.condition;
+		const dashed = series.model.includes("gemini");
+		const pts = series.cells.map((cell, i) => ({
+			x: xs[i] as number,
+			y: yOf(cell.rate),
+			rate: cell.rate,
+		}));
+		const path = pts
+			.map((p, i) => `${i === 0 ? "M" : "L"}${p.x},${p.y}`)
+			.join(" ");
+		marks += `<path d="${path}" fill="none" stroke="${theme.series[c]}" stroke-width="2.5" stroke-linejoin="round"${dashed ? ' stroke-dasharray="7 5"' : ""}/>`;
+		for (const p of pts) {
+			marks += `<circle cx="${p.x}" cy="${p.y}" r="4.5" fill="${theme.series[c]}" stroke="${theme.surface}" stroke-width="2"/>`;
+		}
+		const last = pts[pts.length - 1] as (typeof pts)[number];
+		endLabels.push({
+			text: `${c} ${dashed ? "gemini" : "sonnet"} · ${last.rate}%`,
+			color: theme.series[c] as string,
+			x: last.x + 12,
+			y: last.y + 4,
+		});
+	}
+	resolveLabels(endLabels, 17);
+	for (const l of endLabels) {
+		marks += `<text x="${l.x}" y="${l.y}" font-family="${MONO}" font-size="12" font-weight="700" fill="${l.color}">${l.text}</text>`;
+	}
+	return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${g}${marks}${footerNote(theme, W, H, "protocol v2, streamed transport for large rewrites · RFC 6902 (E) and rewrite-on-small-models decay; anchored patches (F) hold 87–100% for both tiers")}</svg>`;
+}
+
 function renderAll(theme: Theme): Record<string, string> {
 	return {
 		"crossover-success": lineChart(theme, {
@@ -382,6 +453,7 @@ function renderAll(theme: Theme): Record<string, string> {
 		}),
 		"reference-stability": referenceDotPlot(theme),
 		"tool-history-footgun": footgunChart(theme),
+		"size-extension": sizeExtensionChart(theme),
 	};
 }
 
