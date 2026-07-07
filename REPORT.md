@@ -353,6 +353,59 @@ reproducible from the retained files; the pre-registration and
 honesty rules required publishing this correction with the same
 prominence as the original claims.
 
+## Addendum (2026-07-07): Study H — the size extension
+
+Pre-registered in [docs/BRIEF-H.md](docs/BRIEF-H.md): conditions A
+(HTML whole-tree rewrite), E (RFC 6902 patch), and F (id-anchored
+patch, via the shipped package) on 45 fresh transformation tasks at
+~300 / ~600 / ~1000 nodes (seed 20260708), claude-sonnet-4.5 and
+gemini-3.5-flash, parity prompts, protocol v2, `maxOutputTokens`
+60k. 270 cells; full tables in `results/analysis-sizeext.txt`.
+
+| Success | ~300 | ~600 | ~1000 |
+|---|---|---|---|
+| sonnet A | 15/15 | 14/15 | 12/15 |
+| sonnet F | 15/15 | 15/15 | 13/15 |
+| sonnet E | 8/15 | 3/15 | 1/15 |
+| gemini A | 9/15 | 5/15 | **0/15** |
+| gemini F | 14/15 | 14/15 | 13/15 |
+| gemini E | 8/15 | 3/15 | 2/15 |
+
+- **H-H1 (F holds at scale) — CONFIRMED, in a stronger form.** F is
+  within noise of A for the frontier model (95.6% vs 91.1% pooled,
+  p = 0.69) and dominates for the small model (91.1% vs 31.1%,
+  discordant 28/1, p < 0.0001). Pooled: F 93.3% vs A 61.1%
+  (discordant 32/3, p < 0.0001). The crossover the original benchmark
+  went looking for exists — above a few hundred nodes, whole-tree
+  rewrite becomes frontier-only, while anchored patches are
+  tier-independent.
+- **H-H2 (cost) — CONFIRMED, with the honest nuance that it is a
+  dollars-and-latency story.** Raw solved-task token totals converge
+  (F carries the tree as input; A pays it as output), but output
+  costs ~5× per token: at ~1000 nodes, sonnet A ≈ $0.88 and 597 s per
+  solved task vs sonnet F ≈ $0.26 and **4 s** (gemini F: $0.037,
+  2 s). One failed A retry loop burned ~500k tokens; F failures cost
+  ~100 output tokens to discover.
+- **H-H3 (positional collapse deepens) — CONFIRMED.** E falls from
+  69.6% at ~150 nodes to 53% → 20% → ~10%.
+- **Mechanical ceiling (exploratory).** Unstreamed, every sonnet A
+  cell at ≥600 nodes died at the transport layer (10–15-minute
+  generations exceed gateway limits); the cells were re-run with a
+  streaming transport (flag-gated, request semantics unchanged —
+  disclosed protocol note). One cell (`trans-xxxl-5` × A, sonnet)
+  reproducibly generated no output under both transports and is
+  counted as a mechanical failure per the brief. Sonnet's three
+  graded A failures at scale are all valid-but-wrong (drift), never
+  invalid.
+
+Revised practical guidance, superseding the F addendum's phrasing:
+below ~200 nodes, whole-tree rewrite and anchored patches are
+interchangeable on accuracy and rewrite is operationally simplest;
+above ~300 nodes, anchored patches are the only interface that is
+simultaneously reliable across model tiers, fast (seconds, not
+minutes), cheap, and free of transport ceilings. Positional patch
+formats should not be used on large trees at any tier.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

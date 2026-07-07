@@ -95,3 +95,245 @@ Running 135 task×condition pairs (0 already done) with model anthropic/claude-s
   trans-xxl-15 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
   trans-xxxl-2 × E: fail (rounds=4, tokens=273615+1043)
   trans-xxxl-2 × F: PASS (rounds=1, tokens=67967+47)
+  trans-xxxl-1 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-3 × E: fail (rounds=4, tokens=362494+928)
+  trans-xxxl-3 × F: PASS (rounds=1, tokens=90261+34)
+  trans-xxxl-2 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-4 × E: fail (rounds=4, tokens=377940+1004)
+  trans-xxxl-4 × F: fail (rounds=1, tokens=94113+89)
+  trans-xxxl-3 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-5 × E: fail (rounds=4, tokens=412268+1352)
+  trans-xxxl-5 × F: PASS (rounds=1, tokens=102483+207)
+  trans-xxxl-4 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-6 × E: fail (rounds=4, tokens=290034+960)
+  trans-xxxl-6 × F: PASS (rounds=1, tokens=72188+57)
+  trans-xxxl-5 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-7 × E: PASS (rounds=1, tokens=85563+53)
+  trans-xxxl-7 × F: PASS (rounds=1, tokens=85642+48)
+  trans-xxxl-6 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-8 × E: fail (rounds=4, tokens=290421+1195)
+  trans-xxxl-8 × F: PASS (rounds=1, tokens=72285+34)
+  trans-xxxl-7 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-9 × E: fail (rounds=4, tokens=313839+1064)
+  trans-xxxl-9 × F: PASS (rounds=1, tokens=78085+69)
+  trans-xxxl-8 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-10 × E: fail (rounds=4, tokens=273261+1328)
+  trans-xxxl-10 × F: PASS (rounds=2, tokens=135895+195)
+  trans-xxxl-9 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-11 × E: fail (rounds=4, tokens=384837+961)
+  trans-xxxl-11 × F: PASS (rounds=1, tokens=95867+59)
+  trans-xxxl-10 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-12 × E: fail (rounds=3, tokens=234679+371)
+  trans-xxxl-12 × F: PASS (rounds=1, tokens=78119+47)
+  trans-xxxl-11 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-13 × E: fail (rounds=4, tokens=296824+941)
+  trans-xxxl-13 × F: PASS (rounds=1, tokens=73887+34)
+  trans-xxxl-12 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-14 × E: fail (rounds=4, tokens=368320+1487)
+  trans-xxxl-14 × F: fail (rounds=1, tokens=91483+107)
+  trans-xxxl-13 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-15 × E: fail (rounds=4, tokens=299071+884)
+  trans-xxxl-15 × F: PASS (rounds=1, tokens=74410+44)
+  trans-xxxl-14 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+  trans-xxxl-15 × A: ERROR Failed after 5 attempts. Last error: GatewayResponseError: Invalid error response format: Gateway request failed: The operation timed out.
+=== done: 71/135 passed, 11.18M tokens
+
+Study H runs complete.
+
+=== anthropic/claude-sonnet-4.5 → results/raw/sizeext-anthropic_claude-sonnet-4.5.jsonl
+Running 29 task×condition pairs (106 already done) with model anthropic/claude-sonnet-4.5, regime parity
+  trans-xxl-2 × A: PASS (rounds=1, tokens=28591+28034)
+  trans-xxl-1 × A: PASS (rounds=1, tokens=36855+36314)
+  trans-xxl-3 × A: PASS (rounds=1, tokens=26250+25668)
+  trans-xxl-4 × A: PASS (rounds=1, tokens=27752+27214)
+  trans-xxl-5 × A: PASS (rounds=1, tokens=28624+28039)
+  trans-xxl-6 × A: PASS (rounds=1, tokens=25424+24865)
+  trans-xxl-7 × A: PASS (rounds=1, tokens=37918+37379)
+  trans-xxl-8 × A: PASS (rounds=1, tokens=37141+36516)
+  trans-xxl-9 × A: fail (rounds=1, tokens=30632+30117)
+  trans-xxl-10 × A: PASS (rounds=1, tokens=27344+26766)
+  trans-xxl-11 × A: PASS (rounds=1, tokens=26251+25686)
+  trans-xxl-13 × A: PASS (rounds=1, tokens=27228+26618)
+  trans-xxl-14 × A: PASS (rounds=1, tokens=28806+28274)
+  trans-xxl-15 × A: PASS (rounds=1, tokens=38248+37672)
+  trans-xxxl-2 × A: PASS (rounds=1, tokens=42006+41449)
+  trans-xxxl-3 × A: PASS (rounds=1, tokens=55100+54473)
+  trans-xxxl-1 × A: fail (rounds=3, tokens=364896+134985)
+  trans-xxxl-4 × A: PASS (rounds=1, tokens=57657+57121)
+  trans-xxxl-6 × A: PASS (rounds=1, tokens=44632+44072)
+  trans-xxxl-7 × A: PASS (rounds=1, tokens=52796+52239)
+437 |         statusCode,
+438 |         cause,
+439 |         generationId
+440 |       });
+441 |     default:
+442 |       return new GatewayInternalServerError({
+                   ^
+GatewayInternalServerError: prompt is too long: 202417 tokens > 200000 maximum
+ statusCode: 400,
+ generationId: undefined,
+ isRetryable: false,
+       type: "internal_server_error",
+ vercel.ai.gateway.error: true,
+ vercel.ai.gateway.error.GatewayInternalServerError: true,
+
+      at createGatewayErrorFromResponse (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/gateway/dist/index.js:442:14)
+      at async asGatewayError (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/gateway/dist/index.js:556:18)
+      at async doStream (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/gateway/dist/index.js:1044:19)
+      at async <anonymous> (/Users/kevinpeckham/newdev/barkup-bench/node_modules/ai/dist/index.js:7993:46)
+
+3191 |       text: responseBody,
+3192 |       schema: errorSchema
+3193 |     });
+3194 |     return {
+3195 |       responseHeaders,
+3196 |       value: new APICallError4({
+                    ^
+AI_APICallError: [object Object]
+      cause: undefined,
+        url: "https://ai-gateway.vercel.sh/v4/ai/language-model",
+ requestBodyValues: {
+  maxOutputTokens: 60000,
+  temperature: 0,
+  topP: undefined,
+  topK: undefined,
+  presencePenalty: undefined,
+  frequencyPenalty: undefined,
+  stopSequences: undefined,
+  seed: undefined,
+  reasoning: undefined,
+  tools: undefined,
+  toolChoice: [Object ...],
+  responseFormat: undefined,
+  prompt: [
+    [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...]
+  ],
+  providerOptions: undefined,
+  headers: undefined,
+  includeRawChunks: false,
+},
+ statusCode: 400,
+ responseHeaders: {
+  "cache-control": "public, max-age=0, must-revalidate",
+  "content-type": "application/json",
+  date: "Tue, 07 Jul 2026 03:12:29 GMT",
+  server: "Vercel",
+  "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+  "transfer-encoding": "chunked",
+  vary: "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+  "x-matched-path": "/v4/ai/language-model",
+  "x-vercel-cache": "MISS",
+  "x-vercel-id": "iad1::iad1::4kk22-1783393947734-73c6931484a7",
+},
+ responseBody: "{\"error\":{\"message\":\"prompt is too long: 202417 tokens > 200000 maximum\",\"type\":\"AI_APICallError\",\"param\":{\"error\":\"prompt is too long: 202417 tokens > 200000 maximum\",\"statusCode\":400,\"name\":\"AI_APICallError\",\"message\":\"prompt is too long: 202417 tokens > 200000 maximum\",\"isRetryable\":false,\"type\":\"AI_APICallError\"}},\"providerMetadata\":{\"gateway\":{\"routing\":{\"originalModelId\":\"anthropic/claude-sonnet-4.5\",\"resolvedProvider\":\"anthropic\",\"fallbacksAvailable\":[\"bedrock\",\"vertexAnthropic\"],\"canonicalSlug\":\"anthropic/claude-sonnet-4.5\",\"modelAttemptCount\":1,\"modelAttempts\":[{\"canonicalSlug\":\"anthropic/claude-sonnet-4.5\",\"success\":false,\"providerAttemptCount\":3,\"providerAttempts\":[{\"provider\":\"anthropic\",\"credentialType\":\"system\",\"success\":false,\"error\":\"prompt is too long: 202417 tokens > 200000 maximum\",\"startTime\":1783393948030,\"endTime\":1783393948481,\"statusCode\":400},{\"provider\":\"bedrock\",\"credentialType\":\"system\",\"success\":false,\"error\":\"Input is too long for requested model.\",\"startTime\":1783393948493,\"endTime\":1783393948755,\"statusCode\":400},{\"provider\":\"vertexAnthropic\",\"credentialType\":\"system\",\"success\":false,\"error\":\"prompt is too long: 202417 tokens > 200000 maximum\",\"startTime\":1783393948769,\"endTime\":1783393949011,\"statusCode\":400}]}],\"totalProviderAttemptCount\":3},\"generationId\":\"gen_01KWX904AZAEQJWXNP1EXSEYMA\"}}}",
+ isRetryable: false,
+       data: {
+  error: [Object ...],
+  providerMetadata: [Object ...],
+},
+ vercel.ai.error: true,
+ vercel.ai.error.AI_APICallError: true,
+
+      at <anonymous> (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/provider-utils/dist/index.js:3196:14)
+      at async <anonymous> (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/provider-utils/dist/index.js:2877:34)
+      at async <anonymous> (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/provider-utils/dist/index.js:2818:13)
+      at async doStream (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/gateway/dist/index.js:997:58)
+      at async <anonymous> (/Users/kevinpeckham/newdev/barkup-bench/node_modules/ai/dist/index.js:7993:46)
+
+  trans-xxxl-5 × A: ERROR No output generated. Check the stream for errors.
+  trans-xxxl-8 × A: PASS (rounds=1, tokens=44697+44083)
+  trans-xxxl-9 × A: fail (rounds=1, tokens=47881+47370)
+  trans-xxxl-10 × A: PASS (rounds=1, tokens=41228+40655)
+  trans-xxxl-11 × A: PASS (rounds=1, tokens=58904+58351)
+  trans-xxxl-12 × A: PASS (rounds=1, tokens=47855+47302)
+  trans-xxxl-13 × A: PASS (rounds=1, tokens=45379+44776)
+  trans-xxxl-14 × A: PASS (rounds=1, tokens=56559+56035)
+  trans-xxxl-15 × A: PASS (rounds=1, tokens=45391+44808)
+=== done: 25/29 passed, 2.62M tokens
+
+Study H runs complete.
+
+=== anthropic/claude-sonnet-4.5 → results/raw/sizeext-anthropic_claude-sonnet-4.5.jsonl
+Running 1 task×condition pairs (134 already done) with model anthropic/claude-sonnet-4.5, regime parity
+437 |         statusCode,
+438 |         cause,
+439 |         generationId
+440 |       });
+441 |     default:
+442 |       return new GatewayInternalServerError({
+                   ^
+GatewayInternalServerError: prompt is too long: 202417 tokens > 200000 maximum
+ statusCode: 400,
+ generationId: undefined,
+ isRetryable: false,
+       type: "internal_server_error",
+ vercel.ai.gateway.error: true,
+ vercel.ai.gateway.error.GatewayInternalServerError: true,
+
+      at createGatewayErrorFromResponse (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/gateway/dist/index.js:442:14)
+      at async asGatewayError (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/gateway/dist/index.js:556:18)
+      at async doStream (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/gateway/dist/index.js:1044:19)
+      at async <anonymous> (/Users/kevinpeckham/newdev/barkup-bench/node_modules/ai/dist/index.js:7993:46)
+
+3191 |       text: responseBody,
+3192 |       schema: errorSchema
+3193 |     });
+3194 |     return {
+3195 |       responseHeaders,
+3196 |       value: new APICallError4({
+                    ^
+AI_APICallError: [object Object]
+      cause: undefined,
+        url: "https://ai-gateway.vercel.sh/v4/ai/language-model",
+ requestBodyValues: {
+  maxOutputTokens: 60000,
+  temperature: 0,
+  topP: undefined,
+  topK: undefined,
+  presencePenalty: undefined,
+  frequencyPenalty: undefined,
+  stopSequences: undefined,
+  seed: undefined,
+  reasoning: undefined,
+  tools: undefined,
+  toolChoice: [Object ...],
+  responseFormat: undefined,
+  prompt: [
+    [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...]
+  ],
+  providerOptions: undefined,
+  headers: undefined,
+  includeRawChunks: false,
+},
+ statusCode: 400,
+ responseHeaders: {
+  "cache-control": "public, max-age=0, must-revalidate",
+  "content-type": "application/json",
+  date: "Tue, 07 Jul 2026 04:23:20 GMT",
+  server: "Vercel",
+  "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+  "transfer-encoding": "chunked",
+  vary: "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+  "x-matched-path": "/v4/ai/language-model",
+  "x-vercel-cache": "MISS",
+  "x-vercel-id": "iad1::iad1::7dcxs-1783398200039-c301ba93d487",
+},
+ responseBody: "{\"error\":{\"message\":\"prompt is too long: 202417 tokens > 200000 maximum\",\"type\":\"AI_APICallError\",\"param\":{\"error\":\"prompt is too long: 202417 tokens > 200000 maximum\",\"statusCode\":400,\"name\":\"AI_APICallError\",\"message\":\"prompt is too long: 202417 tokens > 200000 maximum\",\"isRetryable\":false,\"type\":\"AI_APICallError\"}},\"providerMetadata\":{\"gateway\":{\"routing\":{\"originalModelId\":\"anthropic/claude-sonnet-4.5\",\"resolvedProvider\":\"anthropic\",\"fallbacksAvailable\":[\"bedrock\",\"vertexAnthropic\"],\"canonicalSlug\":\"anthropic/claude-sonnet-4.5\",\"modelAttemptCount\":1,\"modelAttempts\":[{\"canonicalSlug\":\"anthropic/claude-sonnet-4.5\",\"success\":false,\"providerAttemptCount\":3,\"providerAttempts\":[{\"provider\":\"anthropic\",\"credentialType\":\"system\",\"success\":false,\"error\":\"prompt is too long: 202417 tokens > 200000 maximum\",\"startTime\":1783398200179,\"endTime\":1783398200426,\"statusCode\":400},{\"provider\":\"bedrock\",\"credentialType\":\"system\",\"success\":false,\"error\":\"Input is too long for requested model.\",\"startTime\":1783398200436,\"endTime\":1783398200622,\"statusCode\":400},{\"provider\":\"vertexAnthropic\",\"credentialType\":\"system\",\"success\":false,\"error\":\"prompt is too long: 202417 tokens > 200000 maximum\",\"startTime\":1783398200630,\"endTime\":1783398200885,\"statusCode\":400}]}],\"totalProviderAttemptCount\":3},\"generationId\":\"gen_01KWXD1WTMBGFSTJXMMD4R70NC\"}}}",
+ isRetryable: false,
+       data: {
+  error: [Object ...],
+  providerMetadata: [Object ...],
+},
+ vercel.ai.error: true,
+ vercel.ai.error.AI_APICallError: true,
+
+      at <anonymous> (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/provider-utils/dist/index.js:3196:14)
+      at async <anonymous> (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/provider-utils/dist/index.js:2877:34)
+      at async <anonymous> (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/provider-utils/dist/index.js:2818:13)
+      at async doStream (/Users/kevinpeckham/newdev/barkup-bench/node_modules/@ai-sdk/gateway/dist/index.js:997:58)
+      at async <anonymous> (/Users/kevinpeckham/newdev/barkup-bench/node_modules/ai/dist/index.js:7993:46)
+
+  trans-xxxl-5 × A: ERROR No output generated. Check the stream for errors.
+=== done: 0/1 passed, 0.00M tokens
+
+Study H runs complete.
