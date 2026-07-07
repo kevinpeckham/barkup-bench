@@ -1,0 +1,47 @@
+# Study J — HTML views vs JSON views
+
+## Success by model × condition × size
+
+### anthropic/claude-sonnet-4.5
+  F  : xl 15/15 (100.0% [80–100])  |  xxl 15/15 (100.0% [80–100])  |  xxxl 13/15 (86.7% [62–96])
+  FV : xl 15/15 (100.0% [80–100])  |  xxl 14/15 (93.3% [70–99])  |  xxxl 14/15 (93.3% [70–99])
+  FVH: xl 15/15 (100.0% [80–100])  |  xxl 14/15 (93.3% [70–99])  |  xxxl 14/15 (93.3% [70–99])
+  FT : xl 15/15 (100.0% [80–100])  |  xxl 15/15 (100.0% [80–100])  |  xxxl 15/15 (100.0% [80–100])
+  FTH: xl 15/15 (100.0% [80–100])  |  xxl 15/15 (100.0% [80–100])  |  xxxl 14/15 (93.3% [70–99])
+
+### google/gemini-3.5-flash
+  F  : xl 14/15 (93.3% [70–99])  |  xxl 14/15 (93.3% [70–99])  |  xxxl 13/15 (86.7% [62–96])
+  FV : xl 14/15 (93.3% [70–99])  |  xxl 14/15 (93.3% [70–99])  |  xxxl 14/15 (93.3% [70–99])
+  FVH: xl 14/15 (93.3% [70–99])  |  xxl 14/15 (93.3% [70–99])  |  xxxl 14/15 (93.3% [70–99])
+  FT : xl 13/15 (86.7% [62–96])  |  xxl 14/15 (93.3% [70–99])  |  xxxl 14/15 (93.3% [70–99])
+  FTH: xl 13/15 (86.7% [62–96])  |  xxl 13/15 (86.7% [62–96])  |  xxxl 14/15 (93.3% [70–99])
+
+## Paired McNemar, JSON view vs HTML view (per model)
+
+  anthropic/claude-sonnet-4.5 FV vs FVH: FV-only 0, FVH-only 0, both 43, neither 2 — p = 1.000
+  anthropic/claude-sonnet-4.5 FT vs FTH: FT-only 1, FTH-only 0, both 44, neither 0 — p = 1.000
+  google/gemini-3.5-flash FV vs FVH: FV-only 0, FVH-only 0, both 42, neither 3 — p = 1.000
+  google/gemini-3.5-flash FT vs FTH: FT-only 1, FTH-only 0, both 40, neither 4 — p = 1.000
+
+## Input tokens per task (median, by size)
+
+### anthropic/claude-sonnet-4.5
+  F  : xl 24,365  |  xxl 57,585  |  xxxl 85,642
+  FV : xl 2,067  |  xxl 2,667  |  xxxl 3,500
+  FVH: xl 1,916  |  xxl 2,281  |  xxxl 2,669
+  FT : xl 1,331  |  xxl 1,491  |  xxxl 1,531
+  FTH: xl 1,281  |  xxl 1,376  |  xxxl 1,391
+
+### google/gemini-3.5-flash
+  F  : xl 20,995  |  xxl 39,999  |  xxxl 70,063
+  FV : xl 2,048  |  xxl 2,577  |  xxxl 3,118
+  FVH: xl 1,891  |  xxl 2,282  |  xxxl 2,671
+  FT : xl 1,266  |  xxl 1,419  |  xxxl 1,451
+  FTH: xl 1,250  |  xxl 1,344  |  xxxl 1,352
+
+## First-pass validity and correction rounds (view arms)
+
+  FV : first-pass valid 80/90; correction rounds on 10; issues: invalid-patch×10
+  FVH: first-pass valid 84/90; correction rounds on 6; issues: invalid-patch×6
+  FT : first-pass valid 81/90; correction rounds on 9; issues: invalid-patch×9
+  FTH: first-pass valid 85/90; correction rounds on 5; issues: invalid-patch×5

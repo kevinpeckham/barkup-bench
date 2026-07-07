@@ -484,6 +484,43 @@ nodes an edit concerns, an anchored patch against a focused view is
 simultaneously the most reliable, cheapest, and fastest interface
 measured, and its input cost is size-invariant.
 
+## Addendum (2026-07-07): Study J — HTML-rendered views
+
+Pre-registered in [docs/BRIEF-J.md](docs/BRIEF-J.md): Study I's views
+were serialized as JSON; the proposed `@kevinpeckham/barkup/view`
+capability would render them in barkup's native HTML dialect. Study J
+re-ran both view modes with the identical view content rendered as
+HTML (placeholders as `data-collapsed` / `data-child-count` elements,
+omissions as `data-omitted-children`; expanded regions byte-identical
+to condition A's serialization, unit-tested), keeping the JSON patch
+dialect, shipped applier, and grading unchanged — the cross-format
+seam (HTML view in, JSON patch out) was part of what was tested. 180
+cells; full tables in `results/analysis-studyj.txt`; every record
+independently re-graded (0 mismatches).
+
+- **J-H1 (HTML views match JSON views) — CONFIRMED, unusually
+  cleanly.** Paired McNemar per model per mode: p = 1.0 in all four
+  comparisons; three of the four had *zero* discordant pairs, and the
+  other two differed by a single task each. The cross-format seam
+  produced no failure mode.
+- **J-H2 (format cost) — CONFIRMED.** HTML views are terser than
+  their JSON twins at every size: at ~1000 nodes, FVH 2,669 vs FV
+  3,500 median input tokens (−24%) and FTH 1,391 vs FT 1,531 (−9%);
+  the minimal view's input is now ~1.6% of full-input F's.
+- **Exploratory: HTML views had *better* first-pass validity** —
+  84–85/90 vs 80–81/90 for the JSON views, with correction rounds
+  down accordingly (5–6 vs 9–10). Consistent with the original
+  article's legibility claim, though the margin is small and
+  untested.
+
+**Decision rule outcome.** The serialization gate passes: FTH is
+non-inferior to FT for both models (one discordant task each,
+p = 1.0). `/view` ships with HTML as its native rendering. Combined
+Study I + J guidance: a focused HTML view plus an id-anchored patch
+is the cheapest and most reliable editing interface measured at any
+size tested, with input that scales with tree depth rather than node
+count.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
