@@ -1,0 +1,66 @@
+# Study K — long editing sessions
+
+## Per-step success by tercile (non-blocked steps)
+
+### anthropic/claude-sonnet-4.5
+  K-once    : steps 1–4 79/80 (98.8% [93–100])  |  steps 5–8 74/80 (92.5% [85–97])  |  steps 9–12 67/80 (83.8% [74–90])
+  K-refresh5: steps 1–4 79/80 (98.8% [93–100])  |  steps 5–8 74/80 (92.5% [85–97])  |  steps 9–12 73/80 (91.3% [83–96])
+  K-view    : steps 1–4 80/80 (100.0% [95–100])  |  steps 5–8 79/80 (98.8% [93–100])  |  steps 9–12 80/80 (100.0% [95–100])
+  K-rewrite : steps 1–4 39/40 (97.5% [87–100])  |  steps 5–8 40/40 (100.0% [91–100])  |  steps 9–12 36/38 (94.7% [83–99])
+
+### google/gemini-3.5-flash
+  K-once    : steps 1–4 79/80 (98.8% [93–100])  |  steps 5–8 80/80 (100.0% [95–100])  |  steps 9–12 77/80 (96.3% [90–99])
+  K-refresh5: steps 1–4 80/80 (100.0% [95–100])  |  steps 5–8 80/80 (100.0% [95–100])  |  steps 9–12 73/80 (91.3% [83–96])
+  K-view    : steps 1–4 79/80 (98.8% [93–100])  |  steps 5–8 80/80 (100.0% [95–100])  |  steps 9–12 79/80 (98.8% [93–100])
+  K-rewrite : steps 1–4 21/40 (52.5% [37–67])  |  steps 5–8 27/40 (67.5% [52–80])  |  steps 9–12 27/39 (69.2% [54–81])
+
+## Paired McNemar (same session+step across policies)
+
+  anthropic/claude-sonnet-4.5 K-once vs K-view (all steps, n=240): K-once-only 0, K-view-only 19 — p = 0.000
+  anthropic/claude-sonnet-4.5 K-once vs K-view (steps 9–12, n=80): K-once-only 0, K-view-only 13 — p = 0.000
+  anthropic/claude-sonnet-4.5 K-once vs K-refresh5 (all steps, n=240): K-once-only 0, K-refresh5-only 6 — p = 0.031
+  anthropic/claude-sonnet-4.5 K-once vs K-refresh5 (steps 9–12, n=80): K-once-only 0, K-refresh5-only 6 — p = 0.031
+  anthropic/claude-sonnet-4.5 K-view vs K-rewrite (all steps, n=118): K-view-only 3, K-rewrite-only 1 — p = 0.625
+  anthropic/claude-sonnet-4.5 K-view vs K-rewrite (steps 9–12, n=38): K-view-only 2, K-rewrite-only 0 — p = 0.500
+  google/gemini-3.5-flash K-once vs K-view (all steps, n=240): K-once-only 2, K-view-only 4 — p = 0.688
+  google/gemini-3.5-flash K-once vs K-view (steps 9–12, n=80): K-once-only 1, K-view-only 3 — p = 0.625
+  google/gemini-3.5-flash K-once vs K-refresh5 (all steps, n=240): K-once-only 5, K-refresh5-only 2 — p = 0.453
+  google/gemini-3.5-flash K-once vs K-refresh5 (steps 9–12, n=80): K-once-only 5, K-refresh5-only 1 — p = 0.219
+  google/gemini-3.5-flash K-view vs K-rewrite (all steps, n=119): K-view-only 44, K-rewrite-only 2 — p = 0.000
+  google/gemini-3.5-flash K-view vs K-rewrite (steps 9–12, n=39): K-view-only 12, K-rewrite-only 1 — p = 0.003
+
+## Mechanism: placement edits (insert/move) by tercile
+
+  K-once    : steps 1–4 38/40 (95.0% [83–99])  |  steps 5–8 34/40 (85.0% [71–93])  |  steps 9–12 64/80 (80.0% [70–87])
+  K-refresh5: steps 1–4 39/40 (97.5% [87–100])  |  steps 5–8 34/40 (85.0% [71–93])  |  steps 9–12 66/80 (82.5% [73–89])
+  K-view    : steps 1–4 39/40 (97.5% [87–100])  |  steps 5–8 39/40 (97.5% [87–100])  |  steps 9–12 79/80 (98.8% [93–100])
+  K-rewrite : steps 1–4 16/20 (80.0% [58–92])  |  steps 5–8 17/20 (85.0% [64–95])  |  steps 9–12 32/40 (80.0% [65–90])
+
+## Reference-back steps
+
+  K-once    : 94/102 (92.2% [85–96]); blocked 0
+  K-refresh5: 94/102 (92.2% [85–96]); blocked 0
+  K-view    : 101/102 (99.0% [95–100]); blocked 0
+  K-rewrite : 42/47 (89.4% [77–95]); blocked 1
+
+## Blocked/cascade steps and id-resolution failures
+
+  K-once    : blocked 0/480 (none); created-node lookup failures 0
+  K-refresh5: blocked 0/480 (none); created-node lookup failures 0
+  K-view    : blocked 0/480 (none); created-node lookup failures 0
+  K-rewrite : blocked 3/240 (mechanical×2, cascade-inapplicable×1); created-node lookup failures 0
+
+## End-state match and cost per session
+
+### anthropic/claude-sonnet-4.5
+  K-once    : end-state 8/20; mean tokens/session 215,615 in + 652 out
+  K-refresh5: end-state 11/20; mean tokens/session 366,559 in + 658 out
+  K-view    : end-state 19/20; mean tokens/session 55,746 in + 686 out
+  K-rewrite : end-state 7/10; mean tokens/session 835,973 in + 129,355 out
+
+### google/gemini-3.5-flash
+  K-once    : end-state 17/20; mean tokens/session 198,316 in + 638 out
+  K-refresh5: end-state 15/20; mean tokens/session 335,778 in + 643 out
+  K-view    : end-state 19/20; mean tokens/session 53,358 in + 659 out
+  K-rewrite : end-state 2/10; mean tokens/session 971,264 in + 138,102 out
+

@@ -583,6 +583,80 @@ deployment would opt in and cache session prefixes, so cross-vendor
 session dollar comparisons are "default config" comparisons, not
 capability comparisons.
 
+## Addendum (2026-07-07): Study K — long editing sessions
+
+Pre-registered in [docs/BRIEF-K.md](docs/BRIEF-K.md): 12 sequential
+edits per tree in one conversation (the production chat-session
+shape), 20 sessions at ~150/~300 nodes, with 51 steps referencing
+nodes the session itself created. Four serialization policies:
+**K-once** (full tree shown only at step 1), **K-view** (a fresh
+~1.5k-token minimal focused view every step), **K-refresh5** (full
+re-serialization at steps 6/11), **K-rewrite** (whole-tree rewrite
+anchor, half session count). Patches apply to the model's CURRENT
+tree; each step is graded against ground truth computed from the
+model's own pre-step state. 1,680 step records, 140 sessions, zero
+invariant violations in audit; full tables in
+`results/analysis-studyk.txt`.
+
+Per-step success by session third (sonnet-4.5 / gemini-3.5-flash):
+
+| Policy | steps 1–4 | steps 5–8 | steps 9–12 | end-state intact |
+|---|---|---|---|---|
+| K-once | 98.8% / 98.8% | 92.5% / 100% | **83.8%** / 96.3% | 8/20 / 17/20 |
+| K-refresh5 | 98.8% / 100% | 92.5% / 100% | 91.3% / 91.3% | 11/20 / 15/20 |
+| K-view | 100% / 98.8% | 98.8% / 100% | **100%** / 98.8% | **19/20 / 19/20** |
+| K-rewrite | 97.2% / 52.5% | 100% / 67.5% | 94.4% / 69.2% | 7/10 / **2/10** |
+
+- **K-H1 (drift) — CONFIRMED for sonnet, decisively.** Serialize-once
+  decays to 83.8% by the last third; per-turn views stay flat (239/240
+  steps overall). Paired per (session, step): 19 K-view-only successes
+  vs **zero** K-once-only (p < 0.001; last third 13–0). Gemini is the
+  surprise: it barely drifts under K-once (96.3% last third) — the
+  cheap tier tracks its own *visible* patch history fine; Study G's
+  small-model fragility was about *hidden* history.
+- **K-H2 (policy) — CONFIRMED, with no cost tradeoff.** K-view is the
+  most accurate AND the cheapest policy: ~55k input tokens/session vs
+  K-once ~215k (the once-shown tree rides along in history every turn,
+  so showing it once saves nothing), K-refresh5 ~366k (worst of both),
+  K-rewrite ~836–971k in plus ~130k out.
+- **K-H3 (mechanism) — CONFIRMED.** The decay concentrates in
+  ordinal-placement edits: insert/move under K-once fall 95% → 85% →
+  80% while K-view holds ~98% at every stage; reference-back steps are
+  99.0% under K-view vs 92.2% under K-once.
+- **K-H4 (rewrite anchor) — accuracy holds only at the frontier, and
+  sessions add two structural failure modes.** Sonnet K-rewrite
+  matches K-view where it completes (n.s.), but one xl session
+  deterministically exhausted the 200k context window at step 11 —
+  twelve accumulated whole-tree rewrites simply do not fit (recorded
+  as a mechanical failure; reproduced on re-run). Gemini K-rewrite
+  collapses at ~300 nodes in session form (52–69%; sessions as low as
+  0/12), and **all 44 of its graded failures are valid-but-wrong with
+  drift** — silently damaged trees that pass validation, compounding
+  step over step (end-state intact: 2/10).
+
+**Protocol notes (disclosed).** Two recording-only harness changes
+mid-study, request semantics untouched: per-call `cacheReadTokens`
+capture was added after the first 17 sonnet sessions (those records
+lack the field; zero by construction, since Anthropic caching is
+opt-in and never enabled), and partial-session recording at
+mechanical ceilings was added after the context-window failure was
+first observed (the affected session was re-run once, confirming the
+ceiling deterministically). Per the prompt-caching audit's Study K
+rule above: tokens are the primary cost metric; gemini's default
+implicit caching covered 44–74% of session input depending on arm
+(sonnet 0%), so cross-vendor dollar comparisons are default-config
+comparisons. Spend ≈ $93 at list prices (cache-blind upper bound),
+within the pre-registered band.
+
+**Practical guidance.** For editing sessions over typed trees, attach
+a fresh minimal focused view to every patch turn: it is the most
+accurate policy at every model tier tested, the cheapest by 4–15×,
+structurally immune to context-window exhaustion, and it removes the
+one failure class (stale ordinal placement) that grows with session
+length. Whole-tree rewrite should not be used as a session protocol:
+below the frontier tier it silently corrupts state, and at any tier
+its conversation grows toward a hard context ceiling.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
