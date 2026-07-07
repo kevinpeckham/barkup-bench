@@ -406,6 +406,84 @@ simultaneously reliable across model tiers, fast (seconds, not
 minutes), cheap, and free of transport ceilings. Positional patch
 formats should not be used on large trees at any tier.
 
+## Addendum (2026-07-07): Study I — focused views (partial-context patches)
+
+Pre-registered in [docs/BRIEF-I.md](docs/BRIEF-I.md): every prior
+study held the input constant (full tree in the prompt) and varied
+the output interface. Study I varies the input: condition F
+(id-anchored patch, shipped applier) with the prompt tree replaced by
+a **focused view** — the root-to-target spine rendered fully,
+everything else collapsed to id-bearing placeholders (**FV**) or
+omitted with a count (**FT**, the aggressive minimum). Patches still
+apply to the full tree; grading is unchanged. Same corpus, models,
+and protocol as Study H's F cells, which serve as the paired
+full-input baseline. 180 new cells; full tables in
+`results/analysis-studyi.txt`.
+
+| Success | ~300 | ~600 | ~1000 |
+|---|---|---|---|
+| sonnet F (full input) | 15/15 | 15/15 | 13/15 |
+| sonnet FV | 15/15 | 14/15 | 14/15 |
+| sonnet FT | 15/15 | 15/15 | **15/15** |
+| gemini F (full input) | 14/15 | 14/15 | 13/15 |
+| gemini FV | 14/15 | 14/15 | 14/15 |
+| gemini FT | 13/15 | 14/15 | 14/15 |
+
+- **I-H1 (views don't hurt) — CONFIRMED.** Paired McNemar vs
+  full-input F: sonnet FV p = 1.0, FT p = 0.5; gemini FV p = 1.0,
+  FT p = 1.0. Discordant pairs are 1–4 per comparison and trade in
+  both directions. Sonnet on the *minimal* view was a perfect 45/45,
+  numerically better than its full-input 43/45.
+- **I-H2 (input cost) — CONFIRMED, well past the ≥70% prediction.**
+  Median input per task at ~1000 nodes: sonnet 85,642 → 3,500 (FV,
+  −96%) → 1,531 (FT, −98%). The minimal view's input barely grows
+  with tree size (1,331 → 1,531 median tokens from ~300 to ~1000
+  nodes): it scales with tree *depth*, not node count, which
+  effectively removes the context-window ceiling for id-addressed
+  edits. Per solved ~1000-node task, FT costs under a cent on either
+  model. The whole study cost ≈ $1.
+- **I-H3 (minimal view holds; failures don't concentrate in
+  placement) — CONFIRMED.** By edit kind (pooled), the view arms
+  match or beat full input everywhere; insert-node is the weakest
+  kind in *every* condition including full-input F (13/18 vs FV
+  15/18, FT 14/18).
+- **Zero duplicate-id collisions** (exploratory) in 180 runs — the
+  pre-registered fresh-id worry never materialized; models followed
+  the random-suffix instruction. Correction rounds fired on ~10% of
+  view tasks, all `invalid-patch`, mostly recovered.
+- **Why less context can help (failure audit).** Every failure in the
+  study was re-graded independently and diffed. Sonnet's two
+  full-input baseline failures were "insert as the 1st child" tasks
+  where it appended the node as the *last* child — with 85k tokens of
+  tree it reached for the lazy `parentId` append instead of anchoring
+  `before` the first sibling. With the view, the destination's child
+  list is in plain sight, and both tasks pass. The view arms' own
+  failures are ordinal off-by-ones on move and gemini inventing
+  unrequested attributes on under-specified inserts — the same
+  model-error classes, at the same tasks, as full input.
+
+**Scope caveats (pre-registered).** This is the oracle bound: task
+instructions name their target ids explicitly, so "retrieval" is
+trivially perfect, and the view is built from exactly the ids the
+instruction quotes (verified: zero leakage beyond the instruction
+text). How a real system finds the relevant nodes from a vague
+request is deliberately untested here. Single-turn tasks only;
+n = 45 per model-condition. One corpus wart, condition-independent:
+attribute-less insert instructions ("Insert a new image-atom",
+nothing else) punish models that invent plausible defaults — a
+legitimate obedience test under the parity prompt's "change only
+what the request calls for", but future corpora should say "with no
+attributes" explicitly.
+
+**Decision rule outcome.** The pre-registered feature gate for a
+`@kevinpeckham/barkup/view` capability passes at the trimmed (FT)
+contract: spine + complete child lists of referenced nodes + honest
+omission counts, with every visible id guaranteed patch-addressable.
+Combined guidance with Study H: at any size where you know which
+nodes an edit concerns, an anchored patch against a focused view is
+simultaneously the most reliable, cheapest, and fastest interface
+measured, and its input cost is size-invariant.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

@@ -1,0 +1,43 @@
+# Study I — focused views vs full-input F
+
+## Success by model × condition × size
+
+### anthropic/claude-sonnet-4.5
+  F : xl 15/15 (100.0% [80–100])  |  xxl 15/15 (100.0% [80–100])  |  xxxl 13/15 (86.7% [62–96])
+  FV: xl 15/15 (100.0% [80–100])  |  xxl 14/15 (93.3% [70–99])  |  xxxl 14/15 (93.3% [70–99])
+  FT: xl 15/15 (100.0% [80–100])  |  xxl 15/15 (100.0% [80–100])  |  xxxl 15/15 (100.0% [80–100])
+
+### google/gemini-3.5-flash
+  F : xl 14/15 (93.3% [70–99])  |  xxl 14/15 (93.3% [70–99])  |  xxxl 13/15 (86.7% [62–96])
+  FV: xl 14/15 (93.3% [70–99])  |  xxl 14/15 (93.3% [70–99])  |  xxxl 14/15 (93.3% [70–99])
+  FT: xl 13/15 (86.7% [62–96])  |  xxl 14/15 (93.3% [70–99])  |  xxxl 14/15 (93.3% [70–99])
+
+## Paired McNemar vs full-input F (per model, 45 shared tasks)
+
+  anthropic/claude-sonnet-4.5 F vs FV: F-only 2, FV-only 2, both 41, neither 0 — p = 1.000
+  anthropic/claude-sonnet-4.5 F vs FT: F-only 0, FT-only 2, both 43, neither 0 — p = 0.500
+  google/gemini-3.5-flash F vs FV: F-only 0, FV-only 1, both 41, neither 3 — p = 1.000
+  google/gemini-3.5-flash F vs FT: F-only 1, FT-only 1, both 40, neither 3 — p = 1.000
+
+## Input tokens per task (median, by size)
+
+### anthropic/claude-sonnet-4.5
+  F : xl 24,365  |  xxl 57,585  |  xxxl 85,642
+  FV: xl 2,067  |  xxl 2,667  |  xxxl 3,500
+  FT: xl 1,331  |  xxl 1,491  |  xxxl 1,531
+
+### google/gemini-3.5-flash
+  F : xl 20,995  |  xxl 39,999  |  xxxl 70,063
+  FV: xl 2,048  |  xxl 2,577  |  xxxl 3,118
+  FT: xl 1,266  |  xxl 1,419  |  xxxl 1,451
+
+## Success by edit kind (view conditions, pooled models)
+
+  F : set-attribute 18/18  |  set-name 18/18  |  remove-node 18/18  |  insert-node 13/18  |  move-node 17/18
+  FV: set-attribute 18/18  |  set-name 18/18  |  remove-node 18/18  |  insert-node 15/18  |  move-node 16/18
+  FT: set-attribute 18/18  |  set-name 18/18  |  remove-node 18/18  |  insert-node 14/18  |  move-node 18/18
+
+## Correction-loop activity (view conditions)
+
+  FV: 10/90 tasks needed correction rounds; issues: invalid-patch×10
+  FT: 9/90 tasks needed correction rounds; issues: invalid-patch×9
