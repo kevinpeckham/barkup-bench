@@ -92,8 +92,7 @@ async function callPatchModel(
 		inputTokens: result.totalUsage.inputTokens ?? 0,
 		outputTokens: result.totalUsage.outputTokens ?? 0,
 		cacheReadTokens: result.totalUsage.inputTokenDetails?.cacheReadTokens ?? 0,
-		reasoningTokens:
-			result.totalUsage.outputTokenDetails?.reasoningTokens ?? 0,
+		reasoningTokens: result.totalUsage.outputTokenDetails?.reasoningTokens ?? 0,
 		latencyMs: Math.round(performance.now() - started),
 	};
 }
@@ -236,12 +235,30 @@ export async function runSession(
 						? `Here is the current tree:\n\n${conditionA.serialize(current)}\n\nEdit request: ${resolved.instruction}\n\nReply with the complete updated markup.`
 						: `Next edit request: ${resolved.instruction}\n\nReply with the complete updated markup.`,
 			});
-			const rewrite = await rewriteLoop(
-				conditionA,
-				model,
-				messages,
-				step.index,
-			);
+			let rewrite: Awaited<ReturnType<typeof rewriteLoop>>;
+			try {
+				rewrite = await rewriteLoop(conditionA, model, messages, step.index);
+			} catch (error) {
+				// Mechanical ceiling (e.g. context-window exhaustion from
+				// accumulated whole-tree rewrites): record this step and the
+				// rest of the session as mechanical failures instead of
+				// dropping the session — the ceiling IS a finding (BRIEF-K).
+				const message = error instanceof Error ? error.message : String(error);
+				record.error = message;
+				detail.blocked = "mechanical:context-ceiling";
+				records.push(record);
+				for (const rest of task.steps.filter((s) => s.index > step.index)) {
+					const restRecord = stepRecord(task, rest, policy, model);
+					restRecord.detail = {
+						stepIndex: rest.index,
+						editKind: rest.kind,
+						referenceBack: rest.referenceBack,
+						blocked: "mechanical:context-ceiling",
+					};
+					records.push(restRecord);
+				}
+				break;
+			}
 			loop = {
 				tree: rewrite.tree,
 				calls: rewrite.calls,
