@@ -1,0 +1,115 @@
+# Prompt-caching audit (provider-reported cache reads)
+
+Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 46582 calls — reported input tokens are total prompt tokens, cached included.
+
+## Per raw file
+  corrected-anthropic_claude-haiku-4.5-best.jsonl: 1200 records, input 10,846,149 tok, cached 0 (0.0%), calls with cache 0/1591
+  corrected-anthropic_claude-haiku-4.5-parity.jsonl: 1200 records, input 10,256,301 tok, cached 0 (0.0%), calls with cache 0/1587
+  corrected-anthropic_claude-sonnet-4.5-best.jsonl: 1200 records, input 10,220,624 tok, cached 0 (0.0%), calls with cache 0/1530
+  corrected-anthropic_claude-sonnet-4.5-parity.jsonl: 1200 records, input 9,785,123 tok, cached 0 (0.0%), calls with cache 0/1538
+  corrected-google_gemini-3.5-flash-best.jsonl: 1200 records, input 9,296,971 tok, cached 1,972,132 (21.2%), calls with cache 251/1470
+  corrected-google_gemini-3.5-flash-parity.jsonl: 1200 records, input 9,167,753 tok, cached 1,700,824 (18.6%), calls with cache 197/1470
+  corrected-openai_gpt-5.4-best.jsonl: 1200 records, input 7,201,743 tok, cached 2,822,144 (39.2%), calls with cache 573/1464
+  corrected-openai_gpt-5.4-parity.jsonl: 1200 records, input 6,702,218 tok, cached 2,110,720 (31.5%), calls with cache 474/1463
+  dev-anthropic_claude-sonnet-4.5-best.jsonl: 100 records, input 845,757 tok, cached 0 (0.0%), calls with cache 0/123
+  dogfood-anthropic_claude-haiku-4.5.jsonl: 200 records, input 1,268,507 tok, cached 0 (0.0%), calls with cache 0/281
+  dropout-audit-anthropic_claude-haiku-4.5.jsonl: 80 records, input 1,477,020 tok, cached 0 (0.0%), calls with cache 0/160
+  dropout-audit-google_gemini-3.5-flash.jsonl: 80 records, input 1,881,228 tok, cached 713,597 (37.9%), calls with cache 57/160
+  followup-anthropic_claude-haiku-4.5-v1.jsonl: 360 records, input 13,752,782 tok, cached 0 (0.0%), calls with cache 0/1600
+  followup-anthropic_claude-haiku-4.5.jsonl: 360 records, input 14,995,940 tok, cached 0 (0.0%), calls with cache 0/1600
+  followup-anthropic_claude-sonnet-4.5-v1.jsonl: 360 records, input 14,319,072 tok, cached 0 (0.0%), calls with cache 0/1600
+  followup-anthropic_claude-sonnet-4.5.jsonl: 360 records, input 15,054,641 tok, cached 0 (0.0%), calls with cache 0/1600
+  followup-google_gemini-2.5-flash-lite-v1.jsonl: 360 records, input 9,653,407 tok, cached 5,475,859 (56.7%), calls with cache 1033/1462
+  followup-google_gemini-2.5-flash-lite.jsonl: 360 records, input 10,187,602 tok, cached 6,083,841 (59.7%), calls with cache 1083/1426
+  followup-google_gemini-3.5-flash-v1.jsonl: 360 records, input 11,676,312 tok, cached 5,567,061 (47.7%), calls with cache 723/1603
+  followup-google_gemini-3.5-flash.jsonl: 360 records, input 12,395,940 tok, cached 5,831,151 (47.0%), calls with cache 732/1603
+  followup-openai_gpt-5.4-mini-v1.jsonl: 360 records, input 9,617,086 tok, cached 8,201,984 (85.3%), calls with cache 1510/1603
+  followup-openai_gpt-5.4-mini.jsonl: 360 records, input 10,781,512 tok, cached 8,931,072 (82.8%), calls with cache 1499/1603
+  followup-openai_gpt-5.4-v1.jsonl: 360 records, input 10,362,188 tok, cached 7,986,432 (77.1%), calls with cache 1454/1600
+  followup-openai_gpt-5.4.jsonl: 360 records, input 10,776,133 tok, cached 8,392,960 (77.9%), calls with cache 1475/1600
+  main-anthropic_claude-haiku-4.5-best.jsonl: 1200 records, input 10,528,384 tok, cached 0 (0.0%), calls with cache 0/1591
+  main-anthropic_claude-haiku-4.5-parity.jsonl: 1200 records, input 9,912,174 tok, cached 0 (0.0%), calls with cache 0/1587
+  main-anthropic_claude-sonnet-4.5-best.jsonl: 1200 records, input 10,127,916 tok, cached 0 (0.0%), calls with cache 0/1530
+  main-anthropic_claude-sonnet-4.5-parity.jsonl: 1200 records, input 9,711,866 tok, cached 0 (0.0%), calls with cache 0/1538
+  main-google_gemini-3.5-flash-best.jsonl: 1200 records, input 9,631,736 tok, cached 2,079,178 (21.6%), calls with cache 242/1470
+  main-google_gemini-3.5-flash-parity.jsonl: 1200 records, input 9,493,730 tok, cached 1,847,723 (19.5%), calls with cache 194/1470
+  main-openai_gpt-5.4-best.jsonl: 1200 records, input 7,178,725 tok, cached 2,924,544 (40.7%), calls with cache 583/1464
+  main-openai_gpt-5.4-parity.jsonl: 1200 records, input 6,682,742 tok, cached 2,186,496 (32.7%), calls with cache 485/1463
+  pilot-anthropic_claude-sonnet-4.5.jsonl: 40 records, input 341,647 tok, cached 0 (0.0%), calls with cache 0/48
+  reference-v2-anthropic_claude-haiku-4.5-best.jsonl: 80 records, input 1,826,582 tok, cached 0 (0.0%), calls with cache 0/160
+  reference-v2-anthropic_claude-haiku-4.5-parity.jsonl: 80 records, input 1,763,600 tok, cached 0 (0.0%), calls with cache 0/160
+  reference-v2-anthropic_claude-sonnet-4.5-best.jsonl: 80 records, input 1,823,907 tok, cached 0 (0.0%), calls with cache 0/160
+  reference-v2-anthropic_claude-sonnet-4.5-parity.jsonl: 80 records, input 1,750,549 tok, cached 0 (0.0%), calls with cache 0/160
+  reference-v2-google_gemini-3.5-flash-best.jsonl: 80 records, input 1,565,234 tok, cached 584,529 (37.3%), calls with cache 64/160
+  reference-v2-google_gemini-3.5-flash-parity.jsonl: 80 records, input 1,571,011 tok, cached 615,379 (39.2%), calls with cache 64/160
+  reference-v2-openai_gpt-5.4-best.jsonl: 80 records, input 1,251,310 tok, cached 608,768 (48.7%), calls with cache 123/160
+  reference-v2-openai_gpt-5.4-parity.jsonl: 80 records, input 1,187,150 tok, cached 617,984 (52.1%), calls with cache 127/160
+  sizeext-anthropic_claude-sonnet-4.5.jsonl: 135 records, input 12,335,955 tok, cached 0 (0.0%), calls with cache 0/245
+  sizeext-google_gemini-3.5-flash.jsonl: 135 records, input 11,950,097 tok, cached 1,564,902 (13.1%), calls with cache 34/240
+  studyi-anthropic_claude-sonnet-4.5.jsonl: 90 records, input 249,469 tok, cached 0 (0.0%), calls with cache 0/107
+  studyi-google_gemini-3.5-flash.jsonl: 90 records, input 191,650 tok, cached 0 (0.0%), calls with cache 0/92
+  studyj-anthropic_claude-sonnet-4.5.jsonl: 90 records, input 195,950 tok, cached 0 (0.0%), calls with cache 0/99
+  studyj-google_gemini-3.5-flash.jsonl: 90 records, input 173,204 tok, cached 0 (0.0%), calls with cache 0/92
+  studyk-anthropic_claude-sonnet-4.5.jsonl: 528 records, input 9,664,585 tok, cached 0 (0.0%), calls with cache 0/529
+
+## Per study group × vendor × condition (nonzero cache only)
+  corrected | google | A: input 1,685,260 tok, cached 116,162 (6.9%) over 400 records
+  corrected | google | B: input 2,255,617 tok, cached 246,839 (10.9%) over 400 records
+  corrected | google | C: input 5,631,685 tok, cached 1,534,341 (27.2%) over 400 records
+  corrected | google | D: input 4,496,681 tok, cached 871,442 (19.4%) over 400 records
+  corrected | google | E: input 2,401,955 tok, cached 653,817 (27.2%) over 400 records
+  corrected | google | F: input 1,993,526 tok, cached 250,355 (12.6%) over 400 records
+  corrected | openai | A: input 1,475,742 tok, cached 280,320 (19.0%) over 400 records
+  corrected | openai | B: input 1,925,403 tok, cached 405,248 (21.0%) over 400 records
+  corrected | openai | C: input 3,745,072 tok, cached 1,799,168 (48.0%) over 400 records
+  corrected | openai | D: input 3,094,438 tok, cached 1,455,872 (47.0%) over 400 records
+  corrected | openai | E: input 1,959,190 tok, cached 736,256 (37.6%) over 400 records
+  corrected | openai | F: input 1,704,116 tok, cached 256,000 (15.0%) over 400 records
+  dropout-audit | google | C: input 1,050,648 tok, cached 418,257 (39.8%) over 40 records
+  dropout-audit | google | D: input 830,580 tok, cached 295,340 (35.6%) over 40 records
+  followup | google | G1: input 14,553,538 tok, cached 7,994,750 (54.9%) over 480 records
+  followup | google | G2: input 4,196,822 tok, cached 2,137,212 (50.9%) over 160 records
+  followup | google | G3: input 4,842,526 tok, cached 2,783,888 (57.5%) over 160 records
+  followup | google | G4: input 4,277,067 tok, cached 2,675,540 (62.6%) over 160 records
+  followup | google | G5: input 16,043,308 tok, cached 7,366,522 (45.9%) over 480 records
+  followup | openai | G1: input 14,402,958 tok, cached 11,505,664 (79.9%) over 480 records
+  followup | openai | G2: input 4,062,283 tok, cached 3,026,432 (74.5%) over 160 records
+  followup | openai | G3: input 4,854,129 tok, cached 3,840,512 (79.1%) over 160 records
+  followup | openai | G4: input 3,947,515 tok, cached 3,444,736 (87.3%) over 160 records
+  followup | openai | G5: input 14,270,034 tok, cached 11,695,104 (82.0%) over 480 records
+  main | google | A: input 1,685,260 tok, cached 116,162 (6.9%) over 400 records
+  main | google | B: input 2,255,617 tok, cached 246,839 (10.9%) over 400 records
+  main | google | C: input 5,910,577 tok, cached 1,586,743 (26.8%) over 400 records
+  main | google | D: input 4,878,531 tok, cached 1,072,985 (22.0%) over 400 records
+  main | google | E: input 2,401,955 tok, cached 653,817 (27.2%) over 400 records
+  main | google | F: input 1,993,526 tok, cached 250,355 (12.6%) over 400 records
+  main | openai | A: input 1,475,742 tok, cached 280,320 (19.0%) over 400 records
+  main | openai | B: input 1,925,403 tok, cached 405,248 (21.0%) over 400 records
+  main | openai | C: input 3,721,995 tok, cached 1,897,984 (51.0%) over 400 records
+  main | openai | D: input 3,075,021 tok, cached 1,535,232 (49.9%) over 400 records
+  main | openai | E: input 1,959,190 tok, cached 736,256 (37.6%) over 400 records
+  main | openai | F: input 1,704,116 tok, cached 256,000 (15.0%) over 400 records
+  reference-v2 | google | C: input 1,761,844 tok, cached 780,264 (44.3%) over 80 records
+  reference-v2 | google | D: input 1,374,401 tok, cached 419,644 (30.5%) over 80 records
+  reference-v2 | openai | C: input 1,349,326 tok, cached 710,144 (52.6%) over 80 records
+  reference-v2 | openai | D: input 1,089,134 tok, cached 516,608 (47.4%) over 80 records
+  sizeext | google | A: input 3,179,399 tok, cached 196,524 (6.2%) over 45 records
+  sizeext | google | E: input 6,706,758 tok, cached 1,368,378 (20.4%) over 45 records
+
+## Cache-free cells of note (zero provider-reported reads)
+  sizeext | anthropic | A: input 1,682,337 tok over 45 records
+  sizeext | anthropic | E: input 7,889,367 tok over 45 records
+  sizeext | anthropic | F: input 2,764,251 tok over 45 records
+  sizeext | google | F: input 2,063,940 tok over 45 records
+  studyi | anthropic | FT: input 82,411 tok over 45 records
+  studyi | anthropic | FV: input 167,058 tok over 45 records
+  studyi | google | FT: input 64,957 tok over 45 records
+  studyi | google | FV: input 126,693 tok over 45 records
+  studyj | anthropic | FTH: input 68,996 tok over 45 records
+  studyj | anthropic | FVH: input 126,954 tok over 45 records
+  studyj | google | FTH: input 61,851 tok over 45 records
+  studyj | google | FVH: input 111,353 tok over 45 records
+  studyk | anthropic | K-once: input 2,261,383 tok over 156 records
+  studyk | anthropic | K-refresh5: input 3,826,311 tok over 156 records
+  studyk | anthropic | K-rewrite: input 2,875,646 tok over 60 records
+  studyk | anthropic | K-view: input 701,245 tok over 156 records

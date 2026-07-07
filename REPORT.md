@@ -527,6 +527,62 @@ is the cheapest and most reliable editing interface measured at any
 size tested, with input that scales with tree depth rather than node
 count.
 
+## Addendum (2026-07-07): prompt-caching audit
+
+Provider-side prompt caching is on by default for two of the three
+vendors (OpenAI caches ≥1024-token prefixes automatically; Gemini 2.5+
+implicit caching is on by default) and cannot be disabled at the
+request level; Anthropic caching is opt-in via `cache_control`
+breakpoints, which this harness never sets. Since caching cannot be
+uniformly controlled out, it is audited instead: the harness records
+provider-reported cached-input reads per call
+(`CallLog.cacheReadTokens`), and `scripts/audit-cache.ts` tabulates
+them over every raw record (full tables in
+`results/analysis-cache-audit.txt`).
+
+What the audit shows, and what it means for the published numbers:
+
+- **Token metrics are caching-independent.** The subset invariant
+  (cache reads ≤ input tokens) holds on all 46,258 calls: reported
+  input tokens are *total* prompt tokens, cached included. Every
+  token count in this report measures true prompt size. Accuracy and
+  validity metrics are untouched by definition — caching is a
+  serving-layer optimization, not a change to model computation.
+- **Anthropic cells are cache-free by construction** — zero cache
+  reads across all 21,124 Anthropic calls on record, consistent with
+  opt-in caching never being enabled.
+- **Where default caching fired:** the main matrix's gemini/gpt arms
+  (6.9–51% of input by condition, heaviest in the tools arms C/D —
+  already disclosed in the H3 caveat); the Study G follow-up's
+  deep-history arms (gemini 46–63%, gpt 74–87% — long identical
+  resent histories are exactly what caching targets); reference-v2
+  tools arms (30–53%); Study H gemini A 6.2% and E 20.4%.
+- **Cache-free cells include every published dollar figure.** Study
+  H's solved-task economics quote sonnet A $0.88 / sonnet F $0.26
+  (Anthropic: zero cache) and gemini F $0.037 (gemini F: 0.0% cached
+  at every size), so the list-price arithmetic behind those figures
+  is exact, not a caching-inflated bound. Studies I and J are
+  entirely cache-free (all four view arms, both models, 0 reads in
+  360 runs — view prompts are small and per-task unique), so every
+  Study I/J number stands as-is.
+- **What caching does touch:** real billed cost and latency in the
+  gemini/gpt arms above (providers discount cached reads), which
+  *favors the tools/deep-history arms* in any dollar reading of those
+  cells — the direction already noted in H3. Latency comparisons
+  within those vendors inherit the same mild tailwind.
+
+**Going forward (Study K).** Sessions resend a growing conversation
+every step — the caching-relevant workload. The session runner now
+records per-call cache reads (instrumentation-only change, committed
+mid-run; the first 204 sonnet steps predate it but are zero by the
+construction above). K's primary cost metric stays token-based
+(cache-independent); any dollar view will disclose observed cache
+reads and the structural asymmetry that a stock integration caches by
+default on gemini but not on anthropic — a production Anthropic
+deployment would opt in and cache session prefixes, so cross-vendor
+session dollar comparisons are "default config" comparisons, not
+capability comparisons.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
