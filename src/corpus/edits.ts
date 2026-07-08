@@ -95,7 +95,7 @@ function mustFind(tree: BarkupNode, id: string): BarkupNode {
 	return node;
 }
 
-function ordinal(n: number): string {
+export function ordinal(n: number): string {
 	const suffix =
 		n % 100 >= 11 && n % 100 <= 13
 			? "th"
@@ -109,7 +109,7 @@ function ordinal(n: number): string {
 	return `${n}${suffix}`;
 }
 
-function formatValue(value: AttributeValue): string {
+export function formatValue(value: AttributeValue): string {
 	if (typeof value === "string") return `"${value}"`;
 	if (typeof value === "number" || typeof value === "boolean") {
 		return String(value);

@@ -657,6 +657,53 @@ length. Whole-tree rewrite should not be used as a session protocol:
 below the frontier tier it silently corrupts state, and at any tier
 its conversation grows toward a hard context ceiling.
 
+## Addendum (2026-07-08): Study M — stateless sessions
+
+Pre-registered in [docs/BRIEF-M.md](docs/BRIEF-M.md): if the per-turn
+view carries the state (Study K), does the model need conversation
+history at all? Two new policies on the K corpus and runner —
+**M-stateless** (every step a fresh single-turn conversation: view +
+instruction, no memory) and **M-window** (last 2 completed exchanges
+kept) — paired against Study K's K-view cells. 960 step records, 80
+sessions, zero invariant violations, ≈ $4; tables in
+`results/analysis-studym.txt`.
+
+- **M-H1 (statelessness matches K-view) — REFUTED for sonnet,
+  directionally refuted for gemini.** The result we predicted did not
+  happen, and we publish it as found: K-view beat M-stateless 7–0 on
+  discordant steps for sonnet (p = 0.016) and 5–0 for gemini
+  (p = 0.063). End-state integrity drops from 19/20 sessions (K-view)
+  to 13–14/20 (stateless). History contributes something beyond
+  state.
+- **What history contributes (failure anatomy):** every stateless-only
+  failure is a **late-session placement edit** (inserts at step 9,
+  moves at steps 5/10), almost all first-pass-valid with drift 0 —
+  the patch was legal, the position was wrong. The current view shows
+  the same child lists in both arms, so the redundancy history
+  provides for positional reasoning is doing real work; pinning the
+  exact mechanism needs transcript-level follow-up
+  (`BENCH_LOG_TRANSCRIPTS=1`). A side observation: without
+  conversational precedent for terse replies, gemini's stateless
+  outputs balloon 6× (mean 309 vs 55 output tokens per step).
+- **M-H2 (cost shape) — CONFIRMED.** Stateless input is flat
+  (~1.3k tokens at step 1 and step 12 alike) vs K-view's growth
+  (1.2k → 8.1k); a stateless session costs ~16–18k input tokens vs
+  K-view's ~54–56k. The economics work; the accuracy doesn't.
+- **M-H3 (the window) — intermediate, leaning inadequate.** M-window
+  is not significantly below K-view on per-step success (4–0,
+  p = 0.125 sonnet; 5–2, p = 0.453 gemini), but its end-state
+  integrity (15–16/20) sits closer to stateless than to K-view, and
+  its failures are the same late-session placement class.
+
+**Decision rule outcome.** Statelessness fails the gate, so the
+session guidance stands at Study K's answer and gains a boundary:
+keep the full conversation history AND attach a fresh minimal view
+every turn. History is cheap at these session lengths (~55k input
+tokens for 12 edits); the constant-cost stateless recipe costs 3× as
+many session corruptions. For sessions long enough that history
+itself becomes the ceiling, a >2-exchange window is the open
+question, not zero memory.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

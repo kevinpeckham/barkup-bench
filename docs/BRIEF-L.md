@@ -47,8 +47,14 @@ the moved node and the destination.
   committed code with unit tests, chosen deliberately dumb: it is
   the floor any real app should beat.
 
-The LG-nav system prompt is F's parity prompt plus this
-pre-registered block:
+The LG-nav system prompt is Study J's HTML-patch prompt base (the
+format section swapped to the HTML dialect plus the cross-format
+"JSON node objects, camelCase keys" editing rule — navigation views
+render in the HTML dialect, matching the shipped `barkup/view`) plus
+this pre-registered block: *(amended 2026-07-08, before any scored L
+run: the original text said "F's parity prompt", which describes
+trees as JSON and would contradict the HTML views the block below
+already referenced)*
 
 ```
 Navigation rules:
