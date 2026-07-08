@@ -704,6 +704,62 @@ many session corruptions. For sessions long enough that history
 itself becomes the ceiling, a >2-exchange window is the open
 question, not zero memory.
 
+## Addendum (2026-07-08): Study L — grounding without ids
+
+Pre-registered in [docs/BRIEF-L.md](docs/BRIEF-L.md) (one disclosed
+pre-run amendment: the navigation prompt's format section is the HTML
+dialect, matching the HTML views its rules already described): the
+size-extension tasks with **id-free instructions** — targets
+described by unique name, distinguishing attribute, or ordinal within
+a named ancestor, every description programmatically verified to
+match exactly one node (`corpus/grounded.json`). Three context
+mechanisms, all emitting anchored patches: **LG-full** (whole tree in
+the prompt), **LG-nav** (minimal root view + an `expand_node` tool,
+≤16 steps/call), **LG-lex** (deliberately dumb lexical retrieval
+feeding the minimal view — the floor). 270 cells, zero errors, every
+record independently re-graded (0 mismatches); tables in
+`results/analysis-studyl.txt`.
+
+| Success (45 tasks) | sonnet-4.5 | gemini-3.5-flash |
+|---|---|---|
+| Oracle bound (Study I, ids in instructions) | 43/45 | 41/45 |
+| LG-full (grounded, whole tree) | 39/45 | 38/45 |
+| LG-nav (grounded, navigate) | **43/45** | 23/45 |
+| LG-lex (grounded, naive retrieval) | 27/45 | 25/45 |
+
+- **L-H1 (the oracle premium): measured at ~7–9 points.** Grounding a
+  human-style description in a full 300–1000-node tree costs sonnet
+  95.6% → 86.7% and gemini 91.1% → 84.4% relative to id-anchored
+  instructions. Models are decent grounders in-context; they are not
+  free ones.
+- **L-H2 (mechanism comparison): the interesting half survived, the
+  economics did not.** Navigation reaches oracle-level accuracy on
+  the frontier model (43/45; 4–0 discordant over LG-full, p = 0.125)
+  — but at a median of **54 expand calls per task**, its input cost
+  exceeds just showing the whole tree (355k median tokens at ~1000
+  nodes vs 90k). And it is frontier-only: gemini navigates itself
+  into the ground (23/45, p < 0.001, median 58 expands, inputs up to
+  ~636k), usually exhausting its budget without ever emitting a valid
+  patch (20 of its failures are "invalid"). The predicted ≥80% input
+  saving held only for LG-lex (~2.5k tokens/task, −97%), which is
+  significantly less accurate (p ≤ 0.002 both models).
+- **L-H3 (failure anatomy) — CONFIRMED where it applies.**
+  Misgrounding dominates LG-full (8 of 13) and LG-lex (34 of 38 —
+  the retriever simply misses the target region); LG-nav's dominant
+  failure is a new class, budget exhaustion without an answer.
+
+**Decision rule outcome: the gate FAILS, and the boundary stands.**
+No partial-context arm is simultaneously non-inferior and ≥80%
+cheaper. `/view`'s honest guidance is unchanged: when your
+application knows which node ids an edit concerns, views are free
+accuracy-wise (Studies I/J); *finding* those ids from a vague request
+is real work that either costs a full-tree read (~7–9 point premium
+included) or a retrieval system genuinely better than lexical
+overlap. The skeleton-plus-expand agent pattern, appealing as it
+looks, is not the free win: accurate only at the frontier tier and
+more expensive than the problem it solves. Spend ≈ $45, within the
+pre-registered band.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
