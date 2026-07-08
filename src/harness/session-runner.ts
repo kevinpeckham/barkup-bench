@@ -27,13 +27,22 @@ import { allIds, cloneTree } from "../tree.js";
 import type { CallLog, TaskRunRecord } from "./records.js";
 import { findByTypeAndName, MAX_ROUNDS, rewriteLoop } from "./runner.js";
 
-export type SessionPolicy = "once" | "view" | "refresh5" | "rewrite";
+export type SessionPolicy =
+	| "once"
+	| "view"
+	| "refresh5"
+	| "rewrite"
+	// Study M (BRIEF-M.md): view-per-turn with restricted history.
+	| "stateless"
+	| "window2";
 
 export const POLICY_CONDITION: Record<SessionPolicy, string> = {
 	once: "K-once",
 	view: "K-view",
 	refresh5: "K-refresh5",
 	rewrite: "K-rewrite",
+	stateless: "M-stateless",
+	window2: "M-window",
 };
 
 /** Pre-registered session preamble appended to the patch arms' system prompt. */
@@ -41,8 +50,32 @@ export const SESSION_RULES = `
 Session rules:
 - Edit requests arrive one at a time; each patch applies to the tree as it stands after all previous patches have been applied.`;
 
+/** Pre-registered M-stateless variant (BRIEF-M.md): no prior conversation exists to refer to. */
+export const STATELESS_SESSION_RULES = `
+Session rules:
+- The view shows the tree as it stands right now, after all previous edits have already been applied. Edit it from this state.`;
+
 const PATCH_SYSTEM = conditionF.systemPrompt + SESSION_RULES;
 const VIEW_SYSTEM = conditionF.systemPrompt + SESSION_RULES + VIEW_RULES;
+const STATELESS_SYSTEM =
+	conditionF.systemPrompt + STATELESS_SESSION_RULES + VIEW_RULES;
+
+/** One completed step, condensed for the sliding window (corrections dropped). */
+export interface StepExchange {
+	user: string;
+	assistant: string;
+}
+
+/** M-window: the last `keep` completed exchanges as messages. */
+export function windowMessages(
+	exchanges: StepExchange[],
+	keep: number,
+): ModelMessage[] {
+	return exchanges.slice(-keep).flatMap((e) => [
+		{ role: "user" as const, content: e.user },
+		{ role: "assistant" as const, content: e.assistant },
+	]);
+}
 
 const DELIVERY = "Reply with a JSON Patch that makes this change.";
 
@@ -195,6 +228,8 @@ export async function runSession(
 	let current = cloneTree(task.tree);
 	const idMap = new Map<string, string>();
 	const messages: ModelMessage[] = [];
+	/** Study M window policy: condensed completed exchanges. */
+	const exchanges: StepExchange[] = [];
 	const records: TaskRunRecord[] = [];
 
 	for (const step of task.steps) {
@@ -264,6 +299,41 @@ export async function runSession(
 				calls: rewrite.calls,
 				firstPassValid: rewrite.firstPassValid,
 			};
+		} else if (policy === "stateless" || policy === "window2") {
+			// Study M: fresh view every turn; history absent or windowed.
+			let view: string;
+			try {
+				view = `${JSON.stringify(buildView(current, referencedIds(resolved.edit), "minimal"), null, 2)}\n`;
+			} catch (error) {
+				detail.blocked = `view-focus-missing:${
+					error instanceof Error ? error.message : String(error)
+				}`;
+				records.push(record);
+				continue;
+			}
+			const first = policy === "stateless" || exchanges.length === 0;
+			const content = viewMessage(view, resolved.instruction, first);
+			const stepMessages: ModelMessage[] =
+				policy === "stateless" ? [] : windowMessages(exchanges, 2);
+			stepMessages.push({ role: "user", content });
+			loop = await sessionPatchLoop(
+				model,
+				policy === "stateless" ? STATELESS_SYSTEM : VIEW_SYSTEM,
+				stepMessages,
+				current,
+				step.index,
+			);
+			if (policy === "window2") {
+				const lastAssistant = [...stepMessages]
+					.reverse()
+					.find((m) => m.role === "assistant");
+				if (lastAssistant) {
+					exchanges.push({
+						user: content,
+						assistant: String(lastAssistant.content),
+					});
+				}
+			}
 		} else {
 			let content: string;
 			if (policy === "view") {
