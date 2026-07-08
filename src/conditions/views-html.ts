@@ -93,8 +93,8 @@ View rules:
 - Every visible id is a valid patch target. Never use an id that is not visible in the view.
 - Give every node you create a fresh id unlikely to exist anywhere in the full tree (e.g. with a random-looking suffix); if it collides with a hidden node's id, the patch is rejected with a duplicate-id issue and you can correct it.`;
 
-/** F's editing rules with the format section swapped to the HTML dialect. */
-const HTML_PATCH_SYSTEM_PROMPT = `You are an expert editor of typed content trees.
+/** F's editing rules with the format section swapped to the HTML dialect (no view rules; Study L composes its own navigation block onto this). */
+export const HTML_PATCH_BASE = `You are an expert editor of typed content trees.
 
 ${formatSection("html")}
 
@@ -104,7 +104,10 @@ Editing rules:
 - Placement uses ids, never positions: "before": <sibling id> or "after": <sibling id> (the parent is implied), or "parentId": <id> to append as the last child. Exactly one of the three.
 - Preserve every existing node id exactly; give every node you create a fresh unique "id" not used anywhere else in the tree.
 - Change only what the request calls for; an operation that touches anything else is wrong.
-- You may wrap the patch in a \`\`\`json code fence; output nothing else.${VIEW_RULES_HTML}`;
+- You may wrap the patch in a \`\`\`json code fence; output nothing else.`;
+
+/** The Study J view-condition prompt: base + view rules (byte-identical to the pre-refactor constant). */
+const HTML_PATCH_SYSTEM_PROMPT = HTML_PATCH_BASE + VIEW_RULES_HTML;
 
 /**
  * A per-task condition: F's dialect and shipped applier, with the
