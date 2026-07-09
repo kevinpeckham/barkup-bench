@@ -36,12 +36,13 @@ export function searchUserMessage(
 export async function runSearchTask(
 	task: TransformationTask,
 	model: string,
+	conditionId = "N-search",
 ): Promise<TaskRunRecord> {
 	const record: TaskRunRecord = {
 		taskId: task.id,
 		family: task.family,
 		bucket: task.bucket,
-		condition: "N-search",
+		condition: conditionId,
 		model,
 		regime: "parity",
 		success: false,

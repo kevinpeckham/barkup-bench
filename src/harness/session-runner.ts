@@ -29,6 +29,7 @@ import { resolveStep } from "../corpus/sessions.js";
 import { driftCount } from "../grading/drift.js";
 import { equalModuloNewIds } from "../grading/equal.js";
 import { allIds, cloneTree } from "../tree.js";
+import { WORKED_EXAMPLES, WORKED_EXAMPLES_BLOCK } from "./examples.js";
 import type { CallLog, TaskRunRecord } from "./records.js";
 import { findByTypeAndName, MAX_ROUNDS, rewriteLoop } from "./runner.js";
 
@@ -42,7 +43,10 @@ export type SessionPolicy =
 	| "window2"
 	// Study O (BRIEF-O.md): position-annotated views, without/with history.
 	| "statelessPos"
-	| "viewPos";
+	| "viewPos"
+	// Study P (BRIEF-P.md): stateless with canned worked examples.
+	| "canned"
+	| "cannedSys";
 
 export const POLICY_CONDITION: Record<SessionPolicy, string> = {
 	once: "K-once",
@@ -53,7 +57,18 @@ export const POLICY_CONDITION: Record<SessionPolicy, string> = {
 	window2: "M-window",
 	statelessPos: "O-stateless",
 	viewPos: "O-view",
+	canned: "P-canned",
+	cannedSys: "P-system",
 };
+
+/** Policies whose steps are fresh conversations built in the M branch. */
+const STATELESS_FAMILY: ReadonlySet<SessionPolicy> = new Set([
+	"stateless",
+	"window2",
+	"statelessPos",
+	"canned",
+	"cannedSys",
+]);
 
 /** Pre-registered session preamble appended to the patch arms' system prompt. */
 export const SESSION_RULES = `
@@ -72,6 +87,21 @@ const STATELESS_SYSTEM =
 /** Study O (BRIEF-O.md): the same prompts plus the pre-registered position line. */
 export const VIEW_SYSTEM_POS = VIEW_SYSTEM + POSITION_RULE;
 export const STATELESS_SYSTEM_POS = STATELESS_SYSTEM + POSITION_RULE;
+/** Study P (BRIEF-P.md): the stateless prompt plus the worked-examples block. */
+export const STATELESS_SYSTEM_EXAMPLES =
+	STATELESS_SYSTEM + WORKED_EXAMPLES_BLOCK;
+
+/** Study P (BRIEF-P.md): the worked examples as fake conversation turns
+ * (fresh objects per call — message arrays are mutated by the loop). */
+export function cannedMessages(): ModelMessage[] {
+	return WORKED_EXAMPLES.flatMap((example) => [
+		{
+			role: "user" as const,
+			content: `Worked example (a different, unrelated tree):\n\n${viewMessage(example.view, example.instruction, true)}`,
+		},
+		{ role: "assistant" as const, content: example.reply },
+	]);
+}
 
 /** One completed step, condensed for the sliding window (corrections dropped). */
 export interface StepExchange {
@@ -312,13 +342,10 @@ export async function runSession(
 				calls: rewrite.calls,
 				firstPassValid: rewrite.firstPassValid,
 			};
-		} else if (
-			policy === "stateless" ||
-			policy === "window2" ||
-			policy === "statelessPos"
-		) {
+		} else if (STATELESS_FAMILY.has(policy)) {
 			// Study M: fresh view every turn; history absent or windowed.
 			// Study O statelessPos: M-stateless with position annotations.
+			// Study P canned/cannedSys: M-stateless with worked examples.
 			let view: string;
 			try {
 				view = `${JSON.stringify(buildView(current, referencedIds(resolved.edit), "minimal", policy === "statelessPos"), null, 2)}\n`;
@@ -332,14 +359,20 @@ export async function runSession(
 			const first = policy !== "window2" || exchanges.length === 0;
 			const content = viewMessage(view, resolved.instruction, first);
 			const stepMessages: ModelMessage[] =
-				policy === "window2" ? windowMessages(exchanges, 2) : [];
+				policy === "window2"
+					? windowMessages(exchanges, 2)
+					: policy === "canned"
+						? cannedMessages()
+						: [];
 			stepMessages.push({ role: "user", content });
 			const system =
 				policy === "statelessPos"
 					? STATELESS_SYSTEM_POS
-					: policy === "stateless"
-						? STATELESS_SYSTEM
-						: VIEW_SYSTEM;
+					: policy === "cannedSys"
+						? STATELESS_SYSTEM_EXAMPLES
+						: policy === "window2"
+							? VIEW_SYSTEM
+							: STATELESS_SYSTEM;
 			loop = await sessionPatchLoop(
 				model,
 				system,
