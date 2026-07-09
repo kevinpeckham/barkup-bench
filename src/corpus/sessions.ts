@@ -8,7 +8,7 @@
  * sessions. Instructions and edit specs carry the placeholders; the
  * runner substitutes actual ids before each step.
  */
-import type { AttributeValue, BarkupNode } from "@kevinpeckham/barkup";
+import type { BarkupNode } from "@kevinpeckham/barkup";
 import { BENCH_CONFIG } from "../grammar.js";
 import {
 	allIds,

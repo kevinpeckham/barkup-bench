@@ -16,7 +16,6 @@ import {
 } from "../src/conditions/grounded.js";
 import {
 	describeGroundedEdit,
-	groundedTargetIds,
 	refFor,
 	refText,
 	resolveRef,

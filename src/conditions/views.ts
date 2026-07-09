@@ -56,10 +56,14 @@ export function spineOf(tree: BarkupNode, ids: string[]): Set<BarkupNode> {
 	return spine;
 }
 
-function placeholder(node: BarkupNode): Record<string, unknown> {
+function placeholder(
+	node: BarkupNode,
+	position?: number,
+): Record<string, unknown> {
 	const out: Record<string, unknown> = { type: node.type };
 	if (node.name !== undefined) out.name = node.name;
 	if (node.id !== undefined) out.id = node.id;
+	if (position !== undefined) out.position = position;
 	out.collapsed = true;
 	out.childCount = node.children?.length ?? 0;
 	return out;
@@ -68,19 +72,27 @@ function placeholder(node: BarkupNode): Record<string, unknown> {
 /**
  * Render the view object. Spine nodes are full; children of referenced
  * nodes are always at least placeholders; other spine children are
- * placeholders (focused) or omitted with a count (minimal).
+ * placeholders (focused) or omitted with a count (minimal). With
+ * `positions` (Study O, BRIEF-O.md), every rendered child carries its
+ * 1-based position among its parent's children in the FULL tree —
+ * omitted siblings are counted, so the numbers are always true.
  */
 export function buildView(
 	tree: BarkupNode,
 	focusIds: string[],
 	mode: ViewMode,
+	positions = false,
 ): Record<string, unknown> {
 	const spine = spineOf(tree, focusIds);
 	const focus = new Set(focusIds);
-	const render = (node: BarkupNode): Record<string, unknown> => {
+	const render = (
+		node: BarkupNode,
+		position?: number,
+	): Record<string, unknown> => {
 		const out: Record<string, unknown> = { type: node.type };
 		if (node.name !== undefined) out.name = node.name;
 		if (node.id !== undefined) out.id = node.id;
+		if (position !== undefined) out.position = position;
 		if (node.attributes && Object.keys(node.attributes).length > 0) {
 			out.attributes = node.attributes;
 		}
@@ -88,13 +100,15 @@ export function buildView(
 		if (children.length === 0) return out;
 		const rendered: Record<string, unknown>[] = [];
 		let omitted = 0;
-		for (const child of children) {
+		for (let i = 0; i < children.length; i += 1) {
+			const child = children[i] as BarkupNode;
+			const childPosition = positions ? i + 1 : undefined;
 			if (spine.has(child)) {
-				rendered.push(render(child));
+				rendered.push(render(child, childPosition));
 			} else if (focus.has(node.id as string)) {
-				rendered.push(placeholder(child));
+				rendered.push(placeholder(child, childPosition));
 			} else if (mode === "focused") {
-				rendered.push(placeholder(child));
+				rendered.push(placeholder(child, childPosition));
 			} else {
 				omitted += 1;
 			}
@@ -110,8 +124,9 @@ export function serializeView(
 	tree: BarkupNode,
 	focusIds: string[],
 	mode: ViewMode,
+	positions = false,
 ): string {
-	return `${JSON.stringify(buildView(tree, focusIds, mode), null, 2)}\n`;
+	return `${JSON.stringify(buildView(tree, focusIds, mode, positions), null, 2)}\n`;
 }
 
 /** Pre-registered view block appended to F's system prompt (BRIEF-I.md). */
@@ -122,6 +137,10 @@ View rules:
 - A node with "omittedChildren": N has N additional children that are not shown at all.
 - Every visible "id" is a valid patch target. Never use an id that is not visible in the view.
 - Give every node you create a fresh id unlikely to exist anywhere in the full tree (e.g. with a random-looking suffix); if it collides with a hidden node's id, the patch is rejected with a duplicate-id issue and you can correct it.`;
+
+/** Pre-registered position line (Study O, BRIEF-O.md), appended to VIEW_RULES. */
+export const POSITION_RULE = `
+- "position": n is a node's 1-based position among its parent's children in the full tree, counting children the view does not show. Ordinals in edit requests ("the 3rd child") refer to these positions. To place a node at position n, anchor "before" the child currently at position n, or use "parentId" to append after the last child.`;
 
 /**
  * A per-task condition: F's dialect and shipped applier, with the

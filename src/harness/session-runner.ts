@@ -17,7 +17,12 @@ import {
 	formatIssuesFeedback,
 	serializeJsonTree,
 } from "../conditions/shared.js";
-import { buildView, referencedIds, VIEW_RULES } from "../conditions/views.js";
+import {
+	buildView,
+	POSITION_RULE,
+	referencedIds,
+	VIEW_RULES,
+} from "../conditions/views.js";
 import { applyEdit } from "../corpus/edits.js";
 import type { SessionStep, SessionTask } from "../corpus/sessions.js";
 import { resolveStep } from "../corpus/sessions.js";
@@ -34,7 +39,10 @@ export type SessionPolicy =
 	| "rewrite"
 	// Study M (BRIEF-M.md): view-per-turn with restricted history.
 	| "stateless"
-	| "window2";
+	| "window2"
+	// Study O (BRIEF-O.md): position-annotated views, without/with history.
+	| "statelessPos"
+	| "viewPos";
 
 export const POLICY_CONDITION: Record<SessionPolicy, string> = {
 	once: "K-once",
@@ -43,6 +51,8 @@ export const POLICY_CONDITION: Record<SessionPolicy, string> = {
 	rewrite: "K-rewrite",
 	stateless: "M-stateless",
 	window2: "M-window",
+	statelessPos: "O-stateless",
+	viewPos: "O-view",
 };
 
 /** Pre-registered session preamble appended to the patch arms' system prompt. */
@@ -59,6 +69,9 @@ const PATCH_SYSTEM = conditionF.systemPrompt + SESSION_RULES;
 const VIEW_SYSTEM = conditionF.systemPrompt + SESSION_RULES + VIEW_RULES;
 const STATELESS_SYSTEM =
 	conditionF.systemPrompt + STATELESS_SESSION_RULES + VIEW_RULES;
+/** Study O (BRIEF-O.md): the same prompts plus the pre-registered position line. */
+export const VIEW_SYSTEM_POS = VIEW_SYSTEM + POSITION_RULE;
+export const STATELESS_SYSTEM_POS = STATELESS_SYSTEM + POSITION_RULE;
 
 /** One completed step, condensed for the sliding window (corrections dropped). */
 export interface StepExchange {
@@ -299,11 +312,16 @@ export async function runSession(
 				calls: rewrite.calls,
 				firstPassValid: rewrite.firstPassValid,
 			};
-		} else if (policy === "stateless" || policy === "window2") {
+		} else if (
+			policy === "stateless" ||
+			policy === "window2" ||
+			policy === "statelessPos"
+		) {
 			// Study M: fresh view every turn; history absent or windowed.
+			// Study O statelessPos: M-stateless with position annotations.
 			let view: string;
 			try {
-				view = `${JSON.stringify(buildView(current, referencedIds(resolved.edit), "minimal"), null, 2)}\n`;
+				view = `${JSON.stringify(buildView(current, referencedIds(resolved.edit), "minimal", policy === "statelessPos"), null, 2)}\n`;
 			} catch (error) {
 				detail.blocked = `view-focus-missing:${
 					error instanceof Error ? error.message : String(error)
@@ -311,14 +329,20 @@ export async function runSession(
 				records.push(record);
 				continue;
 			}
-			const first = policy === "stateless" || exchanges.length === 0;
+			const first = policy !== "window2" || exchanges.length === 0;
 			const content = viewMessage(view, resolved.instruction, first);
 			const stepMessages: ModelMessage[] =
-				policy === "stateless" ? [] : windowMessages(exchanges, 2);
+				policy === "window2" ? windowMessages(exchanges, 2) : [];
 			stepMessages.push({ role: "user", content });
+			const system =
+				policy === "statelessPos"
+					? STATELESS_SYSTEM_POS
+					: policy === "stateless"
+						? STATELESS_SYSTEM
+						: VIEW_SYSTEM;
 			loop = await sessionPatchLoop(
 				model,
-				policy === "stateless" ? STATELESS_SYSTEM : VIEW_SYSTEM,
+				system,
 				stepMessages,
 				current,
 				step.index,
@@ -336,10 +360,10 @@ export async function runSession(
 			}
 		} else {
 			let content: string;
-			if (policy === "view") {
+			if (policy === "view" || policy === "viewPos") {
 				let view: string;
 				try {
-					view = `${JSON.stringify(buildView(current, referencedIds(resolved.edit), "minimal"), null, 2)}\n`;
+					view = `${JSON.stringify(buildView(current, referencedIds(resolved.edit), "minimal", policy === "viewPos"), null, 2)}\n`;
 				} catch (error) {
 					detail.blocked = `view-focus-missing:${
 						error instanceof Error ? error.message : String(error)
@@ -362,7 +386,11 @@ export async function runSession(
 			messages.push({ role: "user", content });
 			loop = await sessionPatchLoop(
 				model,
-				policy === "view" ? VIEW_SYSTEM : PATCH_SYSTEM,
+				policy === "view"
+					? VIEW_SYSTEM
+					: policy === "viewPos"
+						? VIEW_SYSTEM_POS
+						: PATCH_SYSTEM,
 				messages,
 				current,
 				step.index,

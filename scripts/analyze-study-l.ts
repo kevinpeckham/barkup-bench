@@ -6,13 +6,11 @@
  *   bun run scripts/analyze-study-l.ts
  */
 import { existsSync, readFileSync } from "node:fs";
-import type { BarkupNode } from "@kevinpeckham/barkup";
-import { groundedTargetIds } from "../src/corpus/grounded.js";
 import type { Corpus, TransformationTask } from "../src/corpus/tasks.js";
+import { classifyGroundedFailure } from "../src/grading/misground.js";
 import type { TaskRunRecord } from "../src/harness/records.js";
 import { mcnemarExact } from "../src/stats/mcnemar.js";
 import { wilson } from "../src/stats/wilson.js";
-import { findById, findParent, walkTree } from "../src/tree.js";
 
 const MODELS = ["anthropic/claude-sonnet-4.5", "google/gemini-3.5-flash"];
 const CONDITIONS = ["LG-full", "LG-nav", "LG-lex"];
@@ -47,46 +45,10 @@ function pct(rows: TaskRunRecord[]): string {
 	).toFixed(0)}–${(w.high * 100).toFixed(0)}])`;
 }
 
-/** Existing-node ids whose identity-relevant state changed base→final. */
-function changedExistingIds(base: BarkupNode, final: BarkupNode): Set<string> {
-	const changed = new Set<string>();
-	const describe = (tree: BarkupNode, id: string): string | null => {
-		const node = findById(tree, id);
-		if (!node) return null;
-		const parent = findParent(tree, id);
-		return JSON.stringify({
-			name: node.name ?? null,
-			attrs: node.attributes ?? {},
-			parent: parent?.parent.id ?? null,
-			index: parent?.index ?? -1,
-			childIds: (node.children ?? []).map((c) => c.id ?? "?"),
-		});
-	};
-	walkTree(base, ({ node }) => {
-		const id = node.id as string;
-		if (describe(base, id) !== describe(final, id)) changed.add(id);
-	});
-	return changed;
-}
-
-/** Failure class: misgrounded (wrong node touched / target untouched) vs mechanics vs invalid. */
+/** Failure class, via the shared classifier (src/grading/misground.ts). */
 function classifyFailure(r: TaskRunRecord): string {
 	const task = byId.get(r.taskId) as TransformationTask;
-	const final = r.detail?.finalTree as BarkupNode | null | undefined;
-	if (!final) return "invalid";
-	const expectedChanged = changedExistingIds(task.tree, task.expected);
-	const actualChanged = changedExistingIds(task.tree, final);
-	const expectedTargets = new Set([
-		...groundedTargetIds(task.edit),
-		...expectedChanged,
-	]);
-	for (const id of actualChanged) {
-		if (!expectedTargets.has(id)) return "misgrounded";
-	}
-	// Touched only sanctioned nodes but still wrong (or touched nothing).
-	return actualChanged.size === 0 && expectedChanged.size > 0
-		? "misgrounded"
-		: "mechanics";
+	return classifyGroundedFailure(r, task);
 }
 
 console.log("# Study L — grounding without ids\n");

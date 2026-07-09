@@ -22,7 +22,8 @@ export function tokenize(text: string): Set<string> {
 	return new Set(text.toLowerCase().match(/[a-z0-9]+/g) ?? []);
 }
 
-function searchableText(node: BarkupNode): string {
+/** The node text every retrieval rung scores against (BRIEF-L / BRIEF-N). */
+export function searchableText(node: BarkupNode): string {
 	const attrs = Object.entries(node.attributes ?? {})
 		.map(([key, value]) => `${key} ${JSON.stringify(value)}`)
 		.join(" ");
