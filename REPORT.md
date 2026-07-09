@@ -885,6 +885,114 @@ patches teach the dialect's anchor semantics? does history carry
 commitment to earlier placements?) need transcript-level work, not
 another serializer variant.
 
+## Addendum (2026-07-09): Study P — synthetic history
+
+Pre-registered in [docs/BRIEF-P.md](docs/BRIEF-P.md): Studies M and
+O showed stateless sessions fail on late placements with every
+relevant fact visible, leaving two accounts of what history
+contributes — worked precedent (teaching) or commitment to the
+session's own edits. Study P injected **fake history**: two canned
+worked examples (an ordinal insert and an ordinal move on a fixed,
+unrelated tree; patches unit-tested), delivered either as fabricated
+conversation turns before every fresh step (**P-canned**) or as a
+documentation block in the system prompt (**P-system**). 960 step
+records, zero invariant violations, zero errors, ≈ $5; tables in
+`results/analysis-studyp.txt`.
+
+- **P-H1 (the teaching account) — CONFIRMED; the gate PASSES, on
+  both models, in both framings.** Against K-view (full history) the
+  worst discordance is 2–0 (p ≥ 0.5 everywhere); end-state integrity
+  is 18/20 (sonnet) and 19–20/20 (gemini) vs stateless's 13–14/20 —
+  within the pre-registered bound. Against M-stateless, gemini's
+  gains are significant (7–0, p = 0.016 canned; 6–0, p = 0.031
+  system) and sonnet's directional (7–1, p = 0.070; 7–2, p = 0.180).
+  Late placements go from the failure class to near-perfect
+  (gemini P-canned: 60/60, and 20/20 sessions end byte-perfect —
+  descriptively the best session cell in the series alongside
+  O-view).
+- **P-H2 (content vs framing):** P-system ≈ P-canned (discordance
+  ≤ 2–1, p = 1.0 both models). The contribution is the CONTENT — it
+  can live in a system prompt; no fake turns required.
+- **P-H3 (cost and style) — CONFIRMED.** Flat ~2.1k input/step
+  (examples cost ~900 tokens, constant), ~26k tokens per 12-edit
+  session vs K-view's ~54k. And the terseness account from Study M
+  closes: gemini's stateless output bloat (309 tokens/step)
+  disappears with examples in context (55/step).
+
+**Decision rule outcome: statelessness is rescued, and the session
+guidance is REVISED.** What conversation history was contributing is
+now identified: worked precedent for the anchor dialect's tricky op
+classes, not memory of the session's own edits (Study O ruled out
+positional arithmetic; Study P shows unrelated-tree examples
+substitute fully). Sessions no longer need to carry their past:
+persist the tree, render a fresh minimal view every turn, and put
+two worked examples of insert-by-ordinal and move-by-ordinal in the
+system prompt. At 12-edit lengths this is half the input cost of
+keep-history, is flat in session length with no context ceiling, and
+matches full-history accuracy on both models. Studies K/M/O's
+keep-history guidance remains correct where prompt space is
+unavailable; it is no longer the only safe option.
+
+## Addendum (2026-07-09): Study Q — fan-out edits
+
+Pre-registered in [docs/BRIEF-Q.md](docs/BRIEF-Q.md): one
+instruction, many targets ("set textStyle to serif on every
+text-atom inside the block named X"), on a new 45-task corpus over
+the size-extension trees (seed 20260710, 2–32 targets, median 6,
+uniqueness/non-nesting validated, id-free). Three arms: **Q-view**
+(retrieval oracle: container + every target in the view), **Q-full**
+(whole tree), **Q-search** (the barkup 0.4 recipe, deliberately
+untuned). 270 cells, every record independently re-graded
+(0 mismatches); two gemini Q-search cells hit a retryable gateway
+error ("Corrupted thought signature") and were re-run per protocol
+(never double-recorded; both failed). ≈ $25; tables in
+`results/analysis-studyq.txt`.
+
+| Success (45 tasks) | sonnet-4.5 | gemini-3.5-flash |
+|---|---|---|
+| Q-view (oracle retrieval) | 31/45 | 28/45 |
+| Q-full (whole tree) | 22/45 | **36/45** |
+| Q-search (shipped recipe) | 21/45 | 25/45 |
+
+- **Q-H1 (mechanics hold with retrieval solved) — REFUTED.** With
+  every target visible in the view, success is 62–69% overall and
+  44–50% at 7+ targets (vs 87–100% single-target). Failures are
+  100% partial coverage on Q-view (mean ~35–47% of targets edited):
+  models emit legal patches that stop short of the full target set.
+  Multi-op anchored patches degrade with op count, full stop.
+- **Q-H2 (the recipe under stress) — the gate FAILS.** On gemini,
+  Q-search loses to Q-full 11–0 (p = 0.001, −24.4 pp). On sonnet the
+  non-inferiority clause technically holds (−2.2 pp, p = 1.0) but
+  only because sonnet's own Q-full collapsed to 48.9% — parity with
+  a collapsed baseline is not a pass, and we report it as a fail.
+  Search also spirals at fan-out: median 6 find_nodes calls, 34 of
+  90 runs above 100k input tokens (max 2.4M) — the single-target
+  economics (median 1 call, ~5k tokens) do not survive.
+- **The models invert, significantly.** Sonnet does better on the
+  focused view than the full tree (11–2 discordant, p = 0.022);
+  gemini the opposite (8–0 for the full tree, p = 0.008) and beats
+  sonnet at whole-tree fan-out by 31 points (80.0% vs 48.9%, with
+  9 of sonnet's 23 Q-full failures touching unsanctioned nodes).
+  Neither "show a view" nor "show everything" is model-independent
+  advice here — the first such inversion in the series.
+- **Q-H3 (failure shape) — CONFIRMED.** Partial coverage dominates
+  everywhere; collateral edits are a minority (worst: sonnet Q-full,
+  9/23); exploratory split: remove-all is consistently harder than
+  set-attribute-all (e.g. gemini Q-full 15/22 vs 21/23).
+
+**Decision rule outcome: the boundary ships.** Fan-out instructions
+are an honest weakness of every interface tested — including the
+oracle — and of the shipped search recipe in particular. The
+practical guidance for applications is **decomposition**: the
+application enumerates the target set itself (a deterministic query
+like "descendants of C with type T" — exactly what the corpus
+generator does) and issues single-target anchored edits, which run
+at 87–100% at every size tested (Studies F/H/I). One model call per
+target costs more calls but buys back both accuracy and the
+view-scale economics. barkup's docs get this boundary note; asking
+one prompt to edit N nodes is, on current models, asking for ~N×50%
+coverage.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

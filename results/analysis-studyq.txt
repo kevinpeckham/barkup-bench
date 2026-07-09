@@ -1,0 +1,57 @@
+# Study Q — fan-out edits
+
+## Success by model × condition × size
+
+### anthropic/claude-sonnet-4.5
+  Q-view  : xl 12/15 (80.0% [55–93])  |  xxl 12/15 (80.0% [55–93])  |  xxxl 7/15 (46.7% [25–70])  →  all 31/45 (68.9% [54–80])
+  Q-full  : xl 10/15 (66.7% [42–85])  |  xxl 8/15 (53.3% [30–75])  |  xxxl 4/15 (26.7% [11–52])  →  all 22/45 (48.9% [35–63])
+  Q-search: xl 7/15 (46.7% [25–70])  |  xxl 8/15 (53.3% [30–75])  |  xxxl 6/15 (40.0% [20–64])  →  all 21/45 (46.7% [33–61])
+
+### google/gemini-3.5-flash
+  Q-view  : xl 12/15 (80.0% [55–93])  |  xxl 10/15 (66.7% [42–85])  |  xxxl 6/15 (40.0% [20–64])  →  all 28/45 (62.2% [48–75])
+  Q-full  : xl 14/15 (93.3% [70–99])  |  xxl 12/15 (80.0% [55–93])  |  xxxl 10/15 (66.7% [42–85])  →  all 36/45 (80.0% [66–89])
+  Q-search: xl 9/15 (60.0% [36–80])  |  xxl 11/15 (73.3% [48–89])  |  xxxl 5/15 (33.3% [15–58])  →  all 25/45 (55.6% [41–69])
+
+## Success by target-count bin
+
+### anthropic/claude-sonnet-4.5
+  Q-view  : 2–3 targets 13/14 (92.9% [69–99])  |  4–6 targets 9/13 (69.2% [42–87])  |  7+ targets 9/18 (50.0% [29–71])
+  Q-full  : 2–3 targets 12/14 (85.7% [60–96])  |  4–6 targets 4/13 (30.8% [13–58])  |  7+ targets 6/18 (33.3% [16–56])
+  Q-search: 2–3 targets 12/14 (85.7% [60–96])  |  4–6 targets 6/13 (46.2% [23–71])  |  7+ targets 3/18 (16.7% [6–39])
+
+### google/gemini-3.5-flash
+  Q-view  : 2–3 targets 13/14 (92.9% [69–99])  |  4–6 targets 7/13 (53.8% [29–77])  |  7+ targets 8/18 (44.4% [25–66])
+  Q-full  : 2–3 targets 14/14 (100.0% [78–100])  |  4–6 targets 9/13 (69.2% [42–87])  |  7+ targets 13/18 (72.2% [49–88])
+  Q-search: 2–3 targets 12/14 (85.7% [60–96])  |  4–6 targets 6/13 (46.2% [23–71])  |  7+ targets 7/18 (38.9% [20–61])
+
+## Paired McNemar (per model, 45 shared tasks)
+
+  anthropic/claude-sonnet-4.5 Q-full vs Q-search: Q-full-only 6, Q-search-only 5 — p = 1.000
+  anthropic/claude-sonnet-4.5 Q-full vs Q-view: Q-full-only 2, Q-view-only 11 — p = 0.022
+  google/gemini-3.5-flash Q-full vs Q-search: Q-full-only 11, Q-search-only 0 — p = 0.001
+  google/gemini-3.5-flash Q-full vs Q-view: Q-full-only 8, Q-view-only 0 — p = 0.008
+
+## Failure anatomy and coverage
+
+### anthropic/claude-sonnet-4.5
+  Q-view  : 14 failures — partial×14 (mean coverage among graded failures 47%)
+  Q-full  : 23 failures — partial×14, collateral×9 (mean coverage among graded failures 37%)
+  Q-search: 24 failures — partial×21, collateral×2, invalid×1 (mean coverage among graded failures 37%)
+
+### google/gemini-3.5-flash
+  Q-view  : 17 failures — partial×17 (mean coverage among graded failures 35%)
+  Q-full  : 9 failures — partial×5, collateral×4 (mean coverage among graded failures 25%)
+  Q-search: 20 failures — partial×13, invalid×5, collateral×2 (mean coverage among graded failures 35%)
+
+## Input tokens per task (median, by size) and search effort
+
+### anthropic/claude-sonnet-4.5
+  Q-view  : xl 2,076  |  xxl 1,991  |  xxxl 2,023
+  Q-full  : xl 24,127  |  xxl 44,727  |  xxxl 85,628
+  Q-search: xl 244,158  |  xxl 11,086  |  xxxl 14,514  (median find_nodes calls 6)
+
+### google/gemini-3.5-flash
+  Q-view  : xl 1,938  |  xxl 1,848  |  xxxl 1,894
+  Q-full  : xl 20,989  |  xxl 39,993  |  xxxl 70,071
+  Q-search: xl 52,291  |  xxl 4,048  |  xxxl 24,995  (median find_nodes calls 6)
+
