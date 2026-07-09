@@ -9,11 +9,13 @@
 import { existsSync, readFileSync } from "node:fs";
 import type { BarkupNode } from "@kevinpeckham/barkup";
 import type { FanoutTask } from "../src/corpus/fanout.js";
-import { changedExistingIds } from "../src/grading/misground.js";
+import {
+	classifyFanoutFailure,
+	fanoutCoverage,
+} from "../src/grading/fanout-grade.js";
 import type { TaskRunRecord } from "../src/harness/records.js";
 import { mcnemarExact } from "../src/stats/mcnemar.js";
 import { wilson } from "../src/stats/wilson.js";
-import { findById } from "../src/tree.js";
 
 const MODELS = ["anthropic/claude-sonnet-4.5", "google/gemini-3.5-flash"];
 const CONDITIONS = ["Q-view", "Q-full", "Q-search"];
@@ -62,42 +64,14 @@ function median(values: number[]): number {
 	return sorted[Math.floor(sorted.length / 2)] as number;
 }
 
-/** Fraction of targets whose final state matches the expected edit. */
+/** Coverage and failure class via the shared grader (src/grading/fanout-grade.ts). */
 function coverage(r: TaskRunRecord): number | null {
 	const task = byId.get(r.taskId) as FanoutTask;
-	const final = r.detail?.finalTree as BarkupNode | null | undefined;
-	if (!final) return null;
-	let ok = 0;
-	for (const id of task.targetIds) {
-		if (task.fanKind === "remove-all") {
-			if (!findById(final, id)) ok += 1;
-		} else {
-			const node = findById(final, id);
-			if (
-				node &&
-				JSON.stringify(node.attributes?.[task.key as string]) ===
-					JSON.stringify(task.value)
-			) {
-				ok += 1;
-			}
-		}
-	}
-	return ok / task.targetIds.length;
+	return fanoutCoverage(task, r.detail?.finalTree as BarkupNode | null);
 }
-
-/** Failure class: invalid / collateral / partial / mechanics. */
 function classify(r: TaskRunRecord): string {
 	const task = byId.get(r.taskId) as FanoutTask;
-	const final = r.detail?.finalTree as BarkupNode | null | undefined;
-	if (!final) return "invalid";
-	const sanctioned = changedExistingIds(task.tree, task.expected);
-	const actual = changedExistingIds(task.tree, final);
-	for (const id of actual) {
-		if (!sanctioned.has(id)) return "collateral";
-	}
-	const c = coverage(r);
-	if (c !== null && c < 1) return "partial";
-	return "mechanics";
+	return classifyFanoutFailure(task, r.detail?.finalTree as BarkupNode | null);
 }
 
 console.log("# Study Q — fan-out edits\n");
