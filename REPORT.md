@@ -817,6 +817,18 @@ inside the $30–55 band; tables in `results/analysis-studyn.txt`.
   sonnet's (valid 45/45, covers targets 41/45 for both). Grounding
   is cheap-model work.
 
+*Protocol note (disclosed 2026-07-09, found while porting the
+scorer to the barkup package): BRIEF-L and BRIEF-N describe
+retrieval tie-breaking as "document order", but the committed
+scorer's traversal (`walkTree`) is breadth-first, so equal-score
+ties across depths actually resolved in BFS order. The committed
+code is the pre-registered artifact and every scored run and
+analysis used the same function, so all results are internally
+consistent; the divergence affects only which of several
+equally-scoring nodes fills the last top-5 slots. The shipped
+`barkup` port implements the brief's depth-first pre-order and
+documents the difference.*
+
 **Decision rule outcome: the gate PASSES, twice.** N-search is
 non-inferior to LG-full on both models (in fact better or equal)
 with ~90% input savings; N-ground2x is non-inferior with 97% savings
