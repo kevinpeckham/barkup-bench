@@ -1,0 +1,67 @@
+# Study O — positional views
+
+## Per-step success by tercile (non-blocked steps)
+
+### anthropic/claude-sonnet-4.5
+  K-view      : steps 1–4 80/80 (100.0% [95–100])  |  steps 5–8 79/80 (98.8% [93–100])  |  steps 9–12 80/80 (100.0% [95–100])
+  M-stateless : steps 1–4 79/80 (98.8% [93–100])  |  steps 5–8 76/80 (95.0% [88–98])  |  steps 9–12 77/80 (96.3% [90–99])
+  O-stateless : steps 1–4 80/80 (100.0% [95–100])  |  steps 5–8 77/80 (96.3% [90–99])  |  steps 9–12 77/80 (96.3% [90–99])
+  O-view      : steps 1–4 80/80 (100.0% [95–100])  |  steps 5–8 80/80 (100.0% [95–100])  |  steps 9–12 79/80 (98.8% [93–100])
+
+### google/gemini-3.5-flash
+  K-view      : steps 1–4 79/80 (98.8% [93–100])  |  steps 5–8 80/80 (100.0% [95–100])  |  steps 9–12 79/80 (98.8% [93–100])
+  M-stateless : steps 1–4 79/80 (98.8% [93–100])  |  steps 5–8 80/80 (100.0% [95–100])  |  steps 9–12 74/80 (92.5% [85–97])
+  O-stateless : steps 1–4 79/80 (98.8% [93–100])  |  steps 5–8 80/80 (100.0% [95–100])  |  steps 9–12 75/80 (93.8% [86–97])
+  O-view      : steps 1–4 80/80 (100.0% [95–100])  |  steps 5–8 80/80 (100.0% [95–100])  |  steps 9–12 80/80 (100.0% [95–100])
+
+## Placement steps only (insert/move — the class M failed on)
+
+### anthropic/claude-sonnet-4.5
+  K-view      : all 79/80 (98.8% [93–100])  |  steps 5–12 59/60 (98.3% [91–100])
+  M-stateless : all 72/80 (90.0% [81–95])  |  steps 5–12 53/60 (88.3% [78–94])
+  O-stateless : all 74/80 (92.5% [85–97])  |  steps 5–12 54/60 (90.0% [80–95])
+  O-view      : all 79/80 (98.8% [93–100])  |  steps 5–12 59/60 (98.3% [91–100])
+
+### google/gemini-3.5-flash
+  K-view      : all 78/80 (97.5% [91–99])  |  steps 5–12 59/60 (98.3% [91–100])
+  M-stateless : all 73/80 (91.3% [83–96])  |  steps 5–12 54/60 (90.0% [80–95])
+  O-stateless : all 74/80 (92.5% [85–97])  |  steps 5–12 55/60 (91.7% [82–96])
+  O-view      : all 80/80 (100.0% [95–100])  |  steps 5–12 60/60 (100.0% [94–100])
+
+## Paired McNemar (same session+step)
+
+  anthropic/claude-sonnet-4.5 M-stateless vs O-stateless (n=240): M-stateless-only 1, O-stateless-only 3 — p = 0.625
+  anthropic/claude-sonnet-4.5 K-view vs O-stateless (n=240): K-view-only 5, O-stateless-only 0 — p = 0.063
+  anthropic/claude-sonnet-4.5 K-view vs O-view (n=240): K-view-only 1, O-view-only 1 — p = 1.000
+  google/gemini-3.5-flash M-stateless vs O-stateless (n=240): M-stateless-only 0, O-stateless-only 1 — p = 1.000
+  google/gemini-3.5-flash K-view vs O-stateless (n=240): K-view-only 4, O-stateless-only 0 — p = 0.125
+  google/gemini-3.5-flash K-view vs O-view (n=240): K-view-only 0, O-view-only 2 — p = 0.500
+
+## Input tokens per step by step index (median) — the cost shape
+
+### anthropic/claude-sonnet-4.5
+  K-view      : s1 1,213 | s4 2,862 | s8 5,500 | s12 8,086
+  M-stateless : s1 1,215 | s4 1,313 | s8 1,292 | s12 1,312
+  O-stateless : s1 1,331 | s4 1,438 | s8 1,417 | s12 1,437
+  O-view      : s1 1,329 | s4 3,111 | s8 5,994 | s12 8,816
+
+### google/gemini-3.5-flash
+  K-view      : s1 1,179 | s4 2,734 | s8 5,259 | s12 7,789
+  M-stateless : s1 1,180 | s4 1,292 | s8 1,240 | s12 1,255
+  O-stateless : s1 1,295 | s4 1,381 | s8 1,366 | s12 1,376
+  O-view      : s1 1,294 | s4 2,988 | s8 5,712 | s12 8,424
+
+## End-state match and mean tokens per session
+
+### anthropic/claude-sonnet-4.5
+  K-view      : end-state 19/20; mean tokens/session 55,746 in + 686 out
+  M-stateless : end-state 13/20; mean tokens/session 17,888 in + 800 out
+  O-stateless : end-state 15/20; mean tokens/session 19,428 in + 844 out
+  O-view      : end-state 19/20; mean tokens/session 60,645 in + 691 out
+
+### google/gemini-3.5-flash
+  K-view      : end-state 19/20; mean tokens/session 53,358 in + 659 out
+  M-stateless : end-state 14/20; mean tokens/session 15,752 in + 3,709 out
+  O-stateless : end-state 15/20; mean tokens/session 17,110 in + 669 out
+  O-view      : end-state 20/20; mean tokens/session 58,012 in + 657 out
+

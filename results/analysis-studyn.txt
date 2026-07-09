@@ -1,0 +1,83 @@
+# Study N — the retrieval ladder
+
+## Success by model × condition × size
+
+### anthropic/claude-sonnet-4.5
+  LG-full   : xl 14/15 (93.3% [70–99])  |  xxl 11/15 (73.3% [48–89])  |  xxxl 14/15 (93.3% [70–99])  →  all 39/45 (86.7% [74–94])
+  LG-nav    : xl 14/15 (93.3% [70–99])  |  xxl 15/15 (100.0% [80–100])  |  xxxl 14/15 (93.3% [70–99])  →  all 43/45 (95.6% [85–99])
+  LG-lex    : xl 11/15 (73.3% [48–89])  |  xxl 7/15 (46.7% [25–70])  |  xxxl 9/15 (60.0% [36–80])  →  all 27/45 (60.0% [45–73])
+  N-search  : xl 14/15 (93.3% [70–99])  |  xxl 15/15 (100.0% [80–100])  |  xxxl 14/15 (93.3% [70–99])  →  all 43/45 (95.6% [85–99])
+  N-embed   : xl 9/15 (60.0% [36–80])  |  xxl 8/15 (53.3% [30–75])  |  xxxl 8/15 (53.3% [30–75])  →  all 25/45 (55.6% [41–69])
+  N-ground2 : xl 13/15 (86.7% [62–96])  |  xxl 15/15 (100.0% [80–100])  |  xxxl 13/15 (86.7% [62–96])  →  all 41/45 (91.1% [79–96])
+  N-ground2x: xl 13/15 (86.7% [62–96])  |  xxl 15/15 (100.0% [80–100])  |  xxxl 13/15 (86.7% [62–96])  →  all 41/45 (91.1% [79–96])
+
+### google/gemini-3.5-flash
+  LG-full   : xl 13/15 (86.7% [62–96])  |  xxl 13/15 (86.7% [62–96])  |  xxxl 12/15 (80.0% [55–93])  →  all 38/45 (84.4% [71–92])
+  LG-nav    : xl 13/15 (86.7% [62–96])  |  xxl 6/15 (40.0% [20–64])  |  xxxl 4/15 (26.7% [11–52])  →  all 23/45 (51.1% [37–65])
+  LG-lex    : xl 10/15 (66.7% [42–85])  |  xxl 7/15 (46.7% [25–70])  |  xxxl 8/15 (53.3% [30–75])  →  all 25/45 (55.6% [41–69])
+  N-search  : xl 13/15 (86.7% [62–96])  |  xxl 14/15 (93.3% [70–99])  |  xxxl 12/15 (80.0% [55–93])  →  all 39/45 (86.7% [74–94])
+  N-embed   : xl 9/15 (60.0% [36–80])  |  xxl 8/15 (53.3% [30–75])  |  xxxl 7/15 (46.7% [25–70])  →  all 24/45 (53.3% [39–67])
+  N-ground2 : xl 12/15 (80.0% [55–93])  |  xxl 13/15 (86.7% [62–96])  |  xxxl 12/15 (80.0% [55–93])  →  all 37/45 (82.2% [69–91])
+
+## Paired McNemar (per model, 45 shared tasks)
+
+  anthropic/claude-sonnet-4.5 LG-full vs N-search: LG-full-only 0, N-search-only 4 — p = 0.125
+  anthropic/claude-sonnet-4.5 LG-full vs N-embed: LG-full-only 15, N-embed-only 1 — p = 0.001
+  anthropic/claude-sonnet-4.5 LG-full vs N-ground2: LG-full-only 2, N-ground2-only 4 — p = 0.688
+  anthropic/claude-sonnet-4.5 LG-full vs N-ground2x: LG-full-only 2, N-ground2x-only 4 — p = 0.688
+  anthropic/claude-sonnet-4.5 LG-nav vs N-search: LG-nav-only 0, N-search-only 0 — p = 1.000
+  anthropic/claude-sonnet-4.5 LG-lex vs N-embed: LG-lex-only 4, N-embed-only 2 — p = 0.688
+  google/gemini-3.5-flash LG-full vs N-search: LG-full-only 0, N-search-only 1 — p = 1.000
+  google/gemini-3.5-flash LG-full vs N-embed: LG-full-only 14, N-embed-only 0 — p = 0.000
+  google/gemini-3.5-flash LG-full vs N-ground2: LG-full-only 2, N-ground2-only 1 — p = 1.000
+  google/gemini-3.5-flash LG-nav vs N-search: LG-nav-only 0, N-search-only 16 — p = 0.000
+  google/gemini-3.5-flash LG-lex vs N-embed: LG-lex-only 3, N-embed-only 2 — p = 1.000
+
+## Failure anatomy (misgrounded vs mechanics vs invalid)
+
+  N-search  : 8 failures — misgrounded×5, mechanics×3
+  N-embed   : 41 failures — misgrounded×39, mechanics×2
+  N-ground2 : 12 failures — mechanics×7, misgrounded×5
+  N-ground2x: 4 failures — mechanics×1, misgrounded×3
+
+## Retrieval hit rate (top-5 covers every target id)
+
+  LG-lex  : 24/45
+  N-embed : 23/45
+
+## Stage-1 grounding coverage (two-stage arms)
+
+  anthropic/claude-sonnet-4.5 N-ground2 (grounder anthropic/claude-sonnet-4.5): stage-1 valid 45/45, covers targets 41/45
+  anthropic/claude-sonnet-4.5 N-ground2x (grounder google/gemini-3.5-flash): stage-1 valid 45/45, covers targets 41/45
+  google/gemini-3.5-flash N-ground2 (grounder google/gemini-3.5-flash): stage-1 valid 45/45, covers targets 41/45
+
+## Input tokens per task (median, by size) and effort
+
+### anthropic/claude-sonnet-4.5
+  LG-full   : xl 23,821  |  xxl 57,302  |  xxxl 90,254
+  LG-nav    : xl 35,500  |  xxl 66,967  |  xxxl 355,643
+  LG-lex    : xl 2,408  |  xxl 2,523  |  xxxl 2,695
+  N-search  : xl 5,165  |  xxl 6,286  |  xxxl 6,550  (median find_nodes calls 1)
+  N-embed   : xl 2,548  |  xxl 2,849  |  xxxl 3,076
+  N-ground2 : xl 24,030  |  xxl 46,836  |  xxxl 79,511
+  N-ground2x: xl 22,215  |  xxl 42,479  |  xxxl 71,497  (median sonnet-side input 1,484)
+
+### google/gemini-3.5-flash
+  LG-full   : xl 20,988  |  xxl 39,990  |  xxxl 70,054
+  LG-nav    : xl 207,186  |  xxl 554,627  |  xxxl 636,030
+  LG-lex    : xl 2,436  |  xxl 2,380  |  xxxl 2,659
+  N-search  : xl 3,572  |  xxl 3,893  |  xxxl 3,741  (median find_nodes calls 1)
+  N-embed   : xl 2,462  |  xxl 2,645  |  xxxl 2,845
+  N-ground2 : xl 22,150  |  xxl 41,064  |  xxxl 71,404
+
+## Gate math (BRIEF-N decision rule)
+
+A rung passes if per model it is non-inferior to LG-full (delta ≥ −5 pp, McNemar p > 0.05) with ≥80% input savings on its cost basis.
+
+  anthropic/claude-sonnet-4.5 N-search  : delta +8.9 pp vs LG-full; total input savings 89.8%
+  anthropic/claude-sonnet-4.5 N-embed   : delta -31.1 pp vs LG-full; total input savings 95.1%
+  anthropic/claude-sonnet-4.5 N-ground2 : delta +4.4 pp vs LG-full; total input savings 18.3%
+  anthropic/claude-sonnet-4.5 N-ground2x: delta +4.4 pp vs LG-full; frontier-side input savings 97.4%
+  google/gemini-3.5-flash N-search  : delta +2.2 pp vs LG-full; total input savings 91.4%
+  google/gemini-3.5-flash N-embed   : delta -31.1 pp vs LG-full; total input savings 93.8%
+  google/gemini-3.5-flash N-ground2 : delta -2.2 pp vs LG-full; total input savings 4.5%

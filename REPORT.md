@@ -758,7 +758,120 @@ included) or a retrieval system genuinely better than lexical
 overlap. The skeleton-plus-expand agent pattern, appealing as it
 looks, is not the free win: accurate only at the frontier tier and
 more expensive than the problem it solves. Spend ≈ $45, within the
-pre-registered band.
+pre-registered band. *(This boundary is revised by Study N, below:
+replacing the expand tool with a content-search tool passes the same
+gate on both models.)*
+
+## Addendum (2026-07-09): Study N — the retrieval ladder
+
+Pre-registered in [docs/BRIEF-N.md](docs/BRIEF-N.md): the rungs
+between Study L's floor (lexical retrieval, 60%) and ceiling
+(full-tree grounding, 84–87%), on the unchanged grounded corpus.
+**N-search** replaces LG-nav's `expand_node` with one `find_nodes`
+content-search tool (LG-lex's token-overlap scorer over the model's
+own query, top 5 rendered in place, same 16-step budget).
+**N-embed** replaces LG-lex's scorer with
+`openai/text-embedding-3-small` (retrieval materialized and
+committed pre-run in `corpus/embed-focus.json`). **N-ground2** is
+two-stage: a grounder reads the full tree and names the target ids,
+then the patcher edits against the minimal view of those ids;
+**N-ground2x** is the economic configuration (gemini grounds, sonnet
+patches). 315 cells, zero errors, every record independently
+re-graded (0 mismatches), zero invariant violations; ≈ $12, well
+inside the $30–55 band; tables in `results/analysis-studyn.txt`.
+
+| Success (45 tasks, grounded) | sonnet-4.5 | gemini-3.5-flash |
+|---|---|---|
+| Oracle bound (Study I, ids in instructions) | 43/45 | 41/45 |
+| LG-full (Study L) | 39/45 | 38/45 |
+| LG-nav (Study L) | 43/45 | 23/45 |
+| **N-search** | **43/45** | **39/45** |
+| N-embed | 25/45 | 24/45 |
+| N-ground2 (same model, two-stage) | 41/45 | 37/45 |
+| N-ground2x (gemini grounds → sonnet patches) | 41/45 | — |
+
+- **N-H1 (search rescues navigation) — CONFIRMED, emphatically.**
+  N-search matches LG-nav's frontier accuracy exactly (43/45, the
+  same two failed tasks) at a **median of ONE `find_nodes` call**
+  and ~5–6.5k input tokens vs LG-nav's 355k at ~1000 nodes. And it
+  fixes the cheap-model collapse: gemini 39/45 vs LG-nav's 23/45
+  (16–0 discordant, p < 0.001), matching LG-full. Content search
+  jumps straight to the region; structural walking pays a frontier
+  toll per hop. On sonnet, N-search even beats LG-full 4–0
+  (p = 0.125) — the focused result set appears to help, not hurt.
+- **N-H2 (embeddings beat the lexical floor) — REFUTED.** The
+  embedding retriever's top-5 covers the targets on 23/45 tasks vs
+  lexical's 24/45; task success is statistically identical to LG-lex
+  (p = 0.688 / 1.000). Node-level text embeddings cannot resolve
+  structural references ("the 3rd block inside the section named
+  atlas") any better than keyword overlap. Swapping a lexical
+  matcher for off-the-shelf embeddings is not the retrieval upgrade
+  the gap needs.
+- **N-H3 (two-stage) — accuracy holds; the cross cell is the
+  winner.** Same-model two-stage is non-inferior to LG-full
+  (+4.4 pp sonnet, −2.2 pp gemini) but saves little total input
+  (18% / 5%) — someone still reads the whole tree. N-ground2x keeps
+  the accuracy (41/45, +4.4 pp over sonnet LG-full, p = 0.688) while
+  the frontier model's median input drops to **1,484 tokens
+  (−97.4%)**; gemini's stage-1 grounding is exactly as good as
+  sonnet's (valid 45/45, covers targets 41/45 for both). Grounding
+  is cheap-model work.
+
+**Decision rule outcome: the gate PASSES, twice.** N-search is
+non-inferior to LG-full on both models (in fact better or equal)
+with ~90% input savings; N-ground2x is non-inferior with 97% savings
+on the frontier-side basis. Study L's boundary is revised: finding
+the ids no longer requires a full-tree read or a real retrieval
+system — a skeleton view plus one deterministic content-search tool
+call gets oracle-level accuracy on the frontier model and
+full-tree-level accuracy on the cheap one, at view-scale cost.
+`/view`'s guidance graduates as BRIEF-N specifies: the documented
+recipe is search-then-patch (and, where a frontier patcher is the
+expensive resource, ground with the cheap model first).
+
+## Addendum (2026-07-09): Study O — positional views
+
+Pre-registered in [docs/BRIEF-O.md](docs/BRIEF-O.md): Study M's
+stateless failures were all placement edits, so Study O annotates
+every rendered view child with its true 1-based position (counting
+omitted siblings) plus one pre-registered prompt line mapping
+ordinals to anchors, and re-runs the stateless policy
+(**O-stateless**) and the full-history policy (**O-view**),
+completing the history × positions 2×2 against the reused
+M-stateless and K-view baselines. 960 step records, zero invariant
+violations, zero blocked steps, ≈ $6; tables in
+`results/analysis-studyo.txt`.
+
+- **O-H1 (the rescue) — REFUTED; the gate FAILS.** Positions moved
+  stateless accuracy barely at all: O-stateless vs M-stateless is
+  3–1 discordant on sonnet (p = 0.625) and 1–0 on gemini (p = 1.0).
+  Against K-view the deficit replicates (5–0, p = 0.063 sonnet; 4–0,
+  p = 0.125 gemini), and end-state integrity is 15/20 on both models
+  vs K-view's 19/20 — outside the pre-registered within-2 bound.
+  Late-session placement edits keep failing (sonnet 54/60 vs
+  K-view's 59/60) **with the correct position printed on every
+  visible child**. Whatever history contributes to placement, it is
+  not arithmetic the model failed to do; making the number explicit
+  does not substitute for having produced the prior edits.
+- **O-H2 (annotation under memory) — as predicted.** O-view is
+  indistinguishable from K-view (1–1, p = 1.0 sonnet; 2–0 in
+  O-view's favor, p = 0.5 gemini). It is the best cell in the study
+  descriptively — gemini O-view ends 20/20 sessions byte-perfect and
+  goes 60/60 on late placements — but not significantly better, so
+  it ships as "harmless, possibly mildly helpful", not as guidance.
+- **O-H3 (cost shape) — CONFIRMED.** O-stateless input stays flat
+  (~1.33k at step 1, ~1.44k at step 12); the annotation costs ~9%
+  extra view tokens, inside the pre-registered <15%.
+
+**Decision rule outcome: statelessness stays refuted, and the
+mechanism account sharpens.** M left open whether history was
+supplying positional information the view lacked; O closes that
+door — the position was printed on the node and stateless models
+still misplaced. Keep the full conversation history AND the per-turn
+view. The remaining mechanism candidates (does producing prior
+patches teach the dialect's anchor semantics? does history carry
+commitment to earlier placements?) need transcript-level work, not
+another serializer variant.
 
 ## Prior art
 
