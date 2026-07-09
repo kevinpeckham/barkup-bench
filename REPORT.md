@@ -993,6 +993,59 @@ view-scale economics. barkup's docs get this boundary note; asking
 one prompt to edit N nodes is, on current models, asking for ~N×50%
 coverage.
 
+## Addendum (2026-07-09): Study R — fan-out interventions
+
+Pre-registered in [docs/BRIEF-R.md](docs/BRIEF-R.md): can Study P's
+worked-example teaching fix Study Q's coverage failures, does a
+checklist instruction suffice, and — the audit we owed our own
+guidance — does app-side decomposition actually survive per-edit
+compounding across 2–32 targets? Four prompt-intervention arms (the
+example and the checklist, each on Q's two context bases) plus the
+decomposition pipeline executed literally. 450 cells, zero errors,
+every record independently re-graded (0 mismatches), zero invariant
+violations; ≈ $20; tables in `results/analysis-studyr.txt`.
+
+| Success (45 fan-out tasks) | sonnet-4.5 | gemini-3.5-flash |
+|---|---|---|
+| Best Study Q arm | 31/45 (view) | 36/45 (full) |
+| R-exV / R-exF (worked example) | 34/45 · 20/45 | 28/45 · 33/45 |
+| R-ckV / R-ckF (checklist) | 35/45 · 30/45 | 25/45 · 34/45 |
+| **R-decomp (app enumerates, single edits)** | **45/45** | **45/45** |
+
+- **R-H1 (teaching transfers to coverage) — essentially REFUTED.**
+  No example arm significantly beat its base (best: sonnet R-exV
+  4–1, p = 0.375), and no prompt intervention passed the rescue
+  gate on gemini (its view arms stay significantly below Q-full).
+  One worked example taught placement in Study P; it does not teach
+  exhaustiveness here. Failures remain partial-coverage-dominated
+  in every prompt arm.
+- **R-H2 (demonstration vs instruction) — mixed, one real effect.**
+  The checklist on the full tree is the only intervention that
+  significantly beat its base (sonnet: 9–1, p = 0.021,
+  48.9% → 66.7%) — for sonnet the full-tree failure was partly a
+  stopping rule. Still short of its Q-view baseline, and the
+  Q model inversion persisted through every prompt arm.
+- **R-H3 (the decomposition audit) — the advice survives, at the
+  strongest number in the series.** 90/90 tasks, both models,
+  including every 7+-target task; 674 subtasks, **zero failures**
+  (per-edit 100%, so compounding never bites at these lengths).
+  And it is CHEAPER than the alternatives: median ~8k input per
+  task vs ~40–48k for any full-tree arm, and mean ~10k per solved
+  task vs Q-search's 51–102k. Decomposition dominates on accuracy,
+  cost, and model-independence simultaneously.
+
+**Decision rule outcome: decomposition is the documented fan-out
+guidance, now measured rather than inferred.** The published claim
+("the 87–100% case") understated it: on fan-out's simple subtasks
+(set-attribute / remove on a named id with a focused view), per-edit
+reliability is 100% at n = 674 and the pipeline is a third the cost
+of showing the whole tree once. Prompt interventions are not the
+answer: fan-out coverage is not teachable with one example and only
+partially instructable, and nothing model-independent emerged. The
+practical rule stands as shipped, with better numbers: enumerate
+targets deterministically in the application, issue one
+single-target anchored edit per node.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

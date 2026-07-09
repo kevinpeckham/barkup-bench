@@ -1,0 +1,94 @@
+# Study R — fan-out interventions
+
+## Success by model × condition (overall and by target count)
+
+### anthropic/claude-sonnet-4.5
+  Q-view  : all 31/45 (68.9% [54–80])  |  2–3 targets 13/14 (92.9% [69–99])  |  4–6 targets 9/13 (69.2% [42–87])  |  7+ targets 9/18 (50.0% [29–71])
+  Q-full  : all 22/45 (48.9% [35–63])  |  2–3 targets 12/14 (85.7% [60–96])  |  4–6 targets 4/13 (30.8% [13–58])  |  7+ targets 6/18 (33.3% [16–56])
+  Q-search: all 21/45 (46.7% [33–61])  |  2–3 targets 12/14 (85.7% [60–96])  |  4–6 targets 6/13 (46.2% [23–71])  |  7+ targets 3/18 (16.7% [6–39])
+  R-exV   : all 34/45 (75.6% [61–86])  |  2–3 targets 13/14 (92.9% [69–99])  |  4–6 targets 9/13 (69.2% [42–87])  |  7+ targets 12/18 (66.7% [44–84])
+  R-exF   : all 20/45 (44.4% [31–59])  |  2–3 targets 11/14 (78.6% [52–92])  |  4–6 targets 4/13 (30.8% [13–58])  |  7+ targets 5/18 (27.8% [12–51])
+  R-ckV   : all 35/45 (77.8% [64–87])  |  2–3 targets 13/14 (92.9% [69–99])  |  4–6 targets 9/13 (69.2% [42–87])  |  7+ targets 13/18 (72.2% [49–88])
+  R-ckF   : all 30/45 (66.7% [52–79])  |  2–3 targets 13/14 (92.9% [69–99])  |  4–6 targets 8/13 (61.5% [36–82])  |  7+ targets 9/18 (50.0% [29–71])
+  R-decomp: all 45/45 (100.0% [92–100])  |  2–3 targets 14/14 (100.0% [78–100])  |  4–6 targets 13/13 (100.0% [77–100])  |  7+ targets 18/18 (100.0% [82–100])
+
+### google/gemini-3.5-flash
+  Q-view  : all 28/45 (62.2% [48–75])  |  2–3 targets 13/14 (92.9% [69–99])  |  4–6 targets 7/13 (53.8% [29–77])  |  7+ targets 8/18 (44.4% [25–66])
+  Q-full  : all 36/45 (80.0% [66–89])  |  2–3 targets 14/14 (100.0% [78–100])  |  4–6 targets 9/13 (69.2% [42–87])  |  7+ targets 13/18 (72.2% [49–88])
+  Q-search: all 25/45 (55.6% [41–69])  |  2–3 targets 12/14 (85.7% [60–96])  |  4–6 targets 6/13 (46.2% [23–71])  |  7+ targets 7/18 (38.9% [20–61])
+  R-exV   : all 28/45 (62.2% [48–75])  |  2–3 targets 12/14 (85.7% [60–96])  |  4–6 targets 8/13 (61.5% [36–82])  |  7+ targets 8/18 (44.4% [25–66])
+  R-exF   : all 33/45 (73.3% [59–84])  |  2–3 targets 13/14 (92.9% [69–99])  |  4–6 targets 7/13 (53.8% [29–77])  |  7+ targets 13/18 (72.2% [49–88])
+  R-ckV   : all 25/45 (55.6% [41–69])  |  2–3 targets 12/14 (85.7% [60–96])  |  4–6 targets 7/13 (53.8% [29–77])  |  7+ targets 6/18 (33.3% [16–56])
+  R-ckF   : all 34/45 (75.6% [61–86])  |  2–3 targets 14/14 (100.0% [78–100])  |  4–6 targets 6/13 (46.2% [23–71])  |  7+ targets 14/18 (77.8% [55–91])
+  R-decomp: all 45/45 (100.0% [92–100])  |  2–3 targets 14/14 (100.0% [78–100])  |  4–6 targets 13/13 (100.0% [77–100])  |  7+ targets 18/18 (100.0% [82–100])
+
+## Paired McNemar — interventions vs their bases
+
+  anthropic/claude-sonnet-4.5 Q-view vs R-exV: Q-view-only 1, R-exV-only 4 — p = 0.375
+  anthropic/claude-sonnet-4.5 Q-view vs R-ckV: Q-view-only 2, R-ckV-only 6 — p = 0.289
+  anthropic/claude-sonnet-4.5 Q-full vs R-exF: Q-full-only 3, R-exF-only 1 — p = 0.625
+  anthropic/claude-sonnet-4.5 Q-full vs R-ckF: Q-full-only 1, R-ckF-only 9 — p = 0.021
+  google/gemini-3.5-flash Q-view vs R-exV: Q-view-only 2, R-exV-only 2 — p = 1.000
+  google/gemini-3.5-flash Q-view vs R-ckV: Q-view-only 4, R-ckV-only 1 — p = 0.375
+  google/gemini-3.5-flash Q-full vs R-exF: Q-full-only 6, R-exF-only 3 — p = 0.508
+  google/gemini-3.5-flash Q-full vs R-ckF: Q-full-only 3, R-ckF-only 1 — p = 0.625
+
+## The rescue gate — arms vs the model's best Q baseline
+
+  anthropic/claude-sonnet-4.5 Q-view vs R-exV: Q-view-only 1, R-exV-only 4 — p = 0.375
+  anthropic/claude-sonnet-4.5 Q-view vs R-exF: Q-view-only 13, R-exF-only 2 — p = 0.007
+  anthropic/claude-sonnet-4.5 Q-view vs R-ckV: Q-view-only 2, R-ckV-only 6 — p = 0.289
+  anthropic/claude-sonnet-4.5 Q-view vs R-ckF: Q-view-only 6, R-ckF-only 5 — p = 1.000
+  anthropic/claude-sonnet-4.5 Q-view vs R-decomp: Q-view-only 0, R-decomp-only 14 — p = 0.000
+
+  google/gemini-3.5-flash Q-full vs R-exV: Q-full-only 8, R-exV-only 0 — p = 0.008
+  google/gemini-3.5-flash Q-full vs R-exF: Q-full-only 6, R-exF-only 3 — p = 0.508
+  google/gemini-3.5-flash Q-full vs R-ckV: Q-full-only 11, R-ckV-only 0 — p = 0.001
+  google/gemini-3.5-flash Q-full vs R-ckF: Q-full-only 3, R-ckF-only 1 — p = 0.625
+  google/gemini-3.5-flash Q-full vs R-decomp: Q-full-only 0, R-decomp-only 9 — p = 0.004
+
+## Failure anatomy and coverage
+
+### anthropic/claude-sonnet-4.5
+  R-exV   : 11 failures — partial×11 (mean coverage among graded failures 45%)
+  R-exF   : 25 failures — partial×15, mechanics×1, collateral×9 (mean coverage among graded failures 39%)
+  R-ckV   : 10 failures — partial×10 (mean coverage among graded failures 32%)
+  R-ckF   : 15 failures — collateral×6, partial×9 (mean coverage among graded failures 33%)
+  R-decomp: 0 failures — none
+
+### google/gemini-3.5-flash
+  R-exV   : 17 failures — partial×17 (mean coverage among graded failures 43%)
+  R-exF   : 12 failures — partial×8, collateral×4 (mean coverage among graded failures 33%)
+  R-ckV   : 20 failures — partial×20 (mean coverage among graded failures 43%)
+  R-ckF   : 11 failures — partial×8, collateral×3 (mean coverage among graded failures 27%)
+  R-decomp: 0 failures — none
+
+## Decomposition audit — subtask reliability and compounding
+
+  anthropic/claude-sonnet-4.5: 337 subtasks, 0 failed — per-edit 100.00%; task-level 45/45 (100.0% [92–100])
+    by count: 2–3 targets 14/14 (100.0% [78–100])  |  4–6 targets 13/13 (100.0% [77–100])  |  7+ targets 18/18 (100.0% [82–100])
+  google/gemini-3.5-flash: 337 subtasks, 0 failed — per-edit 100.00%; task-level 45/45 (100.0% [92–100])
+    by count: 2–3 targets 14/14 (100.0% [78–100])  |  4–6 targets 13/13 (100.0% [77–100])  |  7+ targets 18/18 (100.0% [82–100])
+
+## Cost — median input tokens per task and per solved task
+
+### anthropic/claude-sonnet-4.5
+  Q-view  : median input 2,023; mean input per solved 2,139
+  Q-full  : median input 44,727; mean input per solved 51,266
+  Q-search: median input 38,976; mean input per solved 101,811
+  R-exV   : median input 2,487; mean input per solved 2,635
+  R-exF   : median input 48,012; mean input per solved 46,420
+  R-ckV   : median input 2,073; mean input per solved 2,242
+  R-ckF   : median input 47,593; mean input per solved 49,458
+  R-decomp: median input 7,974; mean input per solved 10,163
+
+### google/gemini-3.5-flash
+  Q-view  : median input 1,894; mean input per solved 1,976
+  Q-full  : median input 39,993; mean input per solved 42,686
+  Q-search: median input 26,323; mean input per solved 50,607
+  R-exV   : median input 2,353; mean input per solved 2,370
+  R-exF   : median input 40,458; mean input per solved 42,947
+  R-ckV   : median input 1,944; mean input per solved 2,020
+  R-ckF   : median input 40,043; mean input per solved 42,554
+  R-decomp: median input 7,731; mean input per solved 9,715
+
