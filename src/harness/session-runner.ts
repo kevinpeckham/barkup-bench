@@ -209,7 +209,13 @@ async function sessionPatchLoop(
 	let firstPassValid = false;
 	for (let round = 1; round <= MAX_ROUNDS; round += 1) {
 		const outcome = await callPatchModel(model, system, messages);
-		messages.push({ role: "assistant", content: outcome.text });
+		// An empty reply is an invalid round, not a crash: the API rejects
+		// empty assistant text blocks, so stand in a marker (protocol note,
+		// Study T: one sonnet cell returned an empty reply deterministically).
+		messages.push({
+			role: "assistant",
+			content: outcome.text === "" ? "(empty reply)" : outcome.text,
+		});
 		const applied = applyShipped(outcome.text, base);
 		const issueCodes = applied.ok ? [] : applied.issues.map((i) => i.code);
 		calls.push({
