@@ -153,23 +153,25 @@ function tryReferenceBack(
 }
 
 /**
- * Generate one session: 12 steps cycling the five edit kinds, with
- * eligible steps targeting the most recent surviving session-created
- * node at 50% (seeded). Insert steps force a unique name so the runner
- * can locate the model's created node unambiguously.
+ * Generate one session: `stepCount` steps (12 for Study K, 36 for
+ * Study S) cycling the five edit kinds, with eligible steps targeting
+ * the most recent surviving session-created node at 50% (seeded).
+ * Insert steps force a unique name so the runner can locate the
+ * model's created node unambiguously.
  */
 export function generateSession(
 	tree: BarkupNode,
 	rng: Rng,
 	id: string,
 	bucket: BucketName,
+	stepCount: number = SESSION_STEPS,
 ): SessionTask {
 	let state = cloneTree(tree);
 	const steps: SessionStep[] = [];
 	const placeholders: string[] = [];
 	const takenNames = namesIn(state);
 
-	for (let index = 1; index <= SESSION_STEPS; index += 1) {
+	for (let index = 1; index <= stepCount; index += 1) {
 		const kind = KINDS[(index - 1) % KINDS.length] as Edit["kind"];
 		let edit: Edit | null = null;
 		let referenceBack = false;

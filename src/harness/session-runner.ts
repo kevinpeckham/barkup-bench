@@ -225,14 +225,14 @@ async function sessionPatchLoop(
 function stepRecord(
 	task: SessionTask,
 	step: SessionStep,
-	policy: SessionPolicy,
+	condition: string,
 	model: string,
 ): TaskRunRecord {
 	return {
 		taskId: `${task.id}:s${step.index}`,
 		family: "session",
 		bucket: task.bucket,
-		condition: POLICY_CONDITION[policy],
+		condition,
 		model,
 		regime: "parity",
 		success: false,
@@ -262,11 +262,14 @@ function accumulate(record: TaskRunRecord, calls: CallLog[]): void {
 		record.success && record.calls.every((call) => call.round === 1);
 }
 
-/** Run one full session under one policy; returns one record per step. */
+/** Run one full session under one policy; returns one record per step.
+ * `conditionId` overrides the recorded condition (Study S runs the K/P
+ * policies at a longer horizon under S-* ids; behavior is unchanged). */
 export async function runSession(
 	task: SessionTask,
 	policy: SessionPolicy,
 	model: string,
+	conditionId: string = POLICY_CONDITION[policy],
 ): Promise<TaskRunRecord[]> {
 	let current = cloneTree(task.tree);
 	const idMap = new Map<string, string>();
@@ -276,7 +279,7 @@ export async function runSession(
 	const records: TaskRunRecord[] = [];
 
 	for (const step of task.steps) {
-		const record = stepRecord(task, step, policy, model);
+		const record = stepRecord(task, step, conditionId, model);
 		const detail: Record<string, unknown> = {
 			stepIndex: step.index,
 			editKind: step.kind,
@@ -326,7 +329,7 @@ export async function runSession(
 				detail.blocked = "mechanical:context-ceiling";
 				records.push(record);
 				for (const rest of task.steps.filter((s) => s.index > step.index)) {
-					const restRecord = stepRecord(task, rest, policy, model);
+					const restRecord = stepRecord(task, rest, conditionId, model);
 					restRecord.detail = {
 						stepIndex: rest.index,
 						editKind: rest.kind,
