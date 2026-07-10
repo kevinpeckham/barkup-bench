@@ -6,13 +6,13 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into eighteen studies covering
+granular mutation tools, and grew into nineteen studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 and multi-target edits. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–R
+**Status: active research series.** The main matrix and Studies F–S
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -36,7 +36,8 @@ plus one **content-search tool call** grounds human-style requests at
 oracle-level accuracy (L/N — navigation and off-the-shelf embeddings
 both fail there). Sessions turn out not to need memory at all: two
 canned **worked examples** in the system prompt replace conversation
-history outright (M/O/P). The honest boundary is **fan-out** ("change
+history outright (M/O/P), a result that holds through 36-edit
+sessions at 5 to 6× less input than keeping history (S). The honest boundary is **fan-out** ("change
 every X inside Y"): one prompt asking for N edits delivers roughly
 half of N under every strategy tested — the fix is app-side
 **decomposition** into single-target edits, which measured 90/90
@@ -59,6 +60,7 @@ tasks with 674/674 subtasks (Q/R).
 | P | Synthetic history | Two worked examples replace the whole conversation | [BRIEF-P](docs/BRIEF-P.md) |
 | Q | Fan-out edits | Break every strategy, even oracle retrieval; models invert | [BRIEF-Q](docs/BRIEF-Q.md) |
 | R | Fan-out fixes | Prompt tricks fail; decomposition is perfect (90/90, ⅓ cost) | [BRIEF-R](docs/BRIEF-R.md) |
+| S | 36-edit sessions | Both surviving recipes hold; stateless wins at 5–6× less input | [BRIEF-S](docs/BRIEF-S.md) |
 
 The blog series narrates the arc for humans, starting at
 [Stable IDs Are All You Need](https://www.lightningjar.com/blog/stable-ids-are-all-you-need)
