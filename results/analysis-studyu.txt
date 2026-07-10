@@ -1,0 +1,50 @@
+# Study U — document-carried dependencies
+
+## Success by arm (45 tasks per cell)
+
+### anthropic/claude-sonnet-4.5
+  U-full  : all 42/45 (93.3% [82–98])  |  value 24/24 (100.0% [86–100])  |  structure 18/21 (85.7% [65–95])
+  U-view1 : all 0/45 (0.0% [0–8])  |  value 0/24 (0.0% [0–14])  |  structure 0/21 (0.0% [0–15])
+  U-view2 : all 45/45 (100.0% [92–100])  |  value 24/24 (100.0% [86–100])  |  structure 21/21 (100.0% [85–100])
+  U-search: all 38/45 (84.4% [71–92])  |  value 18/24 (75.0% [55–88])  |  structure 20/21 (95.2% [77–99])
+
+### google/gemini-3.5-flash
+  U-full  : all 45/45 (100.0% [92–100])  |  value 24/24 (100.0% [86–100])  |  structure 21/21 (100.0% [85–100])
+  U-view1 : all 0/45 (0.0% [0–8])  |  value 0/24 (0.0% [0–14])  |  structure 0/21 (0.0% [0–15])
+  U-view2 : all 45/45 (100.0% [92–100])  |  value 24/24 (100.0% [86–100])  |  structure 21/21 (100.0% [85–100])
+  U-search: all 37/45 (82.2% [69–91])  |  value 18/24 (75.0% [55–88])  |  structure 19/21 (90.5% [71–97])
+
+## U-view1 failure anatomy (valid-but-wrong guess vs no artifact)
+
+  anthropic/claude-sonnet-4.5: 45 failures — 45 valid-but-wrong (guessed a value), 0 no valid artifact
+  google/gemini-3.5-flash: 45 failures — 45 valid-but-wrong (guessed a value), 0 no valid artifact
+
+## Paired McNemar vs U-full (same task)
+
+  anthropic/claude-sonnet-4.5 U-full vs U-view1 (n=45): full-only 42, U-view1-only 0 — p = 0.0000
+  anthropic/claude-sonnet-4.5 U-full vs U-view2 (n=45): full-only 0, U-view2-only 3 — p = 0.2500
+  anthropic/claude-sonnet-4.5 U-full vs U-search (n=45): full-only 6, U-search-only 2 — p = 0.2891
+  google/gemini-3.5-flash U-full vs U-view1 (n=45): full-only 45, U-view1-only 0 — p = 0.0000
+  google/gemini-3.5-flash U-full vs U-view2 (n=45): full-only 0, U-view2-only 0 — p = 1.0000
+  google/gemini-3.5-flash U-full vs U-search (n=45): full-only 8, U-search-only 0 — p = 0.0078
+
+## Cost (median input tokens per cell; search calls)
+
+### anthropic/claude-sonnet-4.5
+  U-full  : median input 44,594
+  U-view1 : median input 1,559
+  U-view2 : median input 1,780
+  U-search: median input 6,200 · median search calls 2
+
+### google/gemini-3.5-flash
+  U-full  : median input 40,030
+  U-view1 : median input 1,342
+  U-view2 : median input 1,702
+  U-search: median input 8,997 · median search calls 3
+
+## Pre-registered gate (U-H2: U-view2 ties U-full, per model)
+
+  anthropic/claude-sonnet-4.5: McNemar p = 0.250 → PASS
+  google/gemini-3.5-flash: McNemar p = 1.000 → PASS
+
+  GATE: PASSES

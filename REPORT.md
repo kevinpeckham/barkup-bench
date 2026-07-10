@@ -1160,6 +1160,64 @@ essentially stateless cost, and — measured here — slightly better
 end-state integrity than the transcript itself. barkup's session
 docs replace the Study T scope note with this measured answer.
 
+## Addendum (2026-07-10): Study U — document-carried dependencies
+
+Pre-registered in [docs/BRIEF-U.md](docs/BRIEF-U.md): Study T's
+document-side mirror. Focused views assume the instruction carries
+every value an edit needs; a dependent edit ("set A's content to the
+same value as B's", "rename A to B's name") requires **reading a
+second node** the target-only view hides by construction. New corpus
+`corpus/dependent.json` (seed 20260714, 45 tasks over the
+300–1000-node trees, 24 value-copy + 21 structure-read), with the
+strictest no-leakage validation in the series: the needed value is
+verified absent from the instruction AND absent from the rendered
+target-only view AND present in the rendered both-nodes view. Four
+arms, all registered constructions: **U-full** (whole tree),
+**U-view1** (target-only minimal view), **U-view2** (target + source
+in focus), **U-search** (the 0.4 skeleton + `find_nodes` recipe).
+360 cells, zero errors; ≈ $12; tables in
+`results/analysis-studyu.txt`.
+
+| Success (45 tasks) | sonnet-4.5 | gemini-3.5-flash |
+|---|---|---|
+| U-full (whole tree) | 42/45 | 45/45 |
+| U-view1 (target-only view) | **0/45** | **0/45** |
+| U-view2 (both nodes in view) | **45/45** | **45/45** |
+| U-search (find_nodes recipe) | 38/45 | 37/45 |
+
+- **U-H1 (the blind spot) — confirmed, with the worst possible
+  anatomy.** The target-only view fails all 90 cells across both
+  models — and **every single failure is a valid patch with an
+  invented value**. Neither model ever refused, asked, or produced
+  an invalid artifact: 90/90 failures are silent plausible guesses
+  that validate and apply. A dependent edit against a too-narrow
+  view doesn't error; it quietly writes fiction.
+- **U-H2 (the app-side fix) — GATE PASSES, both models.** Putting
+  both mentioned nodes in the focus ids scores a perfect 45/45 on
+  both models (McNemar vs U-full p = 0.25 / 1.0) — descriptively
+  *better* than the whole tree (sonnet's U-full dropped 3
+  structure-reads at ~1000 nodes) at ~25× less input (median 1.7–1.8k
+  tokens vs 40–45k).
+- **U-H3 (the model-side fix) — partial, short of parity.** The
+  search recipe self-serves reads at 84%/82% overall — a real
+  capability, median 2–3 calls — but significantly below U-full on
+  gemini (8–0, p = 0.008) and weakest exactly on value-copies
+  (75% both models). Search grounds *targets* at oracle level
+  (Study N); it reads *values* at ~75–95%.
+- Secondary by kind: structure-reads are search's strength
+  (90–95%) and the full tree's occasional weakness; value-copies
+  are trivial with the right view and search's weak spot.
+
+**Decision rule outcome: the interpretation table's second row —
+the read belongs app-side.** The tier-1 focused-view guidance
+sharpens to: **focus ids = every node the request mentions, not
+just the target.** That one-line fix is perfect at benchmark sizes
+and 25× cheaper than the whole tree. The search recipe keeps a
+boundary note: it retrieves where to edit at oracle level, but
+copying values through search alone leaves a measurable gap — and
+the silent-guess anatomy means a missing read fails *invisibly*, so
+the view scope is not an optimization but a correctness contract.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

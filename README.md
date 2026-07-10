@@ -6,13 +6,13 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into twenty studies covering
+granular mutation tools, and grew into twenty-one studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 and multi-target edits. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–T
+**Status: active research series.** The main matrix and Studies F–U
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -30,7 +30,11 @@ defect (Study G, [vercel/ai#16840](https://github.com/vercel/ai/issues/16840)).
 Above ~300 nodes only **id-anchored patches** hold for both model
 tiers (H). Patches barely need to see the tree: a ~1.5k-token
 **focused view** matches full-tree accuracy when the app knows the
-target ids (I/J), a fresh view per turn keeps 12-edit sessions from
+target ids (I/J) — provided the focus covers **every node the
+request mentions**: an edit that must read a second node against a
+target-only view never errors, it silently invents the value (U:
+0/90, all failures plausible guesses; both-nodes views are perfect
+at 25× less input than the full tree), a fresh view per turn keeps 12-edit sessions from
 drifting (K), and when the app doesn't know the ids, a skeleton view
 plus one **content-search tool call** grounds human-style requests at
 oracle-level accuracy (L/N — navigation and off-the-shelf embeddings
@@ -66,6 +70,7 @@ tasks with 674/674 subtasks (Q/R).
 | R | Fan-out fixes | Prompt tricks fail; decomposition is perfect (90/90, ⅓ cost) | [BRIEF-R](docs/BRIEF-R.md) |
 | S | 36-edit sessions | Both surviving recipes hold; stateless wins at 5–6× less input | [BRIEF-S](docs/BRIEF-S.md) |
 | T | Conversation-carried context | Stateless fails all 160 callbacks; a memo restores history-parity at 1.02× cost | [BRIEF-T](docs/BRIEF-T.md) |
+| U | Document-carried dependencies | Target-only views silently invent values (0/90); both-nodes views are perfect at 25× less input | [BRIEF-U](docs/BRIEF-U.md) |
 
 The blog series narrates the arc for humans, starting at
 [Stable IDs Are All You Need](https://www.lightningjar.com/blog/stable-ids-are-all-you-need)
