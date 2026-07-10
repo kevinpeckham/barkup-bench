@@ -1100,6 +1100,66 @@ penalty; keep-history remains a valid (marginally more accurate on
 sonnet's end states) alternative at 5 to 6 times the input cost.
 barkup's session docs gain the horizon statement.
 
+## Addendum (2026-07-10): Study T — conversation-carried context
+
+Pre-registered in [docs/BRIEF-T.md](docs/BRIEF-T.md): every prior
+session study used **self-contained** instructions, so the stateless
+findings were scoped to that class. Study T builds sessions where
+four steps per session depend on facts that live only in earlier
+*conversation* — a declared codename a later rename must use, and a
+standing rule ("every new text atom gets textStyle X") later inserts
+must apply without their instructions restating it. Corpus
+`corpus/sessions-callback.json` (seed 20260713, 20 sessions × 12
+steps, 40 fact + 40 rule callback steps, no-leakage validated and
+unit-tested: the required value appears in no pre-step tree and no
+callback instruction). Three arms: **T-history** (K-view verbatim),
+**T-system** (P-system verbatim), **T-notes** (T-system plus an
+app-maintained session-notes block, the registered memo format).
+1,440 step records, zero blocked; ≈ $9; tables in
+`results/analysis-studyt.txt`.
+
+| Callback steps (80/model) | sonnet-4.5 | gemini-3.5-flash |
+|---|---|---|
+| T-history (full history) | 80/80 | 80/80 |
+| T-system (stateless + examples) | **0/80** | **0/80** |
+| T-notes (stateless + examples + memo) | 80/80 | 80/80 |
+
+- **T-H1 (the boundary is real) — CONFIRMED, maximally.** The
+  stateless recipe fails **every** callback step on both models
+  (McNemar 80–0, p < 1e-20) while scoring 160/160 on the ordinary
+  self-contained steps of the very same sessions. The dissociation
+  is total: statelessness loses nothing on execution and everything
+  on conversation-carried state, exactly as constructed.
+- **T-H2 (the memo rescue) — GATE PASSES, both models.** T-notes
+  recovers 80/80 callbacks on both models, ties T-history on every
+  paired comparison (callbacks p = 1.0; all steps p = 0.5/1.0, the
+  only discordant steps favoring notes), and its end-states beat
+  history's (19/20 vs 17/20 sonnet; 20/20 vs 19/20 gemini).
+- **T-H3 (cost) — the memo is nearly free.** T-notes costs 1.02×
+  T-system (~27k vs ~26.5k input/session — the note block is a few
+  hundred tokens); keep-history costs 2.1× either.
+- Secondary by kind: no split — facts and rules both go 0/40
+  stateless and 40/40 with history or notes, on both models.
+
+Protocol notes, disclosed: one sonnet T-system session crashed
+before recording because the model returned an empty reply and the
+API rejects empty assistant text blocks in the correction loop; the
+failure reproduced (twice rule), the harness now stands in an
+`(empty reply)` marker so the round grades as invalid (fff5692), and
+the session was then run once and recorded normally. Cache audit
+re-run: subset invariant holds across 55,822 calls.
+
+**Decision rule outcome: the interpretation table's first row —
+history's residual value is a memo's worth of state, and "a memo,
+not a transcript" becomes the session guidance.** The stateless
+worked-examples recipe stands for self-contained requests (P/S);
+when requests can reference earlier conversation, the application
+records declared facts and standing rules as a plain notes block and
+appends it to each step. That memo restores history-parity at
+essentially stateless cost, and — measured here — slightly better
+end-state integrity than the transcript itself. barkup's session
+docs replace the Study T scope note with this measured answer.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

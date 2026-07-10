@@ -6,13 +6,13 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into nineteen studies covering
+granular mutation tools, and grew into twenty studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 and multi-target edits. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–S
+**Status: active research series.** The main matrix and Studies F–T
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -37,7 +37,11 @@ oracle-level accuracy (L/N — navigation and off-the-shelf embeddings
 both fail there). Sessions turn out not to need memory at all: two
 canned **worked examples** in the system prompt replace conversation
 history outright (M/O/P), a result that holds through 36-edit
-sessions at 5 to 6× less input than keeping history (S). The honest boundary is **fan-out** ("change
+sessions at 5 to 6× less input than keeping history (S) — with one
+measured boundary: requests that reference earlier conversation
+("the codename we settled on") fail stateless by construction, and
+an app-maintained **memo** of declared facts restores full
+history-parity at 1.02× stateless cost (T). The honest boundary is **fan-out** ("change
 every X inside Y"): one prompt asking for N edits delivers roughly
 half of N under every strategy tested — the fix is app-side
 **decomposition** into single-target edits, which measured 90/90
@@ -61,6 +65,7 @@ tasks with 674/674 subtasks (Q/R).
 | Q | Fan-out edits | Break every strategy, even oracle retrieval; models invert | [BRIEF-Q](docs/BRIEF-Q.md) |
 | R | Fan-out fixes | Prompt tricks fail; decomposition is perfect (90/90, ⅓ cost) | [BRIEF-R](docs/BRIEF-R.md) |
 | S | 36-edit sessions | Both surviving recipes hold; stateless wins at 5–6× less input | [BRIEF-S](docs/BRIEF-S.md) |
+| T | Conversation-carried context | Stateless fails all 160 callbacks; a memo restores history-parity at 1.02× cost | [BRIEF-T](docs/BRIEF-T.md) |
 
 The blog series narrates the arc for humans, starting at
 [Stable IDs Are All You Need](https://www.lightningjar.com/blog/stable-ids-are-all-you-need)

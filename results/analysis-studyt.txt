@@ -1,0 +1,67 @@
+# Study T — conversation-carried context
+
+## Record inventory and blocked steps
+
+  anthropic/claude-sonnet-4.5 × T-history: 240 records, 0 blocked
+  anthropic/claude-sonnet-4.5 × T-system: 240 records, 0 blocked
+  anthropic/claude-sonnet-4.5 × T-notes: 240 records, 0 blocked
+  google/gemini-3.5-flash × T-history: 240 records, 0 blocked
+  google/gemini-3.5-flash × T-system: 240 records, 0 blocked
+  google/gemini-3.5-flash × T-notes: 240 records, 0 blocked
+
+## Callback steps (the class history was hiding)
+
+### anthropic/claude-sonnet-4.5
+  T-history : callbacks 80/80 (100.0% [95–100])  |  fact 40/40 (100.0% [91–100])  |  rule 40/40 (100.0% [91–100])
+  T-system  : callbacks 0/80 (0.0% [0–5])  |  fact 0/40 (0.0% [0–9])  |  rule 0/40 (0.0% [0–9])
+  T-notes   : callbacks 80/80 (100.0% [95–100])  |  fact 40/40 (100.0% [91–100])  |  rule 40/40 (100.0% [91–100])
+
+### google/gemini-3.5-flash
+  T-history : callbacks 80/80 (100.0% [95–100])  |  fact 40/40 (100.0% [91–100])  |  rule 40/40 (100.0% [91–100])
+  T-system  : callbacks 0/80 (0.0% [0–5])  |  fact 0/40 (0.0% [0–9])  |  rule 0/40 (0.0% [0–9])
+  T-notes   : callbacks 80/80 (100.0% [95–100])  |  fact 40/40 (100.0% [91–100])  |  rule 40/40 (100.0% [91–100])
+
+## Ordinary self-contained steps (control)
+
+### anthropic/claude-sonnet-4.5
+  T-history : 157/160 (98.1% [95–99])
+  T-system  : 160/160 (100.0% [98–100])
+  T-notes   : 159/160 (99.4% [97–100])
+
+### google/gemini-3.5-flash
+  T-history : 159/160 (99.4% [97–100])
+  T-system  : 160/160 (100.0% [98–100])
+  T-notes   : 160/160 (100.0% [98–100])
+
+## Paired McNemar (same session+step)
+
+  anthropic/claude-sonnet-4.5 T-history vs T-system, callbacks (n=80): history-only 80, system-only 0 — p = 0.0000
+  anthropic/claude-sonnet-4.5 T-history vs T-notes, callbacks (n=80): history-only 0, notes-only 0 — p = 1.0000
+  anthropic/claude-sonnet-4.5 T-history vs T-notes, all steps (n=240): history-only 0, notes-only 2 — p = 0.5000
+  google/gemini-3.5-flash T-history vs T-system, callbacks (n=80): history-only 80, system-only 0 — p = 0.0000
+  google/gemini-3.5-flash T-history vs T-notes, callbacks (n=80): history-only 0, notes-only 0 — p = 1.0000
+  google/gemini-3.5-flash T-history vs T-notes, all steps (n=240): history-only 0, notes-only 1 — p = 1.0000
+
+## End-state match and mean tokens per session
+
+### anthropic/claude-sonnet-4.5
+  T-history : end-state 17/20; mean tokens/session 58,222 in + 699 out
+  T-system  : end-state 0/20; mean tokens/session 27,047 in + 529 out
+  T-notes   : end-state 19/20; mean tokens/session 27,515 in + 575 out
+
+### google/gemini-3.5-flash
+  T-history : end-state 19/20; mean tokens/session 55,751 in + 675 out
+  T-system  : end-state 0/20; mean tokens/session 26,245 in + 654 out
+  T-notes   : end-state 20/20; mean tokens/session 26,813 in + 681 out
+
+## Pre-registered gate (T-H2: the memo rescue, per model)
+
+  anthropic/claude-sonnet-4.5: (a) callbacks p=1.000 → PASS; (b) all steps p=0.500 → PASS; (c) end-state 19 vs 17 → PASS
+  google/gemini-3.5-flash: (a) callbacks p=1.000 → PASS; (b) all steps p=1.000 → PASS; (c) end-state 20 vs 19 → PASS
+
+  GATE: PASSES
+
+## T-H3 (cost: T-notes mean input vs T-system; predicted ≤ 1.3×)
+
+  anthropic/claude-sonnet-4.5: T-notes/T-system = 1.02×; T-history/T-notes = 2.1×
+  google/gemini-3.5-flash: T-notes/T-system = 1.02×; T-history/T-notes = 2.1×

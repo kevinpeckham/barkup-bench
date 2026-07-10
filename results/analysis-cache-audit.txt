@@ -1,6 +1,6 @@
 # Prompt-caching audit (provider-reported cache reads)
 
-Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 54381 calls — reported input tokens are total prompt tokens, cached included.
+Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 55822 calls — reported input tokens are total prompt tokens, cached included.
 
 ## Per raw file
   corrected-anthropic_claude-haiku-4.5-best.jsonl: 1200 records, input 10,846,149 tok, cached 0 (0.0%), calls with cache 0/1591
@@ -68,6 +68,8 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 54381 c
   studyr-google_gemini-3.5-flash.jsonl: 225 records, input 4,794,557 tok, cached 229,233 (4.8%), calls with cache 4/517
   studys-anthropic_claude-sonnet-4.5.jsonl: 720 records, input 5,299,180 tok, cached 0 (0.0%), calls with cache 0/720
   studys-google_gemini-3.5-flash.jsonl: 720 records, input 5,077,074 tok, cached 3,067,190 (60.4%), calls with cache 260/720
+  studyt-anthropic_claude-sonnet-4.5.jsonl: 720 records, input 2,255,684 tok, cached 0 (0.0%), calls with cache 0/721
+  studyt-google_gemini-3.5-flash.jsonl: 720 records, input 2,176,181 tok, cached 396,016 (18.2%), calls with cache 86/720
 
 ## Per study group × vendor × condition (nonzero cache only)
   corrected | google | A: input 1,685,260 tok, cached 116,162 (6.9%) over 400 records
@@ -115,6 +117,7 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 54381 c
   other | google | R-ckF: input 2,065,648 tok, cached 163,733 (7.9%) over 45 records
   other | google | R-exF: input 2,084,323 tok, cached 65,500 (3.1%) over 45 records
   other | google | S-view: input 4,289,195 tok, cached 3,067,190 (71.5%) over 360 records
+  other | google | T-history: input 1,115,029 tok, cached 396,016 (35.5%) over 240 records
   reference-v2 | google | C: input 1,761,844 tok, cached 780,264 (44.3%) over 80 records
   reference-v2 | google | D: input 1,374,401 tok, cached 419,644 (30.5%) over 80 records
   reference-v2 | openai | C: input 1,349,326 tok, cached 710,144 (52.6%) over 80 records
