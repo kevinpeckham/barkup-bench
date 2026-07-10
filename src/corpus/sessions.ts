@@ -38,6 +38,12 @@ export interface SessionStep {
 	created?: { placeholder: string; type: string; name: string };
 	/** True when the step deliberately targets a session-created node. */
 	referenceBack: boolean;
+	/** Study T (BRIEF-T.md): step whose expected edit depends on a fact or
+	 * standing rule declared only in an earlier instruction. */
+	callback?: "fact" | "rule";
+	/** Study T: declaration text this step's instruction carries as a rider
+	 * (the raw note an application would record). */
+	declares?: string;
 }
 
 export interface SessionTask {

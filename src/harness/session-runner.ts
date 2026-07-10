@@ -46,7 +46,9 @@ export type SessionPolicy =
 	| "viewPos"
 	// Study P (BRIEF-P.md): stateless with canned worked examples.
 	| "canned"
-	| "cannedSys";
+	| "cannedSys"
+	// Study T (BRIEF-T.md): cannedSys plus an app-maintained notes block.
+	| "notes";
 
 export const POLICY_CONDITION: Record<SessionPolicy, string> = {
 	once: "K-once",
@@ -59,6 +61,7 @@ export const POLICY_CONDITION: Record<SessionPolicy, string> = {
 	viewPos: "O-view",
 	canned: "P-canned",
 	cannedSys: "P-system",
+	notes: "T-notes",
 };
 
 /** Policies whose steps are fresh conversations built in the M branch. */
@@ -68,6 +71,7 @@ const STATELESS_FAMILY: ReadonlySet<SessionPolicy> = new Set([
 	"statelessPos",
 	"canned",
 	"cannedSys",
+	"notes",
 ]);
 
 /** Pre-registered session preamble appended to the patch arms' system prompt. */
@@ -101,6 +105,20 @@ export function cannedMessages(): ModelMessage[] {
 		},
 		{ role: "assistant" as const, content: example.reply },
 	]);
+}
+
+/** Study T (BRIEF-T.md): the pre-registered session-notes block — every
+ * fact and standing rule declared before this step, as an application
+ * would have recorded them. Null when nothing has been declared yet. */
+export function sessionNotes(
+	task: SessionTask,
+	beforeIndex: number,
+): string | null {
+	const notes = task.steps
+		.filter((s) => s.index < beforeIndex && s.declares !== undefined)
+		.map((s) => `- ${s.declares}`);
+	if (notes.length === 0) return null;
+	return `\n\nSession notes (maintained by the application):\n${notes.join("\n")}`;
 }
 
 /** One completed step, condensed for the sliding window (corrections dropped). */
@@ -284,6 +302,7 @@ export async function runSession(
 			stepIndex: step.index,
 			editKind: step.kind,
 			referenceBack: step.referenceBack,
+			...(step.callback !== undefined ? { callback: step.callback } : {}),
 		};
 		record.detail = detail;
 
@@ -360,7 +379,11 @@ export async function runSession(
 				continue;
 			}
 			const first = policy !== "window2" || exchanges.length === 0;
-			const content = viewMessage(view, resolved.instruction, first);
+			let content = viewMessage(view, resolved.instruction, first);
+			if (policy === "notes") {
+				const notes = sessionNotes(task, step.index);
+				if (notes !== null) content += notes;
+			}
 			const stepMessages: ModelMessage[] =
 				policy === "window2"
 					? windowMessages(exchanges, 2)
@@ -371,7 +394,7 @@ export async function runSession(
 			const system =
 				policy === "statelessPos"
 					? STATELESS_SYSTEM_POS
-					: policy === "cannedSys"
+					: policy === "cannedSys" || policy === "notes"
 						? STATELESS_SYSTEM_EXAMPLES
 						: policy === "window2"
 							? VIEW_SYSTEM

@@ -117,7 +117,7 @@ export function formatValue(value: AttributeValue): string {
 	return JSON.stringify(value);
 }
 
-function nodeRef(tree: BarkupNode, id: string): string {
+export function nodeRef(tree: BarkupNode, id: string): string {
 	const node = mustFind(tree, id);
 	const name = node.name !== undefined ? ` (named "${node.name}")` : "";
 	return `the ${node.type} with id "${id}"${name}`;
