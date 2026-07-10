@@ -1,0 +1,65 @@
+# Study S — long sessions (36 steps)
+
+## Record inventory and blocked steps
+
+  anthropic/claude-sonnet-4.5 × S-view: 360 records, 0 blocked (0 mechanical)
+  anthropic/claude-sonnet-4.5 × S-system: 360 records, 0 blocked (0 mechanical)
+  google/gemini-3.5-flash × S-view: 360 records, 0 blocked (0 mechanical)
+  google/gemini-3.5-flash × S-system: 360 records, 0 blocked (0 mechanical)
+
+## Per-step success by third (non-blocked steps)
+
+### anthropic/claude-sonnet-4.5
+  S-view   : steps 1–12 120/120 (100.0% [97–100])  |  steps 13–24 120/120 (100.0% [97–100])  |  steps 25–36 120/120 (100.0% [97–100])
+  S-system : steps 1–12 119/120 (99.2% [95–100])  |  steps 13–24 120/120 (100.0% [97–100])  |  steps 25–36 118/120 (98.3% [94–100])
+
+### google/gemini-3.5-flash
+  S-view   : steps 1–12 119/120 (99.2% [95–100])  |  steps 13–24 120/120 (100.0% [97–100])  |  steps 25–36 120/120 (100.0% [97–100])
+  S-system : steps 1–12 120/120 (100.0% [97–100])  |  steps 13–24 117/120 (97.5% [93–99])  |  steps 25–36 119/120 (99.2% [95–100])
+
+## Placement steps only (insert/move)
+
+### anthropic/claude-sonnet-4.5
+  S-view   : all 140/140 (100.0% [97–100])  |  steps 25–36 50/50 (100.0% [93–100])
+  S-system : all 137/140 (97.9% [94–99])  |  steps 25–36 48/50 (96.0% [87–99])
+
+### google/gemini-3.5-flash
+  S-view   : all 139/140 (99.3% [96–100])  |  steps 25–36 50/50 (100.0% [93–100])
+  S-system : all 136/140 (97.1% [93–99])  |  steps 25–36 49/50 (98.0% [90–100])
+
+## Paired McNemar, S-view vs S-system (same session+step)
+
+  anthropic/claude-sonnet-4.5 (n=360): S-view-only 3, S-system-only 0 — p = 0.250
+  google/gemini-3.5-flash (n=360): S-view-only 4, S-system-only 1 — p = 0.375
+
+## Cost divergence (median input tokens at step; per BRIEF S-H2)
+
+### anthropic/claude-sonnet-4.5
+  S-view   : s1 1,250 | s6 4,693 | s12 8,325 | s18 11,955 | s24 15,855 | s30 20,164 | s36 23,614  ·  mean output/step 59
+  S-system : s1 2,124 | s6 2,160 | s12 2,085 | s18 2,120 | s24 2,276 | s30 2,547 | s36 2,190  ·  mean output/step 45
+
+### google/gemini-3.5-flash
+  S-view   : s1 1,216 | s6 4,519 | s12 8,012 | s18 11,522 | s24 15,187 | s30 19,279 | s36 22,581  ·  mean output/step 56
+  S-system : s1 2,083 | s6 2,107 | s12 2,031 | s18 2,065 | s24 2,232 | s30 2,485 | s36 2,130  ·  mean output/step 57
+
+## End-state match and mean tokens per session
+
+### anthropic/claude-sonnet-4.5
+  S-view   : end-state 10/10; mean tokens/session 449,028 in + 2,117 out
+  S-system : end-state 8/10; mean tokens/session 80,890 in + 1,614 out
+
+### google/gemini-3.5-flash
+  S-view   : end-state 9/10; mean tokens/session 428,920 in + 2,019 out
+  S-system : end-state 9/10; mean tokens/session 78,788 in + 2,070 out
+
+## Pre-registered gate (S-H1, per model)
+
+  anthropic/claude-sonnet-4.5: (a) last third 98.3% vs first 99.2% → PASS; (b) McNemar p=0.250 → PASS; (c) end-state 8 vs 10 → PASS
+  google/gemini-3.5-flash: (a) last third 99.2% vs first 100.0% → PASS; (b) McNemar p=0.375 → PASS; (c) end-state 9 vs 9 → PASS
+
+  GATE: PASSES
+
+## S-H2 (cost ratio, S-view mean input / S-system mean input)
+
+  anthropic/claude-sonnet-4.5: 5.6× (predicted ≥ 3×)
+  google/gemini-3.5-flash: 5.4× (predicted ≥ 3×)

@@ -1046,6 +1046,60 @@ practical rule stands as shipped, with better numbers: enumerate
 targets deterministically in the application, issue one
 single-target anchored edit per node.
 
+## Addendum (2026-07-10): Study S — long sessions
+
+Pre-registered in [docs/BRIEF-S.md](docs/BRIEF-S.md): the two
+surviving session recipes — **S-view** (K-view verbatim: full
+history plus a fresh minimal view every turn) and **S-system**
+(P-system verbatim: no history, two worked examples in the system
+prompt) — run through **36-edit sessions**, three times the horizon
+every prior session study used. New corpus
+(`corpus/sessions-long.json`, seed 20260712, 10 sessions at
+~150/~300 nodes, 114 reference-back steps), same grading as K/M/O/P.
+1,440 step records, zero blocked steps, zero mechanical ceilings,
+zero cache-audit invariant violations; ≈ $18; tables in
+`results/analysis-studys.txt`.
+
+| Per-step success (360 steps/cell) | sonnet-4.5 | gemini-3.5-flash |
+|---|---|---|
+| S-view (history + per-turn view) | 360/360 | 359/360 |
+| S-system (stateless + worked examples) | 357/360 | 356/360 |
+| S-system, steps 25–36 only | 118/120 | 119/120 |
+
+- **S-H1 (the stateless recipe holds) — GATE PASSES, both models.**
+  No late-third collapse (S-system last third 98.3% / 99.2% vs
+  first third 99.2% / 100%), McNemar parity with S-view (p = 0.250
+  / 0.375), end-state within the pre-registered margin (sonnet
+  8/10 vs 10/10; gemini 9/10 vs 9/10). Distance-from-example does
+  not decay: step 36 is taught by the same two canned examples as
+  step 1.
+- **S-H2 (cost divergence) — confirmed, larger than predicted.**
+  S-view's median per-step input grows linearly (1.25k at step 1 →
+  ~23.6k at step 36) while S-system stays flat (~2.1k at every
+  step). Per session that is 449k vs 81k input tokens on sonnet
+  (5.6×; gemini 5.4×) against a predicted ≥ 3×.
+- **S-H3 (does history itself crack?) — no.** S-view is
+  descriptively perfect-to-near-perfect through step 36 with no
+  late-session drift and no context ceilings (23.6k at step 36 is
+  nowhere near a limit; Study K's ceiling was a rewrite-arm
+  artifact). Both recipes hold; the difference at this horizon is
+  purely cost.
+- Honest detail on the end-state row: per-step grading judges each
+  step against the model's own pre-step state, and a failed step
+  leaves the tree unchanged — so sonnet's two S-system end-state
+  misses are exactly its failed steps' edits missing from the final
+  tree, not accumulated corruption. All 7 S-system step failures
+  across both models are placement-class (insert/move), the same
+  class Studies M/O/P mapped.
+
+**Decision rule outcome: the interpretation table's first row —
+both recipes hold, stateless wins on cost and becomes the default
+long-session guidance.** The worked-examples recipe is now measured
+to 36 edits at flat ~2.1k input per step with no reliability
+penalty; keep-history remains a valid (marginally more accurate on
+sonnet's end states) alternative at 5 to 6 times the input cost.
+barkup's session docs gain the horizon statement.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
