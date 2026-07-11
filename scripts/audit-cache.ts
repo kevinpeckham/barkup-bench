@@ -86,6 +86,9 @@ for (const file of files) {
 		if (line.trim() === "") continue;
 		// Follow-up (Study G) records carry `arm` instead of `condition`.
 		const record = JSON.parse(line) as TaskRunRecord & { arm?: string };
+		// Study V judge/calibration records are not protocol TaskRunRecords
+		// (no per-call log); they are Track 2 and audited separately.
+		if (!Array.isArray(record.calls)) continue;
 		addRecord(fileCell, record);
 		const vendor = record.model.split("/")[0] ?? "?";
 		const key = `${groupOf(file)} | ${vendor} | ${record.condition ?? record.arm ?? "?"}`;

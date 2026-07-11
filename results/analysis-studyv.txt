@@ -1,0 +1,46 @@
+# Study V — qualitative strategic rewrites (Track 2)
+
+## Layer 1: mechanical validity (30 tasks per cell)
+
+  anthropic/claude-sonnet-4.5: V-instr 30/30 · V-doc-view1 30/30 · V-doc-view2 30/30 · V-conv-memo 30/30 · V-conv-nomemo 30/30
+  google/gemini-3.5-flash: V-instr 30/30 · V-doc-view1 30/30 · V-doc-view2 30/30 · V-conv-memo 30/30 · V-conv-nomemo 30/30
+
+## Layer 2 proxy: mean thesis-word coverage delta (after − before)
+
+  anthropic/claude-sonnet-4.5: V-instr +1.00 · V-doc-view1 +0.00 · V-doc-view2 +0.75 · V-conv-memo +1.00 · V-conv-nomemo +0.00
+  google/gemini-3.5-flash: V-instr +1.00 · V-doc-view1 +0.00 · V-doc-view2 +0.66 · V-conv-memo +1.00 · V-conv-nomemo +0.00
+
+## Win-rates vs V-instr control (verdict A = arm wins)
+
+### judge: openai/gpt-5.4
+  claude-sonnet-4.5 V-doc-view1  : W 0 / L 30 / T 0 — binomial p = 0.0000
+  claude-sonnet-4.5 V-doc-view2  : W 0 / L 30 / T 0 — binomial p = 0.0000
+  claude-sonnet-4.5 V-conv-memo  : W 10 / L 2 / T 18 — binomial p = 0.0386
+  claude-sonnet-4.5 V-conv-nomemo: W 0 / L 30 / T 0 — binomial p = 0.0000
+  gemini-3.5-flash V-doc-view1  : W 0 / L 30 / T 0 — binomial p = 0.0000
+  gemini-3.5-flash V-doc-view2  : W 0 / L 30 / T 0 — binomial p = 0.0000
+  gemini-3.5-flash V-conv-memo  : W 8 / L 11 / T 11 — binomial p = 0.6476
+  gemini-3.5-flash V-conv-nomemo: W 0 / L 30 / T 0 — binomial p = 0.0000
+
+### judge: anthropic/claude-haiku-4.5
+  claude-sonnet-4.5 V-doc-view1  : W 0 / L 30 / T 0 — binomial p = 0.0000
+  claude-sonnet-4.5 V-doc-view2  : W 0 / L 27 / T 3 — binomial p = 0.0000
+  claude-sonnet-4.5 V-conv-memo  : W 13 / L 7 / T 10 — binomial p = 0.2632
+  claude-sonnet-4.5 V-conv-nomemo: W 0 / L 30 / T 0 — binomial p = 0.0000
+  gemini-3.5-flash V-doc-view1  : W 0 / L 30 / T 0 — binomial p = 0.0000
+  gemini-3.5-flash V-doc-view2  : W 0 / L 27 / T 3 — binomial p = 0.0000
+  gemini-3.5-flash V-conv-memo  : W 6 / L 4 / T 20 — binomial p = 0.7539
+  gemini-3.5-flash V-conv-nomemo: W 0 / L 30 / T 0 — binomial p = 0.0000
+
+## Judge agreement (shared judged comparisons)
+
+  raw agreement 83.3% (n=240); Cohen's kappa 0.53 — pre-registered floor: 70% raw
+
+## Pre-registered gate (V-H2: fixes tie control, primary judge)
+
+  claude-sonnet-4.5 V-doc-view2: FAIL
+  claude-sonnet-4.5 V-conv-memo: FAIL
+  gemini-3.5-flash V-doc-view2: FAIL
+  gemini-3.5-flash V-conv-memo: PASS (ties control)
+
+  GATE: FAILS

@@ -6,13 +6,14 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into twenty-one studies covering
+granular mutation tools, and grew into twenty-two studies covering
 interfaces, tree size, partial context, retrieval, session memory,
-and multi-target edits. Every utility in the
+multi-target edits, and (in a separately-graded track) qualitative
+rewrites. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–U
+**Status: active research series.** The main matrix and Studies F–V
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -45,7 +46,11 @@ sessions at 5 to 6× less input than keeping history (S) — with one
 measured boundary: requests that reference earlier conversation
 ("the codename we settled on") fail stateless by construction, and
 an app-maintained **memo** of declared facts restores full
-history-parity at 1.02× stateless cost (T). The honest boundary is **fan-out** ("change
+history-parity at 1.02× stateless cost (T). For qualitative goals the
+split sharpens to a slogan: **views carry values, memos carry goals**
+(V, judge-graded) — a model shown the node where a goal lives reads
+it but writes measurably less focused prose than one told the goal
+outright. The honest boundary is **fan-out** ("change
 every X inside Y"): one prompt asking for N edits delivers roughly
 half of N under every strategy tested — the fix is app-side
 **decomposition** into single-target edits, which measured 90/90
@@ -71,6 +76,7 @@ tasks with 674/674 subtasks (Q/R).
 | S | 36-edit sessions | Both surviving recipes hold; stateless wins at 5–6× less input | [BRIEF-S](docs/BRIEF-S.md) |
 | T | Conversation-carried context | Stateless fails all 160 callbacks; a memo restores history-parity at 1.02× cost | [BRIEF-T](docs/BRIEF-T.md) |
 | U | Document-carried dependencies | Target-only views silently invent values (0/90); both-nodes views are perfect at 25× less input | [BRIEF-U](docs/BRIEF-U.md) |
+| V | Qualitative rewrites (judge-graded) | Views carry values, memos carry goals: the memo ties explicit instructions; reading the goal from the view loses 117/120 | [BRIEF-V](docs/BRIEF-V.md) |
 
 The blog series narrates the arc for humans, starting at
 [Stable IDs Are All You Need](https://www.lightningjar.com/blog/stable-ids-are-all-you-need)

@@ -1,0 +1,4 @@
+# Study V — judge calibration gate
+
+openai/gpt-5.4: known 30/30 (gate ≥27) · identity ties 10/10 (≥8) · length 10/10 (≥9) → PASS
+anthropic/claude-haiku-4.5: known 30/30 (gate ≥27) · identity ties 10/10 (≥8) · length 10/10 (≥9) → PASS

@@ -1218,6 +1218,81 @@ copying values through search alone leaves a measurable gap — and
 the silent-guess anatomy means a missing read fails *invisibly*, so
 the view scope is not an optimization but a correctness contract.
 
+## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
+
+**This section is judge-graded, not deterministically graded.** It is
+the series' first Track 2 study (pre-registered in
+[docs/BRIEF-V.md](docs/BRIEF-V.md)); its numbers must never be pooled
+with the deterministic claims above. The judge protocol: pairwise
+forced choice vs the in-instruction control, same task, same editor
+model, both presentation orders at temperature 0, verdict only on
+order-consistency; primary judge `openai/gpt-5.4`, sensitivity judge
+`anthropic/claude-haiku-4.5`, both non-editors. **The judges passed
+their own pre-registered gate flawlessly** (30/30 known pairs, 10/10
+identity ties, 10/10 length probes — both judges) before any scored
+editing call.
+
+The question: does the T/U context guidance survive *qualitative*
+goals ("rewrite this paragraph to focus on our central thesis")?
+Corpus: 30 seeded About pages with a planted off-thesis paragraph
+(`corpus/rewrite.json`; domain vocabularies disjoint on thesis words —
+the guard caught two real collisions during authoring). Five arms for
+where the goal lives. 300 edits (all 300 mechanically valid), 480
+judged comparisons per judge; ≈ $12 including a voided first editing
+run (protocol notes below).
+
+| Win/Loss/Tie vs control, primary judge | sonnet-4.5 | gemini-3.5-flash |
+|---|---|---|
+| V-doc-view1 (goal in doc, target-only view) | 0/30/0 | 0/30/0 |
+| V-doc-view2 (goal's node IN the view) | **0/30/0** | **0/30/0** |
+| V-conv-memo (goal in the T memo) | 10/2/18 | 8/11/11 |
+| V-conv-nomemo (goal said earlier, no memo) | 0/30/0 | 0/30/0 |
+
+- **V-H1 (silent off-goal prose) — CONFIRMED, with a twist.** The
+  blind arms lose all 120 comparisons, and the failure mode is not
+  invention but *oblivious polishing*: the models tidied the planted
+  off-topic paragraph (thesis-word coverage delta +0.00) without ever
+  flagging that they could not know the goal. Mechanically valid,
+  fluent, and useless — the qualitative sibling of Study U's silent
+  invention.
+- **V-H2 (the fixes carry over) — GATE FAILS, and the split is the
+  finding.** The **memo carries a goal perfectly**: V-conv-memo ties
+  or beats control (sonnet 10–2 in its favor under the primary judge,
+  p = 0.039; gemini 8–11, n.s.; haiku judge: both n.s.) with proxy
+  coverage +1.00, identical to control. But **reading the goal from
+  the document does not equal being told it**: V-doc-view2 models
+  demonstrably read the mission node (proxy +0.75/+0.66 vs +0.00
+  blind) and wrote on-topic prose, yet lost 117 of 120 comparisons —
+  their rewrites orbit the topic where the control's anchor the
+  thesis. Goals are not values: Study U's view fix moves *data*
+  perfectly; it moves *intent* only partway.
+- **V-H3 (proxy triangulation) — agrees.** The keyword proxy ranks
+  the arms exactly as the judges do (1.00 / 0.75 / 0.00 tiers), and
+  the two judges agree on 83.3% of comparisons (kappa 0.53, above the
+  70% raw floor; haiku is more tie-prone but flips no conclusion).
+
+**Decision rule outcome: the interpretation table's "mixed by arm"
+row.** The practical guidance for qualitative rewrites: **restate the
+goal explicitly** — in the instruction or in the application memo,
+which are measurably equivalent. Showing the model the node where the
+goal lives is far better than nothing (it reads it) but measurably
+worse than saying it, so for goal-directed edits the memo/instruction
+is the recipe and the view remains the recipe for *data* the edit
+must read (Study U). One sentence for builders: views carry values,
+memos carry goals.
+
+Protocol notes, disclosed: (1) the first editing run was voided
+before any judge verdict was scored — a Layer-1 grader bug
+(JSON.stringify key-order sensitivity vs the shipped applier's
+canonicalized output) false-positived every cell; fixed with a
+structural comparison and a regression test (6482cf7), all 300 cells
+re-run. (2) One arm-favoring significant result (sonnet V-conv-memo
+beating control) is reported as found; the gate's "indistinguishable"
+criterion counts it as a failure even though the difference favors
+the arm. (3) Judge and calibration records are not protocol
+TaskRunRecords and are excluded from the cache audit's per-call
+invariant (their tokens are recorded in their own JSONL).
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
