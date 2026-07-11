@@ -14,6 +14,7 @@ import { serializeView, VIEW_RULES } from "../conditions/views.js";
 import { nodeRef } from "../corpus/edits.js";
 import type { RewriteTask } from "../corpus/rewrite.js";
 import { REWRITE_MAXLENGTH, thesisCoverage } from "../corpus/rewrite.js";
+import { equalExact } from "../grading/equal.js";
 import { cloneTree, findById, walkTree } from "../tree.js";
 import type { CallLog, TaskRunRecord } from "./records.js";
 import { MAX_ROUNDS } from "./runner.js";
@@ -89,7 +90,10 @@ export function layerOneProblems(
 	};
 	scrub(a);
 	scrub(b);
-	if (JSON.stringify(a) !== JSON.stringify(b)) {
+	// Structural equality, not JSON.stringify: applyShipped canonicalizes
+	// node key order (protocol note — this false-positived every cell on
+	// the first run before any verdict was scored).
+	if (!equalExact(a, b)) {
 		problems.push("changed nodes other than the target content");
 	}
 	return problems;

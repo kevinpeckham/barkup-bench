@@ -89,6 +89,31 @@ describe("layerOneProblems", () => {
 		expect(layerOneProblems(task, edited)).toEqual([]);
 	});
 
+	test("accepts the shipped applier's canonicalized output (regression)", () => {
+		// applyShipped reorders node keys; the equality check must be
+		// structural, not textual. This false-positived every cell of the
+		// first scored run (protocol note in BRIEF-V's REPORT addendum).
+		const { applyShipped } = require("../src/conditions/f2.js") as {
+			applyShipped: (
+				text: string,
+				tree: typeof task.tree,
+			) => { ok: boolean; node: typeof task.tree };
+		};
+		const patch = JSON.stringify([
+			{
+				op: "set-attribute",
+				id: task.targetId,
+				key: "content",
+				value: "A clean shipped-applier rewrite.",
+			},
+		]);
+		const applied = applyShipped(patch, task.tree);
+		expect(applied.ok).toBe(true);
+		if (applied.ok) {
+			expect(layerOneProblems(task, applied.node)).toEqual([]);
+		}
+	});
+
 	test("rejects a verbatim thesis copy", () => {
 		const edited = applyEdit(task.tree, {
 			kind: "set-attribute",
