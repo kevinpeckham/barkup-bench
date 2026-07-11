@@ -1,0 +1,51 @@
+# Study W — who writes the memo?
+
+## Callback success by arm (72 callback cells per arm-model)
+
+### anthropic/claude-sonnet-4.5
+  W-oracle        : all 71/72 (98.6% [93–100])  |  fact 36/36 (100.0% [90–100])  |  rule 35/36 (97.2% [86–100])
+  W-agent         : all 71/72 (98.6% [93–100])  |  fact 36/36 (100.0% [90–100])  |  rule 35/36 (97.2% [86–100])
+  W-agent-history : all 67/72 (93.1% [85–97])  |  in-window 36/36 (100.0% [90–100])  |  POST-TRUNCATION 31/36 (86.1% [71–94])
+
+### google/gemini-3.5-flash
+  W-oracle        : all 72/72 (100.0% [95–100])  |  fact 36/36 (100.0% [90–100])  |  rule 36/36 (100.0% [90–100])
+  W-agent         : all 72/72 (100.0% [95–100])  |  fact 36/36 (100.0% [90–100])  |  rule 36/36 (100.0% [90–100])
+  W-agent-history : all 71/72 (98.6% [93–100])  |  in-window 36/36 (100.0% [90–100])  |  POST-TRUNCATION 35/36 (97.2% [86–100])
+
+### anthropic/claude-opus-4.8
+  W-oracle        : all 72/72 (100.0% [95–100])  |  fact 36/36 (100.0% [90–100])  |  rule 36/36 (100.0% [90–100])
+  W-agent         : all 71/72 (98.6% [93–100])  |  fact 35/36 (97.2% [86–100])  |  rule 36/36 (100.0% [90–100])
+  W-agent-history : all 72/72 (100.0% [95–100])  |  in-window 36/36 (100.0% [90–100])  |  POST-TRUNCATION 36/36 (100.0% [90–100])
+
+## Ordinary self-contained steps (control)
+
+  anthropic/claude-sonnet-4.5: W-oracle 343/360 · W-agent 348/360 · W-agent-history 337/360
+  google/gemini-3.5-flash: W-oracle 347/360 · W-agent 344/360 · W-agent-history 345/360
+  anthropic/claude-opus-4.8: W-oracle 348/360 · W-agent 350/360 · W-agent-history 347/360
+
+## Memo fidelity (agent arms; deterministic, from recorded snapshots)
+
+  claude-sonnet-4.5 W-agent         : recall 36/36 · retraction ok 12/12 · noise/session 0.0 · drop events 0 · tool calls/session 4.0
+  claude-sonnet-4.5 W-agent-history : recall 36/36 · retraction ok 12/12 · noise/session 0.0 · drop events 0 · tool calls/session 4.0
+  gemini-3.5-flash W-agent         : recall 36/36 · retraction ok 12/12 · noise/session 0.0 · drop events 0 · tool calls/session 4.3
+  gemini-3.5-flash W-agent-history : recall 36/36 · retraction ok 12/12 · noise/session 0.0 · drop events 0 · tool calls/session 4.1
+  claude-opus-4.8 W-agent         : recall 35/36 · retraction ok 12/12 · noise/session 0.0 · drop events 1 · tool calls/session 4.3
+  claude-opus-4.8 W-agent-history : recall 36/36 · retraction ok 12/12 · noise/session 0.0 · drop events 0 · tool calls/session 4.0
+
+## Pre-registered gates
+
+  W-H1 claude-sonnet-4.5: oracle-only 0, agent-only 0 (n=72) — p = 1.0000 → PASS
+  W-H1 gemini-3.5-flash: oracle-only 0, agent-only 0 (n=72) — p = 1.0000 → PASS
+  W-H1 claude-opus-4.8: oracle-only 1, agent-only 0 (n=72) — p = 1.0000 → PASS
+  W-H2 claude-sonnet-4.5 (post-truncation, n=36): oracle-only 5, history-only 1 — p = 0.2188 → PASS
+  W-H2 gemini-3.5-flash (post-truncation, n=36): oracle-only 1, history-only 0 — p = 1.0000 → PASS
+  W-H2 claude-opus-4.8 (post-truncation, n=36): oracle-only 0, history-only 0 — p = 1.0000 → PASS
+
+  W-H1 GATE (pure extraction): PASSES
+  W-H2 GATE (shipped config post-truncation): PASSES
+
+## Cost (mean input tokens per session)
+
+  anthropic/claude-sonnet-4.5: W-oracle 84,450 · W-agent 136,983 · W-agent-history 370,550
+  google/gemini-3.5-flash: W-oracle 82,323 · W-agent 104,628 · W-agent-history 327,396
+  anthropic/claude-opus-4.8: W-oracle 103,569 · W-agent 151,950 · W-agent-history 420,899

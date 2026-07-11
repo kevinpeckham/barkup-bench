@@ -1,6 +1,6 @@
 # Prompt-caching audit (provider-reported cache reads)
 
-Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 56563 calls — reported input tokens are total prompt tokens, cached included.
+Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 60471 calls — reported input tokens are total prompt tokens, cached included.
 
 ## Per raw file
   corrected-anthropic_claude-haiku-4.5-best.jsonl: 1200 records, input 10,846,149 tok, cached 0 (0.0%), calls with cache 0/1591
@@ -78,6 +78,9 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 56563 c
   studyv-edits-google_gemini-3.5-flash.jsonl: 150 records, input 171,708 tok, cached 0 (0.0%), calls with cache 0/150
   studyv-judge-anthropic_claude-haiku-4.5.jsonl: 0 records, input 0 tok, cached 0 (—), calls with cache 0/0
   studyv-judge-openai_gpt-5.4.jsonl: 0 records, input 0 tok, cached 0 (—), calls with cache 0/0
+  studyw-anthropic_claude-opus-4.8.jsonl: 1296 records, input 8,117,020 tok, cached 0 (0.0%), calls with cache 0/1296
+  studyw-anthropic_claude-sonnet-4.5.jsonl: 1296 records, input 7,103,790 tok, cached 0 (0.0%), calls with cache 0/1314
+  studyw-google_gemini-3.5-flash.jsonl: 1296 records, input 6,172,168 tok, cached 358,650 (5.8%), calls with cache 61/1298
 
 ## Per study group × vendor × condition (nonzero cache only)
   corrected | google | A: input 1,685,260 tok, cached 116,162 (6.9%) over 400 records
@@ -127,6 +130,7 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 56563 c
   other | google | S-view: input 4,289,195 tok, cached 3,067,190 (71.5%) over 360 records
   other | google | T-history: input 1,115,029 tok, cached 396,016 (35.5%) over 240 records
   other | google | U-search: input 9,566,076 tok, cached 7,354,809 (76.9%) over 45 records
+  other | google | W-agent-history: input 3,928,753 tok, cached 358,650 (9.1%) over 432 records
   reference-v2 | google | C: input 1,761,844 tok, cached 780,264 (44.3%) over 80 records
   reference-v2 | google | D: input 1,374,401 tok, cached 419,644 (30.5%) over 80 records
   reference-v2 | openai | C: input 1,349,326 tok, cached 710,144 (52.6%) over 80 records

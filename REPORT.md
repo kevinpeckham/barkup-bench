@@ -1218,6 +1218,70 @@ copying values through search alone leaves a measurable gap — and
 the silent-guess anatomy means a missing read fails *invisibly*, so
 the view scope is not an optimization but a correctness contract.
 
+## Addendum (2026-07-11): Study W — who writes the memo?
+
+Pre-registered in [docs/BRIEF-W.md](docs/BRIEF-W.md): Studies T and V
+validated the session-notes memo with **oracle extraction**; Replicator
+v3.183.0 ships **agent-maintained** extraction (an
+`update_session_notes` tool, a prompt rule, and a last-32-message
+history window). Study W tests those shipped artifacts VERBATIM
+(character-identity-tested ports) with the series' nastiest remaining
+hypothesis: within the window, callbacks succeed via history whether
+or not the agent records, so a lazy agent's empty memo is invisible —
+until truncation. Corpus: 12 × 36-step callback sessions crossing the
+window (seed 20260717), declarations early, a mid-session retraction,
+callbacks placed within-window and post-truncation (classified by
+RECORDED membership, since agent tool calls shift truncation), and a
+scheduled cleanup step so codenames never leak into pre-step trees.
+Three arms (oracle ceiling / stateless agent memo / the shipped
+history + agent memo config) × three models — including the series'
+first data on `claude-opus-4.8`, the tier Replicator runs.
+3,888 step records, zero errored sessions, ≈ $65; tables in
+`results/analysis-studyw.txt`.
+
+| Callback cells (72/arm-model) | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| W-oracle (harness memo) | 71/72 | 72/72 | 72/72 |
+| W-agent (agent memo, stateless) | 71/72 | 72/72 | 71/72 |
+| W-agent-history, post-truncation | 31/36 | 35/36 | **36/36** |
+
+- **W-H1 (pure extraction) — GATE PASSES, all three models.** The
+  agent-maintained memo ties the oracle exactly (sonnet's single miss
+  is the same cell in both arms; every McNemar p ≥ 1.0). Memo
+  fidelity is near-perfect and deterministic: recall 36/36 per model
+  (one Opus session dropped one note, the only drop event in 72 agent
+  sessions), retraction handling 12/12 everywhere, **zero noise
+  notes**, and ~4 tool calls per session — models call the tool at
+  the four declarative moments and essentially nowhere else.
+- **W-H2 (redundancy breeds laziness) — REFUTED; GATE PASSES.** In
+  the shipped configuration the agents keep writing the memo even
+  though history makes it redundant (4.0–4.1 tool calls/session,
+  identical cadence to the stateless arm, recall 36/36), and
+  post-truncation callbacks hold (gemini 35/36, opus 36/36, sonnet
+  31/36 with McNemar vs oracle p = 0.22). Honest descriptive note:
+  sonnet shows a mild post-truncation dip (5 discordant losses at
+  n = 36, not significant, failures NOT explained by memo gaps — its
+  memo was complete in every failing cell), worth re-checking if
+  sonnet becomes a shipped tier.
+- **W-H3 (tier calibration) — Opus is the cleanest of the three.**
+  First Opus data in the series: perfect callbacks in the shipped
+  configuration (72/72 including all post-truncation cells), best
+  ordinary-step rate, one memo-drop blemish in the stateless arm.
+  The recipe advice transfers to the tier it ships on.
+- **Cost note:** the stateless agent-memo arm ties everything at
+  ~⅓ the shipped config's input (137k vs 371k per session, sonnet;
+  152k vs 421k, opus) — with the caveat that its bench prompts carry
+  the two worked examples, not Replicator's production prompts.
+
+**Decision rule outcome: the interpretation table's first row —
+v3.183.0 is de-risked end to end.** Agent extraction is faithful,
+the retraction path works, the window's redundancy does not suppress
+recording, and the 32-message protection is real protection, not
+theater. The oracle→agent gap that BRIEF-T disclosed is now closed
+with measurement. Protocol note: the history ledger is built from
+per-step messages (the Study G-safe construction) with a runtime
+assertion that tool messages are present; it never fired.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is
