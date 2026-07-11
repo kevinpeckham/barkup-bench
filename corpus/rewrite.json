@@ -1,0 +1,3126 @@
+{
+	"version": 1,
+	"seed": 20260715,
+	"tasks": [
+		{
+			"id": "rw-1",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "juniper-quartz",
+				"attributes": {
+					"title": "About Juniper Quartz",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Juniper Quartz"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Juniper Quartz builds certified safety equipment that mountain guides can trust with their lives."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Every harness and anchor Juniper Quartz ships is certified against alpine impact standards. Certified inspectors review each production batch of climbing equipment by hand. The safety record of our equipment across a decade of expeditions speaks for itself."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "We built the first version dockside, sitting with the pilots who move the freight. Ports running Juniper Quartz report double-digit gains in freight throughput. Every harbor is different, so the scheduling engine tunes itself to local traffic."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "We publish the certification results for every mountain product we sell. Our design team includes working mountain guides who test prototypes on real routes. Guides in four mountain ranges carry Juniper Quartz gear on every ascent."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Juniper Quartz builds certified safety equipment that mountain guides can trust with their lives.",
+			"thesisWords": [
+				"safety",
+				"equipment",
+				"mountain",
+				"guides",
+				"certified"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "We built the first version dockside, sitting with the pilots who move the freight. Ports running Juniper Quartz report double-digit gains in freight throughput. Every harbor is different, so the scheduling engine tunes itself to local traffic.",
+			"company": "Juniper Quartz",
+			"domain": "alpine-safety",
+			"distractorDomain": "harbor-logistics"
+		},
+		{
+			"id": "rw-2",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "lantern-juniper",
+				"attributes": {
+					"title": "About Lantern Juniper",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Lantern Juniper"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Lantern Juniper moves freight through crowded ports faster with scheduling software built for harbor pilots."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Freight that used to wait three days at anchor now clears the port in one. Our scheduling software shaves idle hours off every freight window in the port. The software models tide tables and berth queues together, which no printed timetable can."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Our picking robots close their grippers with less force than a careful human hand. Fruit picked by Lantern Juniper machines reaches the packing line minutes after leaving the tree. Harvest crews redeploy to grading and packing while the robots handle picking."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Scheduling conflicts surface hours early, while there is still time to re-route. Lantern Juniper integrates with the port systems harbors already run. Every harbor is different, so the scheduling engine tunes itself to local traffic."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Lantern Juniper moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"thesisWords": [
+				"freight",
+				"ports",
+				"scheduling",
+				"harbor",
+				"software"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Our picking robots close their grippers with less force than a careful human hand. Fruit picked by Lantern Juniper machines reaches the packing line minutes after leaving the tree. Harvest crews redeploy to grading and packing while the robots handle picking.",
+			"company": "Lantern Juniper",
+			"domain": "harbor-logistics",
+			"distractorDomain": "orchard-robotics"
+		},
+		{
+			"id": "rw-3",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "willow-ember",
+				"attributes": {
+					"title": "About Willow Ember",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Willow Ember"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Willow Ember makes gentle picking robots that let orchards harvest ripe fruit without bruising it."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "A single robot can harvest through the night without fatigue or dropped fruit. The vision system finds ripe fruit under leaves that hide it from human pickers. Our picking robots close their grippers with less force than a careful human hand."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Scheduling conflicts surface hours early, while there is still time to re-route. We built the first version dockside, sitting with the pilots who move the freight. Ports running Willow Ember report double-digit gains in freight throughput."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Willow Ember robots roll between orchard rows on wheels designed for soft soil. Orchards report bruise rates near zero across entire harvest seasons. Fruit picked by Willow Ember machines reaches the packing line minutes after leaving the tree."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Willow Ember makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"thesisWords": [
+				"robots",
+				"orchards",
+				"harvest",
+				"fruit",
+				"picking"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Scheduling conflicts surface hours early, while there is still time to re-route. We built the first version dockside, sitting with the pilots who move the freight. Ports running Willow Ember report double-digit gains in freight throughput.",
+			"company": "Willow Ember",
+			"domain": "orchard-robotics",
+			"distractorDomain": "harbor-logistics"
+		},
+		{
+			"id": "rw-4",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "ember-garnet",
+				"attributes": {
+					"title": "About Ember Garnet",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Ember Garnet"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Ember Garnet restores and digitizes fragile paper archives so libraries never lose a page to time."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Libraries send us archives that have survived floods, fires, and a century of handling. Ember Garnet returns each archive with a digital twin and a restored original. A library's rarest paper materials never leave climate-controlled custody."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Designers choose Ember Garnet textiles for durability first and provenance second. A textile should carry its history without wearing it out. Every bolt of Ember Garnet fabric starts as reclaimed fiber sorted by hand."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "We have digitized archives in eleven languages and four alphabets. Every restored page is verified against its scan before the archive ships home. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Ember Garnet restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"thesisWords": [
+				"archives",
+				"libraries",
+				"digitizes",
+				"paper",
+				"restores"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Designers choose Ember Garnet textiles for durability first and provenance second. A textile should carry its history without wearing it out. Every bolt of Ember Garnet fabric starts as reclaimed fiber sorted by hand.",
+			"company": "Ember Garnet",
+			"domain": "archive-paper",
+			"distractorDomain": "loom-textiles"
+		},
+		{
+			"id": "rw-5",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "quartz-garnet",
+				"attributes": {
+					"title": "About Quartz Garnet",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Quartz Garnet"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Quartz Garnet anchors solar sensor buoys on reefs to give marine scientists live ocean data."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Research teams deploy a full sensor grid from one small boat in an afternoon. Our anchors hold sensors steady without touching living reef structure. Marine scientists open a browser and watch their reef breathe in live charts."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Designers choose Quartz Garnet textiles for durability first and provenance second. A textile should carry its history without wearing it out. Wind availability schedules the looms, and the mill banks power on gusty days."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "When the ocean changes, the buoys notice before anyone else. The data feed plugs straight into the models marine labs already use. Research teams deploy a full sensor grid from one small boat in an afternoon."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Quartz Garnet anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"thesisWords": [
+				"reefs",
+				"buoys",
+				"marine",
+				"ocean",
+				"solar"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Designers choose Quartz Garnet textiles for durability first and provenance second. A textile should carry its history without wearing it out. Wind availability schedules the looms, and the mill banks power on gusty days.",
+			"company": "Quartz Garnet",
+			"domain": "reef-sensors",
+			"distractorDomain": "loom-textiles"
+		},
+		{
+			"id": "rw-6",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "garnet-cedar",
+				"attributes": {
+					"title": "About Garnet Cedar",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Garnet Cedar"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Garnet Cedar weaves durable textiles from reclaimed fiber on looms powered entirely by wind."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The weave patterns are engineered to hide splice points in recovered fiber. Each fiber lot is traceable back to the garments it was reclaimed from. Designers choose Garnet Cedar textiles for durability first and provenance second."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The digitization lab captures every page at conservation-grade resolution. We have digitized archives in eleven languages and four alphabets. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Our looms run on wind power from the turbines behind the mill. The weave patterns are engineered to hide splice points in recovered fiber. Designers choose Garnet Cedar textiles for durability first and provenance second."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Garnet Cedar weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"thesisWords": [
+				"textiles",
+				"fiber",
+				"looms",
+				"reclaimed",
+				"wind"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "The digitization lab captures every page at conservation-grade resolution. We have digitized archives in eleven languages and four alphabets. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it.",
+			"company": "Garnet Cedar",
+			"domain": "loom-textiles",
+			"distractorDomain": "archive-paper"
+		},
+		{
+			"id": "rw-7",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "quartz-atlas",
+				"attributes": {
+					"title": "About Quartz Atlas",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Quartz Atlas"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Quartz Atlas builds certified safety equipment that mountain guides can trust with their lives."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Certified inspectors review each production batch of climbing equipment by hand. Our equipment is tested in freezing conditions before it ever reaches a shop wall. Every harness and anchor Quartz Atlas ships is certified against alpine impact standards."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. Our looms run on wind power from the turbines behind the mill. Wind availability schedules the looms, and the mill banks power on gusty days."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Our equipment is tested in freezing conditions before it ever reaches a shop wall. Our design team includes working mountain guides who test prototypes on real routes. Certified inspectors review each production batch of climbing equipment by hand."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Quartz Atlas builds certified safety equipment that mountain guides can trust with their lives.",
+			"thesisWords": [
+				"safety",
+				"equipment",
+				"mountain",
+				"guides",
+				"certified"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. Our looms run on wind power from the turbines behind the mill. Wind availability schedules the looms, and the mill banks power on gusty days.",
+			"company": "Quartz Atlas",
+			"domain": "alpine-safety",
+			"distractorDomain": "loom-textiles"
+		},
+		{
+			"id": "rw-8",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "juniper-ember",
+				"attributes": {
+					"title": "About Juniper Ember",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Juniper Ember"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Juniper Ember moves freight through crowded ports faster with scheduling software built for harbor pilots."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Scheduling conflicts surface hours early, while there is still time to re-route. Every harbor is different, so the scheduling engine tunes itself to local traffic. Freight that used to wait three days at anchor now clears the port in one."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Our picking robots close their grippers with less force than a careful human hand. Growers watch the harvest count climb in real time from the packing shed. Juniper Ember robots roll between orchard rows on wheels designed for soft soil."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Every harbor is different, so the scheduling engine tunes itself to local traffic. Harbor pilots see berth availability update in real time on Juniper Ember dashboards. Dispatchers and harbor pilots share one live picture of the port instead of six phone calls."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Juniper Ember moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"thesisWords": [
+				"freight",
+				"ports",
+				"scheduling",
+				"harbor",
+				"software"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Our picking robots close their grippers with less force than a careful human hand. Growers watch the harvest count climb in real time from the packing shed. Juniper Ember robots roll between orchard rows on wheels designed for soft soil.",
+			"company": "Juniper Ember",
+			"domain": "harbor-logistics",
+			"distractorDomain": "orchard-robotics"
+		},
+		{
+			"id": "rw-9",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "lantern-willow",
+				"attributes": {
+					"title": "About Lantern Willow",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Lantern Willow"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Lantern Willow makes gentle picking robots that let orchards harvest ripe fruit without bruising it."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Lantern Willow robots roll between orchard rows on wheels designed for soft soil. The vision system finds ripe fruit under leaves that hide it from human pickers. Fruit picked by Lantern Willow machines reaches the packing line minutes after leaving the tree."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "A library's rarest paper materials never leave climate-controlled custody. The digitization lab captures every page at conservation-grade resolution. We have digitized archives in eleven languages and four alphabets."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "A single robot can harvest through the night without fatigue or dropped fruit. The robots learn each orchard's layout in a single mapping pass. Every gripper is calibrated against the tenderest fruit the orchard grows."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Lantern Willow makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"thesisWords": [
+				"robots",
+				"orchards",
+				"harvest",
+				"fruit",
+				"picking"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "A library's rarest paper materials never leave climate-controlled custody. The digitization lab captures every page at conservation-grade resolution. We have digitized archives in eleven languages and four alphabets.",
+			"company": "Lantern Willow",
+			"domain": "orchard-robotics",
+			"distractorDomain": "archive-paper"
+		},
+		{
+			"id": "rw-10",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "atlas-willow",
+				"attributes": {
+					"title": "About Atlas Willow",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Atlas Willow"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Atlas Willow restores and digitizes fragile paper archives so libraries never lose a page to time."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Every restored page is verified against its scan before the archive ships home. The digitization lab captures every page at conservation-grade resolution. Atlas Willow returns each archive with a digital twin and a restored original."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Ports running Atlas Willow report double-digit gains in freight throughput. Our scheduling software shaves idle hours off every freight window in the port. Harbor pilots see berth availability update in real time on Atlas Willow dashboards."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Archivists track every folder of their collection through our restoration pipeline. Acid damage that once doomed paper collections can now be arrested and reversed. Every restored page is verified against its scan before the archive ships home."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Atlas Willow restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"thesisWords": [
+				"archives",
+				"libraries",
+				"digitizes",
+				"paper",
+				"restores"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Ports running Atlas Willow report double-digit gains in freight throughput. Our scheduling software shaves idle hours off every freight window in the port. Harbor pilots see berth availability update in real time on Atlas Willow dashboards.",
+			"company": "Atlas Willow",
+			"domain": "archive-paper",
+			"distractorDomain": "harbor-logistics"
+		},
+		{
+			"id": "rw-11",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "garnet-garnet",
+				"attributes": {
+					"title": "About Garnet Garnet",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Garnet Garnet"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Garnet Garnet anchors solar sensor buoys on reefs to give marine scientists live ocean data."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "When the ocean changes, the buoys notice before anyone else. The data feed plugs straight into the models marine labs already use. Ocean acidity trends that took years to assemble now appear in a single season."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Our design team includes working mountain guides who test prototypes on real routes. The safety record of our equipment across a decade of expeditions speaks for itself. Mountain guides helped design the locking system on our newest carabiners."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Research teams deploy a full sensor grid from one small boat in an afternoon. The data feed plugs straight into the models marine labs already use. Every reef in the network contributes to one shared ocean dataset."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Garnet Garnet anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"thesisWords": [
+				"reefs",
+				"buoys",
+				"marine",
+				"ocean",
+				"solar"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Our design team includes working mountain guides who test prototypes on real routes. The safety record of our equipment across a decade of expeditions speaks for itself. Mountain guides helped design the locking system on our newest carabiners.",
+			"company": "Garnet Garnet",
+			"domain": "reef-sensors",
+			"distractorDomain": "alpine-safety"
+		},
+		{
+			"id": "rw-12",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "atlas-juniper",
+				"attributes": {
+					"title": "About Atlas Juniper",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Atlas Juniper"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Atlas Juniper weaves durable textiles from reclaimed fiber on looms powered entirely by wind."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Loom tension is tuned per lot, because no two reclaimed fibers behave alike. Our looms run on wind power from the turbines behind the mill. A textile should carry its history without wearing it out."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Atlas Juniper buoys have survived three cyclone seasons without losing a data day. Ocean acidity trends that took years to assemble now appear in a single season. Research teams deploy a full sensor grid from one small boat in an afternoon."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "A textile should carry its history without wearing it out. The weave patterns are engineered to hide splice points in recovered fiber. Every bolt of Atlas Juniper fabric starts as reclaimed fiber sorted by hand."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Atlas Juniper weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"thesisWords": [
+				"textiles",
+				"fiber",
+				"looms",
+				"reclaimed",
+				"wind"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Atlas Juniper buoys have survived three cyclone seasons without losing a data day. Ocean acidity trends that took years to assemble now appear in a single season. Research teams deploy a full sensor grid from one small boat in an afternoon.",
+			"company": "Atlas Juniper",
+			"domain": "loom-textiles",
+			"distractorDomain": "reef-sensors"
+		},
+		{
+			"id": "rw-13",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "quartz-atlas",
+				"attributes": {
+					"title": "About Quartz Atlas",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Quartz Atlas"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Quartz Atlas builds certified safety equipment that mountain guides can trust with their lives."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The safety record of our equipment across a decade of expeditions speaks for itself. Guides in four mountain ranges carry Quartz Atlas gear on every ascent. Safety is not a feature we add at the end; it is the first line of every specification."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Each fiber lot is traceable back to the garments it was reclaimed from. Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. Loom tension is tuned per lot, because no two reclaimed fibers behave alike."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The safety record of our equipment across a decade of expeditions speaks for itself. Our design team includes working mountain guides who test prototypes on real routes. Guides in four mountain ranges carry Quartz Atlas gear on every ascent."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Quartz Atlas builds certified safety equipment that mountain guides can trust with their lives.",
+			"thesisWords": [
+				"safety",
+				"equipment",
+				"mountain",
+				"guides",
+				"certified"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Each fiber lot is traceable back to the garments it was reclaimed from. Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. Loom tension is tuned per lot, because no two reclaimed fibers behave alike.",
+			"company": "Quartz Atlas",
+			"domain": "alpine-safety",
+			"distractorDomain": "loom-textiles"
+		},
+		{
+			"id": "rw-14",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "garnet-willow",
+				"attributes": {
+					"title": "About Garnet Willow",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Garnet Willow"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Garnet Willow moves freight through crowded ports faster with scheduling software built for harbor pilots."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Freight that used to wait three days at anchor now clears the port in one. Scheduling conflicts surface hours early, while there is still time to re-route. Harbor pilots see berth availability update in real time on Garnet Willow dashboards."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Libraries send us archives that have survived floods, fires, and a century of handling. The digitization lab captures every page at conservation-grade resolution. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "We built the first version dockside, sitting with the pilots who move the freight. Our scheduling software shaves idle hours off every freight window in the port. Dispatchers and harbor pilots share one live picture of the port instead of six phone calls."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Garnet Willow moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"thesisWords": [
+				"freight",
+				"ports",
+				"scheduling",
+				"harbor",
+				"software"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Libraries send us archives that have survived floods, fires, and a century of handling. The digitization lab captures every page at conservation-grade resolution. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it.",
+			"company": "Garnet Willow",
+			"domain": "harbor-logistics",
+			"distractorDomain": "archive-paper"
+		},
+		{
+			"id": "rw-15",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "meadow-juniper",
+				"attributes": {
+					"title": "About Meadow Juniper",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Meadow Juniper"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Meadow Juniper makes gentle picking robots that let orchards harvest ripe fruit without bruising it."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Growers watch the harvest count climb in real time from the packing shed. A single robot can harvest through the night without fatigue or dropped fruit. The vision system finds ripe fruit under leaves that hide it from human pickers."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Our scheduling software shaves idle hours off every freight window in the port. Ports running Meadow Juniper report double-digit gains in freight throughput. Freight that used to wait three days at anchor now clears the port in one."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Meadow Juniper robots roll between orchard rows on wheels designed for soft soil. The vision system finds ripe fruit under leaves that hide it from human pickers. The robots learn each orchard's layout in a single mapping pass."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Meadow Juniper makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"thesisWords": [
+				"robots",
+				"orchards",
+				"harvest",
+				"fruit",
+				"picking"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Our scheduling software shaves idle hours off every freight window in the port. Ports running Meadow Juniper report double-digit gains in freight throughput. Freight that used to wait three days at anchor now clears the port in one.",
+			"company": "Meadow Juniper",
+			"domain": "orchard-robotics",
+			"distractorDomain": "harbor-logistics"
+		},
+		{
+			"id": "rw-16",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "cedar-meadow",
+				"attributes": {
+					"title": "About Cedar Meadow",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Cedar Meadow"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Cedar Meadow restores and digitizes fragile paper archives so libraries never lose a page to time."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "A library's rarest paper materials never leave climate-controlled custody. We have digitized archives in eleven languages and four alphabets. Paper outlives us all when someone restores it in time."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Ports running Cedar Meadow report double-digit gains in freight throughput. Dispatchers and harbor pilots share one live picture of the port instead of six phone calls. Harbor pilots see berth availability update in real time on Cedar Meadow dashboards."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Cedar Meadow returns each archive with a digital twin and a restored original. A library's rarest paper materials never leave climate-controlled custody. We have digitized archives in eleven languages and four alphabets."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Cedar Meadow restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"thesisWords": [
+				"archives",
+				"libraries",
+				"digitizes",
+				"paper",
+				"restores"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Ports running Cedar Meadow report double-digit gains in freight throughput. Dispatchers and harbor pilots share one live picture of the port instead of six phone calls. Harbor pilots see berth availability update in real time on Cedar Meadow dashboards.",
+			"company": "Cedar Meadow",
+			"domain": "archive-paper",
+			"distractorDomain": "harbor-logistics"
+		},
+		{
+			"id": "rw-17",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "quartz-sierra",
+				"attributes": {
+					"title": "About Quartz Sierra",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Quartz Sierra"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Quartz Sierra anchors solar sensor buoys on reefs to give marine scientists live ocean data."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Each buoy streams temperature, salinity, and current data from the reef every minute. Quartz Sierra buoys have survived three cyclone seasons without losing a data day. The solar array keeps every sensor running through monsoon season."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Every harbor is different, so the scheduling engine tunes itself to local traffic. Ports running Quartz Sierra report double-digit gains in freight throughput. The software models tide tables and berth queues together, which no printed timetable can."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Our anchors hold sensors steady without touching living reef structure. The solar array keeps every sensor running through monsoon season. Quartz Sierra buoys have survived three cyclone seasons without losing a data day."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Quartz Sierra anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"thesisWords": [
+				"reefs",
+				"buoys",
+				"marine",
+				"ocean",
+				"solar"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Every harbor is different, so the scheduling engine tunes itself to local traffic. Ports running Quartz Sierra report double-digit gains in freight throughput. The software models tide tables and berth queues together, which no printed timetable can.",
+			"company": "Quartz Sierra",
+			"domain": "reef-sensors",
+			"distractorDomain": "harbor-logistics"
+		},
+		{
+			"id": "rw-18",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "willow-quartz",
+				"attributes": {
+					"title": "About Willow Quartz",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Willow Quartz"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Willow Quartz weaves durable textiles from reclaimed fiber on looms powered entirely by wind."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Designers choose Willow Quartz textiles for durability first and provenance second. Loom tension is tuned per lot, because no two reclaimed fibers behave alike. A textile should carry its history without wearing it out."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Ports running Willow Quartz report double-digit gains in freight throughput. Freight that used to wait three days at anchor now clears the port in one. Harbor pilots see berth availability update in real time on Willow Quartz dashboards."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Each fiber lot is traceable back to the garments it was reclaimed from. Our looms run on wind power from the turbines behind the mill. The weave patterns are engineered to hide splice points in recovered fiber."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Willow Quartz weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"thesisWords": [
+				"textiles",
+				"fiber",
+				"looms",
+				"reclaimed",
+				"wind"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Ports running Willow Quartz report double-digit gains in freight throughput. Freight that used to wait three days at anchor now clears the port in one. Harbor pilots see berth availability update in real time on Willow Quartz dashboards.",
+			"company": "Willow Quartz",
+			"domain": "loom-textiles",
+			"distractorDomain": "harbor-logistics"
+		},
+		{
+			"id": "rw-19",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "ember-cedar",
+				"attributes": {
+					"title": "About Ember Cedar",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Ember Cedar"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Ember Cedar builds certified safety equipment that mountain guides can trust with their lives."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Guides in four mountain ranges carry Ember Cedar gear on every ascent. We publish the certification results for every mountain product we sell. Every harness and anchor Ember Cedar ships is certified against alpine impact standards."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "A textile should carry its history without wearing it out. Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. The weave patterns are engineered to hide splice points in recovered fiber."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Guides in four mountain ranges carry Ember Cedar gear on every ascent. Certified inspectors review each production batch of climbing equipment by hand. Mountain guides helped design the locking system on our newest carabiners."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Ember Cedar builds certified safety equipment that mountain guides can trust with their lives.",
+			"thesisWords": [
+				"safety",
+				"equipment",
+				"mountain",
+				"guides",
+				"certified"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "A textile should carry its history without wearing it out. Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. The weave patterns are engineered to hide splice points in recovered fiber.",
+			"company": "Ember Cedar",
+			"domain": "alpine-safety",
+			"distractorDomain": "loom-textiles"
+		},
+		{
+			"id": "rw-20",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "ember-willow",
+				"attributes": {
+					"title": "About Ember Willow",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Ember Willow"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Ember Willow moves freight through crowded ports faster with scheduling software built for harbor pilots."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Ports running Ember Willow report double-digit gains in freight throughput. Our scheduling software shaves idle hours off every freight window in the port. We built the first version dockside, sitting with the pilots who move the freight."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The safety record of our equipment across a decade of expeditions speaks for itself. Safety is not a feature we add at the end; it is the first line of every specification. Certified inspectors review each production batch of climbing equipment by hand."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Our scheduling software shaves idle hours off every freight window in the port. The software models tide tables and berth queues together, which no printed timetable can. Freight that used to wait three days at anchor now clears the port in one."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Ember Willow moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"thesisWords": [
+				"freight",
+				"ports",
+				"scheduling",
+				"harbor",
+				"software"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "The safety record of our equipment across a decade of expeditions speaks for itself. Safety is not a feature we add at the end; it is the first line of every specification. Certified inspectors review each production batch of climbing equipment by hand.",
+			"company": "Ember Willow",
+			"domain": "harbor-logistics",
+			"distractorDomain": "alpine-safety"
+		},
+		{
+			"id": "rw-21",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "meadow-lantern",
+				"attributes": {
+					"title": "About Meadow Lantern",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Meadow Lantern"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Meadow Lantern makes gentle picking robots that let orchards harvest ripe fruit without bruising it."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Meadow Lantern robots roll between orchard rows on wheels designed for soft soil. The robots learn each orchard's layout in a single mapping pass. Every gripper is calibrated against the tenderest fruit the orchard grows."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Our scheduling software shaves idle hours off every freight window in the port. We built the first version dockside, sitting with the pilots who move the freight. Every harbor is different, so the scheduling engine tunes itself to local traffic."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Our picking robots close their grippers with less force than a careful human hand. A single robot can harvest through the night without fatigue or dropped fruit. Every gripper is calibrated against the tenderest fruit the orchard grows."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Meadow Lantern makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"thesisWords": [
+				"robots",
+				"orchards",
+				"harvest",
+				"fruit",
+				"picking"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Our scheduling software shaves idle hours off every freight window in the port. We built the first version dockside, sitting with the pilots who move the freight. Every harbor is different, so the scheduling engine tunes itself to local traffic.",
+			"company": "Meadow Lantern",
+			"domain": "orchard-robotics",
+			"distractorDomain": "harbor-logistics"
+		},
+		{
+			"id": "rw-22",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "sierra-atlas",
+				"attributes": {
+					"title": "About Sierra Atlas",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Sierra Atlas"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Sierra Atlas restores and digitizes fragile paper archives so libraries never lose a page to time."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Libraries send us archives that have survived floods, fires, and a century of handling. Every restored page is verified against its scan before the archive ships home. A library's rarest paper materials never leave climate-controlled custody."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Loom tension is tuned per lot, because no two reclaimed fibers behave alike. Designers choose Sierra Atlas textiles for durability first and provenance second. Every bolt of Sierra Atlas fabric starts as reclaimed fiber sorted by hand."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Sierra Atlas returns each archive with a digital twin and a restored original. Paper outlives us all when someone restores it in time. Libraries send us archives that have survived floods, fires, and a century of handling."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Sierra Atlas restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"thesisWords": [
+				"archives",
+				"libraries",
+				"digitizes",
+				"paper",
+				"restores"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Loom tension is tuned per lot, because no two reclaimed fibers behave alike. Designers choose Sierra Atlas textiles for durability first and provenance second. Every bolt of Sierra Atlas fabric starts as reclaimed fiber sorted by hand.",
+			"company": "Sierra Atlas",
+			"domain": "archive-paper",
+			"distractorDomain": "loom-textiles"
+		},
+		{
+			"id": "rw-23",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "meadow-garnet",
+				"attributes": {
+					"title": "About Meadow Garnet",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Meadow Garnet"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Meadow Garnet anchors solar sensor buoys on reefs to give marine scientists live ocean data."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The solar array keeps every sensor running through monsoon season. Research teams deploy a full sensor grid from one small boat in an afternoon. Ocean acidity trends that took years to assemble now appear in a single season."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The software models tide tables and berth queues together, which no printed timetable can. Ports running Meadow Garnet report double-digit gains in freight throughput. Meadow Garnet integrates with the port systems harbors already run."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Each buoy streams temperature, salinity, and current data from the reef every minute. Every reef in the network contributes to one shared ocean dataset. Research teams deploy a full sensor grid from one small boat in an afternoon."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Meadow Garnet anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"thesisWords": [
+				"reefs",
+				"buoys",
+				"marine",
+				"ocean",
+				"solar"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "The software models tide tables and berth queues together, which no printed timetable can. Ports running Meadow Garnet report double-digit gains in freight throughput. Meadow Garnet integrates with the port systems harbors already run.",
+			"company": "Meadow Garnet",
+			"domain": "reef-sensors",
+			"distractorDomain": "harbor-logistics"
+		},
+		{
+			"id": "rw-24",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "sierra-garnet",
+				"attributes": {
+					"title": "About Sierra Garnet",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Sierra Garnet"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Sierra Garnet weaves durable textiles from reclaimed fiber on looms powered entirely by wind."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Our looms run on wind power from the turbines behind the mill. Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. Every bolt of Sierra Garnet fabric starts as reclaimed fiber sorted by hand."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "We have digitized archives in eleven languages and four alphabets. Sierra Garnet returns each archive with a digital twin and a restored original. Acid damage that once doomed paper collections can now be arrested and reversed."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The mill diverts tons of fiber from landfill every production month. Our looms run on wind power from the turbines behind the mill. Each fiber lot is traceable back to the garments it was reclaimed from."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Sierra Garnet weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"thesisWords": [
+				"textiles",
+				"fiber",
+				"looms",
+				"reclaimed",
+				"wind"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "We have digitized archives in eleven languages and four alphabets. Sierra Garnet returns each archive with a digital twin and a restored original. Acid damage that once doomed paper collections can now be arrested and reversed.",
+			"company": "Sierra Garnet",
+			"domain": "loom-textiles",
+			"distractorDomain": "archive-paper"
+		},
+		{
+			"id": "rw-25",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "willow-quartz",
+				"attributes": {
+					"title": "About Willow Quartz",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Willow Quartz"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Willow Quartz builds certified safety equipment that mountain guides can trust with their lives."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Every harness and anchor Willow Quartz ships is certified against alpine impact standards. Safety is not a feature we add at the end; it is the first line of every specification. Our equipment is tested in freezing conditions before it ever reaches a shop wall."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The software models tide tables and berth queues together, which no printed timetable can. Ports running Willow Quartz report double-digit gains in freight throughput. Harbor pilots see berth availability update in real time on Willow Quartz dashboards."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "We publish the certification results for every mountain product we sell. Our equipment is tested in freezing conditions before it ever reaches a shop wall. Guides in four mountain ranges carry Willow Quartz gear on every ascent."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Willow Quartz builds certified safety equipment that mountain guides can trust with their lives.",
+			"thesisWords": [
+				"safety",
+				"equipment",
+				"mountain",
+				"guides",
+				"certified"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "The software models tide tables and berth queues together, which no printed timetable can. Ports running Willow Quartz report double-digit gains in freight throughput. Harbor pilots see berth availability update in real time on Willow Quartz dashboards.",
+			"company": "Willow Quartz",
+			"domain": "alpine-safety",
+			"distractorDomain": "harbor-logistics"
+		},
+		{
+			"id": "rw-26",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "lantern-juniper",
+				"attributes": {
+					"title": "About Lantern Juniper",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Lantern Juniper"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Lantern Juniper moves freight through crowded ports faster with scheduling software built for harbor pilots."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The software models tide tables and berth queues together, which no printed timetable can. Harbor pilots see berth availability update in real time on Lantern Juniper dashboards. Freight that used to wait three days at anchor now clears the port in one."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "A single robot can harvest through the night without fatigue or dropped fruit. Fruit picked by Lantern Juniper machines reaches the packing line minutes after leaving the tree. The robots learn each orchard's layout in a single mapping pass."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Lantern Juniper integrates with the port systems harbors already run. Harbor pilots see berth availability update in real time on Lantern Juniper dashboards. Our scheduling software shaves idle hours off every freight window in the port."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Lantern Juniper moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"thesisWords": [
+				"freight",
+				"ports",
+				"scheduling",
+				"harbor",
+				"software"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "A single robot can harvest through the night without fatigue or dropped fruit. Fruit picked by Lantern Juniper machines reaches the packing line minutes after leaving the tree. The robots learn each orchard's layout in a single mapping pass.",
+			"company": "Lantern Juniper",
+			"domain": "harbor-logistics",
+			"distractorDomain": "orchard-robotics"
+		},
+		{
+			"id": "rw-27",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "meadow-garnet",
+				"attributes": {
+					"title": "About Meadow Garnet",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Meadow Garnet"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Meadow Garnet makes gentle picking robots that let orchards harvest ripe fruit without bruising it."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Orchards report bruise rates near zero across entire harvest seasons. Fruit picked by Meadow Garnet machines reaches the packing line minutes after leaving the tree. Growers watch the harvest count climb in real time from the packing shed."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Dispatchers and harbor pilots share one live picture of the port instead of six phone calls. Freight that used to wait three days at anchor now clears the port in one. We built the first version dockside, sitting with the pilots who move the freight."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Every gripper is calibrated against the tenderest fruit the orchard grows. Fruit picked by Meadow Garnet machines reaches the packing line minutes after leaving the tree. A single robot can harvest through the night without fatigue or dropped fruit."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Meadow Garnet makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"thesisWords": [
+				"robots",
+				"orchards",
+				"harvest",
+				"fruit",
+				"picking"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Dispatchers and harbor pilots share one live picture of the port instead of six phone calls. Freight that used to wait three days at anchor now clears the port in one. We built the first version dockside, sitting with the pilots who move the freight.",
+			"company": "Meadow Garnet",
+			"domain": "orchard-robotics",
+			"distractorDomain": "harbor-logistics"
+		},
+		{
+			"id": "rw-28",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "atlas-willow",
+				"attributes": {
+					"title": "About Atlas Willow",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Atlas Willow"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Atlas Willow restores and digitizes fragile paper archives so libraries never lose a page to time."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "A library's rarest paper materials never leave climate-controlled custody. Archivists track every folder of their collection through our restoration pipeline. The digitization lab captures every page at conservation-grade resolution."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The data feed plugs straight into the models marine labs already use. Research teams deploy a full sensor grid from one small boat in an afternoon. Each buoy streams temperature, salinity, and current data from the reef every minute."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Paper outlives us all when someone restores it in time. Atlas Willow returns each archive with a digital twin and a restored original. Archivists track every folder of their collection through our restoration pipeline."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Atlas Willow restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"thesisWords": [
+				"archives",
+				"libraries",
+				"digitizes",
+				"paper",
+				"restores"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "The data feed plugs straight into the models marine labs already use. Research teams deploy a full sensor grid from one small boat in an afternoon. Each buoy streams temperature, salinity, and current data from the reef every minute.",
+			"company": "Atlas Willow",
+			"domain": "archive-paper",
+			"distractorDomain": "reef-sensors"
+		},
+		{
+			"id": "rw-29",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "lantern-lantern",
+				"attributes": {
+					"title": "About Lantern Lantern",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Lantern Lantern"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Lantern Lantern anchors solar sensor buoys on reefs to give marine scientists live ocean data."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Each buoy streams temperature, salinity, and current data from the reef every minute. Ocean acidity trends that took years to assemble now appear in a single season. Every reef in the network contributes to one shared ocean dataset."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The digitization lab captures every page at conservation-grade resolution. We have digitized archives in eleven languages and four alphabets. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "The data feed plugs straight into the models marine labs already use. When the ocean changes, the buoys notice before anyone else. Each buoy streams temperature, salinity, and current data from the reef every minute."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Lantern Lantern anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"thesisWords": [
+				"reefs",
+				"buoys",
+				"marine",
+				"ocean",
+				"solar"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "The digitization lab captures every page at conservation-grade resolution. We have digitized archives in eleven languages and four alphabets. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it.",
+			"company": "Lantern Lantern",
+			"domain": "reef-sensors",
+			"distractorDomain": "archive-paper"
+		},
+		{
+			"id": "rw-30",
+			"family": "transformation",
+			"bucket": "xs",
+			"tree": {
+				"type": "document",
+				"id": "n1",
+				"name": "atlas-cedar",
+				"attributes": {
+					"title": "About Atlas Cedar",
+					"theme": "light"
+				},
+				"children": [
+					{
+						"type": "page",
+						"id": "n2",
+						"name": "about",
+						"attributes": {
+							"layoutSize": "standard"
+						},
+						"children": [
+							{
+								"type": "block",
+								"id": "n3",
+								"name": "about-hero",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n4",
+										"name": "about-heading",
+										"attributes": {
+											"textStyle": "heading",
+											"maxLength": 600,
+											"content": "About Atlas Cedar"
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n5",
+										"name": "mission-statement",
+										"attributes": {
+											"textStyle": "subheading",
+											"maxLength": 600,
+											"content": "Atlas Cedar weaves durable textiles from reclaimed fiber on looms powered entirely by wind."
+										}
+									}
+								]
+							},
+							{
+								"type": "block",
+								"id": "n6",
+								"name": "about-body",
+								"children": [
+									{
+										"type": "text-atom",
+										"id": "n7",
+										"name": "about-para-1",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Every bolt of Atlas Cedar fabric starts as reclaimed fiber sorted by hand. Wind availability schedules the looms, and the mill banks power on gusty days. Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n8",
+										"name": "about-para-2",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Atlas Cedar returns each archive with a digital twin and a restored original. Every restored page is verified against its scan before the archive ships home. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it."
+										}
+									},
+									{
+										"type": "text-atom",
+										"id": "n9",
+										"name": "about-para-3",
+										"attributes": {
+											"textStyle": "body",
+											"maxLength": 600,
+											"content": "Wind availability schedules the looms, and the mill banks power on gusty days. The weave patterns are engineered to hide splice points in recovered fiber. Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced."
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thesis": "Atlas Cedar weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"thesisWords": [
+				"textiles",
+				"fiber",
+				"looms",
+				"reclaimed",
+				"wind"
+			],
+			"targetId": "n8",
+			"missionId": "n5",
+			"original": "Atlas Cedar returns each archive with a digital twin and a restored original. Every restored page is verified against its scan before the archive ships home. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it.",
+			"company": "Atlas Cedar",
+			"domain": "loom-textiles",
+			"distractorDomain": "archive-paper"
+		}
+	]
+}

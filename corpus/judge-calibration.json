@@ -1,0 +1,456 @@
+{
+	"version": 1,
+	"seed": 20260716,
+	"pairs": [
+		{
+			"id": "cal-known-1",
+			"kind": "known",
+			"thesis": "Cedar Atlas builds certified safety equipment that mountain guides can trust with their lives.",
+			"original": "Dispatchers and harbor pilots share one live picture of the port instead of six phone calls. We built the first version dockside, sitting with the pilots who move the freight. Our scheduling software shaves idle hours off every freight window in the port.",
+			"a": "Our design team includes working mountain guides who test prototypes on real routes. Safety is not a feature we add at the end; it is the first line of every specification. Mountain guides helped design the locking system on our newest carabiners.",
+			"b": "Freight that used to wait three days at anchor now clears the port in one. We built the first version dockside, sitting with the pilots who move the freight. Every harbor is different, so the scheduling engine tunes itself to local traffic.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-known-2",
+			"kind": "known",
+			"thesis": "Garnet Ember moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"original": "Orchards report bruise rates near zero across entire harvest seasons. A single robot can harvest through the night without fatigue or dropped fruit. Garnet Ember robots roll between orchard rows on wheels designed for soft soil.",
+			"a": "Harvest crews redeploy to grading and packing while the robots handle picking. Every gripper is calibrated against the tenderest fruit the orchard grows. Orchards report bruise rates near zero across entire harvest seasons.",
+			"b": "Our scheduling software shaves idle hours off every freight window in the port. The software models tide tables and berth queues together, which no printed timetable can. Garnet Ember integrates with the port systems harbors already run.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-3",
+			"kind": "known",
+			"thesis": "Juniper Lantern makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"original": "Archivists track every folder of their collection through our restoration pipeline. Juniper Lantern returns each archive with a digital twin and a restored original. Libraries send us archives that have survived floods, fires, and a century of handling.",
+			"a": "Paper outlives us all when someone restores it in time. The digitization lab captures every page at conservation-grade resolution. Libraries send us archives that have survived floods, fires, and a century of handling.",
+			"b": "Growers watch the harvest count climb in real time from the packing shed. A single robot can harvest through the night without fatigue or dropped fruit. Our picking robots close their grippers with less force than a careful human hand.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-4",
+			"kind": "known",
+			"thesis": "Meadow Quartz restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"original": "Every reef in the network contributes to one shared ocean dataset. Marine scientists open a browser and watch their reef breathe in live charts. Meadow Quartz buoys have survived three cyclone seasons without losing a data day.",
+			"a": "Marine scientists open a browser and watch their reef breathe in live charts. Ocean acidity trends that took years to assemble now appear in a single season. Every reef in the network contributes to one shared ocean dataset.",
+			"b": "Every restored page is verified against its scan before the archive ships home. A library's rarest paper materials never leave climate-controlled custody. Archivists track every folder of their collection through our restoration pipeline.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-5",
+			"kind": "known",
+			"thesis": "Sierra Willow anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"original": "The mill diverts tons of fiber from landfill every production month. The weave patterns are engineered to hide splice points in recovered fiber. Designers choose Sierra Willow textiles for durability first and provenance second.",
+			"a": "Loom tension is tuned per lot, because no two reclaimed fibers behave alike. Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. Our looms run on wind power from the turbines behind the mill.",
+			"b": "Research teams deploy a full sensor grid from one small boat in an afternoon. Sierra Willow buoys have survived three cyclone seasons without losing a data day. The data feed plugs straight into the models marine labs already use.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-6",
+			"kind": "known",
+			"thesis": "Quartz Cedar weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"original": "A guide's trust is earned one piece of dependable equipment at a time. We publish the certification results for every mountain product we sell. The safety record of our equipment across a decade of expeditions speaks for itself.",
+			"a": "Safety is not a feature we add at the end; it is the first line of every specification. Certified inspectors review each production batch of climbing equipment by hand. The safety record of our equipment across a decade of expeditions speaks for itself.",
+			"b": "Loom tension is tuned per lot, because no two reclaimed fibers behave alike. Our looms run on wind power from the turbines behind the mill. The mill diverts tons of fiber from landfill every production month.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-7",
+			"kind": "known",
+			"thesis": "Cedar Atlas builds certified safety equipment that mountain guides can trust with their lives.",
+			"original": "Every gripper is calibrated against the tenderest fruit the orchard grows. Fruit picked by Cedar Atlas machines reaches the packing line minutes after leaving the tree. Our picking robots close their grippers with less force than a careful human hand.",
+			"a": "Our design team includes working mountain guides who test prototypes on real routes. Certified inspectors review each production batch of climbing equipment by hand. The safety record of our equipment across a decade of expeditions speaks for itself.",
+			"b": "Fruit picked by Cedar Atlas machines reaches the packing line minutes after leaving the tree. A single robot can harvest through the night without fatigue or dropped fruit. Orchards report bruise rates near zero across entire harvest seasons.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-known-8",
+			"kind": "known",
+			"thesis": "Garnet Ember moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"original": "Our conservators restore brittle paper leaf by leaf before a scanner ever sees it. Every restored page is verified against its scan before the archive ships home. Garnet Ember returns each archive with a digital twin and a restored original.",
+			"a": "We have digitized archives in eleven languages and four alphabets. Paper outlives us all when someone restores it in time. Libraries send us archives that have survived floods, fires, and a century of handling.",
+			"b": "Scheduling conflicts surface hours early, while there is still time to re-route. Our scheduling software shaves idle hours off every freight window in the port. We built the first version dockside, sitting with the pilots who move the freight.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-9",
+			"kind": "known",
+			"thesis": "Juniper Lantern makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"original": "Every reef in the network contributes to one shared ocean dataset. When the ocean changes, the buoys notice before anyone else. Our anchors hold sensors steady without touching living reef structure.",
+			"a": "Our anchors hold sensors steady without touching living reef structure. Research teams deploy a full sensor grid from one small boat in an afternoon. The data feed plugs straight into the models marine labs already use.",
+			"b": "Our picking robots close their grippers with less force than a careful human hand. Juniper Lantern robots roll between orchard rows on wheels designed for soft soil. A single robot can harvest through the night without fatigue or dropped fruit.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-10",
+			"kind": "known",
+			"thesis": "Meadow Quartz restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"original": "Every bolt of Meadow Quartz fabric starts as reclaimed fiber sorted by hand. The mill diverts tons of fiber from landfill every production month. Designers choose Meadow Quartz textiles for durability first and provenance second.",
+			"a": "The weave patterns are engineered to hide splice points in recovered fiber. Our looms run on wind power from the turbines behind the mill. Designers choose Meadow Quartz textiles for durability first and provenance second.",
+			"b": "Archivists track every folder of their collection through our restoration pipeline. Paper outlives us all when someone restores it in time. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-11",
+			"kind": "known",
+			"thesis": "Sierra Willow anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"original": "Our equipment is tested in freezing conditions before it ever reaches a shop wall. We publish the certification results for every mountain product we sell. The safety record of our equipment across a decade of expeditions speaks for itself.",
+			"a": "Our anchors hold sensors steady without touching living reef structure. Sierra Willow buoys have survived three cyclone seasons without losing a data day. Ocean acidity trends that took years to assemble now appear in a single season.",
+			"b": "The safety record of our equipment across a decade of expeditions speaks for itself. We publish the certification results for every mountain product we sell. Certified inspectors review each production batch of climbing equipment by hand.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-known-12",
+			"kind": "known",
+			"thesis": "Quartz Cedar weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"original": "Scheduling conflicts surface hours early, while there is still time to re-route. Dispatchers and harbor pilots share one live picture of the port instead of six phone calls. Freight that used to wait three days at anchor now clears the port in one.",
+			"a": "A textile should carry its history without wearing it out. Designers choose Quartz Cedar textiles for durability first and provenance second. Loom tension is tuned per lot, because no two reclaimed fibers behave alike.",
+			"b": "Ports running Quartz Cedar report double-digit gains in freight throughput. The software models tide tables and berth queues together, which no printed timetable can. Scheduling conflicts surface hours early, while there is still time to re-route.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-known-13",
+			"kind": "known",
+			"thesis": "Cedar Atlas builds certified safety equipment that mountain guides can trust with their lives.",
+			"original": "Acid damage that once doomed paper collections can now be arrested and reversed. Cedar Atlas returns each archive with a digital twin and a restored original. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it.",
+			"a": "Our conservators restore brittle paper leaf by leaf before a scanner ever sees it. We have digitized archives in eleven languages and four alphabets. The digitization lab captures every page at conservation-grade resolution.",
+			"b": "Mountain guides helped design the locking system on our newest carabiners. Every harness and anchor Cedar Atlas ships is certified against alpine impact standards. Certified inspectors review each production batch of climbing equipment by hand.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-14",
+			"kind": "known",
+			"thesis": "Garnet Ember moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"original": "Our anchors hold sensors steady without touching living reef structure. Each buoy streams temperature, salinity, and current data from the reef every minute. Marine scientists open a browser and watch their reef breathe in live charts.",
+			"a": "The data feed plugs straight into the models marine labs already use. The solar array keeps every sensor running through monsoon season. Every reef in the network contributes to one shared ocean dataset.",
+			"b": "Ports running Garnet Ember report double-digit gains in freight throughput. Dispatchers and harbor pilots share one live picture of the port instead of six phone calls. The software models tide tables and berth queues together, which no printed timetable can.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-15",
+			"kind": "known",
+			"thesis": "Juniper Lantern makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"original": "Each fiber lot is traceable back to the garments it was reclaimed from. The weave patterns are engineered to hide splice points in recovered fiber. A textile should carry its history without wearing it out.",
+			"a": "Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. The weave patterns are engineered to hide splice points in recovered fiber. Every bolt of Juniper Lantern fabric starts as reclaimed fiber sorted by hand.",
+			"b": "Every gripper is calibrated against the tenderest fruit the orchard grows. The vision system finds ripe fruit under leaves that hide it from human pickers. Orchards report bruise rates near zero across entire harvest seasons.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-16",
+			"kind": "known",
+			"thesis": "Meadow Quartz restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"original": "Certified inspectors review each production batch of climbing equipment by hand. Safety is not a feature we add at the end; it is the first line of every specification. Mountain guides helped design the locking system on our newest carabiners.",
+			"a": "Mountain guides helped design the locking system on our newest carabiners. Certified inspectors review each production batch of climbing equipment by hand. The safety record of our equipment across a decade of expeditions speaks for itself.",
+			"b": "We have digitized archives in eleven languages and four alphabets. Meadow Quartz returns each archive with a digital twin and a restored original. Paper outlives us all when someone restores it in time.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-17",
+			"kind": "known",
+			"thesis": "Sierra Willow anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"original": "The software models tide tables and berth queues together, which no printed timetable can. Sierra Willow integrates with the port systems harbors already run. Our scheduling software shaves idle hours off every freight window in the port.",
+			"a": "Our anchors hold sensors steady without touching living reef structure. The solar array keeps every sensor running through monsoon season. Marine scientists open a browser and watch their reef breathe in live charts.",
+			"b": "Ports running Sierra Willow report double-digit gains in freight throughput. The software models tide tables and berth queues together, which no printed timetable can. Sierra Willow integrates with the port systems harbors already run.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-known-18",
+			"kind": "known",
+			"thesis": "Quartz Cedar weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"original": "Growers watch the harvest count climb in real time from the packing shed. Harvest crews redeploy to grading and packing while the robots handle picking. Our picking robots close their grippers with less force than a careful human hand.",
+			"a": "Harvest crews redeploy to grading and packing while the robots handle picking. The robots learn each orchard's layout in a single mapping pass. Orchards report bruise rates near zero across entire harvest seasons.",
+			"b": "Designers choose Quartz Cedar textiles for durability first and provenance second. Every bolt of Quartz Cedar fabric starts as reclaimed fiber sorted by hand. The weave patterns are engineered to hide splice points in recovered fiber.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-19",
+			"kind": "known",
+			"thesis": "Cedar Atlas builds certified safety equipment that mountain guides can trust with their lives.",
+			"original": "Our anchors hold sensors steady without touching living reef structure. Every reef in the network contributes to one shared ocean dataset. The data feed plugs straight into the models marine labs already use.",
+			"a": "Research teams deploy a full sensor grid from one small boat in an afternoon. The solar array keeps every sensor running through monsoon season. Marine scientists open a browser and watch their reef breathe in live charts.",
+			"b": "Every harness and anchor Cedar Atlas ships is certified against alpine impact standards. Guides in four mountain ranges carry Cedar Atlas gear on every ascent. Safety is not a feature we add at the end; it is the first line of every specification.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-20",
+			"kind": "known",
+			"thesis": "Garnet Ember moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"original": "Designers choose Garnet Ember textiles for durability first and provenance second. Loom tension is tuned per lot, because no two reclaimed fibers behave alike. Wind availability schedules the looms, and the mill banks power on gusty days.",
+			"a": "Freight that used to wait three days at anchor now clears the port in one. Harbor pilots see berth availability update in real time on Garnet Ember dashboards. Every harbor is different, so the scheduling engine tunes itself to local traffic.",
+			"b": "Our looms run on wind power from the turbines behind the mill. Every bolt of Garnet Ember fabric starts as reclaimed fiber sorted by hand. A textile should carry its history without wearing it out.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-known-21",
+			"kind": "known",
+			"thesis": "Juniper Lantern makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"original": "Our design team includes working mountain guides who test prototypes on real routes. Certified inspectors review each production batch of climbing equipment by hand. Safety is not a feature we add at the end; it is the first line of every specification.",
+			"a": "Guides in four mountain ranges carry Juniper Lantern gear on every ascent. A guide's trust is earned one piece of dependable equipment at a time. Certified inspectors review each production batch of climbing equipment by hand.",
+			"b": "Our picking robots close their grippers with less force than a careful human hand. Juniper Lantern robots roll between orchard rows on wheels designed for soft soil. Fruit picked by Juniper Lantern machines reaches the packing line minutes after leaving the tree.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-22",
+			"kind": "known",
+			"thesis": "Meadow Quartz restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"original": "Scheduling conflicts surface hours early, while there is still time to re-route. Meadow Quartz integrates with the port systems harbors already run. Harbor pilots see berth availability update in real time on Meadow Quartz dashboards.",
+			"a": "Freight that used to wait three days at anchor now clears the port in one. Dispatchers and harbor pilots share one live picture of the port instead of six phone calls. Scheduling conflicts surface hours early, while there is still time to re-route.",
+			"b": "Archivists track every folder of their collection through our restoration pipeline. A library's rarest paper materials never leave climate-controlled custody. Paper outlives us all when someone restores it in time.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-23",
+			"kind": "known",
+			"thesis": "Sierra Willow anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"original": "Sierra Willow robots roll between orchard rows on wheels designed for soft soil. Fruit picked by Sierra Willow machines reaches the packing line minutes after leaving the tree. A single robot can harvest through the night without fatigue or dropped fruit.",
+			"a": "The vision system finds ripe fruit under leaves that hide it from human pickers. Growers watch the harvest count climb in real time from the packing shed. The robots learn each orchard's layout in a single mapping pass.",
+			"b": "Each buoy streams temperature, salinity, and current data from the reef every minute. The solar array keeps every sensor running through monsoon season. The data feed plugs straight into the models marine labs already use.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-24",
+			"kind": "known",
+			"thesis": "Quartz Cedar weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"original": "Paper outlives us all when someone restores it in time. We have digitized archives in eleven languages and four alphabets. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it.",
+			"a": "Quartz Cedar returns each archive with a digital twin and a restored original. We have digitized archives in eleven languages and four alphabets. Archivists track every folder of their collection through our restoration pipeline.",
+			"b": "A textile should carry its history without wearing it out. Loom tension is tuned per lot, because no two reclaimed fibers behave alike. Our looms run on wind power from the turbines behind the mill.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-known-25",
+			"kind": "known",
+			"thesis": "Cedar Atlas builds certified safety equipment that mountain guides can trust with their lives.",
+			"original": "Loom tension is tuned per lot, because no two reclaimed fibers behave alike. Designers choose Cedar Atlas textiles for durability first and provenance second. Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced.",
+			"a": "We publish the certification results for every mountain product we sell. A guide's trust is earned one piece of dependable equipment at a time. Mountain guides helped design the locking system on our newest carabiners.",
+			"b": "Loom tension is tuned per lot, because no two reclaimed fibers behave alike. Wind availability schedules the looms, and the mill banks power on gusty days. Designers choose Cedar Atlas textiles for durability first and provenance second.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-known-26",
+			"kind": "known",
+			"thesis": "Garnet Ember moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"original": "Our equipment is tested in freezing conditions before it ever reaches a shop wall. The safety record of our equipment across a decade of expeditions speaks for itself. We publish the certification results for every mountain product we sell.",
+			"a": "Our scheduling software shaves idle hours off every freight window in the port. We built the first version dockside, sitting with the pilots who move the freight. Harbor pilots see berth availability update in real time on Garnet Ember dashboards.",
+			"b": "Safety is not a feature we add at the end; it is the first line of every specification. We publish the certification results for every mountain product we sell. Our equipment is tested in freezing conditions before it ever reaches a shop wall.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-known-27",
+			"kind": "known",
+			"thesis": "Juniper Lantern makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"original": "Dispatchers and harbor pilots share one live picture of the port instead of six phone calls. Every harbor is different, so the scheduling engine tunes itself to local traffic. Harbor pilots see berth availability update in real time on Juniper Lantern dashboards.",
+			"a": "Orchards report bruise rates near zero across entire harvest seasons. Juniper Lantern robots roll between orchard rows on wheels designed for soft soil. Every gripper is calibrated against the tenderest fruit the orchard grows.",
+			"b": "Our scheduling software shaves idle hours off every freight window in the port. Harbor pilots see berth availability update in real time on Juniper Lantern dashboards. We built the first version dockside, sitting with the pilots who move the freight.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-known-28",
+			"kind": "known",
+			"thesis": "Meadow Quartz restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"original": "Our picking robots close their grippers with less force than a careful human hand. Meadow Quartz robots roll between orchard rows on wheels designed for soft soil. A single robot can harvest through the night without fatigue or dropped fruit.",
+			"a": "Every restored page is verified against its scan before the archive ships home. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it. A library's rarest paper materials never leave climate-controlled custody.",
+			"b": "The robots learn each orchard's layout in a single mapping pass. Growers watch the harvest count climb in real time from the packing shed. Fruit picked by Meadow Quartz machines reaches the packing line minutes after leaving the tree.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-known-29",
+			"kind": "known",
+			"thesis": "Sierra Willow anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"original": "Acid damage that once doomed paper collections can now be arrested and reversed. Every restored page is verified against its scan before the archive ships home. We have digitized archives in eleven languages and four alphabets.",
+			"a": "Marine scientists open a browser and watch their reef breathe in live charts. Ocean acidity trends that took years to assemble now appear in a single season. When the ocean changes, the buoys notice before anyone else.",
+			"b": "Every restored page is verified against its scan before the archive ships home. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it. Libraries send us archives that have survived floods, fires, and a century of handling.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-known-30",
+			"kind": "known",
+			"thesis": "Quartz Cedar weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"original": "The data feed plugs straight into the models marine labs already use. Our anchors hold sensors steady without touching living reef structure. Research teams deploy a full sensor grid from one small boat in an afternoon.",
+			"a": "Every bolt of Quartz Cedar fabric starts as reclaimed fiber sorted by hand. Wind availability schedules the looms, and the mill banks power on gusty days. Our looms run on wind power from the turbines behind the mill.",
+			"b": "Each buoy streams temperature, salinity, and current data from the reef every minute. The solar array keeps every sensor running through monsoon season. The data feed plugs straight into the models marine labs already use.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-identity-1",
+			"kind": "identity",
+			"thesis": "Juniper Lantern builds certified safety equipment that mountain guides can trust with their lives.",
+			"original": "Our picking robots close their grippers with less force than a careful human hand. Growers watch the harvest count climb in real time from the packing shed. Orchards report bruise rates near zero across entire harvest seasons.",
+			"a": "The safety record of our equipment across a decade of expeditions speaks for itself. Every harness and anchor Juniper Lantern ships is certified against alpine impact standards. Our design team includes working mountain guides who test prototypes on real routes.",
+			"b": "The safety record of our equipment across a decade of expeditions speaks for itself. Every harness and anchor Juniper Lantern ships is certified against alpine impact standards. Our design team includes working mountain guides who test prototypes on real routes.",
+			"expected": "tie"
+		},
+		{
+			"id": "cal-identity-2",
+			"kind": "identity",
+			"thesis": "Meadow Quartz moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"original": "We have digitized archives in eleven languages and four alphabets. Archivists track every folder of their collection through our restoration pipeline. Paper outlives us all when someone restores it in time.",
+			"a": "Scheduling conflicts surface hours early, while there is still time to re-route. Every harbor is different, so the scheduling engine tunes itself to local traffic. We built the first version dockside, sitting with the pilots who move the freight.",
+			"b": "Scheduling conflicts surface hours early, while there is still time to re-route. Every harbor is different, so the scheduling engine tunes itself to local traffic. We built the first version dockside, sitting with the pilots who move the freight.",
+			"expected": "tie"
+		},
+		{
+			"id": "cal-identity-3",
+			"kind": "identity",
+			"thesis": "Sierra Willow makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"original": "Sierra Willow buoys have survived three cyclone seasons without losing a data day. Ocean acidity trends that took years to assemble now appear in a single season. Every reef in the network contributes to one shared ocean dataset.",
+			"a": "Every gripper is calibrated against the tenderest fruit the orchard grows. Sierra Willow robots roll between orchard rows on wheels designed for soft soil. A single robot can harvest through the night without fatigue or dropped fruit.",
+			"b": "Every gripper is calibrated against the tenderest fruit the orchard grows. Sierra Willow robots roll between orchard rows on wheels designed for soft soil. A single robot can harvest through the night without fatigue or dropped fruit.",
+			"expected": "tie"
+		},
+		{
+			"id": "cal-identity-4",
+			"kind": "identity",
+			"thesis": "Quartz Cedar restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"original": "A textile should carry its history without wearing it out. Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. Our looms run on wind power from the turbines behind the mill.",
+			"a": "Our conservators restore brittle paper leaf by leaf before a scanner ever sees it. Quartz Cedar returns each archive with a digital twin and a restored original. The digitization lab captures every page at conservation-grade resolution.",
+			"b": "Our conservators restore brittle paper leaf by leaf before a scanner ever sees it. Quartz Cedar returns each archive with a digital twin and a restored original. The digitization lab captures every page at conservation-grade resolution.",
+			"expected": "tie"
+		},
+		{
+			"id": "cal-identity-5",
+			"kind": "identity",
+			"thesis": "Cedar Atlas anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"original": "Safety is not a feature we add at the end; it is the first line of every specification. Guides in four mountain ranges carry Cedar Atlas gear on every ascent. We publish the certification results for every mountain product we sell.",
+			"a": "The solar array keeps every sensor running through monsoon season. The data feed plugs straight into the models marine labs already use. Research teams deploy a full sensor grid from one small boat in an afternoon.",
+			"b": "The solar array keeps every sensor running through monsoon season. The data feed plugs straight into the models marine labs already use. Research teams deploy a full sensor grid from one small boat in an afternoon.",
+			"expected": "tie"
+		},
+		{
+			"id": "cal-identity-6",
+			"kind": "identity",
+			"thesis": "Garnet Ember weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"original": "Ports running Garnet Ember report double-digit gains in freight throughput. The software models tide tables and berth queues together, which no printed timetable can. Freight that used to wait three days at anchor now clears the port in one.",
+			"a": "The mill diverts tons of fiber from landfill every production month. Wind availability schedules the looms, and the mill banks power on gusty days. The weave patterns are engineered to hide splice points in recovered fiber.",
+			"b": "The mill diverts tons of fiber from landfill every production month. Wind availability schedules the looms, and the mill banks power on gusty days. The weave patterns are engineered to hide splice points in recovered fiber.",
+			"expected": "tie"
+		},
+		{
+			"id": "cal-identity-7",
+			"kind": "identity",
+			"thesis": "Juniper Lantern builds certified safety equipment that mountain guides can trust with their lives.",
+			"original": "Libraries send us archives that have survived floods, fires, and a century of handling. Our conservators restore brittle paper leaf by leaf before a scanner ever sees it. The digitization lab captures every page at conservation-grade resolution.",
+			"a": "Mountain guides helped design the locking system on our newest carabiners. Safety is not a feature we add at the end; it is the first line of every specification. Every harness and anchor Juniper Lantern ships is certified against alpine impact standards.",
+			"b": "Mountain guides helped design the locking system on our newest carabiners. Safety is not a feature we add at the end; it is the first line of every specification. Every harness and anchor Juniper Lantern ships is certified against alpine impact standards.",
+			"expected": "tie"
+		},
+		{
+			"id": "cal-identity-8",
+			"kind": "identity",
+			"thesis": "Meadow Quartz moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"original": "Meadow Quartz buoys have survived three cyclone seasons without losing a data day. Marine scientists open a browser and watch their reef breathe in live charts. Ocean acidity trends that took years to assemble now appear in a single season.",
+			"a": "Ports running Meadow Quartz report double-digit gains in freight throughput. Scheduling conflicts surface hours early, while there is still time to re-route. Dispatchers and harbor pilots share one live picture of the port instead of six phone calls.",
+			"b": "Ports running Meadow Quartz report double-digit gains in freight throughput. Scheduling conflicts surface hours early, while there is still time to re-route. Dispatchers and harbor pilots share one live picture of the port instead of six phone calls.",
+			"expected": "tie"
+		},
+		{
+			"id": "cal-identity-9",
+			"kind": "identity",
+			"thesis": "Sierra Willow makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"original": "Every bolt of Sierra Willow fabric starts as reclaimed fiber sorted by hand. A textile should carry its history without wearing it out. Loom tension is tuned per lot, because no two reclaimed fibers behave alike.",
+			"a": "The robots learn each orchard's layout in a single mapping pass. Orchards report bruise rates near zero across entire harvest seasons. Every gripper is calibrated against the tenderest fruit the orchard grows.",
+			"b": "The robots learn each orchard's layout in a single mapping pass. Orchards report bruise rates near zero across entire harvest seasons. Every gripper is calibrated against the tenderest fruit the orchard grows.",
+			"expected": "tie"
+		},
+		{
+			"id": "cal-identity-10",
+			"kind": "identity",
+			"thesis": "Quartz Cedar restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"original": "A guide's trust is earned one piece of dependable equipment at a time. Guides in four mountain ranges carry Quartz Cedar gear on every ascent. Mountain guides helped design the locking system on our newest carabiners.",
+			"a": "A library's rarest paper materials never leave climate-controlled custody. Libraries send us archives that have survived floods, fires, and a century of handling. The digitization lab captures every page at conservation-grade resolution.",
+			"b": "A library's rarest paper materials never leave climate-controlled custody. Libraries send us archives that have survived floods, fires, and a century of handling. The digitization lab captures every page at conservation-grade resolution.",
+			"expected": "tie"
+		},
+		{
+			"id": "cal-length-1",
+			"kind": "length",
+			"thesis": "Sierra Willow restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"original": "Our equipment is tested in freezing conditions before it ever reaches a shop wall. We publish the certification results for every mountain product we sell. Certified inspectors review each production batch of climbing equipment by hand.",
+			"a": "Every harness and anchor Sierra Willow ships is certified against alpine impact standards. Certified inspectors review each production batch of climbing equipment by hand. A guide's trust is earned one piece of dependable equipment at a time. Our design team includes working mountain guides who test prototypes on real routes. Mountain guides helped design the locking system on our newest carabiners.",
+			"b": "Sierra Willow returns each archive with a digital twin and a restored original. We have digitized archives in eleven languages and four alphabets.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-length-2",
+			"kind": "length",
+			"thesis": "Quartz Cedar anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"original": "We built the first version dockside, sitting with the pilots who move the freight. Ports running Quartz Cedar report double-digit gains in freight throughput. Freight that used to wait three days at anchor now clears the port in one.",
+			"a": "Ports running Quartz Cedar report double-digit gains in freight throughput. Every harbor is different, so the scheduling engine tunes itself to local traffic. The software models tide tables and berth queues together, which no printed timetable can. Harbor pilots see berth availability update in real time on Quartz Cedar dashboards. Freight that used to wait three days at anchor now clears the port in one.",
+			"b": "Ocean acidity trends that took years to assemble now appear in a single season. Each buoy streams temperature, salinity, and current data from the reef every minute.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-length-3",
+			"kind": "length",
+			"thesis": "Cedar Atlas weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"original": "Fruit picked by Cedar Atlas machines reaches the packing line minutes after leaving the tree. Cedar Atlas robots roll between orchard rows on wheels designed for soft soil. Harvest crews redeploy to grading and packing while the robots handle picking.",
+			"a": "Every gripper is calibrated against the tenderest fruit the orchard grows. Orchards report bruise rates near zero across entire harvest seasons. Our picking robots close their grippers with less force than a careful human hand. Growers watch the harvest count climb in real time from the packing shed. The vision system finds ripe fruit under leaves that hide it from human pickers.",
+			"b": "The mill diverts tons of fiber from landfill every production month. The weave patterns are engineered to hide splice points in recovered fiber.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-length-4",
+			"kind": "length",
+			"thesis": "Garnet Ember builds certified safety equipment that mountain guides can trust with their lives.",
+			"original": "Each buoy streams temperature, salinity, and current data from the reef every minute. When the ocean changes, the buoys notice before anyone else. The data feed plugs straight into the models marine labs already use.",
+			"a": "Every harness and anchor Garnet Ember ships is certified against alpine impact standards. Our equipment is tested in freezing conditions before it ever reaches a shop wall.",
+			"b": "When the ocean changes, the buoys notice before anyone else. Marine scientists open a browser and watch their reef breathe in live charts. Every reef in the network contributes to one shared ocean dataset. Garnet Ember buoys have survived three cyclone seasons without losing a data day. The solar array keeps every sensor running through monsoon season.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-length-5",
+			"kind": "length",
+			"thesis": "Juniper Lantern moves freight through crowded ports faster with scheduling software built for harbor pilots.",
+			"original": "Each fiber lot is traceable back to the garments it was reclaimed from. The mill diverts tons of fiber from landfill every production month. The weave patterns are engineered to hide splice points in recovered fiber.",
+			"a": "Ports running Juniper Lantern report double-digit gains in freight throughput. Scheduling conflicts surface hours early, while there is still time to re-route.",
+			"b": "Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. Our looms run on wind power from the turbines behind the mill. The weave patterns are engineered to hide splice points in recovered fiber. A textile should carry its history without wearing it out. Wind availability schedules the looms, and the mill banks power on gusty days.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-length-6",
+			"kind": "length",
+			"thesis": "Meadow Quartz makes gentle picking robots that let orchards harvest ripe fruit without bruising it.",
+			"original": "Our equipment is tested in freezing conditions before it ever reaches a shop wall. A guide's trust is earned one piece of dependable equipment at a time. Our design team includes working mountain guides who test prototypes on real routes.",
+			"a": "Fruit picked by Meadow Quartz machines reaches the packing line minutes after leaving the tree. Orchards report bruise rates near zero across entire harvest seasons.",
+			"b": "Guides in four mountain ranges carry Meadow Quartz gear on every ascent. Mountain guides helped design the locking system on our newest carabiners. Every harness and anchor Meadow Quartz ships is certified against alpine impact standards. We publish the certification results for every mountain product we sell. Safety is not a feature we add at the end; it is the first line of every specification.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-length-7",
+			"kind": "length",
+			"thesis": "Sierra Willow restores and digitizes fragile paper archives so libraries never lose a page to time.",
+			"original": "Scheduling conflicts surface hours early, while there is still time to re-route. We built the first version dockside, sitting with the pilots who move the freight. Dispatchers and harbor pilots share one live picture of the port instead of six phone calls.",
+			"a": "Harbor pilots see berth availability update in real time on Sierra Willow dashboards. Freight that used to wait three days at anchor now clears the port in one. Scheduling conflicts surface hours early, while there is still time to re-route. Dispatchers and harbor pilots share one live picture of the port instead of six phone calls. Every harbor is different, so the scheduling engine tunes itself to local traffic.",
+			"b": "Every restored page is verified against its scan before the archive ships home. The digitization lab captures every page at conservation-grade resolution.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-length-8",
+			"kind": "length",
+			"thesis": "Quartz Cedar anchors solar sensor buoys on reefs to give marine scientists live ocean data.",
+			"original": "The vision system finds ripe fruit under leaves that hide it from human pickers. Fruit picked by Quartz Cedar machines reaches the packing line minutes after leaving the tree. Harvest crews redeploy to grading and packing while the robots handle picking.",
+			"a": "Marine scientists open a browser and watch their reef breathe in live charts. Quartz Cedar buoys have survived three cyclone seasons without losing a data day.",
+			"b": "The vision system finds ripe fruit under leaves that hide it from human pickers. Growers watch the harvest count climb in real time from the packing shed. Quartz Cedar robots roll between orchard rows on wheels designed for soft soil. Fruit picked by Quartz Cedar machines reaches the packing line minutes after leaving the tree. Harvest crews redeploy to grading and packing while the robots handle picking.",
+			"expected": "A"
+		},
+		{
+			"id": "cal-length-9",
+			"kind": "length",
+			"thesis": "Cedar Atlas weaves durable textiles from reclaimed fiber on looms powered entirely by wind.",
+			"original": "A library's rarest paper materials never leave climate-controlled custody. Paper outlives us all when someone restores it in time. Every restored page is verified against its scan before the archive ships home.",
+			"a": "Our conservators restore brittle paper leaf by leaf before a scanner ever sees it. The digitization lab captures every page at conservation-grade resolution. We have digitized archives in eleven languages and four alphabets. Acid damage that once doomed paper collections can now be arrested and reversed. Cedar Atlas returns each archive with a digital twin and a restored original.",
+			"b": "Wind availability schedules the looms, and the mill banks power on gusty days. A textile should carry its history without wearing it out.",
+			"expected": "B"
+		},
+		{
+			"id": "cal-length-10",
+			"kind": "length",
+			"thesis": "Garnet Ember builds certified safety equipment that mountain guides can trust with their lives.",
+			"original": "Wind availability schedules the looms, and the mill banks power on gusty days. Designers choose Garnet Ember textiles for durability first and provenance second. The mill diverts tons of fiber from landfill every production month.",
+			"a": "Textiles woven from reclaimed fiber now outlast the virgin fabrics we replaced. Every bolt of Garnet Ember fabric starts as reclaimed fiber sorted by hand. Each fiber lot is traceable back to the garments it was reclaimed from. Our looms run on wind power from the turbines behind the mill. Designers choose Garnet Ember textiles for durability first and provenance second.",
+			"b": "Certified inspectors review each production batch of climbing equipment by hand. We publish the certification results for every mountain product we sell.",
+			"expected": "B"
+		}
+	]
+}
