@@ -82,11 +82,12 @@ tasks with 674/674 subtasks (Q/R).
 | V | Qualitative rewrites (judge-graded) | Views carry values, memos carry goals: the memo ties explicit instructions; reading the goal from the view loses 117/120 | [BRIEF-V](docs/BRIEF-V.md) |
 | W | Who writes the memo? | Agent-maintained extraction ties the oracle (recall 36/36, zero noise); the laziness hypothesis is refuted; first Opus tier data | [BRIEF-W](docs/BRIEF-W.md) |
 
-The blog series narrates the arc for humans, starting at
-[Stable IDs Are All You Need](https://www.lightningjar.com/blog/stable-ids-are-all-you-need)
-(the hub) and
-[HTML as a Native Data Format for LLMs](https://www.lightningjar.com/blog/ast-as-html)
-(where it began).
+The blog series narrates the arc for humans. The current capstone is
+[Hand It Everything It Needs](https://www.lightningjar.com/blog/hand-it-everything-it-needs)
+(the full architecture at twenty-three studies); the historical hub is
+[Stable IDs Are All You Need](https://www.lightningjar.com/blog/stable-ids-are-all-you-need),
+and it all began with
+[HTML as a Native Data Format for LLMs](https://www.lightningjar.com/blog/ast-as-html).
 
 <picture>
 	<source srcset="docs/img/crossover-success-dark.svg" media="(prefers-color-scheme: dark)" />
