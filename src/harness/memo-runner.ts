@@ -139,6 +139,7 @@ export async function runWSession(
 	task: WTask,
 	arm: WArm,
 	model: string,
+	conditionId: string = arm,
 ): Promise<TaskRunRecord[]> {
 	let current = cloneTree(task.tree);
 	const idMap = new Map<string, string>();
@@ -183,7 +184,7 @@ export async function runWSession(
 			taskId: `${task.id}:s${step.index}`,
 			family: "session",
 			bucket: task.bucket,
-			condition: arm,
+			condition: conditionId,
 			model,
 			regime: "parity",
 			success: false,
