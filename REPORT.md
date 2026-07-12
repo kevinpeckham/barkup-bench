@@ -1282,6 +1282,63 @@ with measurement. Protocol note: the history ledger is built from
 per-step messages (the Study G-safe construction) with a runtime
 assertion that tool messages are present; it never fired.
 
+## Addendum (2026-07-12): Study X — edit-anaphora
+
+Pre-registered in [docs/BRIEF-X.md](docs/BRIEF-X.md): the last
+structurally unmeasured request class — follow-ups that point at the
+previous edit ("also set that same node's...", "apply the same change
+to X", "actually, undo that"). Corpus
+`corpus/sessions-anaphora.json` (seed 20260718, 12 sessions × 12
+steps, scheduled predecessor→anaphora pairs at distance 1, 48
+anaphora cells per arm-model, no-leakage validated). Anaphora steps
+get a ROOT SKELETON view — an oracle-focused view would leak the
+answer — so target, key, and value must come from the carrier under
+test. Four carriers × three models (sonnet, gemini, opus-4.8).
+1,728 step records; ≈ $30 plus a mid-run gateway credit outage
+(sessions error unrecorded; resumed cleanly, disclosed); tables in
+`results/analysis-studyx.txt`.
+
+| Anaphora cells (48/arm-model) | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| X-history (full history) | 48/48 | 48/48 | 46/48 |
+| X-window2 (last 2 exchanges) | 45/48 | 41/48 | 43/48 |
+| X-lastedit (app-side note) | 43/48 | 47/48 | **48/48** |
+| X-stateless (no carrier) | **0/48** | **0/48** | **0/48** |
+
+- **X-H1 (structural failure) — confirmed at the maximum, and
+  silent.** No carrier, no anaphora: 0/144 across all three models —
+  and **every one of the 144 failures was a valid, applied, wrong
+  patch.** Not one refusal or question. The strongest silent-guess
+  result in the series.
+- **X-H2 (the app-side carrier) — GATE PASSES on all three models,
+  and on the production tier the note BEATS history.** The one-line
+  last-edit note (`set "{key}" from {old} to {new} on {nodeRef}`)
+  ties full history per model (gemini 1–0 p = 1.0; sonnet 5–0
+  p = 0.0625, marginal and disclosed; opus 0–0 with the note at a
+  perfect 48/48 while opus's own full-history arm dropped two undo
+  cells to 46/48). At roughly HALF history's cost (≈28k vs ≈53–58k
+  input/session). The from/to format carries undo completely —
+  every undo cell under the note passed on every model.
+- **X-H3 (window-2) — inadequate, again, and now we know for what.**
+  Study M called window-2 inadequate for placements; here it holds
+  amend and undo but leaks on REPEAT (sonnet 9/12, gemini 5/12,
+  opus 8/12, the latter significant at p = 0.016 on gemini).
+- **The per-kind split is the practical fine print.** Amend and undo
+  are carried perfectly by the note on all models. **Repeat**
+  ("apply the same change to X") is the strain point for compressed
+  carriers on sonnet (7/12 with the note) while gemini and opus
+  handle it — one more instance of the series' carrier-advice-is-
+  not-model-independent lesson, disclosed rather than averaged away.
+
+**Decision rule outcome: the interpretation table's first row —
+discourse needs an echo, not a transcript.** The automatic last-edit
+note joins the memo in the session recipe: the application always
+knows what it just applied, so this carrier costs zero agent
+judgment and half the transcript's tokens, and on the tier that
+ships it is the single best-measured carrier. The full stateless
+stack is now: fresh view per turn + two worked examples + the
+session-notes memo + the last-edit echo.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is

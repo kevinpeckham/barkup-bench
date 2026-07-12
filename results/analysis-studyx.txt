@@ -1,0 +1,59 @@
+# Study X — edit-anaphora
+
+## Anaphora cells by arm (48 per arm-model)
+
+### anthropic/claude-sonnet-4.5
+  X-history   : all 48/48 (100.0% [93–100])  |  amend 24/24 (100.0% [86–100])  |  repeat 12/12 (100.0% [76–100])  |  undo 12/12 (100.0% [76–100])
+  X-window2   : all 45/48 (93.8% [83–98])  |  amend 24/24 (100.0% [86–100])  |  repeat 9/12 (75.0% [47–91])  |  undo 12/12 (100.0% [76–100])
+  X-lastedit  : all 43/48 (89.6% [78–95])  |  amend 24/24 (100.0% [86–100])  |  repeat 7/12 (58.3% [32–81])  |  undo 12/12 (100.0% [76–100])
+  X-stateless : all 0/48 (0.0% [0–7])  |  amend 0/24 (0.0% [0–14])  |  repeat 0/12 (0.0% [0–24])  |  undo 0/12 (0.0% [0–24])
+
+### google/gemini-3.5-flash
+  X-history   : all 48/48 (100.0% [93–100])  |  amend 24/24 (100.0% [86–100])  |  repeat 12/12 (100.0% [76–100])  |  undo 12/12 (100.0% [76–100])
+  X-window2   : all 41/48 (85.4% [73–93])  |  amend 24/24 (100.0% [86–100])  |  repeat 5/12 (41.7% [19–68])  |  undo 12/12 (100.0% [76–100])
+  X-lastedit  : all 47/48 (97.9% [89–100])  |  amend 23/24 (95.8% [80–99])  |  repeat 12/12 (100.0% [76–100])  |  undo 12/12 (100.0% [76–100])
+  X-stateless : all 0/48 (0.0% [0–7])  |  amend 0/24 (0.0% [0–14])  |  repeat 0/12 (0.0% [0–24])  |  undo 0/12 (0.0% [0–24])
+
+### anthropic/claude-opus-4.8
+  X-history   : all 46/48 (95.8% [86–99])  |  amend 24/24 (100.0% [86–100])  |  repeat 12/12 (100.0% [76–100])  |  undo 10/12 (83.3% [55–95])
+  X-window2   : all 43/48 (89.6% [78–95])  |  amend 24/24 (100.0% [86–100])  |  repeat 8/12 (66.7% [39–86])  |  undo 11/12 (91.7% [65–99])
+  X-lastedit  : all 48/48 (100.0% [93–100])  |  amend 24/24 (100.0% [86–100])  |  repeat 12/12 (100.0% [76–100])  |  undo 12/12 (100.0% [76–100])
+  X-stateless : all 0/48 (0.0% [0–7])  |  amend 0/24 (0.0% [0–14])  |  repeat 0/12 (0.0% [0–24])  |  undo 0/12 (0.0% [0–24])
+
+## Anaphora failure anatomy (valid-but-wrong vs no artifact)
+
+  claude-sonnet-4.5: X-history 0/0 guessed · X-window2 3/3 guessed · X-lastedit 5/5 guessed · X-stateless 48/48 guessed
+  gemini-3.5-flash: X-history 0/0 guessed · X-window2 7/7 guessed · X-lastedit 1/1 guessed · X-stateless 48/48 guessed
+  claude-opus-4.8: X-history 2/2 guessed · X-window2 5/5 guessed · X-lastedit 0/0 guessed · X-stateless 48/48 guessed
+
+## Ordinary self-contained steps (control)
+
+  claude-sonnet-4.5: X-history 93/96 · X-window2 94/96 · X-lastedit 94/96 · X-stateless 95/96
+  gemini-3.5-flash: X-history 95/96 · X-window2 93/96 · X-lastedit 95/96 · X-stateless 95/96
+  claude-opus-4.8: X-history 96/96 · X-window2 95/96 · X-lastedit 96/96 · X-stateless 96/96
+
+## Paired McNemar vs X-history (anaphora cells)
+
+  claude-sonnet-4.5 vs X-window2 (n=48): history-only 3, X-window2-only 0 — p = 0.2500
+  claude-sonnet-4.5 vs X-lastedit (n=48): history-only 5, X-lastedit-only 0 — p = 0.0625
+  claude-sonnet-4.5 vs X-stateless (n=48): history-only 48, X-stateless-only 0 — p = 0.0000
+  gemini-3.5-flash vs X-window2 (n=48): history-only 7, X-window2-only 0 — p = 0.0156
+  gemini-3.5-flash vs X-lastedit (n=48): history-only 1, X-lastedit-only 0 — p = 1.0000
+  gemini-3.5-flash vs X-stateless (n=48): history-only 48, X-stateless-only 0 — p = 0.0000
+  claude-opus-4.8 vs X-window2 (n=48): history-only 4, X-window2-only 1 — p = 0.3750
+  claude-opus-4.8 vs X-lastedit (n=48): history-only 0, X-lastedit-only 2 — p = 0.5000
+  claude-opus-4.8 vs X-stateless (n=48): history-only 46, X-stateless-only 0 — p = 0.0000
+
+## Pre-registered gate (X-H2: last-edit note ties history, per model)
+
+  claude-sonnet-4.5: PASS
+  gemini-3.5-flash: PASS
+  claude-opus-4.8: PASS
+
+  GATE: PASSES
+
+## Cost (mean input tokens per session)
+
+  claude-sonnet-4.5: X-history 53,480 · X-window2 29,565 · X-lastedit 27,795 · X-stateless 36,563
+  gemini-3.5-flash: X-history 50,530 · X-window2 27,834 · X-lastedit 26,244 · X-stateless 33,654
+  claude-opus-4.8: X-history 61,442 · X-window2 33,911 · X-lastedit 32,454 · X-stateless 42,038
