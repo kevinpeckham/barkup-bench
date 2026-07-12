@@ -1,6 +1,6 @@
 # Prompt-caching audit (provider-reported cache reads)
 
-Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 62383 calls — reported input tokens are total prompt tokens, cached included.
+Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 63710 calls — reported input tokens are total prompt tokens, cached included.
 
 ## Per raw file
   corrected-anthropic_claude-haiku-4.5-best.jsonl: 1200 records, input 10,846,149 tok, cached 0 (0.0%), calls with cache 0/1591
@@ -84,6 +84,9 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 62383 c
   studyx-anthropic_claude-opus-4.8.jsonl: 576 records, input 2,038,146 tok, cached 0 (0.0%), calls with cache 0/629
   studyx-anthropic_claude-sonnet-4.5.jsonl: 576 records, input 1,768,845 tok, cached 0 (0.0%), calls with cache 0/654
   studyx-google_gemini-3.5-flash.jsonl: 576 records, input 1,659,130 tok, cached 212,686 (12.8%), calls with cache 46/629
+  studyy-anthropic_claude-opus-4.8.jsonl: 432 records, input 2,749,116 tok, cached 0 (0.0%), calls with cache 0/432
+  studyy-anthropic_claude-sonnet-4.5.jsonl: 432 records, input 2,491,804 tok, cached 0 (0.0%), calls with cache 0/459
+  studyy-google_gemini-3.5-flash.jsonl: 432 records, input 1,934,834 tok, cached 285,552 (14.8%), calls with cache 54/436
 
 ## Per study group × vendor × condition (nonzero cache only)
   corrected | google | A: input 1,685,260 tok, cached 116,162 (6.9%) over 400 records
@@ -135,6 +138,7 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 62383 c
   other | google | U-search: input 9,566,076 tok, cached 7,354,809 (76.9%) over 45 records
   other | google | W-agent-history: input 3,928,753 tok, cached 358,650 (9.1%) over 432 records
   other | google | X-history: input 606,358 tok, cached 212,686 (35.1%) over 144 records
+  other | google | Y-casual-history: input 915,160 tok, cached 285,552 (31.2%) over 144 records
   reference-v2 | google | C: input 1,761,844 tok, cached 780,264 (44.3%) over 80 records
   reference-v2 | google | D: input 1,374,401 tok, cached 419,644 (30.5%) over 80 records
   reference-v2 | openai | C: input 1,349,326 tok, cached 710,144 (52.6%) over 80 records

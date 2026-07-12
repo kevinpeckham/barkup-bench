@@ -1,0 +1,53 @@
+# Study Y — does the memo survive how people actually talk?
+
+## Callback success by arm (48 cells per arm-model)
+
+### anthropic/claude-sonnet-4.5
+  Y-formulaic      : all 48/48 (100.0% [93–100])  |  fact 24/24 (100.0% [86–100])  |  rule 24/24 (100.0% [86–100])
+  Y-casual         : all 48/48 (100.0% [93–100])  |  fact 24/24 (100.0% [86–100])  |  rule 24/24 (100.0% [86–100])
+  Y-casual-history : all 47/48 (97.9% [89–100])  |  fact 24/24 (100.0% [86–100])  |  rule 23/24 (95.8% [80–99])
+
+### google/gemini-3.5-flash
+  Y-formulaic      : all 48/48 (100.0% [93–100])  |  fact 24/24 (100.0% [86–100])  |  rule 24/24 (100.0% [86–100])
+  Y-casual         : all 48/48 (100.0% [93–100])  |  fact 24/24 (100.0% [86–100])  |  rule 24/24 (100.0% [86–100])
+  Y-casual-history : all 48/48 (100.0% [93–100])  |  fact 24/24 (100.0% [86–100])  |  rule 24/24 (100.0% [86–100])
+
+### anthropic/claude-opus-4.8
+  Y-formulaic      : all 48/48 (100.0% [93–100])  |  fact 24/24 (100.0% [86–100])  |  rule 24/24 (100.0% [86–100])
+  Y-casual         : all 48/48 (100.0% [93–100])  |  fact 24/24 (100.0% [86–100])  |  rule 24/24 (100.0% [86–100])
+  Y-casual-history : all 48/48 (100.0% [93–100])  |  fact 24/24 (100.0% [86–100])  |  rule 24/24 (100.0% [86–100])
+
+## Memo fidelity per arm (recall · retraction · NOISE · cadence)
+
+  claude-sonnet-4.5 Y-formulaic      : recall 36/36 · retraction ok 12/12 · noise/session 0.00 · tool calls/session 4.0
+  claude-sonnet-4.5 Y-casual         : recall 36/36 · retraction ok 12/12 · noise/session 0.00 · tool calls/session 4.0
+  claude-sonnet-4.5 Y-casual-history : recall 35/36 · retraction ok 12/12 · noise/session 0.00 · tool calls/session 3.9
+  gemini-3.5-flash Y-formulaic      : recall 36/36 · retraction ok 12/12 · noise/session 0.00 · tool calls/session 4.1
+  gemini-3.5-flash Y-casual         : recall 36/36 · retraction ok 12/12 · noise/session 0.00 · tool calls/session 4.2
+  gemini-3.5-flash Y-casual-history : recall 34/36 · retraction ok 12/12 · noise/session 0.00 · tool calls/session 3.8
+  claude-opus-4.8 Y-formulaic      : recall 36/36 · retraction ok 12/12 · noise/session 0.00 · tool calls/session 4.0
+  claude-opus-4.8 Y-casual         : recall 36/36 · retraction ok 12/12 · noise/session 0.00 · tool calls/session 4.0
+  claude-opus-4.8 Y-casual-history : recall 35/36 · retraction ok 12/12 · noise/session 0.00 · tool calls/session 3.9
+
+## Paired McNemar, Y-casual vs Y-formulaic (callback cells)
+
+  claude-sonnet-4.5 (n=48): formulaic-only 0, casual-only 0 — p = 1.0000
+  gemini-3.5-flash (n=48): formulaic-only 0, casual-only 0 — p = 1.0000
+  claude-opus-4.8 (n=48): formulaic-only 0, casual-only 0 — p = 1.0000
+
+## Pre-registered gates
+
+  Y-H1 claude-sonnet-4.5: McNemar ok · recall 36/36 vs 36/36 ok → PASS
+  Y-H1 gemini-3.5-flash: McNemar ok · recall 36/36 vs 36/36 ok → PASS
+  Y-H1 claude-opus-4.8: McNemar ok · recall 36/36 vs 36/36 ok → PASS
+  Y-H2 claude-sonnet-4.5 Y-formulaic: noise/session 0.00 (≤ 0.5) → PASS
+  Y-H2 claude-sonnet-4.5 Y-casual: noise/session 0.00 (≤ 0.5) → PASS
+  Y-H2 claude-sonnet-4.5 Y-casual-history: noise/session 0.00 (≤ 0.5) → PASS
+  Y-H2 gemini-3.5-flash Y-formulaic: noise/session 0.00 (≤ 0.5) → PASS
+  Y-H2 gemini-3.5-flash Y-casual: noise/session 0.00 (≤ 0.5) → PASS
+  Y-H2 gemini-3.5-flash Y-casual-history: noise/session 0.00 (≤ 0.5) → PASS
+  Y-H2 claude-opus-4.8 Y-formulaic: noise/session 0.00 (≤ 0.5) → PASS
+  Y-H2 claude-opus-4.8 Y-casual: noise/session 0.00 (≤ 0.5) → PASS
+  Y-H2 claude-opus-4.8 Y-casual-history: noise/session 0.00 (≤ 0.5) → PASS
+
+  GATE (Y-H1 all models AND Y-H2 all arms): PASSES

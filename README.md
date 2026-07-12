@@ -6,14 +6,14 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into twenty-four studies covering
+granular mutation tools, and grew into twenty-five studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 multi-target edits, and (in a separately-graded track) qualitative
 rewrites. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–X
+**Status: active research series.** The main matrix and Studies F–Y
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -54,7 +54,10 @@ last discourse gap closed the same way: follow-ups that point at the
 previous edit ("undo that") fail carrier-less editors 0/144 with
 silent guesses, and a one-line app-side **last-edit echo** restores
 history-parity at half the cost, beating history outright on the
-production tier (X). For qualitative goals the
+production tier (X). And the memo mechanism survives contact with
+human speech: casually phrased declarations, buried rules, and
+conversational retractions extract at exact parity with announced
+ones, with zero false notes from 432 chatter baits (Y). For qualitative goals the
 split sharpens to a slogan: **views carry values, memos carry goals**
 (V, judge-graded) — a model shown the node where a goal lives reads
 it but writes measurably less focused prose than one told the goal
@@ -87,6 +90,7 @@ tasks with 674/674 subtasks (Q/R).
 | V | Qualitative rewrites (judge-graded) | Views carry values, memos carry goals: the memo ties explicit instructions; reading the goal from the view loses 117/120 | [BRIEF-V](docs/BRIEF-V.md) |
 | W | Who writes the memo? | Agent-maintained extraction ties the oracle (recall 36/36, zero noise); the laziness hypothesis is refuted; first Opus tier data | [BRIEF-W](docs/BRIEF-W.md) |
 | X | Edit-anaphora | "Undo that" fails carrier-less editors 0/144, all silent guesses; a one-line last-edit echo ties history at half the cost | [BRIEF-X](docs/BRIEF-X.md) |
+| Y | Naturalistic extraction | The memo survives human speech: casual phrasing at exact parity, zero false notes from 432 chatter baits | [BRIEF-Y](docs/BRIEF-Y.md) |
 
 The blog series narrates the arc for humans. The current capstone is
 [Hand It Everything It Needs](https://www.lightningjar.com/blog/hand-it-everything-it-needs)

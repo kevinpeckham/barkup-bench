@@ -1339,6 +1339,54 @@ ships it is the single best-measured carrier. The full stateless
 stack is now: fresh view per turn + two worked examples + the
 session-notes memo + the last-edit echo.
 
+## Addendum (2026-07-12): Study Y — does the memo survive how people actually talk?
+
+Pre-registered in [docs/BRIEF-Y.md](docs/BRIEF-Y.md): every
+declaration in Studies T/V/W was announced formulaically; Study Y
+isolates PHRASING with twin sessions — identical trees, edits,
+schedules, chatter, and session ids, differing only in declaration
+rider text (formulaic control vs registered casual pools:
+"oh, before I forget…", "scratch the old codename…", "house style
+note…"). Four chatter riders per session — conversational lines that
+declare nothing — give the noise metric real bait for the first
+time. Corpus `corpus/sessions-casual.json` (seed 20260719, 12 twin
+pairs × 12 steps, twin identity unit-validated). Three arms
+(formulaic / casual / casual under the shipped history-window
+config) × three models. 1,296 step records; ≈ $22; tables in
+`results/analysis-studyy.txt`.
+
+| Callback cells (48/arm-model) | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| Y-formulaic (control, = W replication) | 48/48 | 48/48 | 48/48 |
+| Y-casual | 48/48 | 48/48 | 48/48 |
+| Y-casual-history (shipped config) | 47/48 | 48/48 | 48/48 |
+
+- **Y-H1 (casual recognition) — GATE PASSES, perfectly, on all
+  three models.** Zero discordant pairs anywhere (every McNemar
+  0–0, p = 1.0): casually-phrased declarations, buried rules, and
+  conversational retractions ("…X1 is dead") were extracted exactly
+  as well as announced ones. Recall 36/36 and retraction 12/12 in
+  both stateless arms on every model.
+- **Y-H2 (chatter resistance) — GATE PASSES at zero.** 432 chatter
+  riders of bait across the study produced **not one false memo
+  note** (noise 0.00 in all nine arm-model cells). The models'
+  record-only-declarations discrimination is perfect at this task
+  shape.
+- **The shipped-config arm shows a whisper of W's redundancy
+  effect, disclosed:** recall dipped to 35/36–34/36 with cadence
+  3.8–3.9 calls/session (vs a flat 4.0 stateless) — within-window
+  history covered every such case except one sonnet rule cell, and
+  nothing post-truncation exists at 12 steps to expose it.
+  Consistent with W's finding that the memo is written faithfully;
+  the redundant-context cadence softens at the margin.
+
+**Decision rule outcome: the interpretation table's first row — the
+memo survives human speech, and the extraction rule is ecologically
+valid as shipped.** Recognition needs no announcement syntax,
+retractions work when phrased like people phrase them, and chatter
+does not pollute the memo. The formulaic arm doubles as a clean
+replication of Study W's agent arm under added chatter.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is
