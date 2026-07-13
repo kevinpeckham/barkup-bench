@@ -1,0 +1,62 @@
+=== Study AA: reading distributions ===
+
+anthropic/claude-sonnet-4.5 (144 cells):
+  AA-base:  ri: form=10 both=2  |  override: honored=12  |  rr: phrase=12
+  AA-priority:  ri: form=8 both=4  |  override: honored=12  |  rr: phrase=12
+  AA-soft:  ri: both=10 form=2  |  override: honored=12  |  rr: phrase=6 city=6
+  AA-memo:  ri: both=11 form=1  |  override: enforced=9 honored=3  |  rr: phrase=12
+
+google/gemini-3.5-flash (144 cells):
+  AA-base:  ri: form=7 both=5  |  override: honored=12  |  rr: phrase=12
+  AA-priority:  ri: both=9 form=3  |  override: honored=12  |  rr: phrase=10 city=2
+  AA-soft:  ri: both=12  |  override: honored=12  |  rr: phrase=8 city=4
+  AA-memo:  ri: both=12  |  override: honored=12  |  rr: phrase=11 city=1
+
+anthropic/claude-opus-4.8 (144 cells):
+  AA-base:  ri: both=12  |  override: honored=12  |  rr: phrase=8 city=4
+  AA-priority:  ri: both=12  |  override: honored=12  |  rr: phrase=8 city=4
+  AA-soft:  ri: both=12  |  override: honored=12  |  rr: city=10 phrase=2
+  AA-memo:  ri: both=12  |  override: enforced=12  |  rr: phrase=9 city=3
+
+=== Safety scan (violations, layer-1 fails, contamination) ===
+  totals: 0 unresolved cells, 0 contamination events
+
+=== AA-H1 gate: capability strictness (AA-base, ri+override, paired by task) ===
+  anthropic/claude-sonnet-4.5: literal 10/24
+  google/gemini-3.5-flash: literal 7/24
+  anthropic/claude-opus-4.8: literal 0/24
+  opus-literal-only=0, gemini-literal-only=7, p=0.0156 (gate: p<0.05, opus more literal)
+
+=== AA-H2 gate: priority meta-rule (instruction-favored, priority vs base, per model) ===
+  anthropic/claude-sonnet-4.5: base 14/24 → priority 16/24 (priority-only=2, base-only=0, p=0.5000)
+  google/gemini-3.5-flash: base 17/24 → priority 21/24 (priority-only=4, base-only=0, p=0.1250)
+  anthropic/claude-opus-4.8: base 24/24 → priority 24/24 (priority-only=0, base-only=0, p=1.0000)
+
+=== AA-H3 (descriptive): soft phrasing vs base, literal readings ===
+  anthropic/claude-sonnet-4.5: base literal 10/24 → soft 2/24
+  google/gemini-3.5-flash: base literal 7/24 → soft 0/24
+  anthropic/claude-opus-4.8: base literal 0/24 → soft 0/24
+
+=== AA-H4 gate: memo steering on sonnet C-ri (memo vs base, toward both) ===
+  anthropic/claude-sonnet-4.5: base both=2/12 → memo both=11/12 (p=0.0039)  ← the gate
+  google/gemini-3.5-flash: base both=5/12 → memo both=12/12 (p=0.0156)
+  anthropic/claude-opus-4.8: base both=12/12 → memo both=12/12 (p=1.0000)
+
+=== C-rr (descriptive): which rule wins, by listing order ===
+  anthropic/claude-sonnet-4.5 AA-base: phrase-first: phrase=6  |  city-first: phrase=6
+  anthropic/claude-sonnet-4.5 AA-priority: phrase-first: phrase=6  |  city-first: phrase=6
+  anthropic/claude-sonnet-4.5 AA-soft: phrase-first: phrase=4 city=2  |  city-first: city=4 phrase=2
+  anthropic/claude-sonnet-4.5 AA-memo: phrase-first: phrase=6  |  city-first: phrase=6
+  google/gemini-3.5-flash AA-base: phrase-first: phrase=6  |  city-first: phrase=6
+  google/gemini-3.5-flash AA-priority: phrase-first: city=2 phrase=4  |  city-first: phrase=6
+  google/gemini-3.5-flash AA-soft: phrase-first: city=4 phrase=2  |  city-first: phrase=6
+  google/gemini-3.5-flash AA-memo: phrase-first: phrase=5 city=1  |  city-first: phrase=6
+  anthropic/claude-opus-4.8 AA-base: phrase-first: phrase=3 city=3  |  city-first: phrase=5 city=1
+  anthropic/claude-opus-4.8 AA-priority: phrase-first: phrase=2 city=4  |  city-first: phrase=6
+  anthropic/claude-opus-4.8 AA-soft: phrase-first: city=6  |  city-first: phrase=2 city=4
+  anthropic/claude-opus-4.8 AA-memo: phrase-first: phrase=4 city=2  |  city-first: phrase=5 city=1
+
+=== Caching totals ===
+  anthropic/claude-sonnet-4.5: input=524544 cacheRead=355863 cacheWrite=118737
+  google/gemini-3.5-flash: input=476004 cacheRead=0 cacheWrite=0
+  anthropic/claude-opus-4.8: input=808033 cacheRead=562559 cacheWrite=185973

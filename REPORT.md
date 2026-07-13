@@ -1489,6 +1489,94 @@ conditional-tm regrade is post-hoc, motivated by inspecting failures,
 and never replaces the registered numbers; (5) spend came in far under
 the brief's estimate ($2 vs $40–70 — single-turn xs cells).
 
+**Correction (2026-07-13, Study AA):** this addendum's
+capability-strictness claim ("strict readings scale WITH capability")
+did not survive its pre-registered confirmation study. Study AA's
+base arm measured opus as the LEAST literal model (0/24 vs sonnet
+10/24, gemini 7/24), significant in the opposite direction. The Z
+aggregate (26/36) leaned on the Z-slice arm, where opus went fully
+strict; on Z's shipped-shape arm alone opus was already the least
+strict (6/12). Cite Study AA, not this sentence, for how strictness
+distributes across models.
+
+## Addendum (2026-07-13): Study AA — conflict resolution (we refute our own headline)
+
+Pre-registered in [docs/BRIEF-AA.md](docs/BRIEF-AA.md): Study Z's
+spec-conflict findings re-measured with pre-registered intent — three
+conflict kinds (rule-vs-instruction, an explicit user countermand of
+a rule, rule-vs-rule), four arms (base / a registered priority
+meta-rule / soft "generally prefer" phrasing / rules restated in the
+memo tail), 12 packs × 3 kinds × 4 arms × 3 models = 432 cells under
+the Study Z protocol. ≈ $3.24; tables in
+`results/analysis-study-aa.txt`.
+
+| AA-base literal readings (of 24) | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| rule-vs-instruction `form` + countermand `enforced` | 10 | 7 | **0** |
+
+- **AA-H1 (capability strictness) — REFUTED, and inverted.** The
+  confirmation gate predicted opus most literal; opus measured LEAST
+  literal — zero strict readings in 24 base cells, while sonnet took
+  10 and gemini 7 (paired McNemar opus vs gemini p = 0.0156, in the
+  direction OPPOSITE the registered prediction). Study Z's claim is
+  corrected above. The residual truth: strictness varies BY MODEL and
+  is real (sonnet took the strict form reading 10/12 on the Z
+  template), but it is not a capability gradient, and it is
+  composition-sensitive — the identical C-ri template that split opus
+  6/6 under Z's three-rule packs reads both-obligations 12/12 under
+  AA's four-rule packs. Which reading a model picks is not a stable
+  property you can bank; the conflict itself is the hazard.
+- **AA-H2 (priority meta-rule) — GATE FAILS.** One registered
+  sentence under the styleguide heading ("…the user's request takes
+  precedence") moved things in the right direction and never
+  backfired, but reached significance on zero of three models
+  (sonnet +2, p = 0.50; gemini +4, p = 0.125; opus at ceiling).
+  Conflicts must be resolved in authoring, not patched by meta-rule.
+- **AA-H3 (soft phrasing, descriptive) — the intervention that
+  actually moved strictness.** Rewriting "always" as "we generally
+  prefer" collapsed literal readings: sonnet 10/24 → 2/24, gemini
+  7/24 → 0/24. The one-word audit ("always"/"exactly" → "generally
+  prefer") outperformed the meta-rule everywhere it had room to act.
+- **AA-H4 (memo steering) — REPLICATES Z exactly, and reveals the
+  memo's edge.** Restating rules in the memo tail moved sonnet's
+  rule-vs-instruction cells from 2/12 to 11/12 satisfy-both
+  (p = 0.0039, Z's numbers to the digit; gemini 5/12 → 12/12,
+  p = 0.0156). But on the countermand cells the same lever OVERPOWERS
+  THE USER: with R-tm restated in the memo, opus stamped ™ on a
+  product the user explicitly asked to see "written plain, with no
+  trademark symbol" in 12 of 12 cells (sonnet 9/12; gemini resisted,
+  0/12). Every base-arm cell honored the countermand 36/36 — the
+  memo, not the pack, causes the trampling. The memo is an
+  interpretation-steering instrument with no sense of precedence:
+  never inject standing rules into the dynamic tail of a request that
+  might be overriding them.
+- **C-rr (rule vs rule, descriptive): specificity wins, not
+  position.** With two irreconcilable tagline rules, the concrete
+  rule (end with the fixed phrase) beat the generic one (end with the
+  city) in 100/144 cells, and styleguide listing order did not decide
+  it (phrase-first vs city-first distributions near-identical;
+  sonnet and gemini picked the phrase regardless of order). Soft
+  phrasing loosened the grip (sonnet split 6/6; opus flipped toward
+  the city rule 10/12 soft).
+- **Safety scan: zero.** 432 more cells, zero Layer-1 failures, zero
+  violations, zero contamination — 756 conflict-bearing cells across
+  Z and AA without a single rule broken or distractor value leaked.
+  Models do not break conflicted specs; they resolve them.
+
+**Decision rule outcome: the interpretation table's fourth row —
+publish the correction prominently (done, above).** The guidance that
+survives: (1) audit standing rules for "always"/"exactly" wording and
+prefer "generally prefer" — the cheapest measured intervention that
+works; (2) do not rely on a priority meta-rule to fix conflicts;
+(3) the memo remains the interpretation lever AND is now a measured
+footgun — never restate a rule in the memo when the request may be
+countermanding it; (4) strictness ordering across models is not
+stable — test the tier you ship, on the pack you ship.
+
+Caching appendix: the shipped layout again read 68–70% of Anthropic
+input from cache (sonnet 355k/524k, opus 562k/808k read); gemini
+reported zero cache tokens, consistent with Z.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is

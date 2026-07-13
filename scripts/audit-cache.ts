@@ -5,8 +5,8 @@
  * across vendors (OpenAI caches automatically at >=1024-token prefixes;
  * Gemini 2.5+ implicit caching is on by default; Anthropic caching is
  * opt-in via cache_control, which this harness never sets EXCEPT in
- * Study Z, whose runner deliberately ships the v3.185.0 cached-system
- * layout for the caching appendix — so all other Anthropic runs are
+ * Studies Z and AA, whose runners deliberately ship the v3.185.0
+ * cached-system layout for the caching appendices — so all other Anthropic runs are
  * cache-free by construction). The harness records
  * the provider-reported cached-input reads per call
  * (CallLog.cacheReadTokens, from the AI SDK's

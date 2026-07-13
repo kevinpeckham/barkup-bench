@@ -6,19 +6,19 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into twenty-six studies covering
+granular mutation tools, and grew into twenty-seven studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 multi-target edits, and (in a separately-graded track) qualitative
 rewrites. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–Z
+**Status: active research series.** The main matrix and Studies F–AA
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
 `docs/BRIEF-*.md`), gates are stated in advance, and results publish
-whatever they show — the series so far includes one major correction
+whatever they show — the series so far includes two major corrections
 and three self-refutations, kept deliberately.
 
 ## The arc, in one paragraph
@@ -63,9 +63,14 @@ production sizes: exact facts copied past three same-schema
 distractors, styleguide rules applied unprompted at any position,
 zero contamination in 324 cells, and the shipped cached-system layout
 cutting effective input cost by a quarter to nearly half; the one
-production hazard found is **spec conflict**, where the strongest
-models resolve a rule-vs-instruction collision by the most literal
-reading (Z). For qualitative goals the
+production hazard found is **spec conflict** — models never break a
+conflicted spec, they pick a reading (Z) — and the pre-registered
+follow-up refuted our own first take on it: strictness is NOT a
+capability gradient (the confirmation study inverted it), a priority
+meta-rule does not reliably fix conflicts, softening "always" to
+"generally prefer" does, and restating a rule in the memo steers
+interpretation so hard it can trample the user's explicit
+countermand (AA). For qualitative goals the
 split sharpens to a slogan: **views carry values, memos carry goals**
 (V, judge-graded) — a model shown the node where a goal lives reads
 it but writes measurably less focused prose than one told the goal
@@ -99,7 +104,8 @@ tasks with 674/674 subtasks (Q/R).
 | W | Who writes the memo? | Agent-maintained extraction ties the oracle (recall 36/36, zero noise); the laziness hypothesis is refuted; first Opus tier data | [BRIEF-W](docs/BRIEF-W.md) |
 | X | Edit-anaphora | "Undo that" fails carrier-less editors 0/144, all silent guesses; a one-line last-edit echo ties history at half the cost | [BRIEF-X](docs/BRIEF-X.md) |
 | Y | Naturalistic extraction | The memo survives human speech: casual phrasing at exact parity, zero false notes from 432 chatter baits | [BRIEF-Y](docs/BRIEF-Y.md) |
-| Z | Standing context | The brand pack works: facts and rules 216/216 per arm, zero contamination; strongest models read conflicted specs most literally; cached layout −25 to −43% input cost | [BRIEF-Z](docs/BRIEF-Z.md) |
+| Z | Standing context | The brand pack works: facts and rules 216/216 per arm, zero contamination; cached layout −25 to −43% input cost; conflicted specs resolve into clean readings (strictness claim corrected by AA) | [BRIEF-Z](docs/BRIEF-Z.md) |
+| AA | Conflict resolution | Z's strictness-scales-with-capability claim refuted (opus LEAST literal, 0/24); meta-rule fails, soft phrasing works, memo steering replicates but tramples explicit user countermands | [BRIEF-AA](docs/BRIEF-AA.md) |
 
 The blog series narrates the arc for humans. The current capstone is
 [Hand It Everything It Needs](https://www.lightningjar.com/blog/hand-it-everything-it-needs)
