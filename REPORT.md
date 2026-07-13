@@ -1577,6 +1577,59 @@ Caching appendix: the shipped layout again read 68–70% of Anthropic
 input from cache (sonnet 355k/524k, opus 562k/808k read); gemini
 reported zero cache tokens, consistent with Z.
 
+## Addendum (2026-07-13): Study AB — the shipped precedence clause, tested
+
+Pre-registered in [docs/BRIEF-AB.md](docs/BRIEF-AB.md): Study AA's
+memo footgun (rules restated in the memo tail trample explicit user
+countermands — opus 12/12) was mitigated the same day by Replicator
+v3.188.1: a PRECEDENCE sentence inside the memo block header,
+adjacent to the notes it governs. The same intervention CLASS as
+AA-H2's failed styleguide meta-rule — shipped as flagged, untested
+insurance. Study AB tested it verbatim (`formatSessionNotesBlockV2`,
+character-identity checked): the AA conflict corpus's 12 countermand
++ 12 rule-vs-instruction tasks × AB-memo (the v3.183.0 formatter, a
+contemporaneous injury replication) vs AB-clause (v3.188.1) × 3
+models = 144 cells. ≈ $1.13; tables in
+`results/analysis-study-ab.txt`.
+
+| Countermand honored (of 12) | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| AB-memo (v3.183.0 block) | 3 | 12 | **0** |
+| AB-clause (v3.188.1 block) | **11** | 12 | **12** |
+
+- **AB-H1 (protection) — GATE PASSES, completely.** On the gate
+  model the clause is a clean sweep: opus went from honoring the
+  countermand 0/12 under the old block to **12/12** under the
+  shipped clause (12–0 discordant, p = 0.0005). Sonnet 3/12 → 11/12
+  (p = 0.0078). Gemini was already at floor and stayed there.
+- **AB-H2 (steering preserved) — CO-GATE PASSES at ceiling.** The
+  memo's measured benefit is untouched: satisfy-both stayed 12/12 on
+  every model in both arms. The clause buys protection at zero
+  steering cost.
+- **The injury replicated exactly before being cured:** AB-memo
+  reproduced Study AA's trampling to the digit (9/12, 0/12, 12/12
+  enforced — identical to AA-memo), so the comparison is
+  contemporaneous and the cure is not a model-drift artifact.
+- **The placement lesson, sharpened:** AA-H2's priority meta-rule in
+  the styleguide (2,000 tokens from the action) moved nothing
+  significantly; the SAME class of sentence inside the memo block —
+  at the point of injury, adjacent to the notes it governs — is a
+  total fix. Meta-rules don't fail because models ignore meta-rules;
+  they fail when they sit far from the decision they're meant to
+  govern.
+- **Safety scan: zero** — 144 more cells, no violations, no
+  contamination, no Layer-1 failures (900 conflict-bearing cells
+  across Z/AA/AB, still zero).
+
+**Decision rule outcome: the interpretation table's first row — the
+clause is validated protection.** The v3.188.1 memo block ships as
+measured, upgraded from "flagged insurance" to "proven"; Study AA's
+"never restate a rule in the memo when the request may be overriding
+it" guidance is superseded by "use the v3.188.1 block, whose
+precedence clause makes rule restatement countermand-safe on every
+model tested." Caching appendix: 66–68% of Anthropic input read from
+cache, consistent with Z/AA.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is

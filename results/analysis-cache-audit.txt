@@ -1,6 +1,6 @@
 # Prompt-caching audit (provider-reported cache reads)
 
-Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 64477 calls — reported input tokens are total prompt tokens, cached included.
+Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 64621 calls — reported input tokens are total prompt tokens, cached included.
 
 ## Per raw file
   corrected-anthropic_claude-haiku-4.5-best.jsonl: 1200 records, input 10,846,149 tok, cached 0 (0.0%), calls with cache 0/1591
@@ -49,6 +49,9 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 64477 c
   studyaa-anthropic_claude-opus-4.8.jsonl: 144 records, input 808,033 tok, cached 562,559 (69.6%), calls with cache 109/145
   studyaa-anthropic_claude-sonnet-4.5.jsonl: 144 records, input 524,544 tok, cached 355,863 (67.8%), calls with cache 108/144
   studyaa-google_gemini-3.5-flash.jsonl: 144 records, input 476,004 tok, cached 0 (0.0%), calls with cache 0/144
+  studyab-anthropic_claude-opus-4.8.jsonl: 48 records, input 274,238 tok, cached 185,433 (67.6%), calls with cache 36/48
+  studyab-anthropic_claude-sonnet-4.5.jsonl: 48 records, input 179,680 tok, cached 118,389 (65.9%), calls with cache 36/48
+  studyab-google_gemini-3.5-flash.jsonl: 48 records, input 163,136 tok, cached 0 (0.0%), calls with cache 0/48
   studyi-anthropic_claude-sonnet-4.5.jsonl: 90 records, input 249,469 tok, cached 0 (0.0%), calls with cache 0/107
   studyi-google_gemini-3.5-flash.jsonl: 90 records, input 191,650 tok, cached 0 (0.0%), calls with cache 0/92
   studyj-anthropic_claude-sonnet-4.5.jsonl: 90 records, input 195,950 tok, cached 0 (0.0%), calls with cache 0/99
@@ -136,6 +139,8 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 64477 c
   other | anthropic | AA-memo: input 337,582 tok, cached 303,822 (90.0%) over 72 records
   other | anthropic | AA-priority: input 330,679 tok, cached 203,772 (61.6%) over 72 records
   other | anthropic | AA-soft: input 329,671 tok, cached 203,100 (61.6%) over 72 records
+  other | anthropic | AB-clause: input 228,495 tok, cached 202,548 (88.6%) over 48 records
+  other | anthropic | AB-memo: input 225,423 tok, cached 101,274 (44.9%) over 48 records
   other | anthropic | Z-full: input 328,264 tok, cached 202,084 (61.6%) over 72 records
   other | anthropic | Z-memo: input 334,181 tok, cached 303,126 (90.7%) over 72 records
   other | google | LG-full: input 2,151,733 tok, cached 192,345 (8.9%) over 45 records
