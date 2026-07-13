@@ -1,0 +1,80 @@
+=== Study Z: standing context (registered grading) ===
+
+anthropic/claude-sonnet-4.5 (108 cells):
+  Z-full: 26/36  (fact 12/12, rule 12/12, combined 2/12)
+  Z-slice: 27/36  (fact 12/12, rule 12/12, combined 3/12)
+  Z-memo: 35/36  (fact 12/12, rule 12/12, combined 11/12)
+google/gemini-3.5-flash (108 cells):
+  Z-full: 27/36  (fact 12/12, rule 12/12, combined 3/12)
+  Z-slice: 35/36  (fact 12/12, rule 12/12, combined 11/12)
+  Z-memo: 32/36  (fact 12/12, rule 12/12, combined 8/12)
+anthropic/claude-opus-4.8 (108 cells):
+  Z-full: 30/36  (fact 12/12, rule 12/12, combined 6/12)
+  Z-slice: 24/36  (fact 12/12, rule 12/12, combined 0/12)
+  Z-memo: 28/36  (fact 12/12, rule 12/12, combined 4/12)
+
+=== Contamination (all cells) ===
+  total contamination events: 0 / 324 cells
+
+=== Z-H1 gate: Z-full vs Z-slice per model (McNemar, registered) ===
+  anthropic/claude-sonnet-4.5: full-only=1, slice-only=2, p=1.0000
+  google/gemini-3.5-flash: full-only=0, slice-only=8, p=0.0078
+  anthropic/claude-opus-4.8: full-only=6, slice-only=0, p=0.0313
+
+=== Z-H1 on the unconfounded subset (fact+rule only, disclosed) ===
+  anthropic/claude-sonnet-4.5: Z-full 24/24, Z-slice 24/24
+  google/gemini-3.5-flash: Z-full 24/24, Z-slice 24/24
+  anthropic/claude-opus-4.8: Z-full 24/24, Z-slice 24/24
+
+=== Z-H2: Z-memo vs Z-full on rule+combined (McNemar) ===
+  anthropic/claude-sonnet-4.5: memo-only=9, full-only=0, p=0.0039
+  google/gemini-3.5-flash: memo-only=5, full-only=0, p=0.0625
+  anthropic/claude-opus-4.8: memo-only=2, full-only=4, p=0.6875
+
+=== Z-H3: rule compliance by styleguide position (descriptive) ===
+  anthropic/claude-sonnet-4.5 (rule): head 12/12, middle 12/12, tail 12/12
+  anthropic/claude-sonnet-4.5 (combined): head 4/12, middle 5/12, tail 7/12
+  google/gemini-3.5-flash (rule): head 12/12, middle 12/12, tail 12/12
+  google/gemini-3.5-flash (combined): head 9/12, middle 8/12, tail 5/12
+  anthropic/claude-opus-4.8 (rule): head 12/12, middle 12/12, tail 12/12
+  anthropic/claude-opus-4.8 (combined): head 3/12, middle 4/12, tail 3/12
+
+=== Combined-task anatomy (drives the disclosed reanalysis) ===
+  anthropic/claude-sonnet-4.5 Z-full: both-obligations=2, strict-form(no mention)=10, true violations=0
+  anthropic/claude-sonnet-4.5 Z-slice: both-obligations=3, strict-form(no mention)=9, true violations=0
+  anthropic/claude-sonnet-4.5 Z-memo: both-obligations=11, strict-form(no mention)=1, true violations=0
+  anthropic/claude-sonnet-4.5 ALL: both-obligations=16, strict-form(no mention)=20, true violations=0
+  google/gemini-3.5-flash Z-full: both-obligations=3, strict-form(no mention)=9, true violations=0
+  google/gemini-3.5-flash Z-slice: both-obligations=11, strict-form(no mention)=1, true violations=0
+  google/gemini-3.5-flash Z-memo: both-obligations=8, strict-form(no mention)=4, true violations=0
+  google/gemini-3.5-flash ALL: both-obligations=22, strict-form(no mention)=14, true violations=0
+  anthropic/claude-opus-4.8 Z-full: both-obligations=6, strict-form(no mention)=6, true violations=0
+  anthropic/claude-opus-4.8 Z-slice: both-obligations=0, strict-form(no mention)=12, true violations=0
+  anthropic/claude-opus-4.8 Z-memo: both-obligations=4, strict-form(no mention)=8, true violations=0
+  anthropic/claude-opus-4.8 ALL: both-obligations=10, strict-form(no mention)=26, true violations=0
+
+=== Conditional-tm regrade (disclosed post-hoc; tm binds only on mention) ===
+  anthropic/claude-sonnet-4.5 Z-full: 36/36
+  anthropic/claude-sonnet-4.5 Z-slice: 36/36
+  anthropic/claude-sonnet-4.5 Z-memo: 36/36
+  google/gemini-3.5-flash Z-full: 36/36
+  google/gemini-3.5-flash Z-slice: 36/36
+  google/gemini-3.5-flash Z-memo: 36/36
+  anthropic/claude-opus-4.8 Z-full: 36/36
+  anthropic/claude-opus-4.8 Z-slice: 36/36
+  anthropic/claude-opus-4.8 Z-memo: 36/36
+
+=== Caching appendix (recorded tokens) ===
+  anthropic/claude-sonnet-4.5 Z-full: input=129739 cacheRead=78734 cacheWrite=39367 → input-cost -24.6% vs uncached
+  anthropic/claude-sonnet-4.5 Z-slice: input=43401 cacheRead=0 cacheWrite=0 → input-cost -0.0% vs uncached
+  anthropic/claude-sonnet-4.5 Z-memo: input=132166 cacheRead=118101 cacheWrite=0 → input-cost -42.5% vs uncached
+  google/gemini-3.5-flash Z-full: input=117531 cacheRead=0 cacheWrite=0 → input-cost -0.0% vs uncached
+  google/gemini-3.5-flash Z-slice: input=41761 cacheRead=0 cacheWrite=0 → input-cost -0.0% vs uncached
+  google/gemini-3.5-flash Z-memo: input=119810 cacheRead=0 cacheWrite=0 → input-cost -0.0% vs uncached
+  anthropic/claude-opus-4.8 Z-full: input=198525 cacheRead=123350 cacheWrite=61675 → input-cost -24.9% vs uncached
+  anthropic/claude-opus-4.8 Z-slice: input=55743 cacheRead=0 cacheWrite=42243 → input-cost +10.8% vs uncached
+  anthropic/claude-opus-4.8 Z-memo: input=202015 cacheRead=185025 cacheWrite=0 → input-cost -43.0% vs uncached
+
+=== Neutrality spot-check (plain string system, sonnet Z-full) ===
+  DIVERGE stand-3-combined: plain="hello@tundra-meadow.example | Corvane | Northglide™" cached="hello@tundra-meadow.example | Corvane" (success true vs false)
+  9 identical outputs, 1 divergent (descriptive)

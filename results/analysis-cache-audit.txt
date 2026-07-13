@@ -1,6 +1,6 @@
 # Prompt-caching audit (provider-reported cache reads)
 
-Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 63710 calls — reported input tokens are total prompt tokens, cached included.
+Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 64044 calls — reported input tokens are total prompt tokens, cached included.
 
 ## Per raw file
   corrected-anthropic_claude-haiku-4.5-best.jsonl: 1200 records, input 10,846,149 tok, cached 0 (0.0%), calls with cache 0/1591
@@ -87,6 +87,10 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 63710 c
   studyy-anthropic_claude-opus-4.8.jsonl: 432 records, input 2,749,116 tok, cached 0 (0.0%), calls with cache 0/432
   studyy-anthropic_claude-sonnet-4.5.jsonl: 432 records, input 2,491,804 tok, cached 0 (0.0%), calls with cache 0/459
   studyy-google_gemini-3.5-flash.jsonl: 432 records, input 1,934,834 tok, cached 285,552 (14.8%), calls with cache 54/436
+  studyz-anthropic_claude-opus-4.8.jsonl: 108 records, input 456,283 tok, cached 308,375 (67.6%), calls with cache 60/108
+  studyz-anthropic_claude-sonnet-4.5.jsonl: 108 records, input 305,306 tok, cached 196,835 (64.5%), calls with cache 60/108
+  studyz-google_gemini-3.5-flash.jsonl: 108 records, input 279,102 tok, cached 0 (0.0%), calls with cache 0/108
+  studyz-spotcheck.jsonl: 10 records, input 35,924 tok, cached 0 (0.0%), calls with cache 0/10
 
 ## Per study group × vendor × condition (nonzero cache only)
   corrected | google | A: input 1,685,260 tok, cached 116,162 (6.9%) over 400 records
@@ -125,6 +129,8 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 63710 c
   main | openai | D: input 3,075,021 tok, cached 1,535,232 (49.9%) over 400 records
   main | openai | E: input 1,959,190 tok, cached 736,256 (37.6%) over 400 records
   main | openai | F: input 1,704,116 tok, cached 256,000 (15.0%) over 400 records
+  other | anthropic | Z-full: input 328,264 tok, cached 202,084 (61.6%) over 72 records
+  other | anthropic | Z-memo: input 334,181 tok, cached 303,126 (90.7%) over 72 records
   other | google | LG-full: input 2,151,733 tok, cached 192,345 (8.9%) over 45 records
   other | google | LG-nav: input 17,135,270 tok, cached 12,995,658 (75.8%) over 45 records
   other | google | N-ground2: input 2,132,174 tok, cached 574,946 (27.0%) over 45 records

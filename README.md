@@ -6,14 +6,14 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into twenty-five studies covering
+granular mutation tools, and grew into twenty-six studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 multi-target edits, and (in a separately-graded track) qualitative
 rewrites. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–Y
+**Status: active research series.** The main matrix and Studies F–Z
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -57,7 +57,15 @@ history-parity at half the cost, beating history outright on the
 production tier (X). And the memo mechanism survives contact with
 human speech: casually phrased declarations, buried rules, and
 conversational retractions extract at exact parity with announced
-ones, with zero false notes from 432 chatter baits (Y). For qualitative goals the
+ones, with zero false notes from 432 chatter baits (Y). Standing
+context — the brand pack shipped with every request — simply works at
+production sizes: exact facts copied past three same-schema
+distractors, styleguide rules applied unprompted at any position,
+zero contamination in 324 cells, and the shipped cached-system layout
+cutting effective input cost by a quarter to nearly half; the one
+production hazard found is **spec conflict**, where the strongest
+models resolve a rule-vs-instruction collision by the most literal
+reading (Z). For qualitative goals the
 split sharpens to a slogan: **views carry values, memos carry goals**
 (V, judge-graded) — a model shown the node where a goal lives reads
 it but writes measurably less focused prose than one told the goal
@@ -91,6 +99,7 @@ tasks with 674/674 subtasks (Q/R).
 | W | Who writes the memo? | Agent-maintained extraction ties the oracle (recall 36/36, zero noise); the laziness hypothesis is refuted; first Opus tier data | [BRIEF-W](docs/BRIEF-W.md) |
 | X | Edit-anaphora | "Undo that" fails carrier-less editors 0/144, all silent guesses; a one-line last-edit echo ties history at half the cost | [BRIEF-X](docs/BRIEF-X.md) |
 | Y | Naturalistic extraction | The memo survives human speech: casual phrasing at exact parity, zero false notes from 432 chatter baits | [BRIEF-Y](docs/BRIEF-Y.md) |
+| Z | Standing context | The brand pack works: facts and rules 216/216 per arm, zero contamination; strongest models read conflicted specs most literally; cached layout −25 to −43% input cost | [BRIEF-Z](docs/BRIEF-Z.md) |
 
 The blog series narrates the arc for humans. The current capstone is
 [Hand It Everything It Needs](https://www.lightningjar.com/blog/hand-it-everything-it-needs)

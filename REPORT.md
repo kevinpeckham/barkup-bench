@@ -1387,6 +1387,108 @@ retractions work when phrased like people phrase them, and chatter
 does not pollute the memo. The formulaic arm doubles as a clean
 replication of Study W's agent arm under added chatter.
 
+## Addendum (2026-07-12): Study Z — does standing context work? (the brand pack, measured)
+
+Pre-registered in [docs/BRIEF-Z.md](docs/BRIEF-Z.md): production doc
+editors ship a standing context block (company, clients, styleguide)
+with every request, now assembled with the v3.185.0 cached-system
+layout (`buildCachedSystem`, ported verbatim and identity-tested).
+Study Z measures whether the model actually USES that block: 12
+seeded org packs (~3.3k tokens each: About → Solutions → four clients
+with same-schema near-miss distractors → a 12-rule styleguide with
+governing rules planted at head/middle/tail) × 3 tasks (fact-copy /
+rule-following / combined) × 3 arms (Z-full = whole pack, Z-slice =
+oracle-relevant excerpt, Z-memo = whole pack + governing rules
+distilled into the shipped session-notes block) × 3 models. 324 cells
+plus a 10-cell plain-system neutrality spot-check; ≈ $2; tables in
+`results/analysis-study-z.txt`.
+
+| Registered grading (36/arm-model) | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| Z-full | 26/36 | 27/36 | 30/36 |
+| Z-slice | 27/36 | 35/36 | 24/36 |
+| Z-memo | 35/36 | 32/36 | 28/36 |
+
+- **The unconfounded core: standing context simply works.** Fact and
+  rule tasks are **216/216 per arm-triple — 100% on every model in
+  every arm**: exact client facts copied from a 3.3k-token pack with
+  three same-schema distractors sitting next to the target, and
+  styleguide rules applied unprompted regardless of position (head /
+  middle / tail all 12/12 — no burial effect at this pack size).
+  **Zero contamination events in all 324 cells**: not one distractor
+  email, phone, product, or city ever leaked into an output.
+- **Every combined-task "failure" is a rule-conflict reading, not a
+  compliance failure.** The combined task pits R-contact ("contact
+  lines always follow the form {email} | {city}") against an
+  instruction clause asking to mention the product (governed by
+  R-tm's ™ mark). All 108 combined outputs per model split cleanly
+  into two readings — obey both (append product™ after the form) or
+  obey the form rule strictly (exact `email | city`, no mention) —
+  with **zero true violations and zero unmarked product mentions**.
+  Under the R-tm rule's own conditional semantics ("on every
+  mention" — no mention, no obligation), **every arm on every model
+  regrades to 36/36**. Disclosed post-hoc reanalysis; the registered
+  grading above stands as primary.
+- **Z-H1 (gate): passes in substance, confounded in letter.** The
+  registered McNemar verdicts disagree in *opposite directions* by
+  model (sonnet ties p = 1.0; gemini slice-favoring p = 0.0078; opus
+  full-favoring p = 0.0313) — every discordant pair is the combined
+  cell's interpretation split, and on the unconfounded fact+rule
+  subset Z-full ties Z-slice at 24/24 everywhere with zero
+  contamination. The interpretation table's first row obtains:
+  ship-everything works at these pack sizes.
+- **Z-H2: the memo doesn't change competence, it changes which
+  reading wins.** Distilling the governing rules into the dynamic
+  session-notes tail moved sonnet from 2/12 to 11/12 on combined
+  cells (p = 0.0039) — not by fixing errors but by pushing it to
+  satisfy both obligations rather than the strict form. Opus barely
+  moved (and its slice arm went fully strict: 0/12 registered,
+  12/12 regraded). Restating a rule near the request makes models
+  treat it as something to actively satisfy; burying it makes strong
+  models treat it as a constraint to conservatively honor.
+- **Interpretation strictness scales with capability, descriptively:**
+  strict-form readings across all arms: opus 26/36 > sonnet 20/36 >
+  gemini 14/36. The strongest model is the most literal about the
+  styleguide — the failure mode of a conflicted spec is not chaos
+  but *disciplined obedience to the rule you forgot you wrote*.
+
+**Caching appendix (no gate).** The shipped layout produced real
+mid-prompt cache hits under the bench's pack-grouped traffic:
+Anthropic arms read 64–68% of input from cache (sonnet Z-full
+−24.6% effective input cost vs uncached, Z-memo −42.5%; opus −24.9%
+/ −43.0% — memo arms are pure reads because Z-full already wrote the
+identical static block). Two instructive negatives, disclosed:
+Z-slice never got a read on either Anthropic model (the per-task
+slice block defeats prefix reuse — opus paid +10.8% in pure cache
+writes; a static block must actually be static across requests), and
+gemini reported zero cache tokens throughout (`cacheControl` is
+Anthropic-specific; Gemini's implicit caching reported nothing at
+these sizes). The neutrality spot-check (10 sonnet Z-full cells,
+plain string system) matched 9/10 outputs exactly; the single
+divergence is the conflicted combined cell flipping readings —
+consistent with interpretation instability, not a caching artifact.
+
+**Decision rule outcome: the interpretation table's first row.**
+Standing context works as shipped at ~3.3k tokens: facts get copied
+exactly, rules get applied unprompted, distractors never bleed. The
+production guidance the combined cells add: **don't ship rules that
+can collide with instructions — and when two rules can both apply,
+expect the strongest models to pick the most literal reading.**
+Slice-by-client buys nothing on accuracy AND forfeits the cache (the
+slice arm was the only one that ever paid a caching penalty); the
+memo pattern (V/W) extends here as the lever that steers rule
+*interpretation*, not just recall.
+
+Protocol notes, disclosed: (1) governing-rule bands hold three slots
+(head 1–3 / middle 6–8 / tail 10–12) rather than the brief's two,
+because one pack text serves all three tasks and the rule+combined
+governing unions share R-tm (committed before any scored run, e2c9366);
+(2) CTA rule tasks carry a single governing rule; (3) fact-task Z-memo
+cells are byte-identical to Z-full (no rules to distill); (4) the
+conditional-tm regrade is post-hoc, motivated by inspecting failures,
+and never replaces the registered numbers; (5) spend came in far under
+the brief's estimate ($2 vs $40–70 — single-turn xs cells).
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is
