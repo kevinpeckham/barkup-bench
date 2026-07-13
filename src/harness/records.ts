@@ -11,6 +11,8 @@ export interface CallLog {
 	outputTokens: number;
 	/** Provider-reported cached-input reads, for the with/without-cache cost views. */
 	cacheReadTokens?: number;
+	/** Provider-reported cache writes (Study Z caching appendix). */
+	cacheWriteTokens?: number;
 	/** Provider-reported reasoning tokens (subset of output). */
 	reasoningTokens?: number;
 	latencyMs: number;
