@@ -19,6 +19,10 @@ import {
 } from "../src/corpus/conflict.js";
 import { createRng } from "../src/corpus/rng.js";
 import { conflictBlocks } from "../src/harness/conflict-runner.js";
+import {
+	formatSessionNotesBlock,
+	formatSessionNotesBlockV2,
+} from "../src/shipped/session-notes.js";
 
 const CONFLICT_SEED = 20260721;
 
@@ -182,5 +186,55 @@ describe("arm constructions", () => {
 		for (const rule of task.memoRules) {
 			expect(dynamicBlock).toContain(rule);
 		}
+	});
+});
+
+describe("Study AB: shipped precedence clause (v3.188.1 @ ce06373)", () => {
+	const tasks = generateAll();
+	const ov = tasks.find((t) => t.kind === "override") as ConflictTask;
+
+	test("v2 formatter is v1 plus exactly the shipped PRECEDENCE clause", () => {
+		const notes = ov.memoRules.map((text) => ({
+			kind: "rule" as const,
+			text,
+		}));
+		const v1 = formatSessionNotesBlock(notes);
+		const v2 = formatSessionNotesBlockV2(notes);
+		const clause =
+			" PRECEDENCE: a direct, explicit instruction in the current request overrides any note here for that request — the memo carries standing intent, not vetoes (a one-off override is not a retraction; keep the note unless the user retracts it).";
+		expect(v2).toBe(
+			v1.replace(
+				"anchor goal-directed rewrites on the goals below.",
+				`anchor goal-directed rewrites on the goals below.${clause}`,
+			),
+		);
+		expect(formatSessionNotesBlockV2([])).toBe("");
+	});
+
+	test("character identity with the shipped source (when sibling checkout present)", () => {
+		const shipped = `${process.env.HOME}/newdev/slx-replicator/src/lib/utils/sessionNotes.ts`;
+		if (!existsSync(shipped)) return;
+		const source = readFileSync(shipped, "utf8");
+		const start = source.indexOf("## Session notes (app-maintained memo)");
+		const end = source.indexOf("${sections.join", start);
+		const shippedHeader = source.slice(start, end);
+		const port = readFileSync("src/shipped/session-notes.ts", "utf8");
+		expect(port).toContain(shippedHeader);
+	});
+
+	test("AB-memo matches AA-memo construction; AB-clause differs only by the clause", () => {
+		const aa = conflictBlocks(ov, "AA-memo");
+		const abMemo = conflictBlocks(ov, "AB-memo");
+		const abClause = conflictBlocks(ov, "AB-clause");
+		expect(abMemo).toEqual(aa);
+		expect(abClause.staticBlock).toBe(abMemo.staticBlock);
+		expect(abClause.dynamicBlock).toContain("PRECEDENCE:");
+		expect(abMemo.dynamicBlock).not.toContain("PRECEDENCE:");
+		expect(
+			abClause.dynamicBlock.replace(
+				" PRECEDENCE: a direct, explicit instruction in the current request overrides any note here for that request — the memo carries standing intent, not vetoes (a one-off override is not a retraction; keep the note unless the user retracts it).",
+				"",
+			),
+		).toBe(abMemo.dynamicBlock);
 	});
 });

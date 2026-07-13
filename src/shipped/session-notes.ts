@@ -66,6 +66,26 @@ export function formatSessionNotesBlock(notes: SessionNote[]): string {
 }
 
 /**
+ * Study AB shipped artifact (docs/BRIEF-AB.md): VERBATIM port of
+ * slx-replicator v3.188.1's formatter (commit ce06373) — identical to
+ * the v3.183.0 formatter above except the block header ends with the
+ * shipped PRECEDENCE clause. The v3.183.0 export above is untouched
+ * so Studies W/Y/Z/AA keep their identity guarantees.
+ */
+export function formatSessionNotesBlockV2(notes: SessionNote[]): string {
+	if (notes.length === 0) return "";
+	const sections: string[] = [];
+	for (const kind of KIND_ORDER) {
+		const items = notes.filter((note) => note.kind === kind);
+		if (items.length === 0) continue;
+		sections.push(
+			`${KIND_LABELS[kind]}:\n${items.map((note) => `- ${note.text}`).join("\n")}`,
+		);
+	}
+	return `\n\n## Session notes (app-maintained memo)\nDeclared facts, standing rules, and goals from this session — authoritative even when the conversation that declared them is no longer visible. Apply standing rules to every edit they cover without being reminded, and anchor goal-directed rewrites on the goals below. PRECEDENCE: a direct, explicit instruction in the current request overrides any note here for that request — the memo carries standing intent, not vetoes (a one-off override is not a retraction; keep the note unless the user retracts it).\n${sections.join("\n")}`;
+}
+
+/**
  * Rules-of-engagement text instructing the agent to maintain the memo.
  * Appended to each chat surface's system prompt alongside the block.
  */

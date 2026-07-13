@@ -30,7 +30,10 @@ import {
 	targetContent,
 } from "../corpus/conflict.js";
 import { buildCachedSystem } from "../shipped/prompt-cache.js";
-import { formatSessionNotesBlock } from "../shipped/session-notes.js";
+import {
+	formatSessionNotesBlock,
+	formatSessionNotesBlockV2,
+} from "../shipped/session-notes.js";
 import type { TaskRunRecord } from "./records.js";
 import { MAX_ROUNDS } from "./runner.js";
 import {
@@ -39,7 +42,16 @@ import {
 	onlyTargetChanged,
 } from "./standing-runner.js";
 
-export type ConflictArm = "AA-base" | "AA-priority" | "AA-soft" | "AA-memo";
+export type ConflictArm =
+	| "AA-base"
+	| "AA-priority"
+	| "AA-soft"
+	| "AA-memo"
+	// Study AB (docs/BRIEF-AB.md): AB-memo replicates AA-memo
+	// contemporaneously; AB-clause swaps in the v3.188.1 formatter
+	// (the shipped precedence clause). Static block identical.
+	| "AB-memo"
+	| "AB-clause";
 
 /** The two prompt blocks per arm — exported for the arm-construction
  * tests registered in BRIEF-AA.md. */
@@ -55,12 +67,16 @@ export function conflictBlocks(
 		);
 	}
 	const staticBlock = `${BASE_SYSTEM}\n\n# Organization context (standing)\n\n${pack}`;
+	const notes = task.memoRules.map((text) => ({
+		kind: "rule" as const,
+		text,
+	}));
 	const dynamicBlock =
-		arm === "AA-memo"
-			? formatSessionNotesBlock(
-					task.memoRules.map((text) => ({ kind: "rule" as const, text })),
-				)
-			: "";
+		arm === "AA-memo" || arm === "AB-memo"
+			? formatSessionNotesBlock(notes)
+			: arm === "AB-clause"
+				? formatSessionNotesBlockV2(notes)
+				: "";
 	return { staticBlock, dynamicBlock };
 }
 
