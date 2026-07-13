@@ -52,7 +52,7 @@ export interface StandingTask {
 /** Registered pools (BRIEF-Z.md). Product names and cities are
  * capitalized single words disjoint from the humanizer vocabulary
  * by suffix digits on nothing — checked disjoint per pack instead. */
-const PRODUCT_POOL = [
+export const PRODUCT_POOL = [
 	"Kestrelline",
 	"Northglide",
 	"Suncrest",
@@ -63,7 +63,7 @@ const PRODUCT_POOL = [
 	"Ironquill",
 ] as const;
 
-const CITY_POOL = [
+export const CITY_POOL = [
 	"Ashford",
 	"Brindale",
 	"Corvane",
@@ -197,7 +197,8 @@ export function generateClient(
 }
 
 export interface GoverningRule {
-	key: keyof typeof RULE_TEXTS;
+	/** Widened to string so follow-up studies can add rule kinds. */
+	key: string;
 	text: string;
 }
 

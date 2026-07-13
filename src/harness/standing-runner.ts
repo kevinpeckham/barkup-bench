@@ -36,7 +36,7 @@ import { MAX_ROUNDS } from "./runner.js";
 
 export type StandingArm = "Z-full" | "Z-slice" | "Z-memo";
 
-const BASE_SYSTEM = conditionF.systemPrompt + VIEW_RULES;
+export const BASE_SYSTEM = conditionF.systemPrompt + VIEW_RULES;
 
 /** The two prompt blocks per arm — exported so tests can assert the
  * arm constructions registered in BRIEF-Z.md. */
@@ -75,7 +75,7 @@ export function onlyTargetChanged(
 	return equalExact(expected, final);
 }
 
-async function callWithSystem(
+export async function callWithSystem(
 	model: string,
 	system: SystemModelMessage[],
 	messages: ModelMessage[],
