@@ -1,0 +1,59 @@
+=== Study AC: outcome distributions ===
+
+anthropic/claude-sonnet-4.5 (270 cells):
+  AC-base unsolvable: asked=0 solved=0 wrong-patch=45 invalid=0
+  AC-rule unsolvable: asked=45 solved=0 wrong-patch=0 invalid=0
+  AC-tool unsolvable: asked=45 solved=0 wrong-patch=0 invalid=0
+  AC-base solvable  : asked=0 solved=45 wrong-patch=0 invalid=0
+  AC-rule solvable  : asked=0 solved=45 wrong-patch=0 invalid=0
+  AC-tool solvable  : asked=0 solved=45 wrong-patch=0 invalid=0
+
+google/gemini-3.5-flash (270 cells):
+  AC-base unsolvable: asked=0 solved=0 wrong-patch=45 invalid=0
+  AC-rule unsolvable: asked=45 solved=0 wrong-patch=0 invalid=0
+  AC-tool unsolvable: asked=45 solved=0 wrong-patch=0 invalid=0
+  AC-base solvable  : asked=0 solved=45 wrong-patch=0 invalid=0
+  AC-rule solvable  : asked=0 solved=45 wrong-patch=0 invalid=0
+  AC-tool solvable  : asked=0 solved=45 wrong-patch=0 invalid=0
+
+anthropic/claude-opus-4.8 (270 cells):
+  AC-base unsolvable: asked=0 solved=0 wrong-patch=45 invalid=0
+  AC-rule unsolvable: asked=45 solved=0 wrong-patch=0 invalid=0
+  AC-tool unsolvable: asked=45 solved=0 wrong-patch=0 invalid=0
+  AC-base solvable  : asked=0 solved=45 wrong-patch=0 invalid=0
+  AC-rule solvable  : asked=0 solved=45 wrong-patch=0 invalid=0
+  AC-tool solvable  : asked=0 solved=45 wrong-patch=0 invalid=0
+
+=== AC-H1 gate: asked ≥ 29/45 on unsolvable cells (exact binomial vs 0.5) ===
+  AC-rule anthropic/claude-sonnet-4.5: asked 45/45 (p=0.00000) PASS
+  AC-rule google/gemini-3.5-flash: asked 45/45 (p=0.00000) PASS
+  AC-rule anthropic/claude-opus-4.8: asked 45/45 (p=0.00000) PASS
+  AC-tool anthropic/claude-sonnet-4.5: asked 45/45 (p=0.00000) PASS
+  AC-tool google/gemini-3.5-flash: asked 45/45 (p=0.00000) PASS
+  AC-tool anthropic/claude-opus-4.8: asked 45/45 (p=0.00000) PASS
+  AC-rule: passes on 3/3 models  ← mechanism passes AC-H1
+  AC-tool: passes on 3/3 models  ← mechanism passes AC-H1
+
+=== AC-H2 co-gate: false-ask ≤ 4/45 AND solve parity (solvable cells) ===
+  AC-rule anthropic/claude-sonnet-4.5: false-asks 0/45, solved 45/45 vs base 45/45 (base-only=0, hatch-only=0, p=1.0000) PASS
+  AC-rule google/gemini-3.5-flash: false-asks 0/45, solved 45/45 vs base 45/45 (base-only=0, hatch-only=0, p=1.0000) PASS
+  AC-rule anthropic/claude-opus-4.8: false-asks 0/45, solved 45/45 vs base 45/45 (base-only=0, hatch-only=0, p=1.0000) PASS
+  AC-tool anthropic/claude-sonnet-4.5: false-asks 0/45, solved 45/45 vs base 45/45 (base-only=0, hatch-only=0, p=1.0000) PASS
+  AC-tool google/gemini-3.5-flash: false-asks 0/45, solved 45/45 vs base 45/45 (base-only=0, hatch-only=0, p=1.0000) PASS
+  AC-tool anthropic/claude-opus-4.8: false-asks 0/45, solved 45/45 vs base 45/45 (base-only=0, hatch-only=0, p=1.0000) PASS
+
+=== AC-H3 (descriptive) ===
+  anthropic/claude-sonnet-4.5 AC-rule: asks naming the source 45/45; value: asked 24/24, structure: asked 21/21
+  anthropic/claude-sonnet-4.5 AC-tool: asks naming the source 45/45; value: asked 24/24, structure: asked 21/21
+  google/gemini-3.5-flash AC-rule: asks naming the source 45/45; value: asked 24/24, structure: asked 21/21
+  google/gemini-3.5-flash AC-tool: asks naming the source 45/45; value: asked 24/24, structure: asked 21/21
+  anthropic/claude-opus-4.8 AC-rule: asks naming the source 45/45; value: asked 24/24, structure: asked 21/21
+  anthropic/claude-opus-4.8 AC-tool: asks naming the source 45/45; value: asked 24/24, structure: asked 21/21
+
+=== Residual guesses under a hatch (unsolvable cells) ===
+  anthropic/claude-sonnet-4.5 AC-rule: wrong-patch 0, invalid 0
+  anthropic/claude-sonnet-4.5 AC-tool: wrong-patch 0, invalid 0
+  google/gemini-3.5-flash AC-rule: wrong-patch 0, invalid 0
+  google/gemini-3.5-flash AC-tool: wrong-patch 0, invalid 0
+  anthropic/claude-opus-4.8 AC-rule: wrong-patch 0, invalid 0
+  anthropic/claude-opus-4.8 AC-tool: wrong-patch 0, invalid 0

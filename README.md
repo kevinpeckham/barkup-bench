@@ -6,14 +6,14 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into twenty-eight studies covering
+granular mutation tools, and grew into twenty-nine studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 multi-target edits, and (in a separately-graded track) qualitative
 rewrites. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–AB
+**Status: active research series.** The main matrix and Studies F–AC
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -78,7 +78,13 @@ moved nothing (AB). For qualitative goals the
 split sharpens to a slogan: **views carry values, memos carry goals**
 (V, judge-graded) — a model shown the node where a goal lives reads
 it but writes measurably less focused prose than one told the goal
-outright. The honest boundary is **fan-out** ("change
+outright. And the series' recurring villain — the silent guess — turned out
+to be a protocol defect, not a model property: offered a registered
+escape hatch (one NEED-INFO sentence, or an ask_user tool), every
+model asked on every provably-unsolvable cell and never once asked
+on a solvable one, 810/810, naming the exact missing node each time —
+the models always saw the gap; nothing had ever told them asking was
+allowed (AC). The honest boundary is **fan-out** ("change
 every X inside Y"): one prompt asking for N edits delivers roughly
 half of N under every strategy tested — the fix is app-side
 **decomposition** into single-target edits, which measured 90/90
@@ -111,6 +117,7 @@ tasks with 674/674 subtasks (Q/R).
 | Z | Standing context | The brand pack works: facts and rules 216/216 per arm, zero contamination; cached layout −25 to −43% input cost; conflicted specs resolve into clean readings (strictness claim corrected by AA) | [BRIEF-Z](docs/BRIEF-Z.md) |
 | AA | Conflict resolution | Z's strictness-scales-with-capability claim refuted (opus LEAST literal, 0/24); meta-rule fails, soft phrasing works, memo steering replicates but tramples explicit user countermands | [BRIEF-AA](docs/BRIEF-AA.md) |
 | AB | The precedence clause | Validated: one sentence inside the memo block ends countermand trampling (opus 0/12 → 12/12, p = 0.0005) at zero steering cost — placement, not phrasing, is why styleguide meta-rules fail | [BRIEF-AB](docs/BRIEF-AB.md) |
+| AC | Ask versus guess | Silence is a protocol defect: with an escape hatch, 270/270 asks on unsolvable cells (vs 0/270 base), zero false asks, zero solve cost — every ask names the exact missing node | [BRIEF-AC](docs/BRIEF-AC.md) |
 
 The blog series narrates the arc for humans. The current capstone is
 [Hand It Everything It Needs](https://www.lightningjar.com/blog/hand-it-everything-it-needs)

@@ -1630,6 +1630,66 @@ precedence clause makes rule restatement countermand-safe on every
 model tested." Caching appendix: 66–68% of Anthropic input read from
 cache, consistent with Z/AA.
 
+## Addendum (2026-07-13): Study AC — ask versus guess (silence was never inability)
+
+Pre-registered in [docs/BRIEF-AC.md](docs/BRIEF-AC.md): across
+twenty-eight studies the recurring villain was silence — 90/90 silent
+inventions (U), 144/144 silent guesses (X), 120/120 oblivious
+polishes (V), zero clarifying questions anywhere — but no study ever
+OFFERED an escape hatch. Study AC offered two, on Study U's
+unit-validated silent-failure construction (the needed value provably
+absent from the target-only view, provably present in the both-nodes
+twin): a one-sentence NEED-INFO prompt rule, and an `ask_user` tool.
+45 tasks × 2 views × 3 arms × 3 models = 810 cells; zero errors;
+≈ $6.58; tables in `results/analysis-study-ac.txt`.
+
+| Unsolvable cells (45/model) | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| AC-base: silent wrong patches | 45/45 | 45/45 | 45/45 |
+| AC-rule: asked | **45/45** | **45/45** | **45/45** |
+| AC-tool: asked | **45/45** | **45/45** | **45/45** |
+
+- **AC-H1 (the hatch works) — GATE PASSES at ceiling, both
+  mechanisms, all models.** With no hatch, every model guessed
+  silently on every unsolvable cell — a perfect contemporaneous
+  replication of Study U. With either hatch, every model asked on
+  every unsolvable cell: 270/270 asks against the base arm's 0/270,
+  not one residual guess anywhere. The prose rule and the tool were
+  indistinguishable.
+- **AC-H2 (the hatch is affordable) — CO-GATE PASSES at zero tax.**
+  On the solvable twins: zero false asks in 270 hatch cells, solve
+  rate 45/45 everywhere, identical to base. The hatch costs nothing
+  measured.
+- **The asks are surgical.** Every one of the 270 asks named the
+  exact missing node (registered heuristic: 270/270) — "What is the
+  content attribute value of the text-atom with id n219?" The models
+  always knew precisely what they couldn't see. Which reframes five
+  studies of silent-failure anatomy: the guessing was never
+  inability to notice the gap. The models noticed, and produced a
+  plausible value anyway, because the protocol demanded a patch and
+  nothing said asking was allowed.
+- **Ecological caveat, stated loudly:** the hatch was tested on its
+  home turf. The registered rule text ("requires a value or a node
+  that is not visible in the view") describes Study U's construction
+  almost exactly, and the unsolvable cells are UNAMBIGUOUSLY
+  unsolvable — a validated hard boundary, not fuzzy real-world
+  ambiguity. This study shows the capability exists and costs
+  nothing at the boundary; it does not show the hatch calibrates
+  well on requests that are merely vague. That is the follow-up
+  (and Study X's anaphora cells, deferred by the brief, are the
+  next-hardest construction to point it at).
+
+**Decision rule outcome: the interpretation table's first row —
+silence is a protocol defect, not a model property.** The practical
+guidance: give document-editing agents an explicit ask path (either
+mechanism; one sentence suffices) AND keep the app-side context
+contracts (U's focus-ids rule, X's echo). The hatch is the seatbelt,
+not the substitute: it converts the failure mode from silent fiction
+to a visible question, but the contracts are what make the question
+unnecessary. Caching note: the AC runner uses the plain string-system
+protocol of Study U (no cache layout), so Anthropic cells are
+cache-free by construction, consistent with the audit.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is
