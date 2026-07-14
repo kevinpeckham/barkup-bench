@@ -119,7 +119,10 @@ tasks with 674/674 subtasks (Q/R).
 | AB | The precedence clause | Validated: one sentence inside the memo block ends countermand trampling (opus 0/12 → 12/12, p = 0.0005) at zero steering cost — placement, not phrasing, is why styleguide meta-rules fail | [BRIEF-AB](docs/BRIEF-AB.md) |
 | AC | Ask versus guess | Silence is a protocol defect: with an escape hatch, 270/270 asks on unsolvable cells (vs 0/270 base), zero false asks, zero solve cost — every ask names the exact missing node | [BRIEF-AC](docs/BRIEF-AC.md) |
 
-The blog series narrates the arc for humans. The current capstone is
+The blog series narrates the arc for humans, and
+[The Builder's Playbook](https://www.lightningjar.com/research/barkup-bench/playbook)
+distills the findings into ten action items with code examples for
+teams shipping document-editing agents. The current capstone is
 [Hand It Everything It Needs](https://www.lightningjar.com/blog/hand-it-everything-it-needs)
 (the full architecture at twenty-three studies); the historical hub is
 [Stable IDs Are All You Need](https://www.lightningjar.com/blog/stable-ids-are-all-you-need),
