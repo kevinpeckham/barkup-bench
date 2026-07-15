@@ -53,7 +53,7 @@ function idNodes(tree: BarkupNode): BarkupNode[] {
 }
 
 /** A unique (type, primitive attribute = value) ref for B, or null. */
-function attrRefFor(tree: BarkupNode, node: BarkupNode): NodeRef | null {
+export function attrRefFor(tree: BarkupNode, node: BarkupNode): NodeRef | null {
 	const all = idNodes(tree);
 	for (const [key, value] of Object.entries(node.attributes ?? {})) {
 		if (

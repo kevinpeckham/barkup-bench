@@ -45,13 +45,13 @@ export function makeAskCondition(
 	};
 }
 
-interface AskCall {
+export interface AskCall {
 	text: string;
 	askText: string | null;
 	log: Omit<CallLog, "phase" | "round" | "issueCodes">;
 }
 
-async function callOnce(
+export async function callOnce(
 	model: string,
 	system: string,
 	messages: ModelMessage[],
@@ -219,6 +219,145 @@ export async function runAskTask(
 		outcome,
 		...(askText !== null ? { askText: askText.slice(0, 500) } : {}),
 		...(askNamesSource !== null ? { askNamesSource } : {}),
+	};
+	return record;
+}
+
+// ---- Study AE resume loop (docs/BRIEF-AE.md) ----
+
+export type ResumeOutcome =
+	| "resumed-solved"
+	| "resumed-wrong"
+	| "re-asked"
+	| "never-asked-solved"
+	| "never-asked-wrong"
+	| "invalid";
+
+/** The registered answer template (BRIEF-AE.md), verbatim. */
+export function resumeAnswer(task: DependentTask): string {
+	const description =
+		task.depKind === "value"
+			? `The ${(task.edit as { key?: string }).key ?? "value"} of ${task.sourceId}`
+			: `The name of ${task.sourceRef ? refTextForResume(task.sourceRef) : task.sourceId}`;
+	return `${description} is exactly: "${task.needle}". Now apply the requested edit; reply with the patch only.`;
+}
+
+function refTextForResume(
+	ref: NonNullable<DependentTask["sourceRef"]>,
+): string {
+	if (ref.kind === "attr") {
+		return `the ${ref.type} whose ${ref.key} is ${JSON.stringify(ref.value)}`;
+	}
+	return "the node you asked about";
+}
+
+/**
+ * AE-resume: the unsolvable view1 cell under the shipped rule hatch;
+ * when the model asks, the harness answers as the user (registered
+ * template) and the cell continues in the same conversation — the
+ * view is deliberately NOT re-attached. Post-answer patches keep the
+ * ≤3-round correction loop; a second ask is terminal ("re-asked").
+ */
+export async function runAskResumeTask(
+	task: DependentTask,
+	model: string,
+): Promise<TaskRunRecord> {
+	const condition = makeAskCondition(task, "view1", "AC-rule");
+	const messages: ModelMessage[] = [
+		{
+			role: "user",
+			content: editMessage(condition, task.tree, task.instruction),
+		},
+	];
+
+	const record: TaskRunRecord = {
+		taskId: task.id,
+		family: task.family,
+		bucket: task.bucket,
+		condition: "AE-resume",
+		model,
+		regime: "parity",
+		success: false,
+		firstPassValid: null,
+		passAt1: false,
+		rounds: 0,
+		drift: null,
+		idRefFailure: null,
+		toolErrorCount: null,
+		totalInputTokens: 0,
+		totalOutputTokens: 0,
+		totalLatencyMs: 0,
+		calls: [],
+	};
+
+	let outcome: ResumeOutcome = "invalid";
+	let askText: string | null = null;
+	let answered = false;
+	let finalTree: BarkupNode | null = null;
+	let phase = 1;
+	let round = 0;
+
+	while (round < MAX_ROUNDS * 2) {
+		round += 1;
+		const call = await callOnce(model, condition.systemPrompt, messages, false);
+		messages.push({
+			role: "assistant",
+			content: call.text === "" ? "(empty reply)" : call.text,
+		});
+
+		if (call.text.trim().startsWith("NEED-INFO:")) {
+			record.calls.push({ phase, round, issueCodes: [], ...call.log });
+			if (!answered) {
+				askText = call.text.trim();
+				answered = true;
+				phase = 2;
+				messages.push({ role: "user", content: resumeAnswer(task) });
+				continue;
+			}
+			outcome = "re-asked";
+			break;
+		}
+
+		const applied = condition.applyArtifact(call.text, task.tree);
+		const issueCodes = applied.ok ? [] : applied.issues.map((i) => i.code);
+		record.calls.push({ phase, round, issueCodes, ...call.log });
+		if (applied.ok) {
+			finalTree = applied.node;
+			break;
+		}
+		const phaseRounds = record.calls.filter((c) => c.phase === phase).length;
+		if (phaseRounds >= MAX_ROUNDS) break;
+		messages.push({
+			role: "user",
+			content: `${formatIssuesFeedback(applied.issues, condition.artifactName)} The patch was NOT applied — reply with a complete corrected patch against the tree exactly as originally shown.`,
+		});
+	}
+
+	record.rounds = record.calls.length;
+	record.totalInputTokens = record.calls.reduce((s, c) => s + c.inputTokens, 0);
+	record.totalOutputTokens = record.calls.reduce(
+		(s, c) => s + c.outputTokens,
+		0,
+	);
+	record.totalLatencyMs = record.calls.reduce((s, c) => s + c.latencyMs, 0);
+
+	if (outcome !== "re-asked" && finalTree) {
+		const solved = equalModuloNewIds(
+			task.expected,
+			finalTree,
+			new Set(allIds(task.tree)),
+		);
+		if (answered) outcome = solved ? "resumed-solved" : "resumed-wrong";
+		else outcome = solved ? "never-asked-solved" : "never-asked-wrong";
+	}
+	record.success = outcome === "resumed-solved";
+	record.detail = {
+		arm: "AE-resume",
+		view: "view1",
+		depKind: task.depKind,
+		outcome,
+		asked: answered,
+		...(askText !== null ? { askText: askText.slice(0, 500) } : {}),
 	};
 	return record;
 }
