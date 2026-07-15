@@ -21,6 +21,15 @@ before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
 whatever they show — the series so far includes two major corrections
 and three self-refutations, kept deliberately.
 
+The findings also run as standing infrastructure: the
+[regression-gate suite](docs/REGRESSION.md) packages the series'
+sharpest shipped-guardrail constructions as ten pass/fail gates
+re-runnable against any gateway model id
+(`bun run scripts/regress.ts --model <id>`, ≈$1–13 depending on
+tier) — model-swap CI for teams shipping the measured stack.
+Validated 10/10 green against claude-opus-4.8, the downstream
+surfaces' shipped tier.
+
 ## The arc, in one paragraph
 
 With correct conversation history, every id-stable editing interface
