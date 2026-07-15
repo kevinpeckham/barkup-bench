@@ -1690,6 +1690,79 @@ unnecessary. Caching note: the AC runner uses the plain string-system
 protocol of Study U (no cache layout), so Anthropic cells are
 cache-free by construction, consistent with the audit.
 
+## Addendum (2026-07-15): Study AD — the Opus confirmation (the core stack on the shipped tier)
+
+Pre-registered in [docs/BRIEF-AD.md](docs/BRIEF-AD.md): the core
+editing stack (Studies F–U) was measured on sonnet-4.5 and
+gemini-3.5-flash, but the tier that ships on the downstream
+template-chat surface is claude-opus-4.8, whose data began at Study W
+(memo/echo/standing-context/ask mechanisms only). Study Q's model
+inversion and Study AA's composition sensitivity forbid assuming
+tier transfer, so Study AD re-ran the core recipes on opus —
+corpora, conditions, prompts, graders, and runners reused verbatim,
+gates anchored to the weakest previously passing tier. 1,160 cells,
+zero harness errors, ≈ $44.60 (within the registered $40–60);
+tables in `results/analysis-study-ad.txt`.
+
+| Arm (anchor) | opus-4.8 | Gate |
+|---|---|---|
+| AD-F: dialect, main corpus (prior band 182–188/200) | **194/200** | ≥182 — **PASS** |
+| AD-views: FVH / FTH at 300–1000 nodes (band 40–44/45) | **45/45 / 45/45** | ≥40 each — **PASS** |
+| AD-search: N-search (sonnet 43, gemini 39) | **43/45** | ≥39 — **PASS** |
+| AD-sessions: K-view / P-system steps (95% floor) | **240/240 / 240/240**, end-states 20/20 both | **PASS** |
+| AD-F@size: full tree at ~1000 nodes (13/15 band) | 14/15 | descriptive |
+| AD-fanout: Q-view / Q-full (prior 62–69%) | 80.0% / 88.9% | descriptive |
+
+- **THE STUDY GATE PASSES (AD-H1–H4): the core stack transfers to
+  the shipped tier**, mostly at or above the top of every prior
+  band. The dialect's 194/200 is the best condition-F number ever
+  measured on the main corpus, and its six misses are not editing
+  failures at all: five are reading-family COUNTING questions at
+  m/l sizes (off by 1–4) and one is a reference-family phase-1
+  miss — the patch channel itself was error-free. The HTML views
+  are perfect at every size (90/90; the first perfect view sweep in
+  the series), N-search lands exactly on sonnet's oracle bound
+  (43/45, median ONE search call, ~5.5k tokens median input), and
+  every session arm is flawless.
+- **The worked-examples block is NOT load-bearing on opus — and
+  remains harmless.** The AD ablation is the finding W's cost
+  caveat anticipated: bare stateless sessions (M-stateless, no
+  history, no examples) score 240/240 steps and 20/20 end-states,
+  indistinguishable from P-system and K-view (all three arms
+  perfect; McNemar p = 1.0, zero discordant steps). Sonnet needed
+  the examples (M-stateless lost 7–0 to history, 13/20 end-states);
+  opus does ordinal inserts and moves correctly with no precedent
+  at all, at 12-step horizon, on this corpus. Shipped guidance
+  unchanged (the block is ~900 flat tokens of measured insurance
+  for every tier below the frontier), but the frontier-tier cost
+  floor is now measured: fresh view + nothing else, ~20k
+  input/session vs K-view's ~65k.
+- **Fan-out stays the honest weakness — at a higher floor, with a
+  third composition.** Opus clears the prior 62–69% band by a wide
+  margin (Q-full 88.9%, Q-view 80.0%) but still drops to 12/18 on
+  7+-target tasks under views, with the failures the same
+  partial-coverage anatomy as ever. Directionally opus prefers the
+  FULL TREE (view-only 2 vs full-only 6, p = 0.29, n.s.) — gemini's
+  direction, not sonnet's, and a third distinct profile for the
+  serializer-inversion file. The decomposition fence stands for
+  every tier: even the best fan-out number measured leaves one in
+  nine bulk edits incomplete.
+- **Full-tree patches at ~1000 nodes: 14/15**, above the 13/15
+  prior band (median input 89k tokens — the views do it for 2% of
+  that, which is why the shipped path uses them).
+
+**Decision rule outcome: the interpretation table's first row.**
+Every "measured on sonnet/gemini" caveat attached to the core
+recipes (patch dialect, focused views, search-then-patch, session
+policies) now closes for the shipped tier, and the downstream
+guardrail set is validated end to end on the model that runs it.
+Rewrite-at-scale remains deliberately unextended to opus (not a
+shipped path; disclosed exclusion), and Q-search's spiral behavior
+on opus is unmeasured (excluded by cost fence). Cache audit re-run:
+all four AD record files report zero cache reads (plain
+string-system protocol, Anthropic caching never enabled) — every
+token figure above is cache-free.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is

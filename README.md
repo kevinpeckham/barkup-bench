@@ -6,14 +6,14 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into twenty-nine studies covering
+granular mutation tools, and grew into thirty studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 multi-target edits, and (in a separately-graded track) qualitative
 rewrites. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–AC
+**Status: active research series.** The main matrix and Studies F–AD
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -84,11 +84,17 @@ escape hatch (one NEED-INFO sentence, or an ask_user tool), every
 model asked on every provably-unsolvable cell and never once asked
 on a solvable one, 810/810, naming the exact missing node each time —
 the models always saw the gap; nothing had ever told them asking was
-allowed (AC). The honest boundary is **fan-out** ("change
+allowed (AC). The whole core stack was then re-run on the tier the
+downstream surfaces actually ship, claude-opus-4.8, and every gate
+passed at or above the top of the prior bands — with one new fact:
+the frontier tier needs no worked examples at all (bare stateless
+sessions 240/240), so the examples block is insurance for the tiers
+below it (AD). The honest boundary is **fan-out** ("change
 every X inside Y"): one prompt asking for N edits delivers roughly
-half of N under every strategy tested — the fix is app-side
-**decomposition** into single-target edits, which measured 90/90
-tasks with 674/674 subtasks (Q/R).
+half of N under every strategy tested — opus raises the floor to
+80–89% but still leaves one in nine bulk edits incomplete (AD) — so
+the fix is app-side **decomposition** into single-target edits,
+which measured 90/90 tasks with 674/674 subtasks (Q/R).
 
 ## Study index
 
@@ -118,6 +124,7 @@ tasks with 674/674 subtasks (Q/R).
 | AA | Conflict resolution | Z's strictness-scales-with-capability claim refuted (opus LEAST literal, 0/24); meta-rule fails, soft phrasing works, memo steering replicates but tramples explicit user countermands | [BRIEF-AA](docs/BRIEF-AA.md) |
 | AB | The precedence clause | Validated: one sentence inside the memo block ends countermand trampling (opus 0/12 → 12/12, p = 0.0005) at zero steering cost — placement, not phrasing, is why styleguide meta-rules fail | [BRIEF-AB](docs/BRIEF-AB.md) |
 | AC | Ask versus guess | Silence is a protocol defect: with an escape hatch, 270/270 asks on unsolvable cells (vs 0/270 base), zero false asks, zero solve cost — every ask names the exact missing node | [BRIEF-AC](docs/BRIEF-AC.md) |
+| AD | The Opus confirmation | The core stack transfers to the shipped tier: dialect 194/200 (best F ever), views 90/90, search at the oracle bound, sessions perfect — and bare-stateless is ALSO perfect, so worked examples are sub-frontier insurance; fan-out floor rises to 80–89% but the decomposition fence stands | [BRIEF-AD](docs/BRIEF-AD.md) |
 
 The blog series narrates the arc for humans, and
 [The Builder's Playbook](https://www.lightningjar.com/research/barkup-bench/playbook)

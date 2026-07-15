@@ -1,0 +1,52 @@
+# Study AD — Opus confirmation (anthropic/claude-opus-4.8): 1160 records
+
+## AD-H1 — condition F on the main corpus (anchor band 182–188/200)
+
+  F overall: 194/200 (97.0% [93.6%,98.6%])
+  xs: 54/54 (100.0% [93.4%,100.0%])  s: 58/58 (100.0% [93.8%,100.0%])  m: 42/46 (91.3% [79.7%,96.6%])  l: 40/42 (95.2% [84.2%,98.7%])
+
+## AD-H2 — FVH/FTH over size-extension (anchor band 40–44/45 per mode)
+
+  FVH: 45/45 (100.0% [92.1%,100.0%])
+    xl 15/15 (100.0% [79.6%,100.0%])  |  xxl 15/15 (100.0% [79.6%,100.0%])  |  xxxl 15/15 (100.0% [79.6%,100.0%])
+  FTH: 45/45 (100.0% [92.1%,100.0%])
+    xl 15/15 (100.0% [79.6%,100.0%])  |  xxl 15/15 (100.0% [79.6%,100.0%])  |  xxxl 15/15 (100.0% [79.6%,100.0%])
+
+## AD-F@size — condition F, full tree, xxxl (anchor 13/15; descriptive)
+
+  F@xxxl: 14/15 (93.3% [70.2%,98.8%])  (median input 89,274 tokens)
+
+## AD-H3 — N-search over the grounded corpus (anchor: sonnet 43/45, gemini 39/45)
+
+  N-search: 43/45 (95.6% [85.2%,98.8%])  (median find_nodes calls 1, median input 5,522 tokens)
+
+## AD-H4 — session policies (20 sessions × 12 steps)
+
+  K-view      : steps 240/240 (100.0% [98.4%,100.0%]); end-state 20/20; mean tokens/session 64,723 in + 563 out
+  P-system    : steps 240/240 (100.0% [98.4%,100.0%]); end-state 20/20; mean tokens/session 32,345 in + 571 out
+  M-stateless : steps 240/240 (100.0% [98.4%,100.0%]); end-state 20/20; mean tokens/session 20,218 in + 641 out
+
+  P-system vs M-stateless: P-system-only 0, M-stateless-only 0, both 240, neither 0 — p = 1.0000
+  P-system vs K-view: P-system-only 0, K-view-only 0, both 240, neither 0 — p = 1.0000
+
+## AD-H5 — fan-out, Q-view vs Q-full (descriptive; anchors 62–69% overall)
+
+  Q-view: 36/45 (80.0% [66.2%,89.1%])
+    2–3: 14/14 (100.0% [78.5%,100.0%])  4–6: 10/13 (76.9% [49.7%,91.8%])  7+: 12/18 (66.7% [43.7%,83.7%])
+  Q-full: 40/45 (88.9% [76.5%,95.2%])
+    2–3: 13/14 (92.9% [68.5%,98.7%])  4–6: 12/13 (92.3% [66.7%,98.6%])  7+: 15/18 (83.3% [60.8%,94.2%])
+  paired: view-only 2, full-only 6 — p = 0.2891 (published: sonnet view-favoring p=.022, gemini full-favoring p=.008)
+
+## Totals
+  1160 records, 8,382,549 in + 107,438 out (≈$44.60 at $5/$25 per M)
+
+## Pre-registered gates
+
+  PASS  AD-H1: F 194/200 vs gate ≥182
+  PASS  AD-H2 FVH: FVH 45/45 vs gate ≥40, size floor ≥12/15 held
+  PASS  AD-H2 FTH: FTH 45/45 vs gate ≥40, size floor ≥12/15 held
+  PASS  AD-H3: N-search 43/45 vs gate ≥39
+  PASS  AD-H4 K-view: K-view steps 240/240 (gate ≥95%), end-state 20/20 (gate ≥17)
+  PASS  AD-H4 P-system: P-system steps 240/240 (gate ≥95%), end-state 20/20 (gate ≥17)
+
+  STUDY GATE (AD-H1..H4): PASS — core stack confirmed on the shipped tier
