@@ -10,3 +10,4 @@ results/raw/
 # Internal-only working files (agent handoff prompts, scratch notes)
 internal/
 .DS_Store
+results/regression/raw/
