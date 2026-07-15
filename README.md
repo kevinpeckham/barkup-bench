@@ -6,14 +6,14 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into thirty studies covering
+granular mutation tools, and grew into thirty-one studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 multi-target edits, and (in a separately-graded track) qualitative
 rewrites. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–AD
+**Status: active research series.** The main matrix and Studies F–AE
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -134,6 +134,7 @@ which measured 90/90 tasks with 674/674 subtasks (Q/R).
 | AB | The precedence clause | Validated: one sentence inside the memo block ends countermand trampling (opus 0/12 → 12/12, p = 0.0005) at zero steering cost — placement, not phrasing, is why styleguide meta-rules fail | [BRIEF-AB](docs/BRIEF-AB.md) |
 | AC | Ask versus guess | Silence is a protocol defect: with an escape hatch, 270/270 asks on unsolvable cells (vs 0/270 base), zero false asks, zero solve cost — every ask names the exact missing node | [BRIEF-AC](docs/BRIEF-AC.md) |
 | AD | The Opus confirmation | The core stack transfers to the shipped tier: dialect 194/200 (best F ever), views 90/90, search at the oracle bound, sessions perfect — and bare-stateless is ALSO perfect, so worked examples are sub-frontier insurance; fan-out floor rises to 80–89% but the decomposition fence stands | [BRIEF-AD](docs/BRIEF-AD.md) |
+| AE | Hatch calibration + resume | Zero interrogation tax on clear requests (0/90 false asks) and the ask→answer loop closes 135/135 — but ambiguity detection is a TIER SPLIT: opus asks 15/15 on two-referent requests naming both ids; sonnet edits both, gemini coin-flips, 1/15 asks each — the shipped hatch catches absence, not ambiguity, below the frontier | [BRIEF-AE](docs/BRIEF-AE.md) |
 
 The blog series narrates the arc for humans, and
 [The Builder's Playbook](https://www.lightningjar.com/research/barkup-bench/playbook)

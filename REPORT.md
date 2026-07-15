@@ -1763,6 +1763,82 @@ all four AD record files report zero cache reads (plain
 string-system protocol, Anthropic caching never enabled) — every
 token figure above is cache-free.
 
+## Addendum (2026-07-15): Study AE — hatch calibration and the resume loop (the gate fails, and the failure is a tier split)
+
+Pre-registered in [docs/BRIEF-AE.md](docs/BRIEF-AE.md): Study AC
+validated the escape hatch at a provable hard boundary and disclosed
+two unmeasured edges — calibration on merely-vague requests (the
+over-asking risk, live on three shipped chat surfaces) and the
+ask → answer → resume loop (AC ended every cell at the question).
+Study AE measured both: a five-level ambiguity ladder (75 tasks,
+seed 20260717, every level's defining property unit-validated;
+L0/L4 are registered reuses of the U corpus) under the shipped
+NEED-INFO sentence frozen verbatim, plus 135 resume cells with a
+registered answer template. 720 cells, three models, zero harness
+errors, ≈ $6; tables in `results/analysis-study-ae.txt`.
+
+| AE-rule arm | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| L0+L1 false asks (clear requests) | **0/30** | **0/30** | **0/30** |
+| L2 discretionary: acted / asked | 15/0 | 15/0 | 13/2 |
+| L3 ambiguous referent: asked | 1/15 | 1/15 | **15/15** |
+| L4 missing info: asked | 15/15 | 15/15 | 15/15 |
+| Resume: resumed-solved | **45/45** | **45/45** | **45/45** |
+
+- **AE-H1 (no interrogation tax) — PASSES at ceiling on all three
+  models.** Zero false asks in 90 clear-request cells, solve rates
+  identical to the no-hatch control (30/30 everywhere, McNemar
+  p = 1.0). The calibration fear that motivated the study is
+  refuted on its cheap half: the hatch costs literally nothing on
+  requests the model can already handle, including indirect
+  references it must resolve itself (L1). L2 agrees: models edit
+  "make it punchier" rather than interviewing the user about
+  wording (opus asked twice in 15; disclosed, descriptive).
+- **AE-H2 (ambiguity detection) — FAILS on sonnet and gemini,
+  PASSES at ceiling on opus. The tier split is the finding.** When
+  a singular instruction matches exactly two visible nodes, opus
+  asks every time and its asks named BOTH candidate ids 15/15
+  ("Which of n112 or n191 did you mean?"). Sonnet and gemini ask
+  once each in 15 — with the hatch present — and resolve the
+  ambiguity unilaterally instead, in two DIFFERENT ways: sonnet
+  edits BOTH matches (12/15; the "apply to every match" reading —
+  defensible for a plural, wrong for this singular), gemini
+  edits ONE (9/15 with the rule, 14/15 base — the true silent
+  coin-flip). Mechanism, not blindness, again: the registered
+  hatch sentence is scoped to information that is "not visible in
+  the view" — an ambiguous referent is entirely visible. Opus
+  generalized the rule's intent; the mid tiers applied its letter.
+  (The same models that read conflicting SPECS most literally in
+  Study AA read this rule most literally too — the literalism
+  profile travels.)
+- **AE-H3 (hard boundary) — replicates at ceiling**, 45/45 asks on
+  the U-construction slices, fourth consecutive replication of
+  that construction's numbers.
+- **AE-H4 (the loop closes) — PASSES at absolute ceiling: 135/135
+  resumed-solved.** Every model asked, integrated the answered
+  value from plain conversational text (no view re-attachment, no
+  id restated in a view), and produced the exactly-correct patch:
+  zero re-asks, zero wrong integrations, zero correction rounds
+  needed after the answer. The ask path is not a dead end; it is a
+  reliable two-turn solve.
+
+**Decision rule outcome: the interpretation table's H2-fails row,
+with a tier annotation the table did not anticipate.** For the
+shipped tier (opus), the hatch now covers BOTH failure classes —
+absence and ambiguity — and the full ask → answer → patch loop is
+measured at ceiling, so the v3.191.0 ask path graduates from
+"measured at the boundary" to "measured across the ladder." For
+sub-frontier tiers, the shipped sentence does NOT catch referent
+ambiguity: silent unilateral resolutions survive (edit-both on
+sonnet, coin-flip on gemini), and app-side disambiguation (unique
+references, selection grounding, `selectNodes` enumeration) remains
+the only defense. An amended hatch sentence covering multiplicity
+("if the request matches more than one node, ask which") is the
+obvious follow-up — it is NOT shipped guidance until a registered
+test passes it, per the AA lesson about prompt clauses that look
+obviously right. Cache audit re-run: zero cache reads across all
+585 ladder/resume records; token figures are cache-free.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is
