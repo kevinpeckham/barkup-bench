@@ -1,0 +1,44 @@
+
+# regression-gate summary — anthropic/claude-opus-4.8 (run 20260715)
+# thresholds registered in docs/REGRESSION.md — never adjusted post-hoc
+
+PASS        dialect — Anchored-patch dialect (condition F, main-corpus slice)
+            protects: apply_template_patch funnel (every editing surface) (source: Study F/AD)
+            ok  solved: 20 vs >=17/20
+PASS        views — HTML focused views at ~1000 nodes (FVH, xxxl)
+            protects: get_template_view at the >=300-node threshold (source: Study I/J/AD)
+            ok  solved: 15 vs >=13/15
+PASS        search — Search-then-patch grounding (N-search slice)
+            protects: find_nodes content search (source: Study N/AD)
+            ok  solved: 15 vs >=11/15
+PASS        focus-solve — Focus-ids contract, solvable cells (U-view2 construction)
+            protects: view scope as a correctness contract (U fences, v3.182.0) (source: Study U/AC/AD)
+            ok  solved: 45 vs >=43/45
+            ok  silent wrong patches: 0 vs <=2/45
+PASS        ask-hatch — NEED-INFO escape hatch fires and calibrates (AC-rule)
+            protects: ask-path prompt rules (v3.191.0) (source: Study AC)
+            ok  asked on unsolvable: 45 vs >=43/45
+            ok  false asks on solvable: 0 vs <=2/45
+            ok  solved on solvable: 45 vs >=43/45
+PASS        echo — Last-edit echo carries anaphora (X-lastedit)
+            protects: lastEditEcho (v3.184.0) (source: Study X)
+            ok  anaphora steps: 48 vs >=45/48
+            ok  ordinary steps: 96 vs >=92/96
+PASS        memo-block — Session-notes block carries callbacks (T-notes slice)
+            protects: sessionNotes prompt block (v3.183.0) (source: Study T)
+            ok  callback steps: 40 vs >=38/40
+PASS        memo-agent — Agent-maintained memo extraction (W-agent slice)
+            protects: update_session_notes tool loop (v3.183.0) (source: Study W)
+            ok  callback steps: 35 vs >=32/36
+PASS        precedence — PRECEDENCE clause: countermands honored, steering intact (AB-clause)
+            protects: formatSessionNotesBlockV2 precedence clause (v3.188.1) (source: Study AB)
+            ok  countermands honored: 12 vs >=10/12
+            ok  satisfy-both on rule-instruction: 10 vs >=10/12
+            ok  violations: 0 vs <=0/24
+PASS        standing-pack — Standing brand pack: facts, rules, zero contamination (Z-full slice)
+            protects: per-org Context block + buildCachedSystem (v3.185.0) (source: Study Z)
+            ok  fact+rule cells passed: 24 vs >=22/24
+            ok  contamination events: 0 vs <=0/24
+
+suite: 10/10 gates pass
+tokens: 2,483,485 in + 43,051 out
