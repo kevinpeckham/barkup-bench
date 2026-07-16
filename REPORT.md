@@ -1897,6 +1897,64 @@ monitorable budget: the memo is provably safe to 20, so the only
 hazard is the edge itself. Cache audit re-run: zero cache reads
 across all 270 records; token figures are cache-free.
 
+## Addendum (2026-07-16): Study AI — the multiplicity hatch (a large fix that helps exactly where we don't ship)
+
+Pre-registered in [docs/BRIEF-AI.md](docs/BRIEF-AI.md): Study AE's
+obvious fix — one added sentence covering requests that "could
+match MORE THAN ONE node" — measured before anyone ships it, per
+the twice-learned lesson about obvious clauses (AA's meta-rule,
+AF's restate ceremony). Two arms over the full calibration ladder
+(the amended sentence vs the shipped sentence re-run
+contemporaneously), three models, 450 cells, zero harness errors,
+≈ $5; tables in `results/analysis-study-ai.txt`.
+
+| L3 ambiguous referent: asked | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| AI-control (shipped sentence) | 3/15 | 0/15 | 15/15 |
+| AI-rule2 (+ multiplicity clause) | **15/15** | 11/15 | 15/15 |
+
+- **AI-H1 (the rescue) — SPLITS, and the registered gate FAILS on
+  gemini by one ask.** Sonnet is completely rescued: 3/15 → 15/15
+  (McNemar p = 5×10⁻⁴), every ask naming both candidate ids.
+  Gemini improves enormously — 0/15 → 11/15 (p = 10⁻³) — but 11/15
+  misses the registered ≥ 12 detection bar (one-sided binomial vs
+  0.5, p = 0.059), and its four residuals all silently edited BOTH
+  matches. Notably the clause transformed gemini's failure mode:
+  the control arm's coin-flips (11 guessed) disappeared entirely;
+  what survives is the defensible-but-wrong apply-to-all reading.
+- **AI-H2 (no new tax) — PASSES everywhere at zero.** 0/90 false
+  asks on clear requests, solve rates identical to control on all
+  three models. The clause costs nothing where requests are
+  unambiguous.
+- **AI-H3 (boundaries) — PASSES everywhere** (L4 at ceiling on all
+  models; opus L3 undisturbed at 15/15). One DISCLOSED whisper
+  outside the gates: on L2 discretionary requests ("make it
+  punchier"), opus's ask rate rose from 2/15 to 5/15 under the
+  amended sentence (n.s., p = 0.25, level registered as
+  descriptive) — the multiplicity framing appears to make the
+  frontier tier slightly more willing to interrogate vague VALUE
+  requests it previously just did.
+- Control-arm replication: AE's tier split reproduced (opus 15/15,
+  sonnet 3/15 vs AE's 1/15, gemini 0/15 vs 1/15 — the sub-frontier
+  ask rate stays in the noise floor it came from).
+
+**Decision rule outcome: the study gate fails as registered, and
+the practical reading is sharper than a pass would have been.** The
+clause is strictly beneficial at the ambiguity level on sub-frontier
+tiers and free on clear requests — but it does not RELIABLY close
+the gap (gemini retains a 4/15 silent edit-both residue), and on
+the tier the downstream surfaces actually ship it adds nothing at
+L3 (already perfect) while directionally increasing discretionary
+interrogation at L2. Recommendation to the downstream ask rules:
+**do not ship the clause on opus surfaces** (no measurable benefit
+where it would run; a whisper of cost); for any sub-frontier
+deployment it is a large, free improvement that still requires
+app-side disambiguation as the actual guarantee. AE's capability
+framing survives intact: prompting moved the mid tiers most of the
+way, but only the frontier tier treats ambiguity as reliably
+ask-worthy, clause or no clause. Cache audit re-run: zero cache
+reads across all 450 records.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is

@@ -6,14 +6,14 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into thirty-three studies covering
+granular mutation tools, and grew into thirty-four studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 multi-target edits, and (in a separately-graded track) qualitative
 rewrites. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–AF and AH
+**Status: active research series.** The main matrix and Studies F–AF, AH, and AI
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -142,6 +142,7 @@ which measured 90/90 tasks with 674/674 subtasks (Q/R).
 | AE | Hatch calibration + resume | Zero interrogation tax on clear requests (0/90 false asks) and the ask→answer loop closes 135/135 — but ambiguity detection is a TIER SPLIT: opus asks 15/15 on two-referent requests naming both ids; sonnet edits both, gemini coin-flips, 1/15 asks each — the shipped hatch catches absence, not ambiguity, below the frontier | [BRIEF-AE](docs/BRIEF-AE.md) |
 | AF | Restate-before-rewrite (Track 2, judge-graded) | The inferred clause, measured: forced restatement does NOT rescue view-read goals (0 wins in 90, compliance perfect, models restate the thesis then orbit it anyway) — where a goal comes from beats saying it aloud; the shipped memo keeps parity, the clause itself measures neutral-to-whisper-negative and is filed for removal | [BRIEF-AF](docs/BRIEF-AF.md) |
 | AH | Memo saturation | Perfect to the shipped 20-note cap: recall and rule application 90/90 at every position, full-replace lossless 60/60 where the update fits — but at the cap a note dies every time, and all 30 victims were GOALS (the block renders goals last; the clamp and the models both eat the tail) — the cap is an app-side footgun | [BRIEF-AH](docs/BRIEF-AH.md) |
+| AI | The multiplicity hatch | AE's obvious fix, measured: sonnet fully rescued (3/15 → 15/15), gemini 0 → 11/15 but misses the bar with a silent edit-both residue, zero tax anywhere — and on the shipped tier it adds nothing while nudging discretionary interrogation, so it stays unshipped; the capability framing survives | [BRIEF-AI](docs/BRIEF-AI.md) |
 
 The blog series narrates the arc for humans, and
 [The Builder's Playbook](https://www.lightningjar.com/research/barkup-bench/playbook)

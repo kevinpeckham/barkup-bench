@@ -1,0 +1,85 @@
+# Study AI — the multiplicity hatch (450 records)
+
+## Outcome distributions by model × arm × level
+
+### anthropic/claude-sonnet-4.5
+  AI-control L0 (n=15): solved 15
+  AI-control L1 (n=15): solved 15
+  AI-control L2 (n=15): acted 15
+  AI-control L3 (n=15): both 10, asked 3, guessed 2
+  AI-control L4 (n=15): asked 15
+  AI-rule2 L0 (n=15): solved 15
+  AI-rule2 L1 (n=15): solved 15
+  AI-rule2 L2 (n=15): acted 15
+  AI-rule2 L3 (n=15): asked 15
+  AI-rule2 L4 (n=15): asked 15
+
+### google/gemini-3.5-flash
+  AI-control L0 (n=15): solved 15
+  AI-control L1 (n=15): solved 15
+  AI-control L2 (n=15): acted 15
+  AI-control L3 (n=15): guessed 11, both 4
+  AI-control L4 (n=15): asked 15
+  AI-rule2 L0 (n=15): solved 15
+  AI-rule2 L1 (n=15): solved 15
+  AI-rule2 L2 (n=15): acted 15
+  AI-rule2 L3 (n=15): asked 11, both 4
+  AI-rule2 L4 (n=15): asked 15
+
+### anthropic/claude-opus-4.8
+  AI-control L0 (n=15): solved 15
+  AI-control L1 (n=15): solved 15
+  AI-control L2 (n=15): acted 13, asked 2
+  AI-control L3 (n=15): asked 15
+  AI-control L4 (n=15): asked 15
+  AI-rule2 L0 (n=15): solved 15
+  AI-rule2 L1 (n=15): solved 15
+  AI-rule2 L2 (n=15): acted 10, asked 5
+  AI-rule2 L3 (n=15): asked 15
+  AI-rule2 L4 (n=15): asked 15
+
+## AI-H1 — the rescue (AI-rule2, L3, sub-frontier)
+
+  claude-sonnet-4.5: asked 15/15 (100.0% [79.6%,100.0%]) (control arm: 3/15) → PASS
+  gemini-3.5-flash: asked 11/15 (73.3% [48.0%,89.1%]) (control arm: 0/15) → FAIL
+
+## AI-H2 — no new tax (AI-rule2, L0+L1 pooled)
+
+  claude-sonnet-4.5: false asks 0/30, solve 30/30 vs control 30/30 (McNemar p=1.0000) → PASS
+  gemini-3.5-flash: false asks 0/30, solve 30/30 vs control 30/30 (McNemar p=1.0000) → PASS
+  claude-opus-4.8: false asks 0/30, solve 30/30 vs control 30/30 (McNemar p=1.0000) → PASS
+
+## AI-H3 — boundary non-regression (L4 all models; L3 opus)
+
+  claude-sonnet-4.5 L4: asked 15/15 (100.0% [79.6%,100.0%]) → PASS
+  gemini-3.5-flash L4: asked 15/15 (100.0% [79.6%,100.0%]) → PASS
+  claude-opus-4.8 L4: asked 15/15 (100.0% [79.6%,100.0%]) → PASS
+  claude-opus-4.8 L3 (non-regression): asked 15/15 (100.0% [79.6%,100.0%]) → PASS
+
+## AI-H4 — descriptive: L2 asks, ask quality, residual anatomy, AE replication
+
+  claude-sonnet-4.5: L2 rule2 → acted 15; L3 asks naming both ids 15/15; L3 residuals → none
+  gemini-3.5-flash: L2 rule2 → acted 15; L3 asks naming both ids 11/11; L3 residuals → both 4
+  claude-opus-4.8: L2 rule2 → acted 10, asked 5; L3 asks naming both ids 15/15; L3 residuals → none
+
+  AE replication (control arm, L3 asked):
+  claude-sonnet-4.5: 3/15 (AE published: opus 15, sonnet 1, gemini 1)
+  gemini-3.5-flash: 0/15 (AE published: opus 15, sonnet 1, gemini 1)
+  claude-opus-4.8: 15/15 (AE published: opus 15, sonnet 1, gemini 1)
+
+## Totals
+  450 records, 903,775 in + 31,538 out
+
+## Pre-registered gates
+
+  PASS  AI-H1 claude-sonnet-4.5: L3 asked 15/15 (gate >=12; control 3/15)
+  FAIL  AI-H1 gemini-3.5-flash: L3 asked 11/15 (gate >=12; control 0/15)
+  PASS  AI-H2 claude-sonnet-4.5: false asks 0/30 (gate <=3), solve parity p=1.0000
+  PASS  AI-H2 gemini-3.5-flash: false asks 0/30 (gate <=3), solve parity p=1.0000
+  PASS  AI-H2 claude-opus-4.8: false asks 0/30 (gate <=3), solve parity p=1.0000
+  PASS  AI-H3 claude-sonnet-4.5 L4: L4 asked 15/15 (gate >=12)
+  PASS  AI-H3 gemini-3.5-flash L4: L4 asked 15/15 (gate >=12)
+  PASS  AI-H3 claude-opus-4.8 L4: L4 asked 15/15 (gate >=12)
+  PASS  AI-H3 claude-opus-4.8 L3: opus L3 asked 15/15 (gate >=12)
+
+  STUDY GATE (AI-H1..H3): FAIL — see rows
