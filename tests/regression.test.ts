@@ -193,3 +193,73 @@ describe("standing-pack gate", () => {
 		expect(gate.evaluate(contaminated).pass).toBe(false);
 	});
 });
+
+describe("memo-scale gate", () => {
+	it("gates recall and clean full-replace together", () => {
+		const gate = gateById("memo-scale");
+		const good = [
+			...repeat(15, () => record({ detail: { kind: "recall", nLevel: 20 } })),
+			...repeat(10, () =>
+				record({ detail: { kLevel: 19, outcome: "clean-update" } }),
+			),
+		];
+		expect(gate.evaluate(good).pass).toBe(true);
+		const badIntegrity = [
+			...repeat(15, () => record({ detail: { kind: "recall", nLevel: 20 } })),
+			...repeat(10, (i) =>
+				record({
+					detail: { kLevel: 19, outcome: i < 8 ? "clean-update" : "lost-old" },
+				}),
+			),
+		];
+		expect(gate.evaluate(badIntegrity).pass).toBe(false);
+	});
+});
+
+describe("ask-calibration gate", () => {
+	function ladder(l0Solved: number, l0Asked: number, l4Asked: number) {
+		return [
+			...repeat(15, (i) =>
+				record({
+					detail: {
+						level: 0,
+						outcome: i < l0Asked ? "asked" : i < l0Asked + l0Solved ? "solved" : "invalid",
+					},
+				}),
+			),
+			...repeat(15, (i) =>
+				record({
+					detail: { level: 4, outcome: i < l4Asked ? "asked" : "wrong-patch" },
+				}),
+			),
+		];
+	}
+	it("passes at ceiling and fails on tax or missed asks", () => {
+		const gate = gateById("ask-calibration");
+		expect(gate.evaluate(ladder(15, 0, 15)).pass).toBe(true);
+		expect(gate.evaluate(ladder(13, 2, 15)).pass).toBe(false);
+		expect(gate.evaluate(ladder(15, 0, 12)).pass).toBe(false);
+	});
+});
+
+describe("anaphora-hatch gate", () => {
+	function agRecords(asked: number, falseAsks: number) {
+		return [
+			...repeat(24, (i) =>
+				record({
+					success: false,
+					detail: { anaphora: "amend", asked: i < asked },
+				}),
+			),
+			...repeat(48, (i) =>
+				record({ detail: { asked: i < falseAsks } }),
+			),
+		];
+	}
+	it("passes at the AG band and fails below the bar or on tax", () => {
+		const gate = gateById("anaphora-hatch");
+		expect(gate.evaluate(agRecords(22, 0)).pass).toBe(true);
+		expect(gate.evaluate(agRecords(16, 0)).pass).toBe(false);
+		expect(gate.evaluate(agRecords(22, 4)).pass).toBe(false);
+	});
+});

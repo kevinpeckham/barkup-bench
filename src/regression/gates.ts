@@ -307,6 +307,81 @@ export const GATES: GateDef[] = [
 			);
 		},
 	},
+	// --- 2026-07-16 amendment (REGRESSION.md dated note): gates from
+	// Studies AE, AG, and AH, added after their source studies published.
+	{
+		id: "memo-scale",
+		title: "Memo at scale: recall from a full memo + lossless full-replace",
+		protects:
+			"sessionNotes at the 20-note cap + applySessionNotesUpdate eviction (v3.213.0)",
+		sourceStudy: "AH",
+		expectedRecords: 25,
+		evaluate: (records) => {
+			const recall = records.filter((r) => detail(r).kind === "recall");
+			const integrity = records.filter((r) => detail(r).kLevel === 19);
+			const clean = integrity.filter(
+				(r) => detail(r).outcome === "clean-update",
+			).length;
+			return result(
+				"memo-scale",
+				"Memo at scale: recall from a full memo + lossless full-replace",
+				recall.length < 15 || integrity.length < 10,
+				[
+					atLeast("recall from a 20-note memo", successCount(recall), 13, 15),
+					atLeast("clean full-replace at 19 notes", clean, 9, 10),
+				],
+			);
+		},
+	},
+	{
+		id: "ask-calibration",
+		title:
+			"Ask calibration: zero tax on precise requests, ceiling on missing info",
+		protects: "ask-path rules calibration (v3.191.0, AE ladder)",
+		sourceStudy: "AE",
+		expectedRecords: 30,
+		evaluate: (records) => {
+			const l0 = records.filter((r) => detail(r).level === 0);
+			const l4 = records.filter((r) => detail(r).level === 4);
+			const l0Asked = l0.filter((r) => detail(r).outcome === "asked").length;
+			const l0Solved = l0.filter((r) => detail(r).outcome === "solved").length;
+			const l4Asked = l4.filter((r) => detail(r).outcome === "asked").length;
+			return result(
+				"ask-calibration",
+				"Ask calibration: zero tax on precise requests, ceiling on missing info",
+				l0.length < 15 || l4.length < 15,
+				[
+					atLeast("L0 solved", l0Solved, 13, 15),
+					atMost("L0 false asks", l0Asked, 1, 15),
+					atLeast("L4 asked", l4Asked, 13, 15),
+				],
+			);
+		},
+	},
+	{
+		id: "anaphora-hatch",
+		title:
+			"Anaphora hatch: asks on carrier-less discourse gaps, none on ordinary steps",
+		protects: "NEED-INFO seatbelt behind the echo (AG construction)",
+		sourceStudy: "AG",
+		expectedRecords: 72,
+		evaluate: (records) => {
+			const rows = records.filter(scorable);
+			const anaphora = rows.filter((r) => detail(r).anaphora != null);
+			const ordinary = rows.filter((r) => detail(r).anaphora == null);
+			const asked = anaphora.filter((r) => detail(r).asked === true).length;
+			const falseAsks = ordinary.filter((r) => detail(r).asked === true).length;
+			return result(
+				"anaphora-hatch",
+				"Anaphora hatch: asks on carrier-less discourse gaps, none on ordinary steps",
+				anaphora.length < 24,
+				[
+					atLeast("anaphora cells asked", asked, 17, 24),
+					atMost("ordinary false asks", falseAsks, 3, ordinary.length),
+				],
+			);
+		},
+	},
 ];
 
 export function gateById(id: string): GateDef {

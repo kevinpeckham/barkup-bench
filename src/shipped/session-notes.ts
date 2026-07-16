@@ -97,3 +97,80 @@ export const UPDATE_SESSION_NOTES_DESCRIPTION =
 
 /** The shipped history window, verbatim semantics: keep the LAST 32. */
 export const MAX_HISTORY_MESSAGES = 32;
+
+/**
+ * Study AH follow-through: VERBATIM ports from slx-replicator
+ * v3.213.0 (commit 434532a) — the goal-preserving eviction pipeline
+ * that runs BEFORE the registered clamp in every update_session_notes
+ * handler. Do not "improve" anything here: character identity with
+ * the shipped source is the point (tests/eviction.test.ts guards
+ * behavior; the regression suite carries a memo-scale gate).
+ */
+function sanitizeSessionNote(item: unknown): SessionNote | null {
+	if (!item || typeof item !== "object") return null;
+	const kind = (item as { kind?: unknown }).kind;
+	const text = (item as { text?: unknown }).text;
+	if (typeof kind !== "string" || !NOTE_KINDS.has(kind)) return null;
+	if (typeof text !== "string") return null;
+	const trimmed = text.trim().slice(0, MAX_SESSION_NOTE_CHARS);
+	if (!trimmed) return null;
+	return { kind: kind as SessionNoteKind, text: trimmed };
+}
+
+export interface SessionNotesEviction {
+	/** Notes removed to fit the cap, in eviction order. */
+	evicted: SessionNote[];
+	/** The surviving list — always fits MAX_SESSION_NOTES. */
+	notes: SessionNote[];
+}
+
+export function evictSessionNotesToFit(input: unknown): SessionNotesEviction {
+	if (!Array.isArray(input)) return { evicted: [], notes: [] };
+	const notes: SessionNote[] = [];
+	for (const item of input) {
+		const note = sanitizeSessionNote(item);
+		if (note) notes.push(note);
+	}
+	const evicted: SessionNote[] = [];
+	while (notes.length > MAX_SESSION_NOTES) {
+		// "Oldest" = earliest list position (agents append new notes).
+		let idx = notes.findIndex((note) => note.kind === "fact");
+		if (idx === -1) idx = notes.findIndex((note) => note.kind === "rule");
+		if (idx === -1) idx = 0; // all goals — evict the oldest goal
+		evicted.push(...notes.splice(idx, 1));
+	}
+	return { evicted, notes };
+}
+
+export interface SessionNotesUpdateResult {
+	/** True when a goal was evicted (memo was all goals) — callers log it. */
+	evictedGoal: boolean;
+	/** The persisted memo: evicted to fit, then run through the clamp. */
+	notes: SessionNote[];
+	/** Tool result to echo back to the agent — reports any eviction. */
+	result: {
+		applied: true;
+		evicted?: SessionNote[];
+		notes: SessionNote[];
+		notice?: string;
+	};
+}
+
+export function applySessionNotesUpdate(
+	input: unknown,
+): SessionNotesUpdateResult {
+	const { evicted, notes: fitted } = evictSessionNotesToFit(input);
+	const notes = normalizeSessionNotes(fitted);
+	if (evicted.length === 0) {
+		return { evictedGoal: false, notes, result: { applied: true, notes } };
+	}
+	const evictedGoal = evicted.some((note) => note.kind === "goal");
+	const notice = evictedGoal
+		? `Memo full and all notes are goals: evicted the oldest goal to fit the ${MAX_SESSION_NOTES}-note cap.`
+		: `Memo full: evicted ${evicted.length} oldest non-goal note(s) to fit the ${MAX_SESSION_NOTES}-note cap (facts first, then rules; goals are preserved).`;
+	return {
+		evictedGoal,
+		notes,
+		result: { applied: true, evicted, notes, notice },
+	};
+}

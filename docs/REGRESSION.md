@@ -60,6 +60,9 @@ in corpus order."
 | `memo-agent` | update_session_notes tool loop | W-agent, first 6 36-step sessions (W) | 216 steps | callbacks ≥32/36 |
 | `precedence` | PRECEDENCE clause (v3.188.1) | AB-clause on override + ri cells (AB) | 24 | honored ≥10/12; satisfy-both ≥10/12; violations = 0 |
 | `standing-pack` | brand pack + buildCachedSystem (v3.185.0) | Z-full on fact + rule cells (Z) | 24 | ≥22/24; contamination = 0 |
+| `memo-scale` | sessionNotes at the 20-note cap + `applySessionNotesUpdate` eviction (v3.213.0) | AH recall-at-N=20 + integrity-at-K=19 slices (AH) | 25 | recall ≥13/15; clean full-replace ≥9/10 |
+| `ask-calibration` | ask-path calibration on the AE ladder (v3.191.0) | AE-rule on L0 precise + L4 missing-info (AE) | 30 | L0 solved ≥13/15, false asks ≤1; L4 asked ≥13/15 |
+| `anaphora-hatch` | the NEED-INFO seatbelt behind the echo | AG-stateless-hatch, first 6 anaphora sessions (AG) | 72 steps | anaphora asked ≥17/24; ordinary false asks ≤3 |
 
 Threshold provenance: each minimum sits at or just below the WORST
 result any passing tier recorded in the source study (e.g. `search`
@@ -76,6 +79,22 @@ benchmark-registered texts via `src/shipped/`), graders, and
 runners. The manifest and evaluators live in
 `src/regression/gates.ts` (unit-tested in `tests/regression.test.ts`);
 the cell builders in `scripts/regress.ts`.
+
+### Amendment (2026-07-16)
+
+Three gates added after Studies AE, AG, and AH published, by commit
+before any run they judge (per the amendment rule above): AE's
+calibration slices, AG's discourse-gap construction, and AH's
+memo-at-scale slices. The eviction pipeline itself
+(`applySessionNotesUpdate`, replicator v3.213.0) is deterministic
+code, ported verbatim into `src/shipped/session-notes.ts` and
+guarded by `tests/eviction.test.ts` — no model calls needed for its
+policy; the `memo-scale` gate covers the model-behavior side.
+Thresholds sit at or just below each source study's measured floor
+(anaphora-hatch's ≥17/24 is the n=24 exact-binomial detection bar;
+measured values were 21.5–24). The suite is now **thirteen gates**;
+the tier-dependent AE L3 construction is deliberately excluded
+(no model-independent threshold exists — see Study AI).
 
 ## Reading a result
 

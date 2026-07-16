@@ -21,13 +21,20 @@ import type { XTask } from "../src/corpus/anaphora.js";
 import type { WTask } from "../src/corpus/callbacks-w.js";
 import type { ConflictTask } from "../src/corpus/conflict.js";
 import type { DependentTask } from "../src/corpus/dependent.js";
+import type { CalibrationTask } from "../src/corpus/ladder.js";
+import type { IntegrityTask, MemoScaleTask } from "../src/corpus/memoscale.js";
 import type { SessionCorpus, SessionTask } from "../src/corpus/sessions.js";
 import type { StandingTask } from "../src/corpus/standing.js";
 import type { Corpus, TransformationTask } from "../src/corpus/tasks.js";
 import { runXSession } from "../src/harness/anaphora-runner.js";
 import { runAskTask } from "../src/harness/ask-runner.js";
 import { runConflictTask } from "../src/harness/conflict-runner.js";
+import { runLadderTask } from "../src/harness/ladder-runner.js";
 import { runWSession } from "../src/harness/memo-runner.js";
+import {
+	runMemoIntegrityTask,
+	runMemoReadTask,
+} from "../src/harness/memoscale-runner.js";
 import type { TaskRunRecord } from "../src/harness/records.js";
 import { loadExistingKeys, runTask } from "../src/harness/runner.js";
 import { runSearchTask } from "../src/harness/search-runner.js";
@@ -305,6 +312,71 @@ function buildStandingCells(): Cell[] {
 		}));
 }
 
+function buildMemoScaleCells(): Cell[] {
+	const corpus = JSON.parse(readFileSync("corpus/memo-scale.json", "utf8")) as {
+		tasks: MemoScaleTask[];
+		integrity: IntegrityTask[];
+	};
+	const done = loadExistingKeys(rawPath("memo-scale"));
+	const cells: Cell[] = [];
+	for (const task of corpus.tasks.filter(
+		(t) => t.kind === "recall" && t.nLevel === 20,
+	)) {
+		if (done.has(`${task.id}::AH-recall-n20::${model}::parity`)) continue;
+		cells.push({
+			key: task.id,
+			label: `${task.id}`,
+			run: async () => [await runMemoReadTask(task, model)],
+		});
+	}
+	for (const task of corpus.integrity.filter((t) => t.kLevel === 19)) {
+		if (done.has(`${task.id}::AH-integrity-k19::${model}::parity`)) continue;
+		cells.push({
+			key: task.id,
+			label: `${task.id}`,
+			run: async () => [await runMemoIntegrityTask(task, model)],
+		});
+	}
+	return cells;
+}
+
+function buildAskCalibrationCells(): Cell[] {
+	const corpus = JSON.parse(
+		readFileSync("corpus/calibration.json", "utf8"),
+	) as { tasks: CalibrationTask[] };
+	const done = loadExistingKeys(rawPath("ask-calibration"));
+	const cells: Cell[] = [];
+	for (const task of corpus.tasks.filter(
+		(t) => t.level === 0 || t.level === 4,
+	)) {
+		const conditionId = `AE-rule-l${task.level}`;
+		if (done.has(`${task.id}::${conditionId}::${model}::parity`)) continue;
+		cells.push({
+			key: task.id,
+			label: `${task.id} × AE-rule`,
+			run: async () => [await runLadderTask(task, "AE-rule", model)],
+		});
+	}
+	return cells;
+}
+
+function buildAnaphoraHatchCells(): Cell[] {
+	const corpus = JSON.parse(
+		readFileSync("corpus/sessions-anaphora.json", "utf8"),
+	) as { sessions: XTask[] };
+	const outPath = rawPath("anaphora-hatch");
+	return corpus.sessions
+		.slice(0, 6)
+		.filter(
+			(t) => !sessionDone(outPath, t.id, "AG-stateless-hatch", t.steps.length),
+		)
+		.map((task) => ({
+			key: task.id,
+			label: `${task.id} × AG-stateless-hatch`,
+			run: () => runXSession(task, "AG-stateless-hatch", model),
+		}));
+}
+
 const BUILDERS: Record<string, () => Cell[]> = {
 	dialect: buildDialectCells,
 	views: buildViewsCells,
@@ -316,6 +388,9 @@ const BUILDERS: Record<string, () => Cell[]> = {
 	"memo-agent": buildMemoAgentCells,
 	precedence: buildPrecedenceCells,
 	"standing-pack": buildStandingCells,
+	"memo-scale": buildMemoScaleCells,
+	"ask-calibration": buildAskCalibrationCells,
+	"anaphora-hatch": buildAnaphoraHatchCells,
 };
 
 // Pack-grouped protocols (Z and AB cache layouts) run their cells

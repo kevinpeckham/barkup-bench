@@ -23,7 +23,7 @@ and three self-refutations, kept deliberately.
 
 The findings also run as standing infrastructure: the
 [regression-gate suite](docs/REGRESSION.md) packages the series'
-sharpest shipped-guardrail constructions as ten pass/fail gates
+sharpest shipped-guardrail constructions as thirteen pass/fail gates
 re-runnable against any gateway model id
 (`bun run scripts/regress.ts --model <id>`, ≈$1–13 depending on
 tier) — model-swap CI for teams shipping the measured stack.
