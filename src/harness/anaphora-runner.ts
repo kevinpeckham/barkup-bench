@@ -25,6 +25,7 @@ import { resolveStep } from "../corpus/sessions.js";
 import { driftCount } from "../grading/drift.js";
 import { equalModuloNewIds } from "../grading/equal.js";
 import { allIds, cloneTree, findById } from "../tree.js";
+import { ASK_RULE } from "./ask-runner.js";
 import { WORKED_EXAMPLES_BLOCK } from "./examples.js";
 import type { CallLog, TaskRunRecord } from "./records.js";
 import { findByTypeAndName, MAX_ROUNDS } from "./runner.js";
@@ -35,13 +36,30 @@ import {
 	windowMessages,
 } from "./session-runner.js";
 
-export type XArm = "X-history" | "X-window2" | "X-lastedit" | "X-stateless";
+export type XArm =
+	| "X-history"
+	| "X-window2"
+	| "X-lastedit"
+	| "X-stateless"
+	// Study AG (docs/BRIEF-AG.md): the shipped ASK_RULE over X's arms.
+	| "AG-stateless-hatch"
+	| "AG-echo-hatch";
 export const X_ARMS: XArm[] = [
 	"X-history",
 	"X-window2",
 	"X-lastedit",
 	"X-stateless",
 ];
+
+/** Arms carrying the shipped NEED-INFO hatch (BRIEF-AG.md). */
+export function isHatchArm(arm: XArm): boolean {
+	return arm === "AG-stateless-hatch" || arm === "AG-echo-hatch";
+}
+
+/** Arms carrying the last-edit echo note. */
+export function isEchoArm(arm: XArm): boolean {
+	return arm === "X-lastedit" || arm === "AG-echo-hatch";
+}
 
 const DELIVERY = "Reply with a JSON Patch that makes this change.";
 
@@ -202,7 +220,7 @@ export async function runXSession(
 		}
 
 		let content = viewMessage(view, resolved.instruction);
-		if (arm === "X-lastedit" && step.index > 1) content += lastNote;
+		if (isEchoArm(arm) && step.index > 1) content += lastNote;
 
 		// Snapshot for a following undo step (predecessors are set-attribute).
 		if (resolved.edit.kind === "set-attribute") {
@@ -230,7 +248,9 @@ export async function runXSession(
 				? arm === "X-history"
 					? HISTORY_SYSTEM
 					: conditionF.systemPrompt + SESSION_RULES + VIEW_RULES
-				: STATELESS_SYSTEM;
+				: isHatchArm(arm)
+					? `${STATELESS_SYSTEM}\n\n${ASK_RULE}`
+					: STATELESS_SYSTEM;
 
 		let finalTree: BarkupNode | null = null;
 		let lastAssistant = "";
@@ -239,6 +259,22 @@ export async function runXSession(
 			const outcome = await callPatch(model, system, stepMessages);
 			lastAssistant = outcome.text === "" ? "(empty reply)" : outcome.text;
 			stepMessages.push({ role: "assistant", content: lastAssistant });
+			if (isHatchArm(arm) && outcome.text.trim().startsWith("NEED-INFO:")) {
+				calls.push({
+					phase: 1,
+					round,
+					inputTokens: outcome.inputTokens,
+					outputTokens: outcome.outputTokens,
+					...(outcome.cacheReadTokens > 0
+						? { cacheReadTokens: outcome.cacheReadTokens }
+						: {}),
+					latencyMs: outcome.latencyMs,
+					issueCodes: [],
+				});
+				detail.asked = true;
+				detail.askText = outcome.text.trim().slice(0, 500);
+				break;
+			}
 			const applied = applyShipped(outcome.text, current);
 			calls.push({
 				phase: 1,

@@ -14,7 +14,12 @@ import {
 import { applyEdit, formatValue } from "../src/corpus/edits.js";
 import { createRng } from "../src/corpus/rng.js";
 import { BUCKETS, sampleTrees } from "../src/corpus/trees.js";
-import { lastEditNote } from "../src/harness/anaphora-runner.js";
+import {
+	isEchoArm,
+	isHatchArm,
+	lastEditNote,
+	X_ARMS,
+} from "../src/harness/anaphora-runner.js";
 
 const [baseTree] = sampleTrees(BUCKETS.l, 20260718, 1);
 
@@ -127,5 +132,24 @@ describe("committed Study X corpus", () => {
 		expect(steps.filter((s) => s.anaphora === "amend").length).toBe(24);
 		expect(steps.filter((s) => s.anaphora === "repeat").length).toBe(12);
 		expect(steps.filter((s) => s.anaphora === "undo").length).toBe(12);
+	});
+});
+
+describe("Study AG arm helpers", () => {
+	test("classifies hatch and echo arms", () => {
+		expect(isHatchArm("AG-stateless-hatch")).toBe(true);
+		expect(isHatchArm("AG-echo-hatch")).toBe(true);
+		expect(isHatchArm("X-stateless")).toBe(false);
+		expect(isEchoArm("AG-echo-hatch")).toBe(true);
+		expect(isEchoArm("X-lastedit")).toBe(true);
+		expect(isEchoArm("AG-stateless-hatch")).toBe(false);
+	});
+	test("keeps Study X's registered arm list unchanged", () => {
+		expect(X_ARMS).toEqual([
+			"X-history",
+			"X-window2",
+			"X-lastedit",
+			"X-stateless",
+		]);
 	});
 });
