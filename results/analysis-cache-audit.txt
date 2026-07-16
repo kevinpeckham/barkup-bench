@@ -1,6 +1,6 @@
 # Prompt-caching audit (provider-reported cache reads)
 
-Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 67488 calls — reported input tokens are total prompt tokens, cached included.
+Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 67758 calls — reported input tokens are total prompt tokens, cached included.
 
 ## Per raw file
   corrected-anthropic_claude-haiku-4.5-best.jsonl: 1200 records, input 10,846,149 tok, cached 0 (0.0%), calls with cache 0/1591
@@ -61,6 +61,11 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 67488 c
   studyae-anthropic_claude-opus-4.8.jsonl: 195 records, input 538,500 tok, cached 0 (0.0%), calls with cache 0/272
   studyae-anthropic_claude-sonnet-4.5.jsonl: 195 records, input 423,532 tok, cached 0 (0.0%), calls with cache 0/265
   studyae-google_gemini-3.5-flash.jsonl: 195 records, input 375,242 tok, cached 0 (0.0%), calls with cache 0/248
+  studyaf-edits-anthropic_claude-opus-4.8.jsonl: 90 records, input 143,424 tok, cached 0 (0.0%), calls with cache 0/90
+  studyaf-edits-anthropic_claude-sonnet-4.5.jsonl: 90 records, input 111,612 tok, cached 0 (0.0%), calls with cache 0/90
+  studyaf-edits-google_gemini-3.5-flash.jsonl: 90 records, input 107,208 tok, cached 0 (0.0%), calls with cache 0/90
+  studyaf-judge-anthropic_claude-haiku-4.5.jsonl: 0 records, input 0 tok, cached 0 (—), calls with cache 0/0
+  studyaf-judge-openai_gpt-5.4.jsonl: 0 records, input 0 tok, cached 0 (—), calls with cache 0/0
   studyi-anthropic_claude-sonnet-4.5.jsonl: 90 records, input 249,469 tok, cached 0 (0.0%), calls with cache 0/107
   studyi-google_gemini-3.5-flash.jsonl: 90 records, input 191,650 tok, cached 0 (0.0%), calls with cache 0/92
   studyj-anthropic_claude-opus-4.8.jsonl: 90 records, input 209,361 tok, cached 0 (0.0%), calls with cache 0/90
@@ -88,7 +93,9 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 67488 c
   studyt-google_gemini-3.5-flash.jsonl: 720 records, input 2,176,181 tok, cached 396,016 (18.2%), calls with cache 86/720
   studyu-anthropic_claude-sonnet-4.5.jsonl: 180 records, input 18,806,829 tok, cached 0 (0.0%), calls with cache 0/219
   studyu-google_gemini-3.5-flash.jsonl: 180 records, input 11,769,967 tok, cached 7,354,809 (62.5%), calls with cache 35/208
+  studyv-calibration-anthropic_claude-haiku-4.5-v1.jsonl: 0 records, input 0 tok, cached 0 (—), calls with cache 0/0
   studyv-calibration-anthropic_claude-haiku-4.5.jsonl: 0 records, input 0 tok, cached 0 (—), calls with cache 0/0
+  studyv-calibration-openai_gpt-5.4-v1.jsonl: 0 records, input 0 tok, cached 0 (—), calls with cache 0/0
   studyv-calibration-openai_gpt-5.4.jsonl: 0 records, input 0 tok, cached 0 (—), calls with cache 0/0
   studyv-edits-anthropic_claude-sonnet-4.5.jsonl: 150 records, input 198,099 tok, cached 0 (0.0%), calls with cache 0/164
   studyv-edits-google_gemini-3.5-flash.jsonl: 150 records, input 171,708 tok, cached 0 (0.0%), calls with cache 0/150

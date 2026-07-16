@@ -1,0 +1,57 @@
+# Study AF — restate-before-rewrite (Track 2, JUDGE-GRADED — never pool with deterministic studies)
+
+## Layer 1: mechanical validity (30 tasks per cell)
+
+  claude-sonnet-4.5: AF-control 30/30 · AF-memo-restate 30/30 · AF-view-restate 30/30
+  gemini-3.5-flash: AF-control 30/30 · AF-memo-restate 30/30 · AF-view-restate 30/30
+  claude-opus-4.8: AF-control 30/30 · AF-memo-restate 30/30 · AF-view-restate 30/30
+
+## GOAL-line compliance (restate arms; registered regex)
+
+  claude-sonnet-4.5: AF-memo-restate 30/30 · AF-view-restate 30/30
+  gemini-3.5-flash: AF-memo-restate 30/30 · AF-view-restate 30/30
+  claude-opus-4.8: AF-memo-restate 30/30 · AF-view-restate 30/30
+
+## Layer 2 proxy: mean thesis-word coverage delta (after − before)
+
+  claude-sonnet-4.5: AF-control +1.00 · AF-memo-restate +1.00 · AF-view-restate +0.65
+  gemini-3.5-flash: AF-control +1.00 · AF-memo-restate +0.96 · AF-view-restate +0.53
+  claude-opus-4.8: AF-control +1.00 · AF-memo-restate +1.00 · AF-view-restate +0.88
+
+## Win / Loss / Tie vs contemporaneous control, per judge
+
+### openai/gpt-5.4 (primary)
+  claude-sonnet-4.5 AF-memo-restate: 6/5/19
+  claude-sonnet-4.5 AF-view-restate: 0/29/1
+  gemini-3.5-flash AF-memo-restate: 3/10/17
+  gemini-3.5-flash AF-view-restate: 0/30/0
+  claude-opus-4.8 AF-memo-restate: 2/9/19
+  claude-opus-4.8 AF-view-restate: 0/20/10
+
+### anthropic/claude-haiku-4.5 (sensitivity)
+  claude-sonnet-4.5 AF-memo-restate: 7/5/18
+  claude-sonnet-4.5 AF-view-restate: 0/26/4
+  gemini-3.5-flash AF-memo-restate: 1/13/16
+  gemini-3.5-flash AF-view-restate: 0/26/4
+  claude-opus-4.8 AF-memo-restate: 5/15/10
+  claude-opus-4.8 AF-view-restate: 0/19/11
+
+## Judge agreement (decisive verdicts, both judged)
+
+  120/180 (66.7%)
+
+## Pre-registered gates (primary judge)
+
+  FAIL  AF-H1 claude-sonnet-4.5: AF-view-restate W/L 0/29 (ties 1), sign p=0.0000 control-favored
+  FAIL  AF-H1 gemini-3.5-flash: AF-view-restate W/L 0/30 (ties 0), sign p=0.0000 control-favored
+  FAIL  AF-H1 claude-opus-4.8: AF-view-restate W/L 0/20 (ties 10), sign p=0.0000 control-favored
+  PASS  AF-H2 claude-sonnet-4.5: AF-memo-restate W/L 6/5 (ties 19), sign p=1.0000
+  PASS  AF-H2 gemini-3.5-flash: AF-memo-restate W/L 3/10 (ties 17), sign p=0.0923
+  PASS  AF-H2 claude-opus-4.8: AF-memo-restate W/L 2/9 (ties 19), sign p=0.0654
+
+  AF-H1 (view rescue): FAIL
+  AF-H2 (shipped clause keeps memo parity): PASS on all editors
+
+## Totals (edit side)
+  270 edit records, 362,244 in + 40,443 out (judge tokens in their own JSONL, excluded from the cache-audit invariant as in Study V)
+

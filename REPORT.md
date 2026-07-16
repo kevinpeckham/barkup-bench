@@ -1914,6 +1914,69 @@ the arm. (3) Judge and calibration records are not protocol
 TaskRunRecords and are excluded from the cache audit's per-call
 invariant (their tokens are recorded in their own JSONL).
 
+## Track 2 addendum (2026-07-15): Study AF — restate-before-rewrite (JUDGE-GRADED; the inferred clause, measured)
+
+**Judge-graded; never pooled with the deterministic claims.**
+Pre-registered in [docs/BRIEF-AF.md](docs/BRIEF-AF.md): Study V's
+one shipped-but-inferred clause — *"restate a goal from the memo in
+your own words before a goal-directed rewrite"* — measured at last,
+in the shipped memo configuration and in the view-side extension
+that would have closed V's 117/120 gap if self-restatement were the
+active ingredient. Corpus and judge protocol are V's verbatim; both
+judges re-passed the full calibration gate (50/50 each) before any
+scored verdict; 270 contemporaneous edits (all 270 mechanically
+valid), 360 judged comparisons; ≈ $8; tables in
+`results/analysis-study-af.txt`.
+
+| vs contemporaneous control (primary judge, W/L/T) | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| AF-memo-restate (the shipped configuration) | 6/5/19 | 3/10/17 | 2/9/19 |
+| AF-view-restate (the extension hope) | **0/29/1** | **0/30/0** | **0/20/10** |
+
+- **AF-H1 (does restatement rescue the view?) — FAILS on every
+  editor, without a single win.** Zero wins in 90 comparisons
+  pooled (0/79 decisive, p ≈ 3×10⁻²⁴), replicated by the
+  sensitivity judge. And the failure is NOT non-compliance: GOAL-line
+  compliance was 30/30 in every cell — every model read the
+  mission node, restated the thesis in its own words, and then
+  wrote the measurably-less-focused paragraph anyway (proxy
+  coverage +0.53 to +0.88 vs control's +1.00). **Verbalization is
+  not the active ingredient. Where the goal COMES FROM is.** A goal
+  the model read, even one it just repeated aloud, anchors worse
+  than a goal it was told. V's slogan hardens into a mechanism
+  claim: views carry values, memos carry goals, and no prompt
+  ceremony converts one into the other.
+- **AF-H2 (does the shipped clause keep the memo's parity?) —
+  PASSES on all three editors under the registered primary judge**
+  (no significant control preference; sonnet 6/5, gemini 3/10
+  p = 0.09, opus 2/9 p = 0.07). **Sensitivity dissent, disclosed
+  loudly:** under the haiku judge the memo-restate arm is
+  significantly control-favored on gemini (1/13, p = 0.0018) and
+  opus (5/15, p = 0.0414), and V's bare-memo arm had BEATEN control
+  on sonnet (10–2) where memo+restate merely ties (6/5) — a
+  non-contemporaneous comparison, labeled as such. The registered
+  gate passes; the honest synthesis is that mandated restatement
+  does no measurable good on the memo path and directionally trends
+  toward a whisper of harm.
+
+**Decision rule outcome: the interpretation table's fails/passes
+row, downgraded by the dissent.** The view-side hope dies: do not
+extend "restate before rewriting" to goals the model reads from
+documents — restating is theater; put the goal in the memo or the
+instruction, period. And the shipped clause itself is now measured
+as neutral-at-best where it applies: the benchmark's recommendation
+to the downstream prompt rule is to REMOVE the restate clause (its
+motivating benefit is refuted, its measured effect ranges from
+nothing to mildly negative under the sensitivity judge), keeping
+the memo itself — whose goal-carriage parity replicated
+contemporaneously here — untouched. Protocol notes: judge agreement
+66.7% raw (tie-heavy arms; the sensitivity judge flips no H1
+verdict and two H2 verdicts, both toward harm — reported above);
+Study V's original calibration records preserved under a `-v1`
+suffix, with the fresh 100/100 calibration pass recorded in
+`results/analysis-judge-calibration.txt`; judge records excluded
+from the cache-audit invariant as in V.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
