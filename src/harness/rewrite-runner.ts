@@ -24,7 +24,11 @@ export type RewriteArm =
 	| "V-doc-view1"
 	| "V-doc-view2"
 	| "V-conv-memo"
-	| "V-conv-nomemo";
+	| "V-conv-nomemo"
+	// Study AF (docs/BRIEF-AF.md): the restate-before-rewrite arms.
+	| "AF-control"
+	| "AF-memo-restate"
+	| "AF-view-restate";
 
 export const REWRITE_ARMS: RewriteArm[] = [
 	"V-instr",
@@ -33,6 +37,24 @@ export const REWRITE_ARMS: RewriteArm[] = [
 	"V-conv-memo",
 	"V-conv-nomemo",
 ];
+
+export const AF_ARMS: RewriteArm[] = [
+	"AF-control",
+	"AF-memo-restate",
+	"AF-view-restate",
+];
+
+/** The registered AF restate clause (BRIEF-AF.md), verbatim. */
+export const RESTATE_CLAUSE = `Begin your reply with a single line starting "GOAL:" that restates the goal of this rewrite in your own words. Then give the patch in a fenced code block.`;
+
+/** Deterministic compliance detection (BRIEF-AF.md): /^GOAL:/m. */
+export function goalCompliance(firstReply: string): {
+	compliant: boolean;
+	line: string | null;
+} {
+	const match = firstReply.match(/^GOAL:.*$/m);
+	return { compliant: match !== null, line: match?.[0] ?? null };
+}
 
 const SYSTEM = conditionF.systemPrompt + VIEW_RULES;
 
@@ -48,6 +70,12 @@ export function armInstruction(task: RewriteTask, arm: RewriteArm): string {
 		case "V-conv-memo":
 		case "V-conv-nomemo":
 			return `Rewrite the "content" attribute of ${ref} so the paragraph focuses on the central thesis we discussed. Keep it to 2 or 3 sentences.`;
+		case "AF-control":
+			return armInstruction(task, "V-instr");
+		case "AF-memo-restate":
+			return `${armInstruction(task, "V-conv-memo")} ${RESTATE_CLAUSE}`;
+		case "AF-view-restate":
+			return `${armInstruction(task, "V-doc-view2")} ${RESTATE_CLAUSE}`;
 	}
 }
 
@@ -58,7 +86,9 @@ export function armMemo(task: RewriteTask): string {
 
 export function armView(task: RewriteTask, arm: RewriteArm): string {
 	const ids =
-		arm === "V-doc-view2" ? [task.targetId, task.missionId] : [task.targetId];
+		arm === "V-doc-view2" || arm === "AF-view-restate"
+			? [task.targetId, task.missionId]
+			: [task.targetId];
 	return serializeView(task.tree, ids, "minimal");
 }
 
@@ -125,10 +155,13 @@ export async function runRewriteTask(
 	};
 
 	let content = `Here is a focused view of the current tree:\n\n${armView(task, arm)}\n\nEdit request: ${armInstruction(task, arm)}\n\nReply with a JSON Patch that makes this change.`;
-	if (arm === "V-conv-memo") content += armMemo(task);
+	if (arm === "V-conv-memo" || arm === "AF-memo-restate") {
+		content += armMemo(task);
+	}
 	const messages: ModelMessage[] = [{ role: "user", content }];
 
 	let finalTree: BarkupNode | null = null;
+	let firstReply: string | null = null;
 	const calls: CallLog[] = [];
 	for (let round = 1; round <= MAX_ROUNDS; round += 1) {
 		const started = performance.now();
@@ -145,6 +178,7 @@ export async function runRewriteTask(
 			role: "assistant",
 			content: result.text === "" ? "(empty reply)" : result.text,
 		});
+		if (firstReply === null) firstReply = result.text;
 		const applied = applyShipped(result.text, task.tree);
 		const cacheRead = result.totalUsage.inputTokenDetails?.cacheReadTokens ?? 0;
 		calls.push({
@@ -177,6 +211,13 @@ export async function runRewriteTask(
 	record.totalLatencyMs = calls.reduce((s, c) => s + c.latencyMs, 0);
 
 	const detail: Record<string, unknown> = { arm };
+	if (arm.startsWith("AF-") && arm !== "AF-control" && firstReply !== null) {
+		const compliance = goalCompliance(firstReply);
+		detail.goalCompliant = compliance.compliant;
+		if (compliance.line !== null) {
+			detail.goalLine = compliance.line.slice(0, 300);
+		}
+	}
 	if (finalTree) {
 		const problems = layerOneProblems(task, finalTree);
 		const rewrite = findById(finalTree, task.targetId)?.attributes?.content;
