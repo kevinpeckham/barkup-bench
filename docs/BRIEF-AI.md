@@ -86,7 +86,11 @@ per-level classifier, resumable JSONL
 - One added sentence is the ONLY delta between arms; conditions,
   views, classifier, and corpus are byte-identical otherwise.
 - Study letters: AG is reserved by a parallel session's study;
-  this study takes AI in sequence after AH.
+  this study takes AI in sequence after AH. *(Correction,
+  2026-07-16: the reservation was a miscommunication during a
+  multi-session mix-up — no parallel AG study exists. The letter
+  AG remains unassigned and will be taken by the next registered
+  study; AH and AI keep their published names.)*
 
 **Expected spend $4–8** (450 U-class cells across three tiers);
 abort past $20. Honesty rules unchanged: this brief and the
