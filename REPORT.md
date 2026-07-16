@@ -1955,6 +1955,70 @@ way, but only the frontier tier treats ambiguity as reliably
 ask-worthy, clause or no clause. Cache audit re-run: zero cache
 reads across all 450 records.
 
+## Addendum (2026-07-16): Study AG — the anaphora hatch (the discourse gap closes; the visibility clause bites)
+
+Pre-registered in [docs/BRIEF-AG.md](docs/BRIEF-AG.md) (the AG
+letter was skipped earlier by a since-corrected miscommunication —
+see BRIEF-AI's dated note): does the SHIPPED NEED-INFO sentence
+fire on Study X's anaphora construction, where "undo that" against
+a carrier-less editor failed 0/144 with every failure a silent
+guess? Three arms over X's corpus verbatim — the carrier-less
+control, carrier-less plus the shipped hatch, and echo plus hatch
+(the shipped-stack tax check) — three models, 1,296 session steps,
+zero harness errors, ≈ $16; tables in
+`results/analysis-study-ag.txt`.
+
+| Anaphora cells (48/model) | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| Control: silent wrong patches | 48/48 | 48/48 | 48/48 |
+| Carrier-less + hatch: asked | **47/48** | **43/48** | **48/48** |
+| Echo + hatch: asked / solved | 34 / 14 | 36 / 12 | 33 / 15 |
+
+- **AG-H1 — PASSES on every tier, at or near ceiling.** The
+  control replicated X to the digit (0/144 solved, every failure
+  silent), and the shipped sentence converted 138 of those 144
+  silent guesses into questions. Unlike ambiguity (AE/AI), the
+  discourse gap is letter-covered — a dangling "that" is a node
+  "not stated in the request" — and the asks show genuine anaphora
+  recognition: "the request refers to 'that same node' from a
+  prior instruction, but no such node is identified." Every tier,
+  including the ones that failed ambiguity, protects itself here.
+- **AG-H3 — PASSES at zero everywhere.** 0/288 false asks on
+  ordinary steps, solve rates identical to control. Where the view
+  contains the target, the hatch stays silent — as in AC and AE.
+- **AG-H2 — FAILS on every model, and the ask texts locate the
+  mechanism precisely.** With the last-edit echo supplying the full
+  referent (id, key, old and new values), models still asked on
+  ~70% of anaphora cells — and their asks PROVE the echo worked:
+  they cite the exact node id and the intended change, then refuse
+  to proceed because "the text-atom with id n58 is not visible in
+  the current view." This is not hatch-echo confusion; it is the
+  shipped sentence's VISIBILITY clause colliding with X's skeleton
+  views. An anchored patch needs only the id (X-lastedit solved
+  48/48 under the same views with no hatch), but the rule's letter
+  says a node that is not visible warrants NEED-INFO, so a
+  fully-specified, solvable edit becomes a question. AE never saw
+  this because its views always contained the target (zero false
+  asks); the same models produced zero false asks on this study's
+  ordinary steps for the same reason.
+
+**Decision rule outcome: H1's row and H2's row together.** The
+practical guidance sharpens into a dependency statement: **the
+hatch's zero-tax guarantee is CONDITIONAL on the focus-ids
+contract.** On surfaces whose views cover every node a request
+mentions (Study U's contract, the shipped configuration), the
+hatch is free and now covers absence AND discourse gaps on every
+tier. On skeleton- or outline-style protocols where edit targets
+are legitimately out of view, the visibility clause will
+interrogate solvable requests — there, either the view protocol
+must carry targets, or the surface needs a self-serve view tool
+(the shipped template-chat has `get_template_view`; the bench
+arms deliberately did not), or the hatch text needs a re-scoped
+variant measured before shipping. The echo remains the better UX
+where it ships (zero questions, 48/48); the hatch behind it now
+has a mapped interaction rather than an assumed one. Cache audit
+re-run: zero cache reads across all 1,296 records.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is

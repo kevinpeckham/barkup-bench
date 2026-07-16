@@ -14,7 +14,7 @@ const MODELS = [
 	"google/gemini-3.5-flash",
 	"anthropic/claude-opus-4.8",
 ];
-const KINDS = ["that", "same", "undo"];
+const KINDS = ["amend", "repeat", "undo"];
 
 function loadRecords(path: string): TaskRunRecord[] {
 	if (!existsSync(path)) return [];

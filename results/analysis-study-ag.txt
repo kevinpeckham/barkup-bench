@@ -1,0 +1,59 @@
+# Study AG — the anaphora hatch (1296 records)
+
+## Anaphora cells by model × arm (asked / solved / silent-wrong)
+
+  claude-sonnet-4.5 X-stateless: asked 0/48 · solved 0 · silent-wrong 48
+  claude-sonnet-4.5 AG-stateless-hatch: asked 47/48 · solved 0 · silent-wrong 1
+  claude-sonnet-4.5 AG-echo-hatch: asked 34/48 · solved 14 · silent-wrong 0
+  gemini-3.5-flash X-stateless: asked 0/48 · solved 0 · silent-wrong 48
+  gemini-3.5-flash AG-stateless-hatch: asked 43/48 · solved 0 · silent-wrong 5
+  gemini-3.5-flash AG-echo-hatch: asked 36/48 · solved 12 · silent-wrong 0
+  claude-opus-4.8 X-stateless: asked 0/48 · solved 0 · silent-wrong 48
+  claude-opus-4.8 AG-stateless-hatch: asked 48/48 · solved 0 · silent-wrong 0
+  claude-opus-4.8 AG-echo-hatch: asked 33/48 · solved 15 · silent-wrong 0
+
+## AG-H1 — the hatch fires on anaphora (AG-stateless-hatch)
+
+  claude-sonnet-4.5: asked 47/48 (97.9% [89.1%,99.6%]) → PASS
+  gemini-3.5-flash: asked 43/48 (89.6% [77.8%,95.5%]) → PASS
+  claude-opus-4.8: asked 48/48 (100.0% [92.6%,100.0%]) → PASS
+
+## AG-H2 — no tax under the shipped stack (AG-echo-hatch)
+
+  claude-sonnet-4.5: anaphora asks 34/48, anaphora solved 14/48 (29.2% [18.2%,43.2%]), ordinary asks 0/96 → FAIL
+  gemini-3.5-flash: anaphora asks 36/48, anaphora solved 12/48 (25.0% [14.9%,38.8%]), ordinary asks 0/96 → FAIL
+  claude-opus-4.8: anaphora asks 33/48, anaphora solved 15/48 (31.3% [19.9%,45.3%]), ordinary asks 0/96 → FAIL
+
+## AG-H3 — ordinary steps undisturbed (AG-stateless-hatch vs control)
+
+  claude-sonnet-4.5: ordinary asks 0/96, solve 95/96 vs control 95/96 (McNemar p=1.0000) → PASS
+  gemini-3.5-flash: ordinary asks 0/96, solve 94/96 vs control 94/96 (McNemar p=1.0000) → PASS
+  claude-opus-4.8: ordinary asks 0/96, solve 96/96 vs control 96/96 (McNemar p=1.0000) → PASS
+
+## AG-H4 — descriptive: kind splits, ask quality, control replication
+
+  claude-sonnet-4.5: asks by kind → amend 24/24  repeat 12/12  undo 11/12; asks referencing the prior edit 27/47
+  gemini-3.5-flash: asks by kind → amend 24/24  repeat 12/12  undo 7/12; asks referencing the prior edit 25/43
+  claude-opus-4.8: asks by kind → amend 24/24  repeat 12/12  undo 12/12; asks referencing the prior edit 22/48
+
+  control replication (X-stateless anaphora, solved / silent-wrong):
+  claude-sonnet-4.5: solved 0/48, silent-wrong 48 (X published: 0/48 solved, all silent)
+  gemini-3.5-flash: solved 0/48, silent-wrong 48 (X published: 0/48 solved, all silent)
+  claude-opus-4.8: solved 0/48, silent-wrong 48 (X published: 0/48 solved, all silent)
+
+## Totals
+  1296 records, 3,453,870 in + 140,270 out
+
+## Pre-registered gates
+
+  PASS  AG-H1 claude-sonnet-4.5: anaphora asked 47/48 (gate >=31/48)
+  PASS  AG-H1 gemini-3.5-flash: anaphora asked 43/48 (gate >=31/48)
+  PASS  AG-H1 claude-opus-4.8: anaphora asked 48/48 (gate >=31/48)
+  FAIL  AG-H2 claude-sonnet-4.5: echo+hatch: asks 34/48 (gate <=4), solved 14/48 (gate >=45), ordinary asks 0/96 (gate <=5)
+  FAIL  AG-H2 gemini-3.5-flash: echo+hatch: asks 36/48 (gate <=4), solved 12/48 (gate >=45), ordinary asks 0/96 (gate <=5)
+  FAIL  AG-H2 claude-opus-4.8: echo+hatch: asks 33/48 (gate <=4), solved 15/48 (gate >=45), ordinary asks 0/96 (gate <=5)
+  PASS  AG-H3 claude-sonnet-4.5: ordinary asks 0/96 (gate <=5), solve parity p=1.0000
+  PASS  AG-H3 gemini-3.5-flash: ordinary asks 0/96 (gate <=5), solve parity p=1.0000
+  PASS  AG-H3 claude-opus-4.8: ordinary asks 0/96 (gate <=5), solve parity p=1.0000
+
+  STUDY GATE (AG-H1..H3): FAIL — see rows

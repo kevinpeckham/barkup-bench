@@ -1,6 +1,6 @@
 # Prompt-caching audit (provider-reported cache reads)
 
-Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 68524 calls — reported input tokens are total prompt tokens, cached included.
+Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 69962 calls — reported input tokens are total prompt tokens, cached included.
 
 ## Per raw file
   corrected-anthropic_claude-haiku-4.5-best.jsonl: 1200 records, input 10,846,149 tok, cached 0 (0.0%), calls with cache 0/1591
@@ -66,6 +66,9 @@ Subset invariant (cacheReadTokens <= inputTokens per call): HOLDS across 68524 c
   studyaf-edits-google_gemini-3.5-flash.jsonl: 90 records, input 107,208 tok, cached 0 (0.0%), calls with cache 0/90
   studyaf-judge-anthropic_claude-haiku-4.5.jsonl: 0 records, input 0 tok, cached 0 (—), calls with cache 0/0
   studyaf-judge-openai_gpt-5.4.jsonl: 0 records, input 0 tok, cached 0 (—), calls with cache 0/0
+  studyag-anthropic_claude-opus-4.8.jsonl: 432 records, input 1,287,217 tok, cached 0 (0.0%), calls with cache 0/478
+  studyag-anthropic_claude-sonnet-4.5.jsonl: 432 records, input 1,081,257 tok, cached 0 (0.0%), calls with cache 0/488
+  studyag-google_gemini-3.5-flash.jsonl: 432 records, input 1,085,396 tok, cached 0 (0.0%), calls with cache 0/472
   studyah-anthropic_claude-opus-4.8.jsonl: 90 records, input 401,821 tok, cached 0 (0.0%), calls with cache 0/90
   studyah-anthropic_claude-sonnet-4.5.jsonl: 90 records, input 317,395 tok, cached 0 (0.0%), calls with cache 0/91
   studyah-google_gemini-3.5-flash.jsonl: 90 records, input 260,361 tok, cached 0 (0.0%), calls with cache 0/90
