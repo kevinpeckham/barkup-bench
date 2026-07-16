@@ -1839,6 +1839,64 @@ test passes it, per the AA lesson about prompt clauses that look
 obviously right. Cache audit re-run: zero cache reads across all
 585 ladder/resume records; token figures are cache-free.
 
+## Addendum (2026-07-16): Study AH — memo saturation (perfect to the cap; at the cap, the goals die)
+
+Pre-registered in [docs/BRIEF-AH.md](docs/BRIEF-AH.md): the
+session-notes memo — the series' most load-bearing shipped mechanism
+— had only ever been measured at 3–6 notes, while the shipped
+implementation caps it at `MAX_SESSION_NOTES = 20` with a
+`normalizeSessionNotes` clamp that silently drops the excess. Study
+AH measured the memo at scale: recall and unprompted rule
+application against a FULL 20-note memo (position-stratified,
+needle-validated), full-replace integrity as the list grows, and
+the unspecified behavior at the cap edge. 270 cells, three models,
+zero harness errors, ≈ $6; tables in
+`results/analysis-study-ah.txt`.
+
+| Arm | sonnet-4.5 | gemini-3.5-flash | opus-4.8 |
+|---|---|---|---|
+| Recall, N=20 (positions first/middle/last) | **15/15** | **15/15** | **15/15** |
+| Unprompted rule application, N=20 | **15/15** | **15/15** | **15/15** |
+| Full-replace integrity, K=10 and K=19 | **20/20 clean** | **20/20 clean** | **20/20 clean** |
+| Cap edge K=20: cells that lost a note | 10/10 | 10/10 | 10/10 |
+
+- **AH-H1/H2/H3 — THE STUDY GATE PASSES at absolute ceiling.**
+  Recall from a full memo is perfect at every position (no burial
+  anywhere — first, middle, and last notes all 15/15), unprompted
+  rule application from a 12-rule memo is perfect with ZERO
+  contamination events (the block-scoped rule construction held:
+  models applied exactly the one covering rule and never a
+  neighbor's needle), and the agent's full-replace is lossless
+  wherever the update fits: 60/60 clean updates at K=10 and K=19,
+  every old needle preserved, every new declaration recorded, with
+  the requested edit landing 90/90 alongside. Below its cap, the
+  shipped memo is validated end to end at scale.
+- **AH-H4 — at the cap, a note dies every time, and it is ALWAYS a
+  goal.** All 30 cap-edge cells (a 21st declaration arriving at a
+  full memo) lost exactly one note. The loss modes differ by model
+  — opus sent 21 notes all 10 times and let the shipped clamp
+  choose the victim; gemini mostly pruned deliberately (8/10);
+  sonnet mixed (7 over-cap, 3 prunes) — but the victim never
+  varied: **30/30 lost notes were goal notes.** The mechanism is
+  structural: the shipped block renders facts → rules → goals, so
+  the goals section is the tail of every reconstruction, and both
+  the clamp (which keeps the FIRST twenty) and the models' own
+  pruning instincts eat from the tail. Study V measured that goals
+  are the one thing ONLY the memo can carry; at its cap, the memo
+  silently sacrifices exactly that class first. No error, no
+  warning, and in the over-cap cases not even a model decision —
+  the clamp chose.
+
+**Decision rule outcome: the interpretation table's second row —
+the mechanism holds, the cap is a shipped footgun.** The fix is
+app-side, not prompt-side: surface the cap to the user, or evict
+deterministically with a policy that protects goals (evict the
+oldest FACT first, never the goals tail), or both — filed for the
+replicator with the measured loss mode. Note-count also becomes a
+monitorable budget: the memo is provably safe to 20, so the only
+hazard is the edge itself. Cache audit re-run: zero cache reads
+across all 270 records; token figures are cache-free.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is

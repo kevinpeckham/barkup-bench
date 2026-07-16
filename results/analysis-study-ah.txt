@@ -1,0 +1,64 @@
+# Study AH — memo saturation (270 records)
+
+## Read side: success by model × kind × N (and by position at N=20)
+
+  claude-sonnet-4.5 recall: N=5 15/15 (100.0% [79.6%,100.0%]) · N=20 15/15 (100.0% [79.6%,100.0%]) (first 5/5  middle 5/5  last 5/5) McNemar p=1.0000
+  claude-sonnet-4.5 rule: N=5 15/15 (100.0% [79.6%,100.0%]) · N=20 15/15 (100.0% [79.6%,100.0%]) (first 5/5  middle 5/5  last 5/5) McNemar p=1.0000
+  gemini-3.5-flash recall: N=5 15/15 (100.0% [79.6%,100.0%]) · N=20 15/15 (100.0% [79.6%,100.0%]) (first 5/5  middle 5/5  last 5/5) McNemar p=1.0000
+  gemini-3.5-flash rule: N=5 15/15 (100.0% [79.6%,100.0%]) · N=20 15/15 (100.0% [79.6%,100.0%]) (first 5/5  middle 5/5  last 5/5) McNemar p=1.0000
+  claude-opus-4.8 recall: N=5 15/15 (100.0% [79.6%,100.0%]) · N=20 15/15 (100.0% [79.6%,100.0%]) (first 5/5  middle 5/5  last 5/5) McNemar p=1.0000
+  claude-opus-4.8 rule: N=5 15/15 (100.0% [79.6%,100.0%]) · N=20 15/15 (100.0% [79.6%,100.0%]) (first 5/5  middle 5/5  last 5/5) McNemar p=1.0000
+
+## AH-H1 — recall at the cap (gate: N=20 >= 13/15 AND no significant drop)
+
+  claude-sonnet-4.5: N=20 recall 15/15 (100.0% [79.6%,100.0%]), drop test p=1.0000 → PASS
+  gemini-3.5-flash: N=20 recall 15/15 (100.0% [79.6%,100.0%]), drop test p=1.0000 → PASS
+  claude-opus-4.8: N=20 recall 15/15 (100.0% [79.6%,100.0%]), drop test p=1.0000 → PASS
+
+## AH-H2 — rules at the cap (gate: N=20 >= 13/15 AND zero contamination)
+
+  claude-sonnet-4.5: N=20 rule application 15/15 (100.0% [79.6%,100.0%]) → PASS (pending zero-contamination)
+  gemini-3.5-flash: N=20 rule application 15/15 (100.0% [79.6%,100.0%]) → PASS (pending zero-contamination)
+  claude-opus-4.8: N=20 rule application 15/15 (100.0% [79.6%,100.0%]) → PASS (pending zero-contamination)
+  total contamination events: 0 (hard zero)
+
+## AH-H3 — full-replace integrity where the update fits (gate: >=9/10 per K per model)
+
+  claude-sonnet-4.5 K=10: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+  claude-sonnet-4.5 K=19: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+  gemini-3.5-flash K=10: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+  gemini-3.5-flash K=19: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+  claude-opus-4.8 K=10: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+  claude-opus-4.8 K=19: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+
+## AH-H4 — the cap edge (K=20, descriptive taxonomy)
+
+  claude-sonnet-4.5: over-cap-lost-old 7, pruned-old 3 — notes lost post-clamp: 10
+  gemini-3.5-flash: pruned-old 8, over-cap-lost-old 2 — notes lost post-clamp: 10
+  claude-opus-4.8: over-cap-lost-old 10 — notes lost post-clamp: 10
+
+## Edit-applied alongside the memo update (integrity cells, report-only)
+
+  claude-sonnet-4.5: 30/30
+  gemini-3.5-flash: 30/30
+  claude-opus-4.8: 30/30
+
+## Totals
+  270 records, 979,577 in + 83,758 out
+
+## Pre-registered gates
+
+  PASS  AH-H1 claude-sonnet-4.5: recall N=20 15/15 (gate >=13), McNemar p=1.0000
+  PASS  AH-H1 gemini-3.5-flash: recall N=20 15/15 (gate >=13), McNemar p=1.0000
+  PASS  AH-H1 claude-opus-4.8: recall N=20 15/15 (gate >=13), McNemar p=1.0000
+  PASS  AH-H2 claude-sonnet-4.5: rules N=20 15/15 (gate >=13), contamination 0 (gate 0)
+  PASS  AH-H2 gemini-3.5-flash: rules N=20 15/15 (gate >=13), contamination 0 (gate 0)
+  PASS  AH-H2 claude-opus-4.8: rules N=20 15/15 (gate >=13), contamination 0 (gate 0)
+  PASS  AH-H3 claude-sonnet-4.5 K=10: clean 10/10 (gate >=9/10)
+  PASS  AH-H3 claude-sonnet-4.5 K=19: clean 10/10 (gate >=9/10)
+  PASS  AH-H3 gemini-3.5-flash K=10: clean 10/10 (gate >=9/10)
+  PASS  AH-H3 gemini-3.5-flash K=19: clean 10/10 (gate >=9/10)
+  PASS  AH-H3 claude-opus-4.8 K=10: clean 10/10 (gate >=9/10)
+  PASS  AH-H3 claude-opus-4.8 K=19: clean 10/10 (gate >=9/10)
+
+  STUDY GATE (AH-H1..H3, all models): PASS
