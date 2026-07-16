@@ -21,7 +21,11 @@ import { editMessage } from "./prompts.js";
 import type { TaskRunRecord } from "./records.js";
 import { MAX_ROUNDS } from "./runner.js";
 
-export type LadderArm = "AE-base" | "AE-rule";
+export type LadderArm = "AE-base" | "AE-rule" | "AI-control" | "AI-rule2";
+
+/** Study AI's registered multiplicity amendment (BRIEF-AI.md), verbatim.
+ * Appended to the shipped ASK_RULE; the original stays byte-identical. */
+export const MULTIPLICITY_CLAUSE = ` If the request could match MORE THAN ONE node in the view, do NOT pick one: reply with a single line "NEED-INFO: <which nodes could match and what you would need to know to choose>" instead of a patch.`;
 
 export type LadderOutcome =
 	| "asked"
@@ -42,9 +46,11 @@ export function makeLadderCondition(
 		...conditionF,
 		id: `${arm}-l${task.level}`,
 		systemPrompt:
-			arm === "AE-rule"
+			arm === "AE-rule" || arm === "AI-control"
 				? `${conditionF.systemPrompt}${VIEW_RULES}\n\n${ASK_RULE}`
-				: conditionF.systemPrompt + VIEW_RULES,
+				: arm === "AI-rule2"
+					? `${conditionF.systemPrompt}${VIEW_RULES}\n\n${ASK_RULE}${MULTIPLICITY_CLAUSE}`
+					: conditionF.systemPrompt + VIEW_RULES,
 		serialize: (tree) => serializeView(tree, task.focusIds, "minimal"),
 		applyArtifact: applyShipped,
 	};
@@ -170,7 +176,7 @@ export async function runLadderTask(
 			content: call.text === "" ? "(empty reply)" : call.text,
 		});
 
-		if (arm === "AE-rule" && call.text.trim().startsWith("NEED-INFO:")) {
+		if (arm !== "AE-base" && call.text.trim().startsWith("NEED-INFO:")) {
 			record.calls.push({ phase: 1, round, issueCodes: [], ...call.log });
 			asked = true;
 			askText = call.text.trim();

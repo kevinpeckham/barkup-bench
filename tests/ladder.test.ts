@@ -6,7 +6,11 @@ import { applyEdit } from "../src/corpus/edits.js";
 import type { CalibrationTask } from "../src/corpus/ladder.js";
 import { validateCalibrationTask } from "../src/corpus/ladder.js";
 import { resumeAnswer } from "../src/harness/ask-runner.js";
-import { classifyLadder } from "../src/harness/ladder-runner.js";
+import {
+	classifyLadder,
+	MULTIPLICITY_CLAUSE,
+	makeLadderCondition,
+} from "../src/harness/ladder-runner.js";
 
 const corpus = JSON.parse(readFileSync("corpus/calibration.json", "utf8")) as {
 	seed: number;
@@ -193,5 +197,25 @@ describe("resumeAnswer (registered template)", () => {
 		const s = resumeAnswer(structureTask as DependentTask);
 		expect(s).toStartWith("The name of");
 		expect(s).toContain(`"${(structureTask as DependentTask).needle}"`);
+	});
+});
+
+describe("Study AI arm construction", () => {
+	const task = corpus.tasks.find((t) => t.level === 3) as CalibrationTask;
+	it("AI-control is the shipped AE-rule system verbatim", () => {
+		expect(makeLadderCondition(task, "AI-control").systemPrompt).toBe(
+			makeLadderCondition(task, "AE-rule").systemPrompt,
+		);
+	});
+	it("AI-rule2 is the shipped rule plus the registered multiplicity clause", () => {
+		const base = makeLadderCondition(task, "AE-rule").systemPrompt;
+		const amended = makeLadderCondition(task, "AI-rule2").systemPrompt;
+		expect(amended).toBe(base + MULTIPLICITY_CLAUSE);
+		expect(MULTIPLICITY_CLAUSE).toContain("MORE THAN ONE node");
+		expect(MULTIPLICITY_CLAUSE).toContain('"NEED-INFO:');
+	});
+	it("the base arm never carries either rule", () => {
+		const base = makeLadderCondition(task, "AE-base").systemPrompt;
+		expect(base).not.toContain("NEED-INFO");
 	});
 });
