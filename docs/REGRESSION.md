@@ -60,7 +60,7 @@ in corpus order."
 | `memo-agent` | update_session_notes tool loop | W-agent, first 6 36-step sessions (W) | 216 steps | callbacks ≥32/36 |
 | `precedence` | PRECEDENCE clause (v3.188.1) | AB-clause on override + ri cells (AB) | 24 | honored ≥10/12; satisfy-both ≥10/12; violations = 0 |
 | `standing-pack` | brand pack + buildCachedSystem (v3.185.0) | Z-full on fact + rule cells (Z) | 24 | ≥22/24; contamination = 0 |
-| `memo-scale` | sessionNotes at the 20-note cap + `applySessionNotesUpdate` eviction (v3.213.0) | AH recall-at-N=20 + integrity-at-K=19 slices (AH) | 25 | recall ≥13/15; clean full-replace ≥9/10 |
+| `memo-scale` | sessionNotes at the 20-note cap + `applySessionNotesUpdate` eviction (v3.213.0) | AH recall-at-N=20 + integrity-at-K=19 slices + AK eviction-at-K=20 slice (AH+AK) | 35 | recall ≥13/15; clean full-replace ≥9/10; K=20 goal-safe ≥9/10 with zero goals evicted |
 | `ask-calibration` | ask-path calibration on the AE ladder (v3.191.0) | AE-rule on L0 precise + L4 missing-info (AE) | 30 | L0 solved ≥13/15, false asks ≤1; L4 asked ≥13/15 |
 | `anaphora-hatch` | the NEED-INFO seatbelt behind the echo | AG-stateless-hatch, first 6 anaphora sessions (AG) | 72 steps | anaphora asked ≥17/24; ordinary false asks ≤3 |
 
@@ -95,6 +95,18 @@ Thresholds sit at or just below each source study's measured floor
 measured values were 21.5–24). The suite is now **thirteen gates**;
 the tier-dependent AE L3 construction is deliberately excluded
 (no model-independent threshold exists — see Study AI).
+
+### Amendment (2026-07-17)
+
+The `memo-scale` gate extended after Study AK published, by commit
+before any run it judges: the K=20 cap edge now runs through the
+measured v3.213.0 eviction arm (10 cells). Criteria added: goal-safe
+≥9/10 on the opus baseline (AK measured 10/10 vs control 0/10,
+p=.002; over-send is the dominant pathway on the baseline tier) and
+a hard zero on goals evicted by the pipeline (AK-H1's 19/19
+contract, mechanical). The client-prune residue AK documented is
+model behavior below the frontier and is deliberately not gated —
+the baseline model is opus, where prunes measured 0/10.
 
 ## Reading a result
 

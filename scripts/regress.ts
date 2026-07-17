@@ -337,6 +337,16 @@ function buildMemoScaleCells(): Cell[] {
 			run: async () => [await runMemoIntegrityTask(task, model)],
 		});
 	}
+	// Study AK amendment (2026-07-17): the K=20 cap edge through the
+	// v3.213.0 eviction pipeline (goal-safe on the opus baseline).
+	for (const task of corpus.integrity.filter((t) => t.kLevel === 20)) {
+		if (done.has(`${task.id}::AK-eviction-k20::${model}::parity`)) continue;
+		cells.push({
+			key: `${task.id}-eviction`,
+			label: `${task.id} eviction`,
+			run: async () => [await runMemoIntegrityTask(task, model, "AK-eviction")],
+		});
+	}
 	return cells;
 }
 

@@ -195,15 +195,28 @@ describe("standing-pack gate", () => {
 });
 
 describe("memo-scale gate", () => {
-	it("gates recall and clean full-replace together", () => {
+	function capEdge(goalSafe: number, goalEvictions: number) {
+		return repeat(10, (i) =>
+			record({
+				detail: {
+					kLevel: 20,
+					arm: "AK-eviction",
+					outcome: "over-cap-lost-old",
+					goalSafe: i < goalSafe,
+					evictedKinds: i < goalEvictions ? ["goal"] : ["fact"],
+				},
+			}),
+		);
+	}
+	const base = () => [
+		...repeat(15, () => record({ detail: { kind: "recall", nLevel: 20 } })),
+		...repeat(10, () =>
+			record({ detail: { kLevel: 19, outcome: "clean-update" } }),
+		),
+	];
+	it("gates recall, clean full-replace, and the eviction cap edge together", () => {
 		const gate = gateById("memo-scale");
-		const good = [
-			...repeat(15, () => record({ detail: { kind: "recall", nLevel: 20 } })),
-			...repeat(10, () =>
-				record({ detail: { kLevel: 19, outcome: "clean-update" } }),
-			),
-		];
-		expect(gate.evaluate(good).pass).toBe(true);
+		expect(gate.evaluate([...base(), ...capEdge(10, 0)]).pass).toBe(true);
 		const badIntegrity = [
 			...repeat(15, () => record({ detail: { kind: "recall", nLevel: 20 } })),
 			...repeat(10, (i) =>
@@ -211,8 +224,17 @@ describe("memo-scale gate", () => {
 					detail: { kLevel: 19, outcome: i < 8 ? "clean-update" : "lost-old" },
 				}),
 			),
+			...capEdge(10, 0),
 		];
 		expect(gate.evaluate(badIntegrity).pass).toBe(false);
+	});
+	it("fails when goal-safety slips or any goal is evicted (Study AK amendment)", () => {
+		const gate = gateById("memo-scale");
+		expect(gate.evaluate([...base(), ...capEdge(8, 0)]).pass).toBe(false);
+		// One goal eviction is an H1 contract violation even at 10/10 safe.
+		expect(gate.evaluate([...base(), ...capEdge(10, 1)]).pass).toBe(false);
+		// Missing cap-edge records = insufficient, not a pass.
+		expect(gate.evaluate(base()).incomplete).toBe(true);
 	});
 });
 

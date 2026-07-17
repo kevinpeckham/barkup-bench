@@ -314,21 +314,39 @@ export const GATES: GateDef[] = [
 		title: "Memo at scale: recall from a full memo + lossless full-replace",
 		protects:
 			"sessionNotes at the 20-note cap + applySessionNotesUpdate eviction (v3.213.0)",
-		sourceStudy: "AH",
-		expectedRecords: 25,
+		sourceStudy: "AH+AK",
+		expectedRecords: 35,
 		evaluate: (records) => {
 			const recall = records.filter((r) => detail(r).kind === "recall");
-			const integrity = records.filter((r) => detail(r).kLevel === 19);
+			const integrity = records.filter(
+				(r) => detail(r).kLevel === 19 && detail(r).arm !== "AK-eviction",
+			);
 			const clean = integrity.filter(
 				(r) => detail(r).outcome === "clean-update",
+			).length;
+			// Study AK amendment (2026-07-17): the v3.213.0 eviction measured
+			// end-to-end at the K=20 injury site. Opus-baseline criterion —
+			// over-send is the dominant pathway there (AK: goal-safe 10/10 vs
+			// control 0/10, p=.002); a goal EVICTED by the pipeline anywhere
+			// is an H1 contract violation and fails regardless of count.
+			const capEdge = records.filter(
+				(r) => detail(r).kLevel === 20 && detail(r).arm === "AK-eviction",
+			);
+			const goalSafe = capEdge.filter((r) => detail(r).goalSafe).length;
+			const goalEvictions = capEdge.filter((r) =>
+				((detail(r).evictedKinds as string[] | undefined) ?? []).includes(
+					"goal",
+				),
 			).length;
 			return result(
 				"memo-scale",
 				"Memo at scale: recall from a full memo + lossless full-replace",
-				recall.length < 15 || integrity.length < 10,
+				recall.length < 15 || integrity.length < 10 || capEdge.length < 10,
 				[
 					atLeast("recall from a 20-note memo", successCount(recall), 13, 15),
 					atLeast("clean full-replace at 19 notes", clean, 9, 10),
+					atLeast("goal-safe eviction at the K=20 cap edge", goalSafe, 9, 10),
+					atMost("goals evicted by the pipeline", goalEvictions, 0, 10),
 				],
 			);
 		},
