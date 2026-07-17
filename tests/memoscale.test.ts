@@ -8,6 +8,8 @@ import {
 import {
 	classifyIntegrity,
 	contaminationScan,
+	evaluatePipeline,
+	goalNeedlesOf,
 } from "../src/harness/memoscale-runner.js";
 import type { SessionNote } from "../src/shipped/session-notes.js";
 
@@ -121,5 +123,95 @@ describe("classifyIntegrity", () => {
 		expect(v.lost).toEqual([
 			cap.oldNeedles[cap.oldNeedles.length - 1] as string,
 		]);
+	});
+});
+
+describe("evaluatePipeline (Study AK)", () => {
+	const cap = corpus.integrity.find((t) => t.kLevel === 20) as IntegrityTask;
+	const base = corpus.integrity.find((t) => t.kLevel === 10) as IntegrityTask;
+
+	it("needle↔note alignment holds for every integrity task", () => {
+		for (const task of corpus.integrity) {
+			task.notes.forEach((note, i) => {
+				expect(note.text).toContain(task.oldNeedles[i] as string);
+			});
+		}
+	});
+
+	it("k=20 memos are 12 facts + 5 rules + 3 goals with a fact declaration", () => {
+		for (const task of corpus.integrity.filter((t) => t.kLevel === 20)) {
+			const kinds = task.notes.map((n) => n.kind);
+			expect(kinds.filter((k) => k === "fact").length).toBe(12);
+			expect(kinds.filter((k) => k === "rule").length).toBe(5);
+			expect(kinds.filter((k) => k === "goal").length).toBe(3);
+			expect(task.newNote.kind).toBe("fact");
+			expect(goalNeedlesOf(task).length).toBe(3);
+		}
+	});
+
+	it("over-send: eviction arm evicts the oldest fact and keeps every goal", () => {
+		// The AH-observed shape: new fact grouped with the facts, goals at the tail.
+		const raw: SessionNote[] = [
+			...cap.notes.slice(0, 12),
+			{ kind: "fact", text: `declared codename "${cap.newNeedle}".` },
+			...cap.notes.slice(12),
+		];
+		expect(raw.length).toBe(21);
+		const v = evaluatePipeline(cap, "AK-eviction", raw);
+		expect(v.overCap).toBe(true);
+		expect(v.goalSafe).toBe(true);
+		expect(v.designedEviction).toBe(true);
+		expect(v.evictedKinds).toEqual(["fact"]);
+		expect(v.lostPost).toEqual([cap.oldNeedles[0] as string]);
+		expect(v.prunedKinds).toEqual([]);
+	});
+
+	it("over-send: control arm clamps the tail goal instead", () => {
+		const raw: SessionNote[] = [
+			...cap.notes.slice(0, 12),
+			{ kind: "fact", text: `declared codename "${cap.newNeedle}".` },
+			...cap.notes.slice(12),
+		];
+		const v = evaluatePipeline(cap, "AK-control", raw);
+		expect(v.overCap).toBe(true);
+		expect(v.goalSafe).toBe(false);
+		expect(v.designedEviction).toBe(null);
+		expect(v.lostPost).toEqual([
+			cap.oldNeedles[cap.oldNeedles.length - 1] as string,
+		]);
+	});
+
+	it("client prune of a goal is out of the eviction's reach", () => {
+		const raw: SessionNote[] = [
+			...cap.notes.slice(0, 19),
+			{ kind: "fact", text: `declared codename "${cap.newNeedle}".` },
+		];
+		expect(raw.length).toBe(20);
+		const v = evaluatePipeline(cap, "AK-eviction", raw);
+		expect(v.overCap).toBe(false);
+		expect(v.goalSafe).toBe(false);
+		expect(v.prunedKinds).toEqual(["goal"]);
+		expect(v.evictedKinds).toEqual([]);
+	});
+
+	it("under-cap update is a strict no-op for the eviction pipeline", () => {
+		const raw: SessionNote[] = [
+			...base.notes,
+			{ kind: "fact", text: `declared codename "${base.newNeedle}".` },
+		];
+		const v = evaluatePipeline(base, "AK-eviction", raw);
+		expect(v.overCap).toBe(false);
+		expect(v.goalSafe).toBe(true);
+		expect(v.evictedKinds).toEqual([]);
+		expect(v.lostPost).toEqual([]);
+		const ctl = evaluatePipeline(base, "AK-control", raw);
+		expect(ctl.goalSafe).toBe(true);
+		expect(ctl.lostPost).toEqual([]);
+	});
+
+	it("skipped tool loses everything", () => {
+		const v = evaluatePipeline(cap, "AK-eviction", null);
+		expect(v.goalSafe).toBe(false);
+		expect(v.lostPost.length).toBe(21);
 	});
 });

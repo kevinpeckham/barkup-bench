@@ -17,9 +17,11 @@ import { formatIssuesFeedback } from "../conditions/shared.js";
 import { serializeView, VIEW_RULES } from "../conditions/views.js";
 import type { IntegrityTask, MemoScaleTask } from "../corpus/memoscale.js";
 import { equalModuloNewIds } from "../grading/equal.js";
-import type { SessionNote } from "../shipped/session-notes.js";
+import type { SessionNote, SessionNoteKind } from "../shipped/session-notes.js";
 import {
+	applySessionNotesUpdate,
 	formatSessionNotesBlockV2,
+	MAX_SESSION_NOTES,
 	normalizeSessionNotes,
 	SESSION_NOTES_PROMPT_RULE,
 	UPDATE_SESSION_NOTES_DESCRIPTION,
@@ -191,9 +193,88 @@ export function classifyIntegrity(
 	return { outcome: "lost-old", oldPreserved: oldPresent.length, lost };
 }
 
+/**
+ * Study AK (docs/BRIEF-AK.md): the single experimental variable is
+ * what the tool handler does with the raw argument. "AH" and
+ * "AK-control" share the registered clamp; "AK-eviction" runs the
+ * v3.213.0 goal-preserving pipeline and echoes its result (with any
+ * eviction notice) back to the agent.
+ */
+export type MemoIntegrityArm = "AH" | "AK-control" | "AK-eviction";
+
+/** Goal-note needles, via the corpus needle↔note alignment. */
+export function goalNeedlesOf(task: IntegrityTask): string[] {
+	return task.notes.flatMap((note, i) =>
+		note.kind === "goal" ? [task.oldNeedles[i] as string] : [],
+	);
+}
+
+export interface PipelineVerdict {
+	/** Raw argument exceeded the cap (the clamp/eviction pathway). */
+	overCap: boolean;
+	/** New needle AND every goal needle survive post-pipeline. */
+	goalSafe: boolean;
+	/** Over-cap + goal-safe + only non-goal notes evicted (eviction arm). */
+	designedEviction: boolean | null;
+	evictedKinds: SessionNoteKind[];
+	/** Kinds of old notes missing from the RAW list (client-side prune). */
+	prunedKinds: SessionNoteKind[];
+	/** Needles missing post-pipeline (old + new). */
+	lostPost: string[];
+}
+
+/** Pure per-arm pipeline evaluation (BRIEF-AK grading), unit-tested. */
+export function evaluatePipeline(
+	task: IntegrityTask,
+	arm: MemoIntegrityArm,
+	rawNotes: SessionNote[] | null,
+): PipelineVerdict {
+	if (rawNotes === null) {
+		return {
+			overCap: false,
+			goalSafe: false,
+			designedEviction: null,
+			evictedKinds: [],
+			prunedKinds: [],
+			lostPost: [...task.oldNeedles, task.newNeedle],
+		};
+	}
+	const applied =
+		arm === "AK-eviction" ? applySessionNotesUpdate(rawNotes) : null;
+	const postNotes = applied ? applied.notes : normalizeSessionNotes(rawNotes);
+	const evictedKinds = (applied?.result.evicted ?? []).map((note) => note.kind);
+	const rawText = JSON.stringify(rawNotes);
+	const postText = JSON.stringify(postNotes);
+	const overCap = rawNotes.length > MAX_SESSION_NOTES;
+	const goals = goalNeedlesOf(task);
+	const goalSafe =
+		postText.includes(task.newNeedle) &&
+		goals.every((needle) => postText.includes(needle));
+	const prunedKinds = task.oldNeedles.flatMap((needle, i) =>
+		rawText.includes(needle) ? [] : [(task.notes[i] as SessionNote).kind],
+	);
+	const lostPost = [
+		...task.oldNeedles.filter((needle) => !postText.includes(needle)),
+		...(postText.includes(task.newNeedle) ? [] : [task.newNeedle]),
+	];
+	const designedEviction =
+		arm === "AK-eviction" && overCap
+			? goalSafe && evictedKinds.every((kind) => kind !== "goal")
+			: null;
+	return {
+		overCap,
+		goalSafe,
+		designedEviction,
+		evictedKinds,
+		prunedKinds,
+		lostPost,
+	};
+}
+
 export async function runMemoIntegrityTask(
 	task: IntegrityTask,
 	model: string,
+	arm: MemoIntegrityArm = "AH",
 ): Promise<TaskRunRecord> {
 	const system =
 		conditionF.systemPrompt +
@@ -208,9 +289,13 @@ export async function runMemoIntegrityTask(
 		},
 	];
 
-	const record = baseRecord(task, `AH-integrity-k${task.kLevel}`, model);
+	const condition =
+		arm === "AH" ? `AH-integrity-k${task.kLevel}` : `${arm}-k${task.kLevel}`;
+	const record = baseRecord(task, condition, model);
 	let rawNotes: SessionNote[] | null = null;
 	let toolCalls = 0;
+	const rawLengths: number[] = [];
+	const evictedTexts: string[] = [];
 	const tools = {
 		update_session_notes: tool({
 			description: UPDATE_SESSION_NOTES_DESCRIPTION,
@@ -230,6 +315,14 @@ export async function runMemoIntegrityTask(
 			execute: async ({ notes }: { notes: unknown }) => {
 				rawNotes = Array.isArray(notes) ? (notes as SessionNote[]) : [];
 				toolCalls += 1;
+				rawLengths.push(rawNotes.length);
+				if (arm === "AK-eviction") {
+					const applied = applySessionNotesUpdate(notes);
+					evictedTexts.push(
+						...(applied.result.evicted ?? []).map((note) => note.text),
+					);
+					return applied.result;
+				}
 				return { applied: true, notes: normalizeSessionNotes(notes) };
 			},
 		}),
@@ -269,18 +362,37 @@ export async function runMemoIntegrityTask(
 		equalModuloNewIds(task.expected, applied.node, new Set(allIds(task.tree)));
 
 	const verdict = classifyIntegrity(task, toolCalls > 0, rawNotes);
+	const pipeline = evaluatePipeline(task, arm, rawNotes);
 	// success = the memo survived intact (the AH-H3 criterion). At the
 	// cap edge (k=20) a deliberate prune also counts as intact-minus-one
-	// by design; the gate only reads k=10/k=19 cells.
+	// by design; the gate only reads k=10/k=19 cells. AK arms grade the
+	// cap edge on goal safety instead (BRIEF-AK).
 	record.success =
-		verdict.outcome === "clean-update" || verdict.outcome === "pruned-old";
+		arm !== "AH" && task.kLevel === 20
+			? pipeline.goalSafe
+			: verdict.outcome === "clean-update" || verdict.outcome === "pruned-old";
+	// A model reacting to the eviction notice by re-sending an evicted
+	// note (final raw contains an earlier call's evicted text).
+	const readdedEvicted =
+		toolCalls > 1 && rawNotes !== null && evictedTexts.length > 0
+			? evictedTexts.some((text) => JSON.stringify(rawNotes).includes(text))
+			: null;
 	record.detail = {
+		arm,
 		kLevel: task.kLevel,
 		outcome: verdict.outcome,
 		oldPreserved: verdict.oldPreserved,
 		lost: verdict.lost,
 		toolCalls,
 		rawLength: rawNotes === null ? null : (rawNotes as SessionNote[]).length,
+		rawLengths,
+		overCap: pipeline.overCap,
+		goalSafe: pipeline.goalSafe,
+		designedEviction: pipeline.designedEviction,
+		evictedKinds: pipeline.evictedKinds,
+		prunedKinds: pipeline.prunedKinds,
+		lostPost: pipeline.lostPost,
+		readdedEvicted,
 		editApplied,
 		replyHead: result.text.slice(0, 200),
 	};
