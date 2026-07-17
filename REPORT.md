@@ -2213,6 +2213,64 @@ suffix, with the fresh 100/100 calibration pass recorded in
 `results/analysis-judge-calibration.txt`; judge records excluded
 from the cache-audit invariant as in V.
 
+## Addendum (2026-07-17): Study AK — eviction validation (the fix works where it can, and the frontier tier invented consolidation)
+
+Pre-registered in [docs/BRIEF-AK.md](docs/BRIEF-AK.md): the Study AB
+standard applied to the Study AH injury — the replicator's v3.213.0
+goal-preserving eviction (`applySessionNotesUpdate`: evict the
+oldest FACT, then RULE, never a goal, before the registered clamp)
+had only ever been unit-tested. AK measured it at the injury site:
+the AH integrity corpus reused verbatim (seed 20260718), the tool
+handler as the ONLY variable (control = registered clamp alone at
+K=20; eviction = the v3.213.0 pipeline, its eviction notice echoed
+back to the agent, at K ∈ {10, 19, 20}). 120 cells, three models,
+zero harness errors, zero cache reads, ≈ $3; analysis in
+[results/analysis-study-ak.txt](results/analysis-study-ak.txt).
+
+**STUDY GATE PASSES — all three registered hypotheses.**
+
+- **AK-H1 (mechanical guarantee): 19/19 over-cap cells were
+  designed evictions.** Every time a model sent more than 20 notes,
+  the pipeline admitted the new note, evicted only non-goal notes
+  (the oldest fact in every case), and preserved every goal. Zero
+  violations — the shipped code honors its contract end-to-end.
+- **AK-H2 (injury closure at K=20): goal-safe went 0/10 → 10/10 on
+  opus (p = .0020), 0/10 → 6/10 on sonnet (p = .0313), 0/10 → 4/10
+  on gemini (p = .1250, n.s. as predicted).** The control arm
+  replicated AH nearly to the digit (opus over-cap-lost-old 10/10;
+  sonnet 7 over-cap + 3 prunes exactly matching AH; gemini 7+3 vs
+  AH's 8+2), and control goal-safe was 0/30 — every clamp victim
+  was still a goal.
+- **AK-H3 (no new damage): 60/60 clean updates at K=10 and K=19.**
+  The eviction pipeline is a strict no-op where the update fits.
+
+**The disclosed boundary held exactly as pre-registered:** benefit
+is bounded by each tier's over-send rate. The residue is entirely
+the client-prune pathway — sonnet pruned 4/10 and gemini 6/10
+before the app ever saw the list, and every prune victim was again
+a goal. The app cannot restore what it never receives; the
+interpretation table's follow-up candidate (a prompt-side "send the
+COMPLETE list, the app decides evictions" fence) is filed as a
+future measurement, not shipped untested.
+
+**One unregistered observation, reported descriptively:** on one
+opus cell the model sent 20 notes, then 21 (drawing the eviction
+notice), then responded to the notice with a third call — an
+11-note memo carrying ALL 21 needles by consolidating facts into
+fewer sentences. The frontier tier, told the memo was full, invented
+compression rather than accept a loss. No other model reacted to
+the notice at all (multi-call 1/120, re-adds 0). Consolidation-on-
+notice is a real behavior worth knowing about, not a mechanism we
+measured.
+
+**Decision rule outcome: the interpretation table's all-pass row.**
+The eviction upgrade moves from "designed" to "measured" in both
+downstream digests; goal preservation on the clamp pathway is now
+an app guarantee, not a prompt hope. Per the same row, the
+memo-scale regression gate is extended to the eviction pipeline
+(eviction-arm K=20 goal-safe on the opus baseline, where over-send
+is the dominant pathway).
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

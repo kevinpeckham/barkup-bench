@@ -6,14 +6,14 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into thirty-six studies covering
+granular mutation tools, and grew into thirty-seven studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 multi-target edits, and (in a separately-graded track) qualitative
 rewrites. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–AJ
+**Status: active research series.** The main matrix and Studies F–AK
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -145,6 +145,7 @@ which measured 90/90 tasks with 674/674 subtasks (Q/R).
 | AH | Memo saturation | Perfect to the shipped 20-note cap: recall and rule application 90/90 at every position, full-replace lossless 60/60 where the update fits — but at the cap a note dies every time, and all 30 victims were GOALS (the block renders goals last; the clamp and the models both eat the tail) — the cap is an app-side footgun | [BRIEF-AH](docs/BRIEF-AH.md) |
 | AI | The multiplicity hatch | AE's obvious fix, measured: sonnet fully rescued (3/15 → 15/15), gemini 0 → 11/15 but misses the bar with a silent edit-both residue, zero tax anywhere — and on the shipped tier it adds nothing while nudging discretionary interrogation, so it stays unshipped; the capability framing survives | [BRIEF-AI](docs/BRIEF-AI.md) |
 | AJ | The correction loop in isolation | Parity: told only "the patch was invalid," models re-derive the correct patch at 93–100% — the same cells fail regardless of feedback quality, and bare feedback fails visibly, not silently. The verbatim-issues commitment is developer UX, not model recovery | [BRIEF-AJ](docs/BRIEF-AJ.md) |
+| AK | Eviction validation | The v3.213.0 goal-preserving eviction measured at the AH injury site: 19/19 over-cap sends became designed evictions (oldest fact out, every goal kept), K=20 goal-safe 0/10 → 10/10 on opus (p=.002) and 0→6/10 on sonnet (p=.031), 60/60 no-op under the cap; residue = client-side pruning below the frontier, and one opus cell answered the eviction notice by consolidating 21 needles into 11 notes | [BRIEF-AK](docs/BRIEF-AK.md) |
 
 The blog series narrates the arc for humans, and
 [The Builder's Playbook](https://www.lightningjar.com/research/barkup-bench/playbook)

@@ -1,0 +1,37 @@
+# Study AK — eviction validation (120 records)
+
+## AK-H1 — mechanical guarantee (eviction arm, raw > cap; gate: 100%)
+  over-cap eviction cells: 19 — designed evictions 19, violations 0
+
+## AK-H2 — goal-safe at K=20, eviction vs control (per model)
+  anthropic/claude-sonnet-4.5: eviction 6/10 (60.0% [31.3%,83.2%]) vs control 0/10 (0.0% [0.0%,27.8%]) — eviction-only 6, control-only 0, p=0.0313
+  google/gemini-3.5-flash: eviction 4/10 (40.0% [16.8%,68.7%]) vs control 0/10 (0.0% [0.0%,27.8%]) — eviction-only 4, control-only 0, p=0.1250
+  anthropic/claude-opus-4.8: eviction 10/10 (100.0% [72.2%,100.0%]) vs control 0/10 (0.0% [0.0%,27.8%]) — eviction-only 10, control-only 0, p=0.0020
+
+## AK-H3 — no new damage under the cap (eviction arm; gate >=9/10 per K per model)
+  anthropic/claude-sonnet-4.5 K=10: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+  anthropic/claude-sonnet-4.5 K=19: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+  google/gemini-3.5-flash K=10: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+  google/gemini-3.5-flash K=19: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+  anthropic/claude-opus-4.8 K=10: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+  anthropic/claude-opus-4.8 K=19: clean updates 10/10 (100.0% [72.2%,100.0%]) → PASS
+
+## AK-H4 — descriptive
+  anthropic/claude-sonnet-4.5 eviction K=20: over-sends 6/10, client prunes 4/10 (victim kinds: goal,goal,goal,goal), multi-call 0, re-added evicted 0
+  google/gemini-3.5-flash eviction K=20: over-sends 4/10, client prunes 6/10 (victim kinds: goal,goal,goal,goal,goal,goal), multi-call 0, re-added evicted 0
+  anthropic/claude-opus-4.8 eviction K=20: over-sends 9/10, client prunes 0/10 (victim kinds: none), multi-call 1, re-added evicted 0
+  control-arm K=20 taxonomy vs AH:
+    anthropic/claude-sonnet-4.5: now [over-cap-lost-old 7, pruned-old 3] goal-safe 0/10 · AH [over-cap-lost-old 7, pruned-old 3]
+    google/gemini-3.5-flash: now [pruned-old 7, over-cap-lost-old 3] goal-safe 0/10 · AH [pruned-old 8, over-cap-lost-old 2]
+    anthropic/claude-opus-4.8: now [over-cap-lost-old 10] goal-safe 0/10 · AH [over-cap-lost-old 10]
+  edit applied alongside the update: 120/120
+
+## Totals
+  120 records, 847995 in + 94363 out
+
+## Pre-registered gates
+  PASS  AK-H1: 19/19 over-cap cells designed evictions (gate 100%)
+  PASS  AK-H2: significant on 2/3 models (gate >=2) AND opus eviction goal-safe 10/10 (gate >=9)
+  PASS  AK-H3: under-cap clean (failures: none)
+
+  STUDY GATE (AK-H1..H3): PASS
