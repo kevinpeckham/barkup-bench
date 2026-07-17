@@ -2019,6 +2019,62 @@ where it ships (zero questions, 48/48); the hatch behind it now
 has a mapped interaction rather than an assumed one. Cache audit
 re-run: zero cache reads across all 1,296 records.
 
+## Addendum (2026-07-17): Study AJ — the correction loop in isolation (the error message didn't matter)
+
+Pre-registered in [docs/BRIEF-AJ.md](docs/BRIEF-AJ.md): the one
+shipped mechanism never measured as a variable — returning barkup's
+structured issues verbatim, a design commitment in every arm of
+thirty-five studies, playbook guideline 01's closing instruction,
+and standing digest guidance. The isolation: seed the loop by
+injecting a registered corruption of the known-correct patch as the
+assistant's prior turn (45 cells, kind × class matrix over the
+size-extension corpus, every corruption validated to fail the
+shipped applier), then send exactly ONE feedback message — the
+shipped structured issues, issue codes only, or a bare "the patch
+was invalid" — and grade the single reply. 405 cells, three models,
+zero harness errors, ≈ $4; tables in
+`results/analysis-study-aj.txt`.
+
+| Single-shot recovery (45 cells) | structured | codes only | bare |
+|---|---|---|---|
+| sonnet-4.5 | 45/45 | 44/45 | 42/45 |
+| gemini-3.5-flash | 42/45 | 42/45 | 42/45 |
+| opus-4.8 | **45/45** | **45/45** | **45/45** |
+
+- **AJ-H1 — FAILS at parity, and parity is the finding.**
+  Structured feedback beat bare significantly on ZERO of three
+  models. Opus recovered every seeded failure from the bare
+  sentence alone. Gemini's three misses are the SAME three cells in
+  every arm (zero discordant pairs — feedback quality changed
+  nothing). Sonnet shows the only gradient (45 > 44 > 42,
+  structured-only 3, p = 0.25, n.s.) — a whisper, not a load-bearing
+  wall. Told only that a patch was invalid, models re-derive the
+  correct patch from the task and the tree at 93–100%.
+- **AJ-H3 — the classes are almost all trivial to self-diagnose.**
+  Dangling ids, missing fields, malformed op kinds, and unknown
+  attributes recover at 96–100% in every arm. The only class with
+  real difficulty is bad-anchor (15/14/14 of 18 pooled), and even
+  there the structured paths bought one cell.
+- **AJ-H4 — bare fails SAFER, not worse.** Valid-but-wrong is 3 in
+  every arm; bare's extra failures are still-invalid — visible to
+  the application, not silent. Thin feedback does not push models
+  toward plausible wrong fixes.
+
+**Decision rule outcome: the interpretation table's parity row.**
+The verbatim-issues commitment is developer UX, not model recovery:
+it costs nothing, it makes logs and debugging humane, and models at
+these tiers recover either way — so the shipped guidance softens
+honestly from "keep returning the structured issues verbatim
+[because models need them]" to "return them because they cost
+nothing and help humans; the loop is robust regardless." Caveats
+carried loudly: seeded single-op corruptions are a constructed
+proxy for organic errors (whose distribution differs), recovery was
+single-shot (the shipped loop allows three rounds, which would
+only close the gap further), and one grammar as ever. No regression
+gate is filed — a mechanism that measures as non-load-bearing does
+not need standing protection. Cache audit re-run: zero cache reads
+across all 405 records.
+
 ## Track 2 addendum (2026-07-11): Study V — qualitative rewrites (JUDGE-GRADED)
 
 **This section is judge-graded, not deterministically graded.** It is

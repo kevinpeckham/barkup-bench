@@ -1,0 +1,40 @@
+# Study AJ — the correction loop in isolation (405 records)
+
+## Single-shot recovery by model × arm
+
+  claude-sonnet-4.5: AJ-structured 45/45 (100.0% [92.1%,100.0%]) · AJ-codes 44/45 (97.8% [88.4%,99.6%]) · AJ-bare 42/45 (93.3% [82.1%,97.7%])
+  gemini-3.5-flash: AJ-structured 42/45 (93.3% [82.1%,97.7%]) · AJ-codes 42/45 (93.3% [82.1%,97.7%]) · AJ-bare 42/45 (93.3% [82.1%,97.7%])
+  claude-opus-4.8: AJ-structured 45/45 (100.0% [92.1%,100.0%]) · AJ-codes 45/45 (100.0% [92.1%,100.0%]) · AJ-bare 45/45 (100.0% [92.1%,100.0%])
+
+## AJ-H1 — structured vs bare (gate: significant on >=2 models)
+
+  claude-sonnet-4.5: structured-only 3, bare-only 0, p=0.2500
+  gemini-3.5-flash: structured-only 0, bare-only 0, p=1.0000
+  claude-opus-4.8: structured-only 0, bare-only 0, p=1.0000
+
+## AJ-H2 — dose-response (codes arm, descriptive)
+
+  claude-sonnet-4.5: structured 45 >= codes 44 >= bare 42 ?
+  gemini-3.5-flash: structured 42 >= codes 42 >= bare 42 ?
+  claude-opus-4.8: structured 45 >= codes 45 >= bare 45 ?
+
+## AJ-H3 — recovery by corruption class × arm (pooled models)
+
+  dangling-id: structured 45/45 · codes 45/45 · bare 44/45
+  missing-field: structured 36/36 · codes 36/36 · bare 36/36
+  malformed-op: structured 27/27 · codes 27/27 · bare 26/27
+  bad-anchor: structured 15/18 · codes 14/18 · bare 14/18
+  unknown-attribute: structured 9/9 · codes 9/9 · bare 9/9
+
+## AJ-H4 — failure anatomy: valid-but-wrong by arm (pooled)
+
+  AJ-structured: valid-but-wrong 3, still-invalid 0
+  AJ-codes: valid-but-wrong 3, still-invalid 1
+  AJ-bare: valid-but-wrong 3, still-invalid 3
+
+## Totals
+  405 records, 678,614 in + 23,742 out
+
+## Pre-registered gate
+
+  FAIL  AJ-H1: structured significantly better on 0/3 models (gate >=2)
