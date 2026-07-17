@@ -1,0 +1,13 @@
+
+# regression-gate summary — anthropic/claude-opus-4.8 (run 20260717)
+# thresholds registered in docs/REGRESSION.md — never adjusted post-hoc
+
+PASS        memo-scale — Memo at scale: recall from a full memo + lossless full-replace
+            protects: sessionNotes at the 20-note cap + applySessionNotesUpdate eviction (v3.213.0) (source: Study AH+AK)
+            ok  recall from a 20-note memo: 15 vs >=13/15
+            ok  clean full-replace at 19 notes: 10 vs >=9/10
+            ok  goal-safe eviction at the K=20 cap edge: 10 vs >=9/10
+            ok  goals evicted by the pipeline: 0 vs <=0/10
+
+suite: 1/1 gates pass
+tokens: 213,780 in + 22,067 out
