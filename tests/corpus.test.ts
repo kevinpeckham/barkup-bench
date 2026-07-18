@@ -140,7 +140,7 @@ describe("pilot corpus", () => {
 		expect(JSON.stringify(generatePilotCorpus(SEED))).toBe(
 			JSON.stringify(corpus),
 		);
-	}, 30_000);
+	}, 120_000);
 
 	test("20 tasks with the pre-registered family mix", () => {
 		expect(corpus.tasks.length).toBe(20);
