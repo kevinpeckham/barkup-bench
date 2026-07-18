@@ -2271,6 +2271,62 @@ memo-scale regression gate is extended to the eviction pipeline
 (eviction-arm K=20 goal-safe on the opus baseline, where over-send
 is the dominant pathway).
 
+## Addendum (2026-07-18): Study AL — the prompt-side fence (the gate fails on a moved baseline)
+
+Pre-registered in [docs/BRIEF-AL.md](docs/BRIEF-AL.md) after AK's
+interpretation table filed the fence — one sentence appended to the
+session-notes prompt rule ("Never drop or trim an existing note to
+make room — even if the memo looks full, send every existing note
+plus your change; the app decides evictions and will notify you if
+one occurs") — as a follow-up candidate for the client-prune
+residue AK could not reach (sonnet 4/10, gemini 6/10 prunes at the
+K=20 cap edge, every victim a goal). 120 cells: fence at all K
+levels, contemporaneous control (AK-eviction verbatim — the one
+variable is the prompt rule) at the injury site; 901K in + 124K out
+tokens.
+
+**Pre-registered verdict: STUDY GATE FAIL — AL-H1's significance
+requirement was not met (pooled pruner-tier McNemar p = .2188).**
+H2 passed (fence goal-safe 10/10 sonnet, 9/10 gemini — control
+8/10, 7/10), H3 passed (60/60 clean under the cap; opus guard
+10/10), H4 did not flag (fence cost is indistinguishable from
+control: mean raw list 21.0 vs 20.8, output tokens within noise).
+The fence does not ship on this evidence.
+
+**Why H1 failed — and what that does and does not license.** The
+control arm did not replicate AK's residue: sonnet pruned 2/10 (AK:
+4/10), gemini 3/10 (AK: 6/10) — same prompts, same corpus, same
+handler, temperature 0 ("temperature 0 is not determinism", and
+this is the largest drift the series has caught between two
+measurements three days apart). Against the shrunken baseline the
+discordant pairs were 5 closed / 1 opened — directionally the
+fence's way, with the per-tier ceiling met (sonnet 0/10, gemini
+1/10 fence prunes) — but a 5-prune pooled baseline cannot clear a
+p < .05 gate at n=10 per tier. The pre-registered H1-fails reading
+("the prune pathway is not instruction-closable at these tiers")
+therefore OVERSTATES what this run measured: the honest reading is
+that the fence is unproven against a baseline that halved under it,
+not disproven. Both statements are published; neither ships a
+prompt change.
+
+**New residue, reported descriptively:** the single gemini fence
+prune victim was again a goal (its goal-safe 9/10, meeting the
+gate). Opus — 0 prunes in both AK runs — pruned once under the
+fence (victim a fact; goal-safe unaffected at 10/10). Opus was also
+the only model to react to eviction notices (multi-call 3/10 fence
+cells) and produced one more consolidation-on-notice cell —
+AK's unregistered observation recurred under the fence, 2 sightings
+in 2 studies.
+
+**What is filed, not shipped:** (a) a powered re-measurement (a new
+pre-registration with enough reps to detect a 2–3/10 prune baseline
+— this run's protocol does not get silently re-run until it
+clears); (b) the app-side lever from the brief's null branch — an
+update shape that cannot express omission (diff/merge tool or
+server-side missing-note reconciliation) — which remains the only
+path that does not depend on tier behavior replicating week to
+week.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

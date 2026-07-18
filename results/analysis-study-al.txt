@@ -1,0 +1,52 @@
+# Study AL — the prompt-side fence (120 records)
+
+## AL-H1 — prune closure at K=20 (gate: pooled pruner McNemar p<.05 AND fence prunes <=1/10 per pruner tier)
+  anthropic/claude-sonnet-4.5: control prunes 2/10 → fence prunes 0/10 (fence victim kinds: none)
+  google/gemini-3.5-flash: control prunes 3/10 → fence prunes 1/10 (fence victim kinds: goal)
+  anthropic/claude-opus-4.8: control prunes 0/10 → fence prunes 1/10 (fence victim kinds: fact)
+  pooled pruner tiers: closed 5, opened 1, McNemar exact p=0.2188; per-tier ceiling met
+
+## AL-H2 — goal-safe at K=20 (gate: fence >=9/10 per pruner tier)
+  anthropic/claude-sonnet-4.5: fence 10/10 (100.0% [72.2%,100.0%]) vs control 8/10 (80.0% [49.0%,94.3%])
+  google/gemini-3.5-flash: fence 9/10 (90.0% [59.6%,98.2%]) vs control 7/10 (70.0% [39.7%,89.2%])
+  anthropic/claude-opus-4.8: fence 10/10 (100.0% [72.2%,100.0%]) vs control 10/10 (100.0% [72.2%,100.0%])
+
+## AL-H3 — no new damage (gate: fence clean >=9/10 per model per K in {10,19} AND opus fence K=20 goal-safe >=9/10)
+  anthropic/claude-sonnet-4.5 K=10: fence clean updates 10/10 (100.0% [72.2%,100.0%])
+  anthropic/claude-sonnet-4.5 K=19: fence clean updates 10/10 (100.0% [72.2%,100.0%])
+  google/gemini-3.5-flash K=10: fence clean updates 10/10 (100.0% [72.2%,100.0%])
+  google/gemini-3.5-flash K=19: fence clean updates 10/10 (100.0% [72.2%,100.0%])
+  anthropic/claude-opus-4.8 K=10: fence clean updates 10/10 (100.0% [72.2%,100.0%])
+  anthropic/claude-opus-4.8 K=19: fence clean updates 10/10 (100.0% [72.2%,100.0%])
+  opus guard: fence K=20 goal-safe 10/10 (100.0% [72.2%,100.0%])
+
+## AL-H4 — fence cost at K=20 (flag: fence output tokens > 2x control)
+  anthropic/claude-sonnet-4.5: raw list 21.0 vs 20.8; output tokens 819 vs 820
+  google/gemini-3.5-flash: raw list 20.9 vs 20.7; output tokens 1374 vs 1379
+  anthropic/claude-opus-4.8: raw list 20.9 vs 21.0; output tokens 1610 vs 1207
+  anthropic/claude-sonnet-4.5 K=10: fence mean raw list 11.0 (expected 11)
+  anthropic/claude-sonnet-4.5 K=19: fence mean raw list 20.0 (expected 20)
+  google/gemini-3.5-flash K=10: fence mean raw list 11.0 (expected 11)
+  google/gemini-3.5-flash K=19: fence mean raw list 20.0 (expected 20)
+  anthropic/claude-opus-4.8 K=10: fence mean raw list 11.0 (expected 11)
+  anthropic/claude-opus-4.8 K=19: fence mean raw list 20.0 (expected 20)
+
+## AL-H5 — descriptive
+  anthropic/claude-sonnet-4.5 fence K=20: over-sends 10/10, multi-call 0, re-added evicted 0, consolidation-like 0
+  google/gemini-3.5-flash fence K=20: over-sends 9/10, multi-call 0, re-added evicted 0, consolidation-like 0
+  anthropic/claude-opus-4.8 fence K=20: over-sends 9/10, multi-call 3, re-added evicted 0, consolidation-like 1
+  control-arm K=20 residue vs AK (replication check):
+    anthropic/claude-sonnet-4.5: now over-sends 8/10, prunes 2/10 · AK [over-sends 6/10, prunes 4/10]
+    google/gemini-3.5-flash: now over-sends 7/10, prunes 3/10 · AK [over-sends 4/10, prunes 6/10]
+    anthropic/claude-opus-4.8: now over-sends 10/10, prunes 0/10 · AK [over-sends 9/10, prunes 0/10]
+
+## Totals
+  120 records, 901332 in + 124241 out
+
+## Pre-registered gates
+  FAIL  AL-H1: pooled p=0.2188 (gate <.05), per-tier fence prunes claude-sonnet-4.5 0/10, gemini-3.5-flash 1/10 (gate <=1/10 each)
+  PASS  AL-H2: fence goal-safe >=9/10 per pruner tier
+  PASS  AL-H3: no new damage (failures: none)
+  ok    AL-H4: fence cost within 2x control
+
+  STUDY GATE (AL-H1..H3): FAIL
