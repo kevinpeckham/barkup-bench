@@ -6,14 +6,14 @@ agent edit typed trees** (page layouts, document templates, CMS
 content)? It began as a single study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach — HTML as
 an authoring dialect, edited by whole-tree rewrite — against JSON +
-granular mutation tools, and grew into thirty-eight studies covering
+granular mutation tools, and grew into thirty-nine studies covering
 interfaces, tree size, partial context, retrieval, session memory,
 multi-target edits, and (in a separately-graded track) qualitative
 rewrites. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active research series.** The main matrix and Studies F–AL
+**Status: active research series.** The main matrix and Studies F–AM
 are complete and published in [REPORT.md](REPORT.md); new studies are
 added as results demand. Every study is pre-registered by commit
 before its first scored run ([BRIEF.md](BRIEF.md) plus per-study
@@ -147,6 +147,7 @@ which measured 90/90 tasks with 674/674 subtasks (Q/R).
 | AJ | The correction loop in isolation | Parity: told only "the patch was invalid," models re-derive the correct patch at 93–100% — the same cells fail regardless of feedback quality, and bare feedback fails visibly, not silently. The verbatim-issues commitment is developer UX, not model recovery | [BRIEF-AJ](docs/BRIEF-AJ.md) |
 | AK | Eviction validation | The v3.213.0 goal-preserving eviction measured at the AH injury site: 19/19 over-cap sends became designed evictions (oldest fact out, every goal kept), K=20 goal-safe 0/10 → 10/10 on opus (p=.002) and 0→6/10 on sonnet (p=.031), 60/60 no-op under the cap; residue = client-side pruning below the frontier, and one opus cell answered the eviction notice by consolidating 21 needles into 11 notes | [BRIEF-AK](docs/BRIEF-AK.md) |
 | AL | The prompt-side fence | GATE FAIL, honestly: the anti-self-eviction sentence looked directionally right (pooled prunes 5→1, goal-safe 8→10 sonnet / 7→9 gemini, zero cost, 60/60 no-op) but the control arm halved AK's prune baseline (4/10→2/10, 6/10→3/10 — the series' largest temperature-0 drift), leaving p=.219 against the pre-registered bar. Unproven, not disproven; nothing ships; a powered re-run and the app-side omission-proof update shape are filed | [BRIEF-AL](docs/BRIEF-AL.md) |
+| AM | Consolidation-on-notice | GATE PASS at the ceiling: one sentence appended to the app's eviction notice ("nothing needs to be lost") turns opus's occasional spontaneous consolidation (3/40) into a guarantee-grade behavior — 40/40 lossless recoveries at the cap edge (p≈3×10⁻¹¹), kind fidelity 800/800, zero degradations anywhere, ~570 extra output tokens; sub-frontier tiers ignore it harmlessly. Settles the design fork: merge-style update shapes would break a measured lossless behavior | [BRIEF-AM](docs/BRIEF-AM.md) |
 
 The blog series narrates the arc for humans, and
 [The Builder's Playbook](https://www.lightningjar.com/research/barkup-bench/playbook)

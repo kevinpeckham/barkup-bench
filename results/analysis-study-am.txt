@@ -1,0 +1,40 @@
+# Study AM — consolidation-on-notice (240 records)
+
+## AM-H1 — opus lossless-recovery among notice-delivered cells (gate: McNemar p<.05 AND invite >=60%)
+  anthropic/claude-sonnet-4.5: invite lossless 0/25 (0.0% [0.0%,13.3%]) vs control 0/27 (0.0% [0.0%,12.5%]) — both-noticed pairs 23, invite-only 0, control-only 0, p=1.0000
+  google/gemini-3.5-flash: invite lossless 0/27 (0.0% [0.0%,12.5%]) vs control 0/25 (0.0% [0.0%,13.3%]) — both-noticed pairs 22, invite-only 0, control-only 0, p=1.0000
+  anthropic/claude-opus-4.8: invite lossless 40/40 (100.0% [91.2%,100.0%]) vs control 3/40 (7.5% [2.6%,19.9%]) — both-noticed pairs 40, invite-only 37, control-only 0, p=0.0000
+
+## AM-H2 — no new damage (gate: zero degraded invite cells)
+  anthropic/claude-sonnet-4.5: invite degraded 0/40 (control 0)
+  google/gemini-3.5-flash: invite degraded 0/40 (control 0)
+  anthropic/claude-opus-4.8: invite degraded 0/40 (control 0)
+
+## AM-H3 — reactions by tier (descriptive)
+  anthropic/claude-sonnet-4.5 AM-invite: noticed 25/40, reacted 0, lossless 0, accepted 25
+  anthropic/claude-sonnet-4.5 AM-control: noticed 27/40, reacted 0, lossless 0, accepted 27
+  google/gemini-3.5-flash AM-invite: noticed 27/40, reacted 1, lossless 0, accepted 27
+  google/gemini-3.5-flash AM-control: noticed 25/40, reacted 1, lossless 0, accepted 25
+  anthropic/claude-opus-4.8 AM-invite: noticed 40/40, reacted 40, lossless 40, accepted 0
+  anthropic/claude-opus-4.8 AM-control: noticed 40/40, reacted 5, lossless 3, accepted 37
+
+## AM-H4 — cost, shape, drift (descriptive)
+  anthropic/claude-sonnet-4.5: invite mean output tokens 813 (control 814); lossless note counts []; kind fidelity 0/0; re-add churn evictions 0
+  google/gemini-3.5-flash: invite mean output tokens 1401 (control 2915); lossless note counts []; kind fidelity 0/0; re-add churn evictions 0
+  anthropic/claude-opus-4.8: invite mean output tokens 1808 (control 1238); lossless note counts [10,10,11,10,10,10,10,7,10,7,7,11,7,10,10,7,10,10,7,10,6,7,10,11,10,11,10,10,10,10,10,10,10,10,10,8,7,10,10,10]; kind fidelity 800/800; re-add churn evictions 0
+  over-send drift check (this run vs AK/AL eviction arms /10):
+    anthropic/claude-sonnet-4.5 AM-control: notice-delivered 27/40 · AK 6/10, AL 8/10
+    anthropic/claude-sonnet-4.5 AM-invite: notice-delivered 25/40 · AK 6/10, AL 8/10
+    google/gemini-3.5-flash AM-control: notice-delivered 25/40 · AK 4/10, AL 7/10
+    google/gemini-3.5-flash AM-invite: notice-delivered 27/40 · AK 4/10, AL 7/10
+    anthropic/claude-opus-4.8 AM-control: notice-delivered 40/40 · AK 9/10, AL 10/10
+    anthropic/claude-opus-4.8 AM-invite: notice-delivered 40/40 · AK 9/10, AL 10/10
+
+## Totals
+  240 records, 2070403 in + 359545 out
+
+## Pre-registered gates
+  PASS  AM-H1: opus invite lossless-recovery 100% (gate >=60%), McNemar p=0.0000 (gate <.05)
+  PASS  AM-H2: degraded invite cells 0 (gate: zero)
+
+  STUDY GATE (AM-H1..H2): PASS

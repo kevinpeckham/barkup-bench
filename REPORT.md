@@ -2327,6 +2327,53 @@ server-side missing-note reconciliation) — which remains the only
 path that does not depend on tier behavior replicating week to
 week.
 
+## Addendum (2026-07-18): Study AM — consolidation-on-notice (the notice is the mechanism)
+
+Pre-registered in [docs/BRIEF-AM.md](docs/BRIEF-AM.md) after the same
+behavior surfaced unregistered twice (AK, AL): told by the eviction
+notice that its update had cost a note, opus occasionally re-sent the
+memo consolidated into fewer sentences carrying everything. AM asked
+whether the notice TEXT can elicit that reliably — one sentence
+appended to the shipped eviction notice ("You may call
+update_session_notes again with the memo consolidated — the same
+facts, rules, and goals rewritten into fewer, denser notes so
+everything fits. Nothing needs to be lost."), the notice string the
+only variable, on a fresh seeded 40-task cap-edge corpus
+(`corpus/memo-consolidation.json`, seed 20260719). 240 cells; 2.07M
+in + 360K out tokens.
+
+**Pre-registered verdict: STUDY GATE PASS — at the ceiling.** Opus
+lossless recovery among notice-delivered cells: **40/40 under the
+invite vs 3/40 spontaneous in control** (McNemar 37 invite-only / 0
+control-only, p ≈ 3×10⁻¹¹; gate was ≥60% and p<.05). Zero degraded
+cells in any arm on any model — the invitation never converted a safe
+eviction into a loss. Consolidation quality exceeded the gate's
+demands: kind fidelity 800/800 (every surviving needle stayed a fact
+among facts, a rule among rules, a goal among goals), 21 needles
+landing in 6–11 notes, zero re-add churn. Cost of the mechanism: one
+extra tool call, ≈570 output tokens on invite cells (1,808 vs 1,238).
+
+**The mechanism is frontier-scoped, exactly as AK predicted.** Sonnet
+and gemini ignored the notice in both arms (0 lossless recoveries in
+104 notice-delivered cells; one gemini reaction per arm, neither
+lossless, neither harmful). The invitation is dead text below the
+frontier tier — and harmless dead text (H2 held everywhere), so it
+needs no tier gating to ship. Pathway-split drift check: sonnet
+over-sent 25–27/40 (~65%; AK 60%, AL 80%), gemini 25–27/40 (~65%; AK
+40%, AL 70%) — the client-prune rate remains provider-snapshot
+weather, which the notice-delivered denominators were pre-registered
+to absorb.
+
+**Decision-rule outcome: the interpretation table's pass row.** The
+invite sentence is eligible to ship into the app's eviction notice
+(app-authored, point-of-injury text — the AB surface class; ship
+decision is the app's). And the design fork AM was built to settle,
+settles: merge-style omission-proof update shapes would structurally
+break a now-measured lossless behavior — on the shipped tier, the
+measured stack (full-replace + goal-safe eviction + invited
+consolidation) recovers EVERYTHING at the cap edge, which resets the
+bar any protocol change must beat.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
