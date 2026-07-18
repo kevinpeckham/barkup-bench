@@ -206,15 +206,45 @@ export function classifyIntegrity(
  * SESSION_NOTES_PROMPT_RULE — frozen in the brief and pinned by unit
  * test. AL's control arm IS "AK-eviction", run contemporaneously.
  */
-export type MemoIntegrityArm = "AH" | "AK-control" | "AK-eviction" | "AL-fence";
+export type MemoIntegrityArm =
+	| "AH"
+	| "AK-control"
+	| "AK-eviction"
+	| "AL-fence"
+	| "AM-control"
+	| "AM-invite";
 
 /** The BRIEF-AL fence sentence, verbatim. Do not edit without a new brief. */
 export const AL_FENCE_SENTENCE =
 	"Never drop or trim an existing note to make room — even if the memo looks full, send every existing note plus your change; the app decides evictions and will notify you if one occurs.";
 
+/**
+ * Study AM (docs/BRIEF-AM.md): the single experimental variable is the
+ * notice string returned to the agent when an eviction occurs.
+ * "AM-control" is the shipped notice verbatim; "AM-invite" appends the
+ * sentence below (frozen in the brief, pinned by unit test). The
+ * eviction pipeline, prompt rule, and everything else are identical.
+ */
+export const AM_INVITE_SENTENCE =
+	"You may call update_session_notes again with the memo consolidated — the same facts, rules, and goals rewritten into fewer, denser notes so everything fits. Nothing needs to be lost.";
+
+/** The notice an arm returns after an eviction (AM's one variable). */
+export function noticeForArm(
+	arm: MemoIntegrityArm,
+	notice: string | undefined,
+): string | undefined {
+	if (notice === undefined) return undefined;
+	return arm === "AM-invite" ? `${notice} ${AM_INVITE_SENTENCE}` : notice;
+}
+
 /** Arms that run the v3.213.0 eviction pipeline in the tool handler. */
 function armRunsEviction(arm: MemoIntegrityArm): boolean {
-	return arm === "AK-eviction" || arm === "AL-fence";
+	return (
+		arm === "AK-eviction" ||
+		arm === "AL-fence" ||
+		arm === "AM-control" ||
+		arm === "AM-invite"
+	);
 }
 
 /** The session-notes prompt rule an arm runs under (AL's one variable). */
@@ -294,6 +324,106 @@ export function evaluatePipeline(
 	};
 }
 
+export type ConsolidationOutcome =
+	| "no-notice"
+	| "lossless-recovery"
+	| "eviction-accepted"
+	| "degraded";
+
+export interface ConsolidationVerdict {
+	/** Some call's pipeline evicted — the notice was delivered. */
+	noticeDelivered: boolean;
+	outcome: ConsolidationOutcome;
+	/** Needles (old + new) present in the FINAL persisted memo. */
+	needlesPresent: number;
+	/** Every surviving goal needle sits in a goal-kind note. */
+	goalsInGoalNotes: boolean;
+	/** Evictions triggered by calls after the first notice (re-add churn). */
+	extraEvictions: number;
+	/** Surviving OLD needles residing in a note of their original kind. */
+	survivingInOriginalKind: number;
+	/** Surviving OLD needles total (kind-fidelity denominator, H4). */
+	survivingOld: number;
+	finalNoteCount: number;
+}
+
+/**
+ * Pure Study AM classifier (BRIEF-AM grading), unit-tested. Replays
+ * shipped last-write-wins semantics over the per-call raw lists: the
+ * final call's list, run through the eviction pipeline, is the
+ * persisted memo. Outcomes per the brief: lossless-recovery (all K+1
+ * needles present, every goal needle in a goal note), eviction-accepted
+ * (≥ K needles, goals safe — the AK guarantee held), degraded (fewer
+ * than K needles or a goal needle outside a goal note), no-notice (no
+ * call evicted — the prune pathway; excluded from elicitation
+ * denominators).
+ */
+export function evaluateConsolidation(
+	task: IntegrityTask,
+	rawLists: SessionNote[][],
+): ConsolidationVerdict {
+	let noticeDelivered = false;
+	let extraEvictions = 0;
+	for (const raw of rawLists) {
+		const applied = applySessionNotesUpdate(raw);
+		if ((applied.result.evicted?.length ?? 0) > 0) {
+			if (noticeDelivered) extraEvictions += 1;
+			noticeDelivered = true;
+		}
+	}
+	const finalRaw = rawLists[rawLists.length - 1] ?? [];
+	const finalNotes = applySessionNotesUpdate(finalRaw).notes;
+	const finalText = JSON.stringify(finalNotes);
+	const allNeedles = [...task.oldNeedles, task.newNeedle];
+	const needlesPresent = allNeedles.filter((needle) =>
+		finalText.includes(needle),
+	).length;
+	const goalNeedles = goalNeedlesOf(task);
+	const goalNotesText = JSON.stringify(
+		finalNotes.filter((note) => note.kind === "goal"),
+	);
+	const goalsInGoalNotes = goalNeedles.every(
+		(needle) => !finalText.includes(needle) || goalNotesText.includes(needle),
+	);
+	const goalsAllPresentInGoalNotes = goalNeedles.every((needle) =>
+		goalNotesText.includes(needle),
+	);
+	let survivingOld = 0;
+	let survivingInOriginalKind = 0;
+	task.oldNeedles.forEach((needle, i) => {
+		if (!finalText.includes(needle)) return;
+		survivingOld += 1;
+		const kind = (task.notes[i] as SessionNote).kind;
+		const kindText = JSON.stringify(
+			finalNotes.filter((note) => note.kind === kind),
+		);
+		if (kindText.includes(needle)) survivingInOriginalKind += 1;
+	});
+	let outcome: ConsolidationOutcome;
+	if (!noticeDelivered) {
+		outcome = "no-notice";
+	} else if (
+		needlesPresent === allNeedles.length &&
+		goalsAllPresentInGoalNotes
+	) {
+		outcome = "lossless-recovery";
+	} else if (needlesPresent >= task.kLevel && goalsAllPresentInGoalNotes) {
+		outcome = "eviction-accepted";
+	} else {
+		outcome = "degraded";
+	}
+	return {
+		noticeDelivered,
+		outcome,
+		needlesPresent,
+		goalsInGoalNotes,
+		extraEvictions,
+		survivingInOriginalKind,
+		survivingOld,
+		finalNoteCount: finalNotes.length,
+	};
+}
+
 export async function runMemoIntegrityTask(
 	task: IntegrityTask,
 	model: string,
@@ -318,6 +448,7 @@ export async function runMemoIntegrityTask(
 	let rawNotes: SessionNote[] | null = null;
 	let toolCalls = 0;
 	const rawLengths: number[] = [];
+	const rawLists: SessionNote[][] = [];
 	const evictedTexts: string[] = [];
 	const tools = {
 		update_session_notes: tool({
@@ -339,12 +470,16 @@ export async function runMemoIntegrityTask(
 				rawNotes = Array.isArray(notes) ? (notes as SessionNote[]) : [];
 				toolCalls += 1;
 				rawLengths.push(rawNotes.length);
+				rawLists.push((rawNotes as SessionNote[]).map((note) => ({ ...note })));
 				if (armRunsEviction(arm)) {
 					const applied = applySessionNotesUpdate(notes);
 					evictedTexts.push(
 						...(applied.result.evicted ?? []).map((note) => note.text),
 					);
-					return applied.result;
+					const notice = noticeForArm(arm, applied.result.notice);
+					return notice === undefined
+						? applied.result
+						: { ...applied.result, notice };
 				}
 				return { applied: true, notes: normalizeSessionNotes(notes) };
 			},
@@ -418,6 +553,9 @@ export async function runMemoIntegrityTask(
 		readdedEvicted,
 		editApplied,
 		replyHead: result.text.slice(0, 200),
+		...(arm === "AM-control" || arm === "AM-invite"
+			? { consolidation: evaluateConsolidation(task, rawLists) }
+			: {}),
 	};
 	return record;
 }

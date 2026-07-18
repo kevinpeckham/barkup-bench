@@ -7,10 +7,13 @@ import {
 } from "../src/corpus/memoscale.js";
 import {
 	AL_FENCE_SENTENCE,
+	AM_INVITE_SENTENCE,
 	classifyIntegrity,
 	contaminationScan,
+	evaluateConsolidation,
 	evaluatePipeline,
 	goalNeedlesOf,
+	noticeForArm,
 	promptRuleForArm,
 } from "../src/harness/memoscale-runner.js";
 import type { SessionNote } from "../src/shipped/session-notes.js";
@@ -277,5 +280,138 @@ describe("Study AL fence arm (BRIEF-AL)", () => {
 		expect(v.goalSafe).toBe(true);
 		expect(v.designedEviction).toBe(true);
 		expect(v.evictedKinds).toEqual(["fact"]);
+	});
+});
+
+describe("Study AM consolidation-on-notice (BRIEF-AM)", () => {
+	const amCorpus = JSON.parse(
+		readFileSync("corpus/memo-consolidation.json", "utf8"),
+	) as { seed: number; integrity: IntegrityTask[] };
+	const task = amCorpus.integrity[0] as IntegrityTask;
+
+	it("corpus: 40 cap-edge tasks, aligned, 12+5+3 composition, seed 20260719", () => {
+		expect(amCorpus.seed).toBe(20260719);
+		expect(amCorpus.integrity.length).toBe(40);
+		for (const t of amCorpus.integrity) {
+			expect(t.kLevel).toBe(20);
+			t.notes.forEach((note, i) => {
+				expect(note.text).toContain(t.oldNeedles[i] as string);
+			});
+			const kinds = t.notes.map((n) => n.kind);
+			expect(kinds.filter((k) => k === "fact").length).toBe(12);
+			expect(kinds.filter((k) => k === "rule").length).toBe(5);
+			expect(kinds.filter((k) => k === "goal").length).toBe(3);
+		}
+	});
+
+	it("the invite sentence is the brief's wording, verbatim", () => {
+		expect(AM_INVITE_SENTENCE).toBe(
+			"You may call update_session_notes again with the memo consolidated — the same facts, rules, and goals rewritten into fewer, denser notes so everything fits. Nothing needs to be lost.",
+		);
+	});
+
+	it("only AM-invite appends the sentence; no arm invents a notice", () => {
+		const base = "Memo full: evicted 1 oldest non-goal note(s).";
+		expect(noticeForArm("AM-invite", base)).toBe(
+			`${base} ${AM_INVITE_SENTENCE}`,
+		);
+		for (const arm of [
+			"AM-control",
+			"AK-eviction",
+			"AK-control",
+			"AL-fence",
+			"AH",
+		] as const) {
+			expect(noticeForArm(arm, base)).toBe(base);
+		}
+		expect(noticeForArm("AM-invite", undefined)).toBeUndefined();
+	});
+
+	const overSend = (): SessionNote[] => [
+		...task.notes.slice(0, 12),
+		{ kind: "fact", text: `declared codename "${task.newNeedle}".` },
+		...task.notes.slice(12),
+	];
+
+	it("over-send with no reaction is eviction-accepted", () => {
+		const v = evaluateConsolidation(task, [overSend()]);
+		expect(v.noticeDelivered).toBe(true);
+		expect(v.outcome).toBe("eviction-accepted");
+		expect(v.needlesPresent).toBe(20);
+		expect(v.extraEvictions).toBe(0);
+	});
+
+	it("lossless consolidation carries all 21 needles with goals in goal notes", () => {
+		// Merge the 12 facts + new fact into 6 dense fact notes, keep rules
+		// and goals as-is: 6 + 5 + 3 = 14 notes, all 21 needles.
+		const factNeedles = task.notes
+			.map((note, i) => ({ note, needle: task.oldNeedles[i] as string }))
+			.filter((x) => x.note.kind === "fact")
+			.map((x) => x.needle);
+		const merged: SessionNote[] = [];
+		const withNew = [...factNeedles, task.newNeedle];
+		for (let i = 0; i < withNew.length; i += 3) {
+			merged.push({
+				kind: "fact",
+				text: `codenames ${withNew.slice(i, i + 3).join(", ")}.`,
+			});
+		}
+		const consolidated: SessionNote[] = [
+			...merged,
+			...task.notes.filter((n) => n.kind !== "fact"),
+		];
+		expect(consolidated.length).toBeLessThanOrEqual(20);
+		const v = evaluateConsolidation(task, [overSend(), consolidated]);
+		expect(v.outcome).toBe("lossless-recovery");
+		expect(v.needlesPresent).toBe(21);
+		expect(v.goalsInGoalNotes).toBe(true);
+		expect(v.finalNoteCount).toBe(consolidated.length);
+	});
+
+	it("a consolidation that drops a goal needle is degraded", () => {
+		const consolidated: SessionNote[] = [
+			{ kind: "fact", text: `all the codenames incl "${task.newNeedle}".` },
+			...task.notes.filter((n) => n.kind === "goal").slice(0, 2),
+		];
+		const v = evaluateConsolidation(task, [overSend(), consolidated]);
+		expect(v.outcome).toBe("degraded");
+	});
+
+	it("a goal needle moved into a fact note is degraded", () => {
+		const goalIdx = task.notes.findIndex((n) => n.kind === "goal");
+		const goalNeedle = task.oldNeedles[goalIdx] as string;
+		const consolidated: SessionNote[] = task.notes.map((note, i) =>
+			i === goalIdx ? { kind: "fact", text: note.text } : note,
+		);
+		consolidated.push({
+			kind: "fact",
+			text: `declared codename "${task.newNeedle}".`,
+		});
+		// 21 notes → still over cap; trim one old fact to fit and keep needles
+		// countable: drop the first fact note instead.
+		const factIdx = consolidated.findIndex(
+			(n, i) => n.kind === "fact" && i !== goalIdx,
+		);
+		consolidated.splice(factIdx, 1);
+		const v = evaluateConsolidation(task, [overSend(), consolidated]);
+		expect(v.outcome).toBe("degraded");
+		expect(v.goalsInGoalNotes).toBe(false);
+		expect(goalNeedle.length).toBeGreaterThan(0);
+	});
+
+	it("client prune never sees a notice", () => {
+		const pruned: SessionNote[] = [
+			...task.notes.slice(0, 19),
+			{ kind: "fact", text: `declared codename "${task.newNeedle}".` },
+		];
+		const v = evaluateConsolidation(task, [pruned]);
+		expect(v.noticeDelivered).toBe(false);
+		expect(v.outcome).toBe("no-notice");
+	});
+
+	it("re-sending over cap after the notice counts as churn", () => {
+		const v = evaluateConsolidation(task, [overSend(), overSend()]);
+		expect(v.extraEvictions).toBe(1);
+		expect(v.outcome).toBe("eviction-accepted");
 	});
 });
