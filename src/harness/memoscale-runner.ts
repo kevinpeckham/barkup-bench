@@ -199,8 +199,30 @@ export function classifyIntegrity(
  * "AK-control" share the registered clamp; "AK-eviction" runs the
  * v3.213.0 goal-preserving pipeline and echoes its result (with any
  * eviction notice) back to the agent.
+ *
+ * Study AL (docs/BRIEF-AL.md): the single experimental variable is
+ * the prompt rule. "AL-fence" is AK-eviction verbatim (same handler,
+ * same pipeline) with one sentence appended to
+ * SESSION_NOTES_PROMPT_RULE — frozen in the brief and pinned by unit
+ * test. AL's control arm IS "AK-eviction", run contemporaneously.
  */
-export type MemoIntegrityArm = "AH" | "AK-control" | "AK-eviction";
+export type MemoIntegrityArm = "AH" | "AK-control" | "AK-eviction" | "AL-fence";
+
+/** The BRIEF-AL fence sentence, verbatim. Do not edit without a new brief. */
+export const AL_FENCE_SENTENCE =
+	"Never drop or trim an existing note to make room — even if the memo looks full, send every existing note plus your change; the app decides evictions and will notify you if one occurs.";
+
+/** Arms that run the v3.213.0 eviction pipeline in the tool handler. */
+function armRunsEviction(arm: MemoIntegrityArm): boolean {
+	return arm === "AK-eviction" || arm === "AL-fence";
+}
+
+/** The session-notes prompt rule an arm runs under (AL's one variable). */
+export function promptRuleForArm(arm: MemoIntegrityArm): string {
+	return arm === "AL-fence"
+		? `${SESSION_NOTES_PROMPT_RULE} ${AL_FENCE_SENTENCE}`
+		: SESSION_NOTES_PROMPT_RULE;
+}
 
 /** Goal-note needles, via the corpus needle↔note alignment. */
 export function goalNeedlesOf(task: IntegrityTask): string[] {
@@ -239,8 +261,9 @@ export function evaluatePipeline(
 			lostPost: [...task.oldNeedles, task.newNeedle],
 		};
 	}
-	const applied =
-		arm === "AK-eviction" ? applySessionNotesUpdate(rawNotes) : null;
+	const applied = armRunsEviction(arm)
+		? applySessionNotesUpdate(rawNotes)
+		: null;
 	const postNotes = applied ? applied.notes : normalizeSessionNotes(rawNotes);
 	const evictedKinds = (applied?.result.evicted ?? []).map((note) => note.kind);
 	const rawText = JSON.stringify(rawNotes);
@@ -258,7 +281,7 @@ export function evaluatePipeline(
 		...(postText.includes(task.newNeedle) ? [] : [task.newNeedle]),
 	];
 	const designedEviction =
-		arm === "AK-eviction" && overCap
+		armRunsEviction(arm) && overCap
 			? goalSafe && evictedKinds.every((kind) => kind !== "goal")
 			: null;
 	return {
@@ -279,7 +302,7 @@ export async function runMemoIntegrityTask(
 	const system =
 		conditionF.systemPrompt +
 		VIEW_RULES +
-		`\n\n${SESSION_NOTES_PROMPT_RULE}` +
+		`\n\n${promptRuleForArm(arm)}` +
 		formatSessionNotesBlockV2(task.notes);
 	const view = serializeView(task.tree, task.focusIds, "minimal");
 	const messages: ModelMessage[] = [
@@ -316,7 +339,7 @@ export async function runMemoIntegrityTask(
 				rawNotes = Array.isArray(notes) ? (notes as SessionNote[]) : [];
 				toolCalls += 1;
 				rawLengths.push(rawNotes.length);
-				if (arm === "AK-eviction") {
+				if (armRunsEviction(arm)) {
 					const applied = applySessionNotesUpdate(notes);
 					evictedTexts.push(
 						...(applied.result.evicted ?? []).map((note) => note.text),

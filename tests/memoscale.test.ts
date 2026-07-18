@@ -6,12 +6,15 @@ import {
 	validateMemoScaleTask,
 } from "../src/corpus/memoscale.js";
 import {
+	AL_FENCE_SENTENCE,
 	classifyIntegrity,
 	contaminationScan,
 	evaluatePipeline,
 	goalNeedlesOf,
+	promptRuleForArm,
 } from "../src/harness/memoscale-runner.js";
 import type { SessionNote } from "../src/shipped/session-notes.js";
+import { SESSION_NOTES_PROMPT_RULE } from "../src/shipped/session-notes.js";
 
 const corpus = JSON.parse(readFileSync("corpus/memo-scale.json", "utf8")) as {
 	seed: number;
@@ -213,5 +216,66 @@ describe("evaluatePipeline (Study AK)", () => {
 		const v = evaluatePipeline(cap, "AK-eviction", null);
 		expect(v.goalSafe).toBe(false);
 		expect(v.lostPost.length).toBe(21);
+	});
+});
+
+describe("Study AL fence arm (BRIEF-AL)", () => {
+	const cap = corpus.integrity.find((t) => t.kLevel === 20) as IntegrityTask;
+	const base = corpus.integrity.find((t) => t.kLevel === 10) as IntegrityTask;
+
+	it("the fence sentence is the brief's wording, verbatim", () => {
+		expect(AL_FENCE_SENTENCE).toBe(
+			"Never drop or trim an existing note to make room — even if the memo looks full, send every existing note plus your change; the app decides evictions and will notify you if one occurs.",
+		);
+	});
+
+	it("AL-fence appends exactly the fence sentence; every other arm runs the shipped rule unchanged", () => {
+		expect(promptRuleForArm("AL-fence")).toBe(
+			`${SESSION_NOTES_PROMPT_RULE} ${AL_FENCE_SENTENCE}`,
+		);
+		for (const arm of ["AH", "AK-control", "AK-eviction"] as const) {
+			expect(promptRuleForArm(arm)).toBe(SESSION_NOTES_PROMPT_RULE);
+		}
+	});
+
+	it("AL-fence grades under the eviction pipeline, identical to AK-eviction", () => {
+		const overSend: SessionNote[] = [
+			...cap.notes.slice(0, 12),
+			{ kind: "fact", text: `declared codename "${cap.newNeedle}".` },
+			...cap.notes.slice(12),
+		];
+		const prune: SessionNote[] = [
+			...cap.notes.slice(0, 19),
+			{ kind: "fact", text: `declared codename "${cap.newNeedle}".` },
+		];
+		const underCap: SessionNote[] = [
+			...base.notes,
+			{ kind: "fact", text: `declared codename "${base.newNeedle}".` },
+		];
+		for (const [task, raw] of [
+			[cap, overSend],
+			[cap, prune],
+			[cap, null],
+			[base, underCap],
+		] as const) {
+			expect(
+				evaluatePipeline(task, "AL-fence", raw as SessionNote[] | null),
+			).toEqual(
+				evaluatePipeline(task, "AK-eviction", raw as SessionNote[] | null),
+			);
+		}
+	});
+
+	it("over-send under the fence arm is a designed eviction (goals intact)", () => {
+		const raw: SessionNote[] = [
+			...cap.notes.slice(0, 12),
+			{ kind: "fact", text: `declared codename "${cap.newNeedle}".` },
+			...cap.notes.slice(12),
+		];
+		const v = evaluatePipeline(cap, "AL-fence", raw);
+		expect(v.overCap).toBe(true);
+		expect(v.goalSafe).toBe(true);
+		expect(v.designedEviction).toBe(true);
+		expect(v.evictedKinds).toEqual(["fact"]);
 	});
 });
