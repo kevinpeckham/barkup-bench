@@ -228,7 +228,13 @@ export const AL_FENCE_SENTENCE =
 export const AM_INVITE_SENTENCE =
 	"You may call update_session_notes again with the memo consolidated — the same facts, rules, and goals rewritten into fewer, denser notes so everything fits. Nothing needs to be lost.";
 
-/** The notice an arm returns after an eviction (AM's one variable). */
+/**
+ * The notice an arm returns after an eviction (AM's one variable).
+ * NOTE: the invite SHIPPED in v3.215.0, so the ported shipped notice now
+ * already contains the sentence — "AM-control" is a historical arm (the
+ * pre-ship notice era), and re-running AM-invite against the current port
+ * would double-append. Any re-measurement is a new pre-registration.
+ */
 export function noticeForArm(
 	arm: MemoIntegrityArm,
 	notice: string | undefined,

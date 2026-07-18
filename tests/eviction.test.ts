@@ -76,6 +76,9 @@ describe("applySessionNotesUpdate (v3.213.0 port)", () => {
 		expect(out.notes.length).toBe(MAX_SESSION_NOTES);
 		expect(out.result.evicted).toEqual([note("fact", 0)]);
 		expect(out.result.notice).toContain("goals are preserved");
+		// v3.215.0 (Study AM): the shipped notice carries the consolidation
+		// invite; the all-goals branch below stays plain (unmeasured).
+		expect(out.result.notice).toContain("Nothing needs to be lost.");
 	});
 
 	it("flags the all-goals eviction for caller logging", () => {

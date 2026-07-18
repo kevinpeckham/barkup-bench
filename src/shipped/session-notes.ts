@@ -167,7 +167,7 @@ export function applySessionNotesUpdate(
 	const evictedGoal = evicted.some((note) => note.kind === "goal");
 	const notice = evictedGoal
 		? `Memo full and all notes are goals: evicted the oldest goal to fit the ${MAX_SESSION_NOTES}-note cap.`
-		: `Memo full: evicted ${evicted.length} oldest non-goal note(s) to fit the ${MAX_SESSION_NOTES}-note cap (facts first, then rules; goals are preserved).`;
+		: `Memo full: evicted ${evicted.length} oldest non-goal note(s) to fit the ${MAX_SESSION_NOTES}-note cap (facts first, then rules; goals are preserved). You may call update_session_notes again with the memo consolidated — the same facts, rules, and goals rewritten into fewer, denser notes so everything fits. Nothing needs to be lost.`;
 	return {
 		evictedGoal,
 		notes,
