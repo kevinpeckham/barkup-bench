@@ -8,7 +8,8 @@
  */
 import type { AttributeValue, BarkupNode } from "@kevinpeckham/barkup";
 import type { ModelMessage } from "ai";
-import { generateText } from "ai";
+import { generateText, stepCountIs, tool } from "ai";
+import { z } from "zod";
 import { conditionF } from "../conditions/f.js";
 import { applyShipped } from "../conditions/f2.js";
 import { formatIssuesFeedback } from "../conditions/shared.js";
@@ -43,7 +44,12 @@ export type XArm =
 	| "X-stateless"
 	// Study AG (docs/BRIEF-AG.md): the shipped ASK_RULE over X's arms.
 	| "AG-stateless-hatch"
-	| "AG-echo-hatch";
+	| "AG-echo-hatch"
+	// Study AN (docs/BRIEF-AN.md): tool availability vs the visibility clause.
+	| "AN-echo-hatch"
+	| "AN-tools"
+	| "AN-tools-clause"
+	| "AN-noecho-tools-clause";
 export const X_ARMS: XArm[] = [
 	"X-history",
 	"X-window2",
@@ -51,15 +57,46 @@ export const X_ARMS: XArm[] = [
 	"X-stateless",
 ];
 
-/** Arms carrying the shipped NEED-INFO hatch (BRIEF-AG.md). */
+/** Arms carrying the shipped NEED-INFO hatch (BRIEF-AG.md / BRIEF-AN.md). */
 export function isHatchArm(arm: XArm): boolean {
-	return arm === "AG-stateless-hatch" || arm === "AG-echo-hatch";
+	return (
+		arm === "AG-stateless-hatch" ||
+		arm === "AG-echo-hatch" ||
+		arm.startsWith("AN-")
+	);
 }
 
 /** Arms carrying the last-edit echo note. */
 export function isEchoArm(arm: XArm): boolean {
-	return arm === "X-lastedit" || arm === "AG-echo-hatch";
+	return (
+		arm === "X-lastedit" ||
+		arm === "AG-echo-hatch" ||
+		arm === "AN-echo-hatch" ||
+		arm === "AN-tools" ||
+		arm === "AN-tools-clause"
+	);
 }
+
+/** Arms carrying the get_template_view tool (BRIEF-AN.md). */
+export function isToolsArm(arm: XArm): boolean {
+	return (
+		arm === "AN-tools" ||
+		arm === "AN-tools-clause" ||
+		arm === "AN-noecho-tools-clause"
+	);
+}
+
+/** Arms carrying the registered fetch-before-ask clause (BRIEF-AN.md). */
+export function isClauseArm(arm: XArm): boolean {
+	return arm === "AN-tools-clause" || arm === "AN-noecho-tools-clause";
+}
+
+/** BRIEF-AN registered clause — appended to the shipped ASK_RULE, which
+ * stays byte-identical (the MULTIPLICITY_CLAUSE precedent). */
+export const FETCH_CLAUSE = ` Before asking, check your tools: if an available tool can fetch what is missing (for example a view of a node you need to see), CALL THE TOOL and continue instead of replying NEED-INFO. Ask only when neither the request, the view, nor any available tool can supply the missing information.`;
+
+/** BRIEF-AN tool-loop cap. */
+export const MAX_AN_TOOL_STEPS = 6;
 
 const DELIVERY = "Reply with a JSON Patch that makes this change.";
 
@@ -96,12 +133,16 @@ async function callPatch(
 	model: string,
 	system: string,
 	messages: ModelMessage[],
+	tools?: Record<string, unknown>,
 ): Promise<{
 	text: string;
 	inputTokens: number;
 	outputTokens: number;
 	cacheReadTokens: number;
 	latencyMs: number;
+	/** Present on tool-loop calls: the per-step response messages
+	 * (v2-history rule — never response.messages). */
+	stepMessages?: ModelMessage[];
 }> {
 	const started = performance.now();
 	const maxOut = process.env.BENCH_MAX_OUTPUT_TOKENS;
@@ -111,6 +152,7 @@ async function callPatch(
 		messages,
 		temperature: 0,
 		maxRetries: 4,
+		...(tools ? { stopWhen: stepCountIs(MAX_AN_TOOL_STEPS), tools } : {}),
 		...(maxOut ? { maxOutputTokens: Number(maxOut) } : {}),
 	} as Parameters<typeof generateText>[0]);
 	return {
@@ -119,6 +161,13 @@ async function callPatch(
 		outputTokens: result.totalUsage.outputTokens ?? 0,
 		cacheReadTokens: result.totalUsage.inputTokenDetails?.cacheReadTokens ?? 0,
 		latencyMs: Math.round(performance.now() - started),
+		...(tools
+			? {
+					stepMessages: result.steps.flatMap(
+						(step) => step.response.messages,
+					) as ModelMessage[],
+				}
+			: {}),
 	};
 }
 
@@ -249,16 +298,42 @@ export async function runXSession(
 					? HISTORY_SYSTEM
 					: conditionF.systemPrompt + SESSION_RULES + VIEW_RULES
 				: isHatchArm(arm)
-					? `${STATELESS_SYSTEM}\n\n${ASK_RULE}`
+					? `${STATELESS_SYSTEM}\n\n${ASK_RULE}${isClauseArm(arm) ? FETCH_CLAUSE : ""}`
 					: STATELESS_SYSTEM;
 
 		let finalTree: BarkupNode | null = null;
 		let lastAssistant = "";
 		const calls: CallLog[] = [];
+		// BRIEF-AN: tools arms get get_template_view, executing against the
+		// step's CURRENT tree (pre-edit) — the shipped surface's semantics.
+		const stepTree = current;
+		let toolCalls = 0;
+		let toolUnknownIds = 0;
+		const stepTools = isToolsArm(arm)
+			? {
+					get_template_view: tool({
+						description:
+							"Fetch a focused view of the current tree around one node id. Use this to see a node that is not in your current view.",
+						inputSchema: z.object({ nodeId: z.string() }),
+						execute: async ({ nodeId }: { nodeId: string }) => {
+							toolCalls += 1;
+							if (!findById(stepTree, nodeId)) {
+								toolUnknownIds += 1;
+								return `no node with id "${nodeId}"`;
+							}
+							return `${JSON.stringify(buildView(stepTree, [nodeId], "minimal"), null, 2)}\n`;
+						},
+					}),
+				}
+			: undefined;
 		for (let round = 1; round <= MAX_ROUNDS; round += 1) {
-			const outcome = await callPatch(model, system, stepMessages);
+			const outcome = await callPatch(model, system, stepMessages, stepTools);
 			lastAssistant = outcome.text === "" ? "(empty reply)" : outcome.text;
-			stepMessages.push({ role: "assistant", content: lastAssistant });
+			if (outcome.stepMessages) {
+				stepMessages.push(...outcome.stepMessages);
+			} else {
+				stepMessages.push({ role: "assistant", content: lastAssistant });
+			}
 			if (isHatchArm(arm) && outcome.text.trim().startsWith("NEED-INFO:")) {
 				calls.push({
 					phase: 1,
@@ -301,6 +376,10 @@ export async function runXSession(
 			}
 		}
 
+		if (isToolsArm(arm)) {
+			detail.toolCalls = toolCalls;
+			if (toolUnknownIds > 0) detail.toolUnknownIds = toolUnknownIds;
+		}
 		record.calls = calls;
 		record.rounds = calls.length;
 		record.totalInputTokens = calls.reduce((s, c) => s + c.inputTokens, 0);
