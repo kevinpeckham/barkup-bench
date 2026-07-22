@@ -154,7 +154,7 @@ for (const model of MODELS) {
 	}
 
 	// H6 descriptives: asks by kind in control; direct-patch vs fetch.
-	for (const kind of ["that", "same", "undo"]) {
+	for (const kind of ["amend", "repeat", "undo"]) {
 		const kindRows = ctrl.filter((r) => d(r).anaphora === kind);
 		const toolsRows = cells(model, "AN-tools-clause", true).filter(
 			(r) => d(r).anaphora === kind,

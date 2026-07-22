@@ -2374,6 +2374,72 @@ measured stack (full-replace + goal-safe eviction + invited
 consolidation) recovers EVERYTHING at the cap edge, which resets the
 bar any protocol change must beat.
 
+## Addendum (2026-07-22): Study AN — ask or act (tool availability dissolves the visibility-clause tax; the clause itself is frontier-only)
+
+Pre-registered in [docs/BRIEF-AN.md](docs/BRIEF-AN.md): AG-H2 left
+the series' one shipped-surface exposure open — under skeleton
+views, the ask sentence's visibility clause converts fully-specified
+edits into NEED-INFO (~70%), and replicator's template-chat runs
+exactly such views in outline mode, but WITH view tools AG's arms
+lacked. Four arms over X's anaphora corpus (echo-hatch control /
++get_template_view / +registered fetch-before-ask clause / a no-echo
+protection arm whose referent no tool can supply), three models,
+1,728 step records, zero harness errors, 11.2M in + 0.88M out
+tokens (≈ AG-class ×1.3, inside the brief's fence).
+
+**Pre-registered verdict: STUDY GATE FAIL by the letter — and the
+practical fork settles cleanly through the interpretation table's
+first row anyway.** The gate demanded H1 + H4 + H5 on all models
+plus H2 or H3; H1 and H4 each failed on sub-frontier tiers. What
+the arms actually showed:
+
+- **AN-H2 (availability suffices) — PASS on all three models.**
+  Handing the models `get_template_view` dissolved the tax without
+  any prompt change: anaphora success 48/48 (gemini), 47/48
+  (sonnet), 45/48 (opus) with 0/0/2 asks. Tool use was frugal and
+  precise — at most 1–2 calls per cell, zero unknown-id fetches —
+  and sonnet mostly did not fetch at all (31/48 cells), patching
+  directly from the echo'd id. **This is the shipped surface's
+  actual configuration, so the replicator watch item CLOSES: no
+  prompt change needed, the clause stays unshipped.**
+- **AN-H3 (the clause) — PASS on all three, adding nothing over
+  H2** (opus 47/48 vs 45/48, within noise). Redundant where tools
+  exist.
+- **AN-H1 (the anchor) — FAIL on gemini only** (asks 21/48 vs the
+  ≥24 band; sonnet 35/48 and opus 36/48 replicated AG's ~70%
+  faithfully). Provider-snapshot weather on the cheap tier — the
+  same drift class AL documented — not a mechanism change: gemini's
+  visibility-clause tax was real but smaller this week.
+- **AN-H4 (protection) — the tier map with teeth. PASS on opus at
+  the ceiling: 48/48 asks, zero silent-wrong, zero flailing (12
+  single fetches then a clean ask). FAIL below the frontier, in two
+  distinct failure shapes:** sonnet asked only 24/48 and silently
+  guessed the other 24 (the X anatomy returning); gemini asked
+  23/48 and FLAILED — 689 tool calls across 48 cells (max 24 in
+  one cell), hunting the tree for a referent that lives in
+  discourse. The clause is safe exactly where AE/AI drew the tier
+  line: on the shipped tier only.
+- **AN-H5 — PASS everywhere.** Ordinary steps: zero false asks in
+  1,152 cells, success at parity or above in every arm.
+- **H6 descriptives:** the control tax concentrates in amend/repeat
+  kinds on the Claude tiers (sonnet 23/24 + 12/12, opus 22/24 +
+  5/12) with undo diverging by tier (sonnet 0/12, opus 9/12);
+  under tools+clause, fetch-vs-direct-patch splits by model
+  (gemini always fetches, sonnet patches direct except amends,
+  opus mixes).
+
+**Fences that ship from this study:** (1) the replicator ask-rules
+watch item closes — surfaces that pair the ask sentence with view
+tools do not pay the AG tax, and no clause is needed; (2) the
+fetch-before-ask clause is registered-and-measured but stays
+UNSHIPPED — it is redundant on tool-bearing frontier surfaces and
+UNSAFE below the frontier (sonnet converts genuine gaps to silent
+guesses, gemini to tool flail), so if a sub-frontier tier ever runs
+these surfaces, the defense remains app-side carriers (echo, memo),
+never this clause; (3) AG's tax numbers replicate on the Claude
+tiers, keeping the visibility-clause finding live for any future
+tool-less surface.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

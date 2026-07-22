@@ -1,0 +1,48 @@
+=== Study AN (docs/BRIEF-AN.md) ===
+
+--- gemini-3.5-flash ---
+AN-H1 control asks: 21/48 (43.8% [30.7%,57.7%]) → FAIL
+AN-H2 AN-tools: success 48/48 (100.0% [92.6%,100.0%]), asks 0 → PASS | tools: calls total 48, cells-with-calls 48/48, max/cell 1, unknown-ids 0
+AN-H3 AN-tools-clause: success 48/48 (100.0% [92.6%,100.0%]), asks 0 → PASS | tools: calls total 48, cells-with-calls 48/48, max/cell 1, unknown-ids 0
+AN-H4 protection asks: 23/48 (47.9% [34.5%,61.7%]), silent-wrong 4 → FAIL | tools: calls total 689, cells-with-calls 36/48, max/cell 24, unknown-ids 0
+AN-H5 AN-echo-hatch ordinary: success 96/96 (100.0% [96.2%,100.0%]), false asks 0 (control) → PASS
+AN-H5 AN-tools ordinary: success 96/96 (100.0% [96.2%,100.0%]), false asks 0 (Δ +0/-0 p=1.000) → PASS
+AN-H5 AN-tools-clause ordinary: success 96/96 (100.0% [96.2%,100.0%]), false asks 0 (Δ +0/-0 p=1.000) → PASS
+AN-H5 AN-noecho-tools-clause ordinary: success 96/96 (100.0% [96.2%,100.0%]), false asks 0 (Δ +0/-0 p=1.000) → PASS
+  H6 amend: control asks 12/24; tools-clause success 24/24, fetched 24
+  H6 repeat: control asks 8/12; tools-clause success 12/12, fetched 12
+  H6 undo: control asks 1/12; tools-clause success 12/12, fetched 12
+
+--- claude-sonnet-4.5 ---
+AN-H1 control asks: 35/48 (72.9% [59.0%,83.4%]) → PASS
+AN-H2 AN-tools: success 47/48 (97.9% [89.1%,99.6%]), asks 0 → PASS | tools: calls total 31, cells-with-calls 31/48, max/cell 1, unknown-ids 0
+AN-H3 AN-tools-clause: success 47/48 (97.9% [89.1%,99.6%]), asks 1 → PASS | tools: calls total 32, cells-with-calls 32/48, max/cell 1, unknown-ids 0
+AN-H4 protection asks: 24/48 (50.0% [36.4%,63.6%]), silent-wrong 24 → FAIL | tools: calls total 12, cells-with-calls 12/48, max/cell 1, unknown-ids 0
+AN-H5 AN-echo-hatch ordinary: success 93/96 (96.9% [91.2%,98.9%]), false asks 0 (control) → PASS
+AN-H5 AN-tools ordinary: success 95/96 (99.0% [94.3%,99.8%]), false asks 0 (Δ +2/-0 p=0.500) → PASS
+AN-H5 AN-tools-clause ordinary: success 94/96 (97.9% [92.7%,99.4%]), false asks 0 (Δ +1/-0 p=1.000) → PASS
+AN-H5 AN-noecho-tools-clause ordinary: success 95/96 (99.0% [94.3%,99.8%]), false asks 0 (Δ +2/-0 p=0.500) → PASS
+  H6 amend: control asks 23/24; tools-clause success 24/24, fetched 20
+  H6 repeat: control asks 12/12; tools-clause success 11/12, fetched 12
+  H6 undo: control asks 0/12; tools-clause success 12/12, fetched 0
+
+--- claude-opus-4.8 ---
+AN-H1 control asks: 36/48 (75.0% [61.2%,85.1%]) → PASS
+AN-H2 AN-tools: success 45/48 (93.8% [83.2%,97.9%]), asks 2 → PASS | tools: calls total 29, cells-with-calls 28/48, max/cell 2, unknown-ids 0
+AN-H3 AN-tools-clause: success 47/48 (97.9% [89.1%,99.6%]), asks 1 → PASS | tools: calls total 29, cells-with-calls 29/48, max/cell 1, unknown-ids 0
+AN-H4 protection asks: 48/48 (100.0% [92.6%,100.0%]), silent-wrong 0 → PASS | tools: calls total 12, cells-with-calls 12/48, max/cell 1, unknown-ids 0
+AN-H5 AN-echo-hatch ordinary: success 96/96 (100.0% [96.2%,100.0%]), false asks 0 (control) → PASS
+AN-H5 AN-tools ordinary: success 96/96 (100.0% [96.2%,100.0%]), false asks 0 (Δ +0/-0 p=1.000) → PASS
+AN-H5 AN-tools-clause ordinary: success 96/96 (100.0% [96.2%,100.0%]), false asks 0 (Δ +0/-0 p=1.000) → PASS
+AN-H5 AN-noecho-tools-clause ordinary: success 96/96 (100.0% [96.2%,100.0%]), false asks 0 (Δ +0/-0 p=1.000) → PASS
+  H6 amend: control asks 22/24; tools-clause success 23/24, fetched 13
+  H6 repeat: control asks 5/12; tools-clause success 12/12, fetched 12
+  H6 undo: control asks 9/12; tools-clause success 12/12, fetched 4
+
+=== Gate summary ===
+AN-H1 (anchor) all models: FAIL
+AN-H2 (availability suffices) all models: PASS
+AN-H3 (clause closes it) all models: PASS
+AN-H4 (protection) all models: FAIL
+AN-H5 (ordinary undisturbed) all models: PASS
+STUDY GATE: FAIL
