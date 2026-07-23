@@ -1,0 +1,486 @@
+{
+ "version": 1,
+ "seed": "hand-authored-20260723",
+ "catalog": [
+  {
+   "name": "AI",
+   "category": "other"
+  },
+  {
+   "name": "LLMs",
+   "category": "other"
+  },
+  {
+   "name": "Agents",
+   "category": "other"
+  },
+  {
+   "name": "Open Source",
+   "category": "other"
+  },
+  {
+   "name": "barkup",
+   "category": "other"
+  },
+  {
+   "name": "Benchmarks",
+   "category": "other"
+  },
+  {
+   "name": "Front-End",
+   "category": "other"
+  },
+  {
+   "name": "Design Systems",
+   "category": "capability"
+  },
+  {
+   "name": "WordPress",
+   "category": "other"
+  },
+  {
+   "name": "SvelteKit",
+   "category": "other"
+  },
+  {
+   "name": "eCommerce",
+   "category": "other"
+  },
+  {
+   "name": "B2B",
+   "category": "other"
+  },
+  {
+   "name": "TypeScript",
+   "category": "other"
+  },
+  {
+   "name": "JavaScript",
+   "category": "other"
+  },
+  {
+   "name": "CSS",
+   "category": "other"
+  },
+  {
+   "name": "HTML",
+   "category": "other"
+  },
+  {
+   "name": "SEO",
+   "category": "other"
+  },
+  {
+   "name": "Accessibility",
+   "category": "other"
+  },
+  {
+   "name": "UX",
+   "category": "other"
+  },
+  {
+   "name": "UX Design",
+   "category": "capability"
+  },
+  {
+   "name": "Branding",
+   "category": "capability"
+  },
+  {
+   "name": "Brand Strategy",
+   "category": "capability"
+  },
+  {
+   "name": "Content Strategy",
+   "category": "capability"
+  },
+  {
+   "name": "Marketing",
+   "category": "capability"
+  },
+  {
+   "name": "Security",
+   "category": "other"
+  },
+  {
+   "name": "Performance",
+   "category": "other"
+  },
+  {
+   "name": "Testing",
+   "category": "other"
+  },
+  {
+   "name": "DevOps",
+   "category": "other"
+  },
+  {
+   "name": "Machine Learning",
+   "category": "other"
+  },
+  {
+   "name": "Web Performance",
+   "category": "other"
+  },
+  {
+   "name": "Databases",
+   "category": "other"
+  },
+  {
+   "name": "npm",
+   "category": "other"
+  },
+  {
+   "name": "Energy",
+   "category": "industry"
+  },
+  {
+   "name": "Education",
+   "category": "industry"
+  },
+  {
+   "name": "Retail",
+   "category": "industry"
+  },
+  {
+   "name": "Financial Services",
+   "category": "industry"
+  },
+  {
+   "name": "Software Engineering",
+   "category": "other"
+  },
+  {
+   "name": "Developer Tools",
+   "category": "other"
+  },
+  {
+   "name": "Web Standards",
+   "category": "other"
+  },
+  {
+   "name": "Research",
+   "category": "other"
+  }
+ ],
+ "tasks": [
+  {
+   "id": "tag-covered-1",
+   "cls": "covered",
+   "title": "Benchmarking Coding Agents on Real Repositories",
+   "summary": "We measured how AI agents handle large codebases.",
+   "expectedTags": [
+    "AI",
+    "Agents",
+    "Benchmarks"
+   ]
+  },
+  {
+   "id": "tag-covered-2",
+   "cls": "covered",
+   "title": "A Design System That Survived Three Rebrands",
+   "summary": "How our design system stayed coherent through brand changes.",
+   "expectedTags": [
+    "Design Systems",
+    "Branding"
+   ]
+  },
+  {
+   "id": "tag-covered-3",
+   "cls": "covered",
+   "title": "Shipping Faster with SvelteKit",
+   "summary": "Why we build client sites on SvelteKit.",
+   "expectedTags": [
+    "SvelteKit",
+    "Front-End"
+   ]
+  },
+  {
+   "id": "tag-covered-4",
+   "cls": "covered",
+   "title": "Making Checkout Accessible",
+   "summary": "Accessibility fixes that raised conversion in an online store.",
+   "expectedTags": [
+    "Accessibility",
+    "eCommerce"
+   ]
+  },
+  {
+   "id": "tag-covered-5",
+   "cls": "covered",
+   "title": "TypeScript Strictness Pays Off",
+   "summary": "Lessons from enabling strict mode in a large app.",
+   "expectedTags": [
+    "TypeScript",
+    "Software Engineering"
+   ]
+  },
+  {
+   "id": "tag-covered-6",
+   "cls": "covered",
+   "title": "SEO for B2B Marketing Sites",
+   "summary": "Technical SEO patterns that work for B2B.",
+   "expectedTags": [
+    "SEO",
+    "B2B",
+    "Marketing"
+   ]
+  },
+  {
+   "id": "tag-covered-7",
+   "cls": "covered",
+   "title": "Securing a Headless CMS",
+   "summary": "Threat modeling and hardening our publishing pipeline.",
+   "expectedTags": [
+    "Security"
+   ]
+  },
+  {
+   "id": "tag-covered-8",
+   "cls": "covered",
+   "title": "Measuring Web Performance Budgets",
+   "summary": "How we keep pages fast with budgets in CI.",
+   "expectedTags": [
+    "Web Performance",
+    "Performance"
+   ]
+  },
+  {
+   "id": "tag-covered-9",
+   "cls": "covered",
+   "title": "Machine Learning for Content Tagging",
+   "summary": "Using ML to suggest article tags.",
+   "expectedTags": [
+    "Machine Learning",
+    "AI"
+   ]
+  },
+  {
+   "id": "tag-covered-10",
+   "cls": "covered",
+   "title": "CSS Grid Layouts We Keep Reusing",
+   "summary": "Grid patterns for editorial pages.",
+   "expectedTags": [
+    "CSS",
+    "Front-End"
+   ]
+  },
+  {
+   "id": "tag-covered-11",
+   "cls": "covered",
+   "title": "Choosing Databases for Small Teams",
+   "summary": "SQLite versus hosted Postgres for agencies.",
+   "expectedTags": [
+    "Databases"
+   ]
+  },
+  {
+   "id": "tag-covered-12",
+   "cls": "covered",
+   "title": "Publishing Research in the Open",
+   "summary": "Why we pre-register and publish our benchmark studies.",
+   "expectedTags": [
+    "Research",
+    "Open Source"
+   ]
+  },
+  {
+   "id": "tag-trap-1",
+   "cls": "trap",
+   "title": "What llm evals miss about agents",
+   "summary": "A look at llm benchmarks and where agents break them.",
+   "expectedTags": [
+    "LLMs",
+    "Agents",
+    "Benchmarks"
+   ]
+  },
+  {
+   "id": "tag-trap-2",
+   "cls": "trap",
+   "title": "Modern frontend architecture without a framework",
+   "summary": "Rethinking frontend builds with platform primitives.",
+   "expectedTags": [
+    "Front-End"
+   ]
+  },
+  {
+   "id": "tag-trap-3",
+   "cls": "trap",
+   "title": "Migrating off wordpress after a decade",
+   "summary": "Our playbook for wordpress-to-modern-stack migrations.",
+   "expectedTags": [
+    "WordPress"
+   ]
+  },
+  {
+   "id": "tag-trap-4",
+   "cls": "trap",
+   "title": "Why open-source wins for client work",
+   "summary": "The case for open-source foundations in agency projects.",
+   "expectedTags": [
+    "Open Source"
+   ]
+  },
+  {
+   "id": "tag-trap-5",
+   "cls": "trap",
+   "title": "Design-systems governance that actually holds",
+   "summary": "Keeping design-systems consistent across teams.",
+   "expectedTags": [
+    "Design Systems"
+   ]
+  },
+  {
+   "id": "tag-trap-6",
+   "cls": "trap",
+   "title": "Getting started with sveltekit and typescript",
+   "summary": "A practical sveltekit + typescript setup guide.",
+   "expectedTags": [
+    "SvelteKit",
+    "TypeScript"
+   ]
+  },
+  {
+   "id": "tag-trap-7",
+   "cls": "trap",
+   "title": "Improving ux with better empty states",
+   "summary": "Small ux touches that reduce confusion.",
+   "expectedTags": [
+    "UX"
+   ]
+  },
+  {
+   "id": "tag-trap-8",
+   "cls": "trap",
+   "title": "javascript performance traps in 2026",
+   "summary": "Common javascript performance mistakes and fixes.",
+   "expectedTags": [
+    "JavaScript",
+    "Performance"
+   ]
+  },
+  {
+   "id": "tag-trap-9",
+   "cls": "trap",
+   "title": "Publishing packages to NPM responsibly",
+   "summary": "Supply-chain hygiene for npm package authors.",
+   "expectedTags": [
+    "npm",
+    "Security"
+   ]
+  },
+  {
+   "id": "tag-trap-10",
+   "cls": "trap",
+   "title": "html semantics still matter",
+   "summary": "Why html structure beats div soup for accessibility.",
+   "expectedTags": [
+    "HTML",
+    "Accessibility"
+   ]
+  },
+  {
+   "id": "tag-trap-11",
+   "cls": "trap",
+   "title": "devops for tiny teams",
+   "summary": "Right-sizing devops when you have three engineers.",
+   "expectedTags": [
+    "DevOps"
+   ]
+  },
+  {
+   "id": "tag-trap-12",
+   "cls": "trap",
+   "title": "ecommerce replatforming without downtime",
+   "summary": "Cutting over an ecommerce store with zero downtime.",
+   "expectedTags": [
+    "eCommerce"
+   ]
+  },
+  {
+   "id": "tag-uncovered-1",
+   "cls": "uncovered",
+   "title": "Watercolor Techniques for Digital Illustrators",
+   "summary": "Blending traditional watercolor looks into digital art.",
+   "expectedTags": []
+  },
+  {
+   "id": "tag-uncovered-2",
+   "cls": "uncovered",
+   "title": "A Field Guide to Alpine Wildflowers",
+   "summary": "Identifying wildflowers on high-altitude hikes.",
+   "expectedTags": []
+  },
+  {
+   "id": "tag-uncovered-3",
+   "cls": "uncovered",
+   "title": "Sourdough Starters for Busy People",
+   "summary": "Keeping a starter alive on a weekly schedule.",
+   "expectedTags": []
+  },
+  {
+   "id": "tag-uncovered-4",
+   "cls": "uncovered",
+   "title": "Urban Beekeeping on a Rooftop",
+   "summary": "What we learned hosting two hives downtown.",
+   "expectedTags": []
+  },
+  {
+   "id": "tag-uncovered-5",
+   "cls": "uncovered",
+   "title": "Restoring a 1970s Sailboat",
+   "summary": "A season of fiberglass, teak, and patience.",
+   "expectedTags": []
+  },
+  {
+   "id": "tag-uncovered-6",
+   "cls": "uncovered",
+   "title": "The History of Municipal Fountains",
+   "summary": "Civic water features and the cities that love them.",
+   "expectedTags": []
+  },
+  {
+   "id": "tag-uncovered-7",
+   "cls": "uncovered",
+   "title": "Birdsong Identification by Ear",
+   "summary": "Training yourself to recognize common songbirds.",
+   "expectedTags": []
+  },
+  {
+   "id": "tag-uncovered-8",
+   "cls": "uncovered",
+   "title": "Homemade Pasta Without a Machine",
+   "summary": "Rolling and cutting pasta with basic tools.",
+   "expectedTags": []
+  },
+  {
+   "id": "tag-uncovered-9",
+   "cls": "uncovered",
+   "title": "Community Gardens and Neighborhood Ties",
+   "summary": "How shared plots change a block.",
+   "expectedTags": []
+  },
+  {
+   "id": "tag-uncovered-10",
+   "cls": "uncovered",
+   "title": "Analog Photography in a Digital Age",
+   "summary": "Why film photography keeps pulling people back.",
+   "expectedTags": []
+  },
+  {
+   "id": "tag-uncovered-11",
+   "cls": "uncovered",
+   "title": "Training for a First Marathon at 40",
+   "summary": "A realistic eight-month plan.",
+   "expectedTags": []
+  },
+  {
+   "id": "tag-uncovered-12",
+   "cls": "uncovered",
+   "title": "Woodworking Joints Every Beginner Should Know",
+   "summary": "Five joints that cover most furniture projects.",
+   "expectedTags": []
+  }
+ ]
+}
