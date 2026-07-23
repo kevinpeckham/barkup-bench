@@ -1,0 +1,19 @@
+--- gemini-3.5-flash ---
+AO-bare: clean 0/36 (covered 0/12, trap 0/12, uncovered 0/12) | empty 0 | tool 0 | warned 0 → clean-after 0
+AO-shipped: clean 26/36 (covered 11/12, trap 12/12, uncovered 3/12) | empty 9 | tool 36 | warned 0 → clean-after 0
+AO-warnings-only: clean 7/36 (covered 3/12, trap 4/12, uncovered 0/12) | empty 0 | tool 0 | warned 36 → clean-after 7
+--- claude-sonnet-4.5 ---
+AO-bare: clean 0/36 (covered 0/12, trap 0/12, uncovered 0/12) | empty 0 | tool 0 | warned 0 → clean-after 0
+AO-shipped: clean 29/36 (covered 12/12, trap 12/12, uncovered 5/12) | empty 7 | tool 36 | warned 0 → clean-after 0
+AO-warnings-only: clean 16/36 (covered 7/12, trap 9/12, uncovered 0/12) | empty 0 | tool 0 | warned 36 → clean-after 16
+--- claude-opus-4.8 ---
+AO-bare: clean 0/36 (covered 0/12, trap 0/12, uncovered 0/12) | empty 0 | tool 0 | warned 0 → clean-after 0
+AO-shipped: clean 24/36 (covered 12/12, trap 12/12, uncovered 0/12) | empty 12 | tool 36 | warned 0 → clean-after 0
+AO-warnings-only: clean 24/36 (covered 12/12, trap 12/12, uncovered 0/12) | empty 1 | tool 0 | warned 36 → clean-after 24
+
+=== Gates ===
+AO-H1 (drift anchor): PASS
+AO-H2 (opus shipped ≥33/36, trap ≥10/12): FAIL (24/36, trap 12/12)
+AO-H3 (opus warned→clean ≥90%): FAIL (24/36)
+AO-H4 (no omission, empty ≤2): FAIL
+STUDY GATE: FAIL

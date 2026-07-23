@@ -2440,6 +2440,65 @@ never this clause; (3) AG's tax numbers replicate on the Claude
 tiers, keeping the visibility-clause finding live for any future
 tool-less surface.
 
+## Addendum (2026-07-23): Study AO — canonical-tag steering (the catalog is the mechanism; warnings alone are not; the registered "clean" definition met honest editorial refusal)
+
+Pre-registered in [docs/BRIEF-AO.md](docs/BRIEF-AO.md): replicator
+v3.246.0 shipped an unmeasured assumption — that MCP agents will
+consult `tags_list`, copy names exactly, and self-correct on warn-only
+lint. Three arms (bare / the shipped stack / warnings-only) over a
+40-tag fixture catalog and 36 tasks (covered / trap / uncovered),
+three models, 324 primary cells, 0.24M in + 86K out tokens.
+
+**Pre-registered verdict: STUDY GATE FAIL — with the failure anatomy
+splitting cleanly into one validated mechanism, one insufficient
+mechanism, and one protocol lesson.**
+
+- **AO-H1 (drift is real) — PASS at the maximum.** Bare-arm clean
+  cells: 0/36 on every model. Unguided models NEVER match a catalog's
+  exact casing conventions. The catalog feature answers a real
+  problem; the July tag-cleanup pass was not one-time bad luck.
+- **The shipped stack works for what it was built for.** In AO-shipped,
+  every model called `tags_list` unprompted in 36/36 cells, and
+  covered + trap classes landed canonical on the FIRST attempt almost
+  perfectly (opus 24/24, sonnet 24/24, gemini 23/24) — zero warning
+  rounds were even needed. The near-collision traps (`llm`,
+  `frontend`, `open-source`, …) that motivated the feature: 12/12 on
+  all three models.
+- **AO-H2/H4 — FAIL, on the uncovered class only, in a shape the
+  brief's H4 row anticipated but the registered "clean" definition
+  mis-scored.** Given off-catalog topics (sourdough, beekeeping),
+  opus produced EMPTY tag lists in 12/12 uncovered cells (sonnet 7,
+  gemini 9) rather than invent non-canonical tags or stretch
+  ill-fitting canonical ones. The pre-registered definition required
+  non-empty tags, so these scored as failures — but declining to tag
+  an off-topic article is defensible editorial behavior, arguably
+  MORE correct than the brief's "nearest general canonical tags"
+  prescription. Zero uncovered cells invented tags in the shipped
+  arm: the drift-prevention goal holds there too. Protocol lesson,
+  not re-threshold: the non-empty requirement embedded an unexamined
+  judgment; a successor study should register empty-vs-nearest as an
+  explicit fork.
+- **AO-H3 — FAIL, with an arm-design artifact in the denominator.**
+  Warnings-only (no tool) recovered just 24/36 warned cells on opus,
+  16/36 sonnet, 7/36 gemini — and the shipped warning text tells the
+  model to "pick from tags_list", a tool that arm does not have; the
+  sub-frontier models often replied with unparseable prose instead of
+  revised JSON. Two honest readings stack: (1) warnings alone are
+  NOT sufficient — the catalog read is the load-bearing mechanism,
+  did-you-mean suggestions can only fix slug-variants; (2) on the
+  real surface warnings never appear without the tool, and in the
+  arm that has both, zero cells needed the warning round at all.
+
+**Fences that ship:** (1) v3.246.0's design is validated for its
+purpose — keep the warn-only lint AND the tool together; do not ship
+lint-only surfaces expecting self-correction; (2) no hard gating is
+needed on the shipped tier — first-attempt canonical compliance with
+the tool present was 47/48 on the Claude tiers for on-catalog
+topics; (3) if off-catalog articles matter, the affordance to add is
+guidance in the tool description on what to do when nothing fits
+(tag-nearest vs leave-empty is a product choice — models currently
+choose empty), not enforcement.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
