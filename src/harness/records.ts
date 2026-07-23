@@ -25,7 +25,7 @@ export interface CallLog {
 export interface TaskRunRecord {
 	taskId: string;
 	family: Family;
-	bucket: BucketName;
+	bucket: BucketName | "covered" | "trap" | "uncovered";
 	condition: string;
 	model: string;
 	regime: string;
