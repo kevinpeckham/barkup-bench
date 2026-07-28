@@ -25,7 +25,13 @@ export interface CallLog {
 export interface TaskRunRecord {
 	taskId: string;
 	family: Family;
-	bucket: BucketName | "covered" | "trap" | "uncovered";
+	bucket:
+		| BucketName
+		| "covered"
+		| "trap"
+		| "uncovered"
+		| "adjacent"
+		| "foreign";
 	condition: string;
 	model: string;
 	regime: string;
