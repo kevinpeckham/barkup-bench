@@ -2499,6 +2499,95 @@ guidance in the tool description on what to do when nothing fits
 (tag-nearest vs leave-empty is a product choice — models currently
 choose empty), not enforcement.
 
+## Addendum (2026-07-28): Study AP — the off-catalog fork (both candidate texts close the foreign branch; the tool is discipline-safe; the adjacent gate failed on the registration, not the models)
+
+Pre-registered in [docs/BRIEF-AP.md](docs/BRIEF-AP.md), the successor
+AO's verdict filed: AO's "clean" definition mis-scored honest
+editorial refusal on off-catalog topics, so AP split that class into
+**adjacent** (a general canonical tag genuinely fits; 12 new tasks
+with hand-registered `acceptableTags`) and **foreign** (nothing fits;
+AO's 12 uncovered tasks verbatim), and measured four arms — the
+shipped stack, two candidate guidance texts (nearest-general-or-empty
+"fork" text; minimal "empty" text), and a guarded `tag_create` tool —
+over 48 tasks × 3 models = 576 cells. 1.02M in + 118K out tokens,
+inside the fence; zero harness errors.
+
+**Pre-registered verdict: STUDY GATE FAIL by the letter — H1, H3, H4
+pass; H2 fails on the adjacent branch (opus 8/12 vs ≥10/12). And the
+failure anatomy is this family's second protocol lesson, not a model
+behavior: in all 17 non-conformant opus adjacent cells across arms,
+every final tag was canonical — the "failures" are one or two EXTRA
+canonical, editorially arguable tags beyond the registered acceptable
+sets** (`UX` on a checkout-conversion piece, `CSS` on web components,
+`Security` on a DMARC deliverability piece, `Front-End` on a headless
+CMS comparison). Zero invented tags in all 576 cells; zero empty
+adjacent cells in any arm on any model. Under the post-hoc anchored
+reading (all tags canonical, at least one from the registered set) —
+reported as EXPLORATORY, it was not the registered definition —
+adjacent cells score **144/144** across every model × arm. The
+registered strict-subset definition, authored solo, under-covered
+defensible editorial judgment; AO's lesson recurred one class over.
+
+What the registered gates did establish:
+
+- **AP-H1 (replication) — PASS.** Opus AP-shipped foreign: empty
+  12/12, exactly AO's disposition — not provider weather. The tier
+  split is real and now mapped: gemini and sonnet each went empty
+  only 7/12 and stretched general canonical tags onto the other 5
+  (zero invention). Empty-on-foreign is a frontier disposition.
+- **AP-H2 foreign branch — PASS everywhere it was gated, and
+  descriptively on every tier.** Under the fork text: opus 12/12,
+  gemini 12/12, sonnet 11/12 empty (the one miss stretched
+  `Design Systems`/`UX Design` onto watercolor illustration). Under
+  the minimal empty text: 12/12 on ALL THREE models. The empty
+  text's registered risk — suppressing legitimate adjacent
+  generalization — did not materialize: adjacent empty-rate 0/12 in
+  every arm on every model, including AP-empty.
+- **AP-H3 (discipline regression) — PASS.** Covered + trap ≥ 23/24
+  in all twelve model × arm blocks. Neither guidance text nor the
+  tool taxed AO's validated core.
+- **AP-H4 (tool discipline) — PASS.** Zero invented tags in the 144
+  tool-arm cells; covered/trap mint attempts: gemini 1 (at the
+  allowed limit), sonnet 0, opus 0. The guard NEVER fired: all 40
+  mint attempts across the study were accepted, zero slug-collision
+  rejections. Gemini's single core-cell mint is itself instructive:
+  on "Securing a Headless CMS" (expected `Security`) it minted
+  `Headless CMS` — a task whose title names an off-catalog specific
+  topic, i.e. a covered task with adjacent blood; the construction,
+  not the model, blurred that line.
+- **H6 anatomy — the tier map for minting.** Mint willingness:
+  gemini 26 mints (every foreign cell got one or two: `Baking`,
+  `Woodworking`, `Photography`, …), sonnet 10, opus 4 (opus prefers
+  empty over minting even with the tool in hand). Mint QUALITY was
+  uniformly high: Title Case matching the catalog's conventions,
+  sensible names (`GraphQL`, `Web Components`, `Kubernetes`), zero
+  near-duplicates of existing tags. `tags_list` was consulted
+  unprompted in 576/576 cells (AO's mechanism, replicated at 4×
+  the arms); warning rounds are nearly extinct (2 cells, both
+  sonnet AP-tool).
+
+**What this licenses and what it files.** Nothing ships from a
+failed gate by this repo's rules, and the interpretation table has
+no row for the actual failure shape (its H2-adjacent row assumed
+empty-bias; the data shows the opposite — liberal-but-canonical
+generalization). Filed: (a) **AP′, the cheap successor** — re-run
+nothing; re-register the adjacent conformance definition (anchored
+generalization, or acceptable sets authored by more than one
+editorial pass) and score the SAME frozen raw results under the new
+pre-registered definition, publishing both readings side by side;
+(b) the **tag_create ship decision** goes to product with a clean
+discipline record (H4) and one real cost surfaced by the tier map:
+below the frontier the tool converts "leave empty" into "mint a new
+tag" on most foreign cells — an org that wants a curated catalog
+gets 12 new tags per gemini batch, all well-formed, none of them
+wanted; if the tool ships, it ships tier-gated or with human
+approval on new tags (which is what Org Settings → Tags already is);
+(c) the **guidance-text decision** waits for AP′, but the foreign
+branch is settled on this run's registered gates: EITHER text stops
+sub-frontier stretching onto wholly-foreign topics, the minimal
+empty text is sufficient for that job on all tiers, and no text is
+needed on the frontier tier, which already refuses.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

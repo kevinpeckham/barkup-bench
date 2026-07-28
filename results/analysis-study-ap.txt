@@ -1,0 +1,54 @@
+--- gemini-3.5-flash ---
+AP-shipped: covered 12/12, trap 12/12, adjacent 10/12, foreign empty 7/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-fork: covered 12/12, trap 12/12, adjacent 10/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-empty: covered 12/12, trap 12/12, adjacent 11/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-tool: covered 11/12, trap 12/12, adjacent 12/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0 | mints 26/26 attempts
+--- claude-sonnet-4.5 ---
+AP-shipped: covered 12/12, trap 12/12, adjacent 8/12, foreign empty 7/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-fork: covered 12/12, trap 12/12, adjacent 9/12, foreign 11/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-empty: covered 12/12, trap 12/12, adjacent 10/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-tool: covered 12/12, trap 12/12, adjacent 9/12, foreign 9/12 | tags_list 48/48 | warned 2 | invented-cells 0 | mints 10/10 attempts
+--- claude-opus-4.8 ---
+AP-shipped: covered 12/12, trap 12/12, adjacent 6/12, foreign empty 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-fork: covered 11/12, trap 12/12, adjacent 8/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-empty: covered 12/12, trap 12/12, adjacent 8/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-tool: covered 12/12, trap 12/12, adjacent 9/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0 | mints 4/4 attempts
+
+=== Mint anatomy (AP-tool) ===
+gemini-3.5-flash tag-covered-7 [covered]: minted ["Headless CMS"] → final ["Security","DevOps","Headless CMS"]
+gemini-3.5-flash tag-adjacent-1 [adjacent]: minted ["GraphQL","APIs"] → final ["GraphQL","APIs","Software Engineering","Performance"]
+gemini-3.5-flash tag-adjacent-12 [adjacent]: minted ["Headless CMS"] → final ["Headless CMS","Marketing","Content Strategy"]
+gemini-3.5-flash tag-adjacent-3 [adjacent]: minted ["Web Components"] → final ["Web Components","Front-End","Web Standards","JavaScript","HTML"]
+gemini-3.5-flash tag-adjacent-5 [adjacent]: minted ["Kubernetes"] → final ["DevOps","Kubernetes"]
+gemini-3.5-flash tag-uncovered-1 [foreign]: minted ["Illustration","Design"] → final ["Illustration","Design"]
+gemini-3.5-flash tag-uncovered-10 [foreign]: minted ["Photography"] → final ["Photography"]
+gemini-3.5-flash tag-uncovered-11 [foreign]: minted ["Fitness","Running"] → final ["Fitness","Running"]
+gemini-3.5-flash tag-uncovered-12 [foreign]: minted ["Woodworking"] → final ["Woodworking"]
+gemini-3.5-flash tag-uncovered-2 [foreign]: minted ["Outdoors","Hiking"] → final ["Outdoors","Hiking"]
+gemini-3.5-flash tag-uncovered-3 [foreign]: minted ["Baking"] → final ["Baking"]
+gemini-3.5-flash tag-uncovered-4 [foreign]: minted ["Sustainability","Urban Farming"] → final ["Sustainability","Urban Farming"]
+gemini-3.5-flash tag-uncovered-5 [foreign]: minted ["DIY","Restoration"] → final ["DIY","Restoration"]
+gemini-3.5-flash tag-uncovered-6 [foreign]: minted ["History","Urban Design"] → final ["History","Urban Design"]
+gemini-3.5-flash tag-uncovered-7 [foreign]: minted ["Nature","Wildlife"] → final ["Nature","Wildlife","Education"]
+gemini-3.5-flash tag-uncovered-8 [foreign]: minted ["Cooking"] → final ["Cooking"]
+gemini-3.5-flash tag-uncovered-9 [foreign]: minted ["Community","Sustainability"] → final ["Community","Sustainability"]
+claude-sonnet-4.5 tag-adjacent-1 [adjacent]: minted ["GraphQL","APIs"] → final ["GraphQL","APIs","Performance","Software Engineering"]
+claude-sonnet-4.5 tag-uncovered-10 [foreign]: minted ["Photography","Design","Culture"] → final ["Photography","Design","Culture"]
+claude-sonnet-4.5 tag-uncovered-11 [foreign]: minted ["Running","Fitness"] → final ["Running","Fitness"]
+claude-sonnet-4.5 tag-uncovered-8 [foreign]: minted ["Cooking","Recipes","DIY"] → final ["Cooking","Recipes","DIY"]
+claude-opus-4.8 tag-adjacent-1 [adjacent]: minted ["GraphQL"] → final ["GraphQL","Performance","Software Engineering","Databases"]
+claude-opus-4.8 tag-adjacent-7 [adjacent]: minted ["Email Marketing"] → final ["Email Marketing","Content Strategy","Marketing"]
+claude-opus-4.8 tag-uncovered-1 [foreign]: minted ["Digital Illustration","Digital Art"] → final ["Digital Illustration","Digital Art"]
+
+=== AP-shipped foreign distribution ===
+gemini-3.5-flash: empty 7/12, canonical-generalized 5, invented 0
+claude-sonnet-4.5: empty 7/12, canonical-generalized 5, invented 0
+claude-opus-4.8: empty 12/12, canonical-generalized 0, invented 0
+
+=== Gates ===
+AP-H1 (opus shipped foreign empty ≥10/12): PASS (12/12)
+AP-H2 (opus fork: adjacent ≥10/12 AND foreign empty ≥10/12): FAIL (adjacent 8/12, foreign empty 12/12)
+AP-H3 (covered+trap ≥22/24 every model × arm): PASS
+AP-H4 (tool: zero invented, core mint-cells ≤1): PASS [gemini-3.5-flash invented 0, core-mint-cells 1; claude-sonnet-4.5 invented 0, core-mint-cells 0; claude-opus-4.8 invented 0, core-mint-cells 0]
+AP-H5 (descriptive — opus empty-text adjacent): empty 0/12, conformant 8/12 (vs fork adjacent 8/12)
+STUDY GATE: FAIL
