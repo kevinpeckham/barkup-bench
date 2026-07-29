@@ -1,0 +1,34 @@
+--- claude-fable-5 ---
+  prune cells: control 3/40, headroom 0/40, truecap 5/40
+  goal-loss:   control 3/40, headroom 0/40, truecap 3/40
+  pathways control:  over-send 0, consolidated 32, pruned 3
+  pathways headroom: over-send 0, consolidated 40, pruned 0
+  pathways truecap:  over-send 0, consolidated 6, pruned 5
+  no-op guard: 20/20 clean | landing c/h/t: 40/40/40/40
+--- kimi-k3 ---
+  prune cells: control 8/40, headroom 7/40, truecap 9/40
+  goal-loss:   control 8/40, headroom 8/40, truecap 8/40
+  pathways control:  over-send 0, consolidated 31, pruned 8
+  pathways headroom: over-send 0, consolidated 32, pruned 7
+  pathways truecap:  over-send 0, consolidated 13, pruned 9
+  no-op guard: 19/20 clean | landing c/h/t: 40/39/40/40
+--- claude-sonnet-4.5 ---
+  prune cells: control 18/40, headroom 0/40, truecap 37/40
+  goal-loss:   control 18/40, headroom 0/40, truecap 37/40
+  pathways control:  over-send 22, consolidated 0, pruned 18
+  pathways headroom: over-send 40, consolidated 0, pruned 0
+  pathways truecap:  over-send 3, consolidated 0, pruned 37
+  no-op guard: 20/20 clean | landing c/h/t: 40/40/40/40
+--- gemini-3.5-flash ---
+  prune cells: control 15/40, headroom 0/40, truecap 40/40
+  goal-loss:   control 15/40, headroom 0/40, truecap 0/40
+  pathways control:  over-send 25, consolidated 0, pruned 15
+  pathways headroom: over-send 37, consolidated 3, pruned 0
+  pathways truecap:  over-send 0, consolidated 0, pruned 40
+  no-op guard: 20/20 clean | landing c/h/t: 40/40/40/40
+
+=== Gates ===
+AR-H1 (no-harm on both swap candidates): FAIL
+AR-H2 (pooled headroom effect): FAIL — pooled control prunes 11/80, discordant 16 (control-only 10, headroom-only 6), one-sided exact p=0.22725
+AR-H3 (guards): PASS
+STUDY GATE: FAIL

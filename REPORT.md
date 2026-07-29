@@ -2815,6 +2815,78 @@ prune rates should be read as ranges, not points.
 
 Cost: 400 cells inside the $10–25 fence.
 
+## Addendum (2026-07-29): Study AR — advertised headroom (GATE FAIL by the letter; zero harm anywhere, a total fix on the anchors, inert on the one model whose losses were never obedience)
+
+Pre-registered in [docs/BRIEF-AR.md](docs/BRIEF-AR.md): the app-side
+lever AQ filed — one line of STATE in the memo block header
+(`Notes: {count} in use · an update may include up to 24 notes.`,
+honest by construction since the handler accepts over-length
+updates), with a truecap arm (`up to 20`) as the mechanism isolator
+and the AQ lesson made a gate: no-harm first. 560 cells, AQ's
+corpora and protocol, arms interleaved; guards clean everywhere.
+
+**Pre-registered verdict: STUDY GATE FAIL — AR-H1 by the letter,
+AR-H2 by scope — and the failing conjunct is this family's third
+registration lesson.**
+
+- **The headroom line caused no harm anywhere.** On every model,
+  headroom ≤ control on prunes AND goal-losses; landings ≥ 39/40;
+  no-op guard ≥ 19/20. The H1 FAIL is kimi-k3's goal-loss 8/40
+  against the registered ABSOLUTE ceiling of 2/40 — but its CONTROL
+  arm also lost 8/40. The ceiling conflated intrinsic lossiness
+  with intervention harm; the intended condition was "no worse than
+  control," which kimi meets on every count. (AO: a non-empty rule
+  met honest refusal. AP: solo-authored sets met honest breadth.
+  AR: an absolute ceiling met a lossy baseline. The lesson
+  generalizes: register COMPARATIVE conditions unless an absolute
+  bound is itself the claim.)
+- **On the anchors, the line is the strongest intervention this
+  family has measured.** Sonnet: prunes 18/40 → 0/40, all 18
+  discordants one way (p = 3.8e-06), pathway flipped to 40/40
+  over-send. Gemini: 15/40 → 0/40, 15/15 discordants (p = 3.1e-05)
+  — the FIRST intervention that has ever moved gemini here (the AL
+  fence did nothing for it in two studies). Believed headroom at
+  the decision point dissolves cap-obedient pruning completely on
+  the dispositions that have it.
+- **fable-5: perfected, from an already-benign baseline.** Control
+  3/40 prunes → headroom 0/40, with 40/40 lossless consolidation.
+  Nothing to fix became nothing at all.
+- **kimi-k3: inert — and diagnostic.** Control 8, headroom 7,
+  truecap 9: the line changes nothing because kimi's cap-edge
+  losses were never cap-obedience. It consolidates in every arm
+  (31–32/40) and botches roughly a fifth of the consolidations,
+  dropping a goal needle. AQ's rule couldn't reach this and AR's
+  state can't either: the exposure is intrinsic lossy
+  consolidation, ~20% of cap-edge updates this week, and the
+  posture is acceptance + regression monitoring or a structural
+  redesign registered separately. AR-H2 (pooled swap-candidate
+  effect) fails at p = .227 precisely because kimi's arm-independent
+  losses flip pairs both ways; the effect lives on the anchors,
+  outside the registered gate's scope.
+- **The truecap arm confirms the mechanism as emphatically as
+  anything in the series.** Naming a BINDING cap: sonnet pruned
+  37/40 with 37 goal-losses; fable's spontaneous consolidation
+  collapsed 32 → 6; gemini pruned 40/40 — while losing ZERO goals,
+  the study's grace note: shown a binding number, gemini runs its
+  own deliberate fact-first eviction, a client-side copy of the
+  app's own policy. The registered fence stands absolute: never
+  render a binding cap number into model-visible context; the
+  composer's 20/20 indicator stays user-facing only.
+
+**What is filed, not shipped.** Nothing ships from a failed gate.
+Filed: (a) AR′ — re-register the no-harm conjunct as comparative
+(headroom ≤ control per count) and re-score the frozen records; on
+these numbers that flips H1 to PASS but leaves H2 failed by scope,
+so the honest expected outcome is "no-harm established, swap-
+candidate effect absent," not a ship; (b) the headroom line joins
+the AL fence on the measured shelf for sonnet/gemini-class
+dispositions — two shelf-ready protections, one rule-shaped and
+one state-shaped, the state one strictly dominant (it also fixed
+gemini and harmed nothing); (c) kimi-k3's tier-swap blocker is
+re-characterized: not cap-obedience but lossy consolidation —
+any future mitigation targets consolidation fidelity, not capacity
+beliefs. Cost inside the $15–30 fence.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
