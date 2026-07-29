@@ -286,7 +286,15 @@ compile error and no runtime signal — and the 4.0 migration guide had
 explicitly recommended `response.messages` over the then-deprecated
 `responseMessages`, so the trapped pattern is the previously-blessed
 one. Our harness used it; history silently truncated. Reported
-upstream: https://github.com/vercel/ai/issues/16840.
+upstream: https://github.com/vercel/ai/issues/16840. (Resolved
+2026-07-28: the maintainers confirmed the footgun is real, but after
+investigating both requested mitigations found neither safe to ship —
+a runtime warning on `response` would fire on legitimate metadata
+access, and a codemod cannot reliably distinguish the harmful
+top-level `result.response.messages` from valid per-step uses. The v7
+migration guide now documents the final-step vs accumulated split
+explicitly; documentation is the whole upstream fix, so the
+history-construction audit below remains the practical defense.)
 Our tools loop pushed the former into conversation history, so in
 every multi-turn tools conversation the model saw its own prior turns
 as bare text ("DONE") with **no record of the tools it had called** —
