@@ -1,0 +1,30 @@
+--- claude-fable-5 ---
+  prune cells: control 2/40, fence 0/40 | discordant 2 (control-only 2, fence-only 0) | one-sided exact p=0.25000
+  goal-loss: control 2/40, fence 0/40
+  pathways control: over-send 0, consolidated 38, pruned 2
+  pathways fence:   over-send 0, consolidated 40, pruned 0
+  no-op guard: 20/20 clean | landing: control 40/40, fence 40/40
+--- kimi-k3 ---
+  prune cells: control 5/40, fence 18/40 | discordant 19 (control-only 3, fence-only 16) | one-sided exact p=0.99964
+  goal-loss: control 5/40, fence 19/40
+  pathways control: over-send 0, consolidated 31, pruned 5
+  pathways fence:   over-send 7, consolidated 14, pruned 18
+  no-op guard: 20/20 clean | landing: control 40/40, fence 39/40
+--- claude-sonnet-4.5 ---
+  prune cells: control 16/40, fence 0/40 | discordant 16 (control-only 16, fence-only 0) | one-sided exact p=0.00002
+  goal-loss: control 16/40, fence 0/40
+  pathways control: over-send 24, consolidated 0, pruned 16
+  pathways fence:   over-send 40, consolidated 0, pruned 0
+  no-op guard: 20/20 clean | landing: control 40/40, fence 40/40
+--- gemini-3.5-flash ---
+  prune cells: control 14/40, fence 12/40 | discordant 16 (control-only 9, fence-only 7) | one-sided exact p=0.40181
+  goal-loss: control 14/40, fence 12/40
+  pathways control: over-send 26, consolidated 0, pruned 14
+  pathways fence:   over-send 28, consolidated 0, pruned 12
+  no-op guard: 20/20 clean | landing: control 40/40, fence 40/40
+
+=== Gates ===
+AQ-H1 (fence effect on both swap candidates, p<.05 + goal-loss ≤2/40): FAIL
+AQ-H2 (no-op guard ≥19/20 every model): PASS
+AQ-H3 (declaration lands ≥38/40 every model × arm): PASS
+STUDY GATE: FAIL

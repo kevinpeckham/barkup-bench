@@ -2741,6 +2741,80 @@ tokens at the frontier rate, underestimated in the brief). No
 further backfill spend without a new authorization; Phase 2
 (deeper family re-runs) remains unregistered and unspent.
 
+## Addendum (2026-07-29): Study AQ — the powered fence (GATE FAIL: vindicated on the tier that no longer matters, unnecessary on one successor, HARMFUL on the other)
+
+Pre-registered in [docs/BRIEF-AQ.md](docs/BRIEF-AQ.md): Study AL's
+filed re-measurement, powered 4× (40 paired cap-edge cells per model
+per arm over the AM corpus, arms interleaved in one provider window)
+and re-aimed at the swap candidates the open-weight backfill
+red-gated (fable-5, kimi-k3; sonnet and gemini as continuity
+anchors, opus excluded with cause). One variable, AL's registered
+fence sentence byte-identical. 400 cells, zero harness errors;
+guards clean everywhere (no-op 20/20 all models, landing ≥39/40
+every arm).
+
+**Pre-registered verdict: STUDY GATE FAIL — AQ-H1 unmet on both
+swap candidates, each for a different reason, and the anatomy
+resolves the whole fence question.**
+
+- **sonnet-4.5 (anchor): the fence works, at ceiling.** Prunes
+  16/40 control → 0/40 fence, 16/16 discordants the fence's way,
+  exact p = .00002. AL's hypothesis was right all along on the tier
+  it was written for — n=10 and a drifting baseline had hidden a
+  real, near-total effect. Pathway: sonnet never consolidates; the
+  fence flips it cleanly from prune to over-send (40/40), where the
+  app's designed eviction protects every goal. If sonnet is ever a
+  shipped tier, the fence is measured protection.
+- **fable-5: the fence is unnecessary.** Control prunes 2/40 — the
+  baseline the gate needed did not exist on this corpus, because
+  fable-5 SPONTANEOUSLY consolidates at the cap edge: 38/40 control
+  cells sent a shorter, denser list with every needle preserved and
+  every goal intact (the lossless behavior AM measured as the
+  ceiling when invited; fable-5 does it uninvited). Fence arm
+  40/40 consolidated, zero prunes, zero goal loss — fine, but
+  nothing to fix. Note the instrument disagreement, reported
+  honestly: the regression slice (memo-scale corpus, n=10) showed
+  3/10 prunes; the AM corpus shows 2/40. The exposure is real but
+  corpus- and week-sensitive.
+- **kimi-k3: the fence is ACTIVELY HARMFUL — the study's
+  unanticipated significant result, in the direction no
+  interpretation row anticipated.** Control: 5/40 prunes, with 31
+  lossless spontaneous consolidations. Fence: 18/40 prunes,
+  goal-loss 5 → 19; discordants 16-of-19 toward harm, one-sided
+  p = .0022. The mechanism is legible in the pathway split: "never
+  drop or trim an existing note" reads to kimi as a ban on its
+  consolidation strategy — consolidations fell 31 → 14 — but it
+  converts to over-sending only 7/40, and the remainder sends
+  cap-sized lists missing an old goal. The sentence outlaws the
+  benign disposition and installs the injurious one.
+
+**What this settles.** (1) The fence LINE CLOSES for the successor
+tiers: unnecessary on fable-5, harmful on kimi-k3 — it does not
+ship into any tier-swap package, and the AL sentence stays
+permanently unshipped for these models (it remains a measured,
+shelf-ready protection specific to sonnet-class dispositions).
+(2) The series' tier-fragility moral reaches its sharpest form:
+one sentence is ceiling-grade protection on one model, a no-op on
+a second, redundant on a third, and goal-destroying on a fourth —
+prompt rules are not portable across dispositions, and every one
+of these four outcomes was invisible before measuring. (3) The
+tier-swap blocking item stands for both candidates, with sharper
+shape: fable-5's real-world cap-edge exposure looks smaller than
+the red gate suggested (its dominant disposition is the AM-ideal
+lossless consolidation; residual prunes are weather-and-corpus
+dependent), while kimi-k3's exposure is real and now known to be
+aggravated by the obvious prompt fix. The remaining lever is
+app-side and needs its own registration — the filed candidate:
+advertise a lower cap than the app enforces so cap-obedient
+trimming never bites; with the AM constraint (merge-style shapes
+would break measured lossless consolidation) still standing.
+(4) The two prune-measuring instruments (memo-scale slice,
+AM corpus) disagree on baseline rates per model — the regression
+suite's periodic cadence is the monitoring tool, and cap-edge
+prune rates should be read as ranges, not points.
+
+Cost: 400 cells inside the $10–25 fence.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
