@@ -1,0 +1,487 @@
+{
+ "version": 2,
+ "study": "AP-prime (docs/BRIEF-AP-PRIME.md)",
+ "locked": "2026-07-29",
+ "editors": [
+  "anthropic/claude-opus-4.8",
+  "anthropic/claude-haiku-4.5",
+  "google/gemini-3.5-flash"
+ ],
+ "review": {
+  "reviewer": "Kevin Peckham",
+  "changes": [],
+  "note": "Approved as merged with no strikes or adds (2026-07-29, 'proceed'). Run-1 elicitation discarded for the catalog-rendering artifact; run 2 is the source (results/raw/ap-prime-elicitation.json, run 1 preserved alongside)."
+ },
+ "foreignProbeFlags": [
+  "tag-uncovered-7: majority set ['Education'] — classification contested; stays scored as registered (AP brief), flag is interpretive"
+ ],
+ "adjacent": {
+  "tag-adjacent-1": {
+   "title": "GraphQL Pagination Patterns That Scale",
+   "acceptable": [
+    "Databases",
+    "Developer Tools",
+    "Performance",
+    "Software Engineering",
+    "Web Performance"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "Performance",
+     "Web Performance",
+     "Software Engineering",
+     "Databases",
+     "Developer Tools"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "Performance",
+     "Web Performance",
+     "Software Engineering",
+     "Developer Tools",
+     "Databases"
+    ],
+    "google/gemini-3.5-flash": [
+     "Performance",
+     "Databases",
+     "Software Engineering"
+    ]
+   }
+  },
+  "tag-adjacent-2": {
+   "title": "Prompt Injection: The Attack Surface Nobody Owns",
+   "acceptable": [
+    "AI",
+    "Agents",
+    "LLMs",
+    "Security",
+    "Software Engineering"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "AI",
+     "LLMs",
+     "Agents",
+     "Security",
+     "Software Engineering"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "AI",
+     "Agents",
+     "Security"
+    ],
+    "google/gemini-3.5-flash": [
+     "AI",
+     "LLMs",
+     "Agents",
+     "Security",
+     "Machine Learning",
+     "Software Engineering"
+    ]
+   }
+  },
+  "tag-adjacent-3": {
+   "title": "Web Components in 2026: Worth It Yet?",
+   "acceptable": [
+    "CSS",
+    "Design Systems",
+    "Front-End",
+    "HTML",
+    "JavaScript",
+    "Software Engineering",
+    "Web Standards"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "Front-End",
+     "JavaScript",
+     "HTML",
+     "CSS",
+     "Web Standards",
+     "Design Systems"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "Web Standards",
+     "Front-End",
+     "Design Systems",
+     "Performance",
+     "Accessibility",
+     "UX",
+     "Software Engineering",
+     "Developer Tools"
+    ],
+    "google/gemini-3.5-flash": [
+     "Front-End",
+     "Design Systems",
+     "JavaScript",
+     "HTML",
+     "CSS",
+     "Web Standards",
+     "Software Engineering"
+    ]
+   }
+  },
+  "tag-adjacent-4": {
+   "title": "Fine-Tuning vs RAG: Choosing a Grounding Strategy",
+   "acceptable": [
+    "AI",
+    "LLMs",
+    "Machine Learning"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "AI",
+     "LLMs",
+     "Machine Learning"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "AI",
+     "LLMs",
+     "Research"
+    ],
+    "google/gemini-3.5-flash": [
+     "AI",
+     "LLMs",
+     "Machine Learning",
+     "Software Engineering"
+    ]
+   }
+  },
+  "tag-adjacent-5": {
+   "title": "Kubernetes Cost Optimization for Small Teams",
+   "acceptable": [
+    "DevOps",
+    "Performance"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "DevOps",
+     "Performance"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "DevOps",
+     "Performance"
+    ],
+    "google/gemini-3.5-flash": [
+     "DevOps",
+     "Software Engineering",
+     "Developer Tools"
+    ]
+   }
+  },
+  "tag-adjacent-6": {
+   "title": "Designing Voice Interfaces for Hands-Busy Users",
+   "acceptable": [
+    "Accessibility",
+    "Content Strategy",
+    "Design Systems",
+    "UX",
+    "UX Design"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "UX",
+     "UX Design",
+     "Design Systems",
+     "Accessibility",
+     "Content Strategy"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "UX",
+     "UX Design",
+     "Design Systems",
+     "Accessibility",
+     "Web Standards"
+    ],
+    "google/gemini-3.5-flash": [
+     "AI",
+     "Accessibility",
+     "UX",
+     "UX Design",
+     "Content Strategy"
+    ]
+   }
+  },
+  "tag-adjacent-7": {
+   "title": "Email Deliverability for Content Newsletters",
+   "acceptable": [
+    "Content Strategy",
+    "Marketing",
+    "Security"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "Content Strategy",
+     "Marketing"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "Content Strategy",
+     "Marketing",
+     "Security"
+    ],
+    "google/gemini-3.5-flash": [
+     "Content Strategy",
+     "Marketing",
+     "Security"
+    ]
+   }
+  },
+  "tag-adjacent-8": {
+   "title": "Row-Level Security in Postgres, Explained",
+   "acceptable": [
+    "Databases",
+    "Security",
+    "Software Engineering"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "Databases",
+     "Security",
+     "Software Engineering"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "Databases",
+     "Security"
+    ],
+    "google/gemini-3.5-flash": [
+     "Databases",
+     "Security",
+     "Software Engineering"
+    ]
+   }
+  },
+  "tag-adjacent-9": {
+   "title": "Solar Microgrids for Rural Schools",
+   "acceptable": [
+    "Education",
+    "Energy"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "Energy",
+     "Education"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "Energy",
+     "Education"
+    ],
+    "google/gemini-3.5-flash": [
+     "Energy",
+     "Education"
+    ]
+   }
+  },
+  "tag-adjacent-10": {
+   "title": "Buy Now, Pay Later at the Checkout",
+   "acceptable": [
+    "Financial Services",
+    "Marketing",
+    "Retail",
+    "UX",
+    "eCommerce"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "eCommerce",
+     "Retail",
+     "Financial Services",
+     "Marketing",
+     "UX"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "eCommerce",
+     "UX",
+     "Marketing",
+     "Retail",
+     "B2B"
+    ],
+    "google/gemini-3.5-flash": [
+     "eCommerce",
+     "Retail",
+     "Financial Services",
+     "UX",
+     "UX Design",
+     "Marketing"
+    ]
+   }
+  },
+  "tag-adjacent-11": {
+   "title": "Feature Flags Without the Flag Debt",
+   "acceptable": [
+    "DevOps",
+    "Software Engineering"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "Software Engineering",
+     "DevOps",
+     "Testing"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "Software Engineering",
+     "Developer Tools",
+     "Performance"
+    ],
+    "google/gemini-3.5-flash": [
+     "DevOps",
+     "Software Engineering"
+    ]
+   }
+  },
+  "tag-adjacent-12": {
+   "title": "Choosing a Headless CMS for a Marketing Site",
+   "acceptable": [
+    "Content Strategy",
+    "Developer Tools",
+    "Front-End",
+    "Marketing",
+    "Software Engineering"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [
+     "Content Strategy",
+     "Marketing",
+     "SEO",
+     "WordPress",
+     "Front-End",
+     "Web Performance",
+     "Performance",
+     "Software Engineering",
+     "Developer Tools"
+    ],
+    "anthropic/claude-haiku-4.5": [
+     "Content Strategy",
+     "Marketing",
+     "B2B",
+     "Developer Tools"
+    ],
+    "google/gemini-3.5-flash": [
+     "Front-End",
+     "Content Strategy",
+     "Marketing",
+     "DevOps",
+     "Software Engineering",
+     "Developer Tools"
+    ]
+   }
+  }
+ },
+ "foreignProbe": {
+  "tag-uncovered-1": {
+   "title": "Watercolor Techniques for Digital Illustrators",
+   "majoritySet": [],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [
+     "Design Systems",
+     "UX Design"
+    ],
+    "google/gemini-3.5-flash": []
+   }
+  },
+  "tag-uncovered-2": {
+   "title": "A Field Guide to Alpine Wildflowers",
+   "majoritySet": [],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [],
+    "google/gemini-3.5-flash": []
+   }
+  },
+  "tag-uncovered-3": {
+   "title": "Sourdough Starters for Busy People",
+   "majoritySet": [],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [],
+    "google/gemini-3.5-flash": []
+   }
+  },
+  "tag-uncovered-4": {
+   "title": "Urban Beekeeping on a Rooftop",
+   "majoritySet": [],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [],
+    "google/gemini-3.5-flash": []
+   }
+  },
+  "tag-uncovered-5": {
+   "title": "Restoring a 1970s Sailboat",
+   "majoritySet": [],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [],
+    "google/gemini-3.5-flash": []
+   }
+  },
+  "tag-uncovered-6": {
+   "title": "The History of Municipal Fountains",
+   "majoritySet": [],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [],
+    "google/gemini-3.5-flash": []
+   }
+  },
+  "tag-uncovered-7": {
+   "title": "Birdsong Identification by Ear",
+   "majoritySet": [
+    "Education"
+   ],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [
+     "Education"
+    ],
+    "google/gemini-3.5-flash": [
+     "Education"
+    ]
+   }
+  },
+  "tag-uncovered-8": {
+   "title": "Homemade Pasta Without a Machine",
+   "majoritySet": [],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [],
+    "google/gemini-3.5-flash": []
+   }
+  },
+  "tag-uncovered-9": {
+   "title": "Community Gardens and Neighborhood Ties",
+   "majoritySet": [],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [],
+    "google/gemini-3.5-flash": []
+   }
+  },
+  "tag-uncovered-10": {
+   "title": "Analog Photography in a Digital Age",
+   "majoritySet": [],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [],
+    "google/gemini-3.5-flash": []
+   }
+  },
+  "tag-uncovered-11": {
+   "title": "Training for a First Marathon at 40",
+   "majoritySet": [],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [],
+    "google/gemini-3.5-flash": []
+   }
+  },
+  "tag-uncovered-12": {
+   "title": "Woodworking Joints Every Beginner Should Know",
+   "majoritySet": [],
+   "votes": {
+    "anthropic/claude-opus-4.8": [],
+    "anthropic/claude-haiku-4.5": [],
+    "google/gemini-3.5-flash": []
+   }
+  }
+ }
+}

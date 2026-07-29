@@ -1,0 +1,57 @@
+=== Adjacent conformance, v1 key → locked v2 key ===
+gemini-3.5-flash AP-shipped: 10/12 → 11/12
+gemini-3.5-flash AP-fork: 10/12 → 11/12
+gemini-3.5-flash AP-empty: 11/12 → 11/12
+gemini-3.5-flash AP-tool: 12/12 → 12/12
+claude-sonnet-4.5 AP-shipped: 8/12 → 10/12
+claude-sonnet-4.5 AP-fork: 9/12 → 10/12
+claude-sonnet-4.5 AP-empty: 10/12 → 11/12
+claude-sonnet-4.5 AP-tool: 9/12 → 10/12
+claude-opus-4.8 AP-shipped: 6/12 → 8/12
+claude-opus-4.8 AP-fork: 8/12 → 10/12
+claude-opus-4.8 AP-empty: 8/12 → 10/12
+claude-opus-4.8 AP-tool: 9/12 → 11/12
+
+=== v1 misses: absolved vs standing under v2 ===
+gemini-3.5-flash AP-shipped tag-adjacent-12: ABSOLVED final=["Content Strategy","Marketing","Front-End"]
+gemini-3.5-flash AP-fork tag-adjacent-12: ABSOLVED final=["Content Strategy","Marketing","Front-End"]
+gemini-3.5-flash AP-empty tag-adjacent-12: ABSOLVED final=["Marketing","Content Strategy","Front-End"]
+gemini-3.5-flash AP-shipped tag-adjacent-7: ABSOLVED final=["Marketing","Content Strategy","Security"]
+gemini-3.5-flash AP-fork tag-adjacent-7: ABSOLVED final=["Marketing","Content Strategy","Security"]
+claude-sonnet-4.5 AP-shipped tag-adjacent-10: ABSOLVED final=["eCommerce","UX","Retail"]
+claude-sonnet-4.5 AP-fork tag-adjacent-10: ABSOLVED final=["eCommerce","UX","Retail"]
+claude-sonnet-4.5 AP-empty tag-adjacent-10: ABSOLVED final=["eCommerce","UX","Retail"]
+claude-sonnet-4.5 AP-tool tag-adjacent-10: ABSOLVED final=["eCommerce","UX","Financial Services"]
+claude-sonnet-4.5 AP-shipped tag-adjacent-12: ABSOLVED final=["Content Strategy","Marketing","Front-End"]
+claude-sonnet-4.5 AP-fork tag-adjacent-12: ABSOLVED final=["Marketing","Content Strategy","Front-End"]
+claude-sonnet-4.5 AP-empty tag-adjacent-12: ABSOLVED final=["Marketing","Content Strategy","Front-End"]
+claude-sonnet-4.5 AP-tool tag-adjacent-12: ABSOLVED final=["Content Strategy","Marketing","Front-End"]
+claude-sonnet-4.5 AP-shipped tag-adjacent-6: STANDS final=["UX Design","Accessibility","AI"]
+claude-sonnet-4.5 AP-fork tag-adjacent-6: STANDS final=["UX Design","Accessibility","AI"]
+claude-sonnet-4.5 AP-tool tag-adjacent-6: STANDS final=["UX Design","Accessibility","AI"]
+claude-sonnet-4.5 AP-shipped tag-adjacent-7: ABSOLVED final=["Marketing","Content Strategy","Security"]
+claude-opus-4.8 AP-shipped tag-adjacent-1: ABSOLVED final=["Performance","Web Performance","Databases","Software Engineering"]
+claude-opus-4.8 AP-empty tag-adjacent-1: ABSOLVED final=["Performance","Databases","Software Engineering","Developer Tools","Web Performance"]
+claude-opus-4.8 AP-fork tag-adjacent-1: ABSOLVED final=["Software Engineering","Databases","Performance","Web Performance"]
+claude-opus-4.8 AP-shipped tag-adjacent-10: ABSOLVED final=["eCommerce","UX","Retail","Financial Services"]
+claude-opus-4.8 AP-empty tag-adjacent-10: ABSOLVED final=["eCommerce","Retail","Financial Services","UX"]
+claude-opus-4.8 AP-tool tag-adjacent-10: ABSOLVED final=["eCommerce","Retail","Financial Services","UX"]
+claude-opus-4.8 AP-fork tag-adjacent-10: ABSOLVED final=["eCommerce","Retail","Financial Services","UX","Marketing"]
+claude-opus-4.8 AP-shipped tag-adjacent-12: STANDS final=["Content Strategy","Marketing","Developer Tools","Front-End","Web Performance"]
+claude-opus-4.8 AP-fork tag-adjacent-12: ABSOLVED final=["Front-End","Content Strategy","Marketing","Developer Tools"]
+claude-opus-4.8 AP-empty tag-adjacent-12: ABSOLVED final=["Content Strategy","Marketing","Front-End","Developer Tools"]
+claude-opus-4.8 AP-tool tag-adjacent-12: ABSOLVED final=["Content Strategy","Marketing","Front-End","Developer Tools"]
+claude-opus-4.8 AP-shipped tag-adjacent-3: ABSOLVED final=["Front-End","Web Standards","JavaScript","HTML","CSS","Design Systems"]
+claude-opus-4.8 AP-empty tag-adjacent-3: ABSOLVED final=["Front-End","JavaScript","HTML","CSS","Web Standards","Design Systems"]
+claude-opus-4.8 AP-fork tag-adjacent-3: ABSOLVED final=["Web Standards","Front-End","JavaScript","HTML","CSS","Design Systems"]
+claude-opus-4.8 AP-tool tag-adjacent-3: ABSOLVED final=["Web Standards","Front-End","JavaScript","HTML","CSS","Design Systems"]
+claude-opus-4.8 AP-shipped tag-adjacent-6: ABSOLVED final=["UX","UX Design","Accessibility","Content Strategy"]
+claude-opus-4.8 AP-shipped tag-adjacent-8: STANDS final=["Databases","Security","Software Engineering","B2B"]
+
+=== Gates (AP′) ===
+AP-H1 (carried): PASS (12/12)
+AP′-H2 (opus fork adjacent ≥10/12 AND foreign empty ≥10/12): PASS (adjacent 10/12, foreign empty 12/12)
+AP-H3 (carried, re-confirmed): PASS
+AP-H4 (carried, re-confirmed): PASS
+AP′-H5 (opus adjacent contrast under v2): fork 10/12 vs empty-text 10/12
+STUDY GATE (AP′): PASS
