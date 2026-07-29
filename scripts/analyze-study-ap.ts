@@ -11,6 +11,11 @@ const MODELS = [
 	"google/gemini-3.5-flash",
 	"anthropic/claude-sonnet-4.5",
 	"anthropic/claude-opus-4.8",
+	// Open-weight backfill (docs/BRIEF-OW.md): descriptive tier-map
+	// columns only — the registered gates stay opus-anchored.
+	"moonshotai/kimi-k3",
+	"openai/gpt-oss-120b",
+	"anthropic/claude-fable-5",
 ];
 const ARMS = ["AP-shipped", "AP-fork", "AP-empty", "AP-tool"];
 const CLASSES = ["covered", "trap", "adjacent", "foreign"];
@@ -104,9 +109,15 @@ const h1 = h1n >= 10;
 const h2adj = conformant(rows(OPUS, "AP-fork", "adjacent"));
 const h2for = empty(rows(OPUS, "AP-fork", "foreign"));
 const h2 = h2adj >= 10 && h2for >= 10;
+const GATE_MODELS = new Set([
+	"google/gemini-3.5-flash",
+	"anthropic/claude-sonnet-4.5",
+	"anthropic/claude-opus-4.8",
+]);
 let h3 = true;
 const h3fails: string[] = [];
 for (const model of MODELS) {
+	if (!GATE_MODELS.has(model)) continue;
 	for (const arm of ARMS) {
 		const rs = [...rows(model, arm, "covered"), ...rows(model, arm, "trap")];
 		if (rs.length > 0 && conformant(rs) < 22) {
@@ -118,6 +129,7 @@ for (const model of MODELS) {
 let h4 = true;
 const h4notes: string[] = [];
 for (const model of MODELS) {
+	if (!GATE_MODELS.has(model)) continue;
 	const rs = rows(model, "AP-tool");
 	const inventedCells = rs.filter(
 		(r) => Number(d(r).inventedCount ?? 0) > 0,

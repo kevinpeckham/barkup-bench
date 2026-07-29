@@ -11,6 +11,11 @@ const MODELS = [
 	"google/gemini-3.5-flash",
 	"anthropic/claude-sonnet-4.5",
 	"anthropic/claude-opus-4.8",
+	// Open-weight backfill (docs/BRIEF-OW.md): descriptive tier-map
+	// columns only — the registered gates stay opus-anchored.
+	"moonshotai/kimi-k3",
+	"openai/gpt-oss-120b",
+	"anthropic/claude-fable-5",
 ];
 const ARMS = ["AO-bare", "AO-shipped", "AO-warnings-only"];
 
@@ -29,6 +34,11 @@ const rows = (m: string, arm: string) =>
 	records.filter((r) => r.model === m && r.condition === arm);
 const clean = (rs: TaskRunRecord[]) => rs.filter((r) => r.success).length;
 
+const GATE_MODELS = new Set([
+	"google/gemini-3.5-flash",
+	"anthropic/claude-sonnet-4.5",
+	"anthropic/claude-opus-4.8",
+]);
 let h1 = true;
 let h4 = true;
 for (const model of MODELS) {
@@ -51,8 +61,9 @@ for (const model of MODELS) {
 		console.log(
 			`${arm}: clean ${clean(rs)}/${rs.length} (${byCls}) | empty ${empty} | tool ${toolUsed} | warned ${warned.length} → clean-after ${clean(warned)}`,
 		);
-		if (arm === "AO-bare" && clean(rs) > 28) h1 = false;
-		if (arm !== "AO-bare" && empty > 2) h4 = false;
+		if (GATE_MODELS.has(model) && arm === "AO-bare" && clean(rs) > 28)
+			h1 = false;
+		if (GATE_MODELS.has(model) && arm !== "AO-bare" && empty > 2) h4 = false;
 	}
 }
 const opusShipped = rows("anthropic/claude-opus-4.8", "AO-shipped");

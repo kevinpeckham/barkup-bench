@@ -7,13 +7,18 @@
  *
  *   bun run scripts/score-study-ap-prime.ts
  */
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import type { TaskRunRecord } from "../src/harness/records.js";
 
 const MODELS = [
 	"google/gemini-3.5-flash",
 	"anthropic/claude-sonnet-4.5",
 	"anthropic/claude-opus-4.8",
+	// Open-weight backfill (docs/BRIEF-OW.md): descriptive tier-map
+	// columns only — the registered gates stay opus-anchored.
+	"moonshotai/kimi-k3",
+	"openai/gpt-oss-120b",
+	"anthropic/claude-fable-5",
 ];
 const ARMS = ["AP-shipped", "AP-fork", "AP-empty", "AP-tool"];
 const OPUS = "anthropic/claude-opus-4.8";
@@ -29,10 +34,9 @@ const key = JSON.parse(
 const records: TaskRunRecord[] = [];
 for (const model of MODELS) {
 	const slug = model.replace(/[^a-z0-9.-]+/gi, "_");
-	for (const line of readFileSync(
-		`results/raw/studyap-${slug}.jsonl`,
-		"utf8",
-	).split("\n")) {
+	const path = `results/raw/studyap-${slug}.jsonl`;
+	if (!existsSync(path)) continue;
+	for (const line of readFileSync(path, "utf8").split("\n")) {
 		if (line.trim() !== "") records.push(JSON.parse(line) as TaskRunRecord);
 	}
 }
@@ -88,8 +92,14 @@ const h2adj = rows(OPUS, "AP-fork", "adjacent").filter(
 	adjacentConformantV2,
 ).length;
 const h2for = empty(rows(OPUS, "AP-fork", "foreign"));
+const GATE_MODELS = new Set([
+	"google/gemini-3.5-flash",
+	"anthropic/claude-sonnet-4.5",
+	"anthropic/claude-opus-4.8",
+]);
 let h3 = true;
 for (const model of MODELS) {
+	if (!GATE_MODELS.has(model)) continue;
 	for (const arm of ARMS) {
 		const rs = [...rows(model, arm, "covered"), ...rows(model, arm, "trap")];
 		if (rs.length > 0 && conformantV1(rs) < 22) h3 = false;
@@ -97,6 +107,7 @@ for (const model of MODELS) {
 }
 let h4 = true;
 for (const model of MODELS) {
+	if (!GATE_MODELS.has(model)) continue;
 	const rs = rows(model, "AP-tool");
 	const inventedCells = rs.filter(
 		(r) => Number(d(r).inventedCount ?? 0) > 0,
