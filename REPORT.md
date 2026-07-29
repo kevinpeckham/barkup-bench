@@ -2662,6 +2662,85 @@ registrations are now authored by independent multi-editor passes
 with a mechanical merge — never by the analyst alone. The AO
 protocol-lesson thread that opened this family is closed.
 
+## Addendum (2026-07-29): the open-weight backfill — tier maps for kimi-k3, gpt-oss-120b, and fable-5 (two 12/13s on the same red gate; the cheapest model passes everything)
+
+Pre-registered in [docs/BRIEF-OW.md](docs/BRIEF-OW.md): a tier-map
+extension, no new gates, prompts and corpora byte-identical, all
+registered verdicts pinned to the original model trio. Disclosure
+carried from the brief: the analyst model (fable-5) is among the
+models measured; every grader here is mechanical and predates any
+fable-5 run; Track 2 judge-graded studies excluded.
+
+**Phase 0 — the regression suite (13 registered gates per model):**
+
+- **openai/gpt-oss-120b: 13/13 PASS**, at $0.32 total. The cheapest
+  model in the series' history clears every shipped-surface
+  guardrail — anchored patches, focused views, search grounding,
+  the focus-ids contract, ask calibration, echo, memo block, agent
+  extraction, precedence, standing pack, memo scale. The app-side
+  carrier philosophy (context handed to the model, tools over
+  rules, server-owned invariants) was designed to be tier-robust;
+  this is its strongest confirmation yet.
+- **moonshotai/kimi-k3: 12/13** — RED on exactly one slice:
+  goal-safe eviction at the K=20 memo cap edge (8/10 vs ≥9/10).
+- **anthropic/claude-fable-5: 12/13** — RED on the SAME slice
+  (7/10). Both reds share Study AK's registered client-prune
+  anatomy: the model sends a list already trimmed to the cap
+  (never over-cap, so the app's goal-preserving eviction never
+  engages), having itself dropped an old GOAL — the memo's most
+  irreplaceable cargo (Study V). Fable-5's three failures are all
+  exactly this; kimi adds one lossy self-consolidation (sent 9
+  notes, old notes lost). The failure is cap-OBEDIENCE: opus
+  passes this slice by over-sending and letting the app decide,
+  where these two models politely self-edit and choose victims
+  badly. Notable inversion: gpt-oss-120b passes the slice 10/10.
+  Per the standing procedure, neither model ships onto the chat
+  surfaces past this red gate; it also gives the filed AL powered
+  re-measurement (the client-prune prompt fence, "unproven, not
+  disproven") the motivation it previously lacked — the two newest
+  frontier-class models both exhibit the exact pathway that fence
+  targets, where the aging shipped tier does not.
+
+**Phase 1 — the tag-steering family (AO's 3 arms + AP's 4 arms,
+900 cells, scored under both the v1 and the AP′ independent keys):**
+
+- **Universal replications:** bare-arm drift 0/36 on all three
+  models (no model, open or closed, matches catalog casing
+  unguided); `tags_list` consulted unprompted in every shipped-arm
+  cell (84/84 per model across both studies); zero invented tags
+  anywhere; covered+trap discipline 24/24 in every AP arm on every
+  backfill model.
+- **kimi-k3 is the best adjacent-class performer measured to
+  date:** 12/12 in ALL FOUR AP arms under the AP′ key (opus:
+  10–11), foreign empty 10/12 unaided rising to 12/12 under either
+  guidance sentence, opus-like empty disposition in AO (10/12
+  empty on uncovered), clean sparse mints (GraphQL, Postgres).
+- **fable-5 profiles as opus's successor with one divergence:**
+  same empty-on-foreign lean (10/12 unaided → 12/12 with either
+  text), adjacent 10–11/12 under the AP′ key — but it is
+  mint-WILLING (24 accepted mints incl. every foreign cell) where
+  opus minted 4 and preferred empty. Mint quality is high
+  (Kubernetes, PostgreSQL, GraphQL); the catalog-growth
+  consideration that attached to gemini attaches here.
+- **gpt-oss-120b is the cautionary profile, in a new shape:**
+  perfect catalog obedience yet ZERO empty foreign cells unaided —
+  it stretches general canonical tags onto every sourdough-class
+  topic (AO uncovered "clean" 12/12 by the non-empty rule, i.e.
+  fully generalized); the guidance sentences only partially rescue
+  it (fork 7/12, empty text 10/12 — the only model measured where
+  the empty text does not reach 12/12); its AO warnings-only arm
+  collapsed to 1/36, the starkest the-tool-is-the-mechanism
+  datapoint in the family; and its mints trend hyper-specific
+  ("Municipal Fountains", "Alpine Wildflowers") — catalog
+  pollution in miniature. One foreign tool-arm cell ended
+  unparseable after minting.
+
+**Cost fence: EXCEEDED, disclosed.** Registered ≈$25–45; actual
+≈$53.40 ($34.90 of it fable-5's regression run — 2.98M input
+tokens at the frontier rate, underestimated in the brief). No
+further backfill spend without a new authorization; Phase 2
+(deeper family re-runs) remains unregistered and unspent.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably

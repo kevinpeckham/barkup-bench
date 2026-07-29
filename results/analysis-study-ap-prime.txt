@@ -11,6 +11,18 @@ claude-opus-4.8 AP-shipped: 6/12 → 8/12
 claude-opus-4.8 AP-fork: 8/12 → 10/12
 claude-opus-4.8 AP-empty: 8/12 → 10/12
 claude-opus-4.8 AP-tool: 9/12 → 11/12
+kimi-k3 AP-shipped: 11/12 → 12/12
+kimi-k3 AP-fork: 12/12 → 12/12
+kimi-k3 AP-empty: 12/12 → 12/12
+kimi-k3 AP-tool: 12/12 → 12/12
+gpt-oss-120b AP-shipped: 4/12 → 6/12
+gpt-oss-120b AP-fork: 5/12 → 6/12
+gpt-oss-120b AP-empty: 5/12 → 7/12
+gpt-oss-120b AP-tool: 7/12 → 7/12
+claude-fable-5 AP-shipped: 8/12 → 10/12
+claude-fable-5 AP-fork: 9/12 → 11/12
+claude-fable-5 AP-empty: 10/12 → 11/12
+claude-fable-5 AP-tool: 9/12 → 11/12
 
 === v1 misses: absolved vs standing under v2 ===
 gemini-3.5-flash AP-shipped tag-adjacent-12: ABSOLVED final=["Content Strategy","Marketing","Front-End"]
@@ -47,6 +59,46 @@ claude-opus-4.8 AP-fork tag-adjacent-3: ABSOLVED final=["Web Standards","Front-E
 claude-opus-4.8 AP-tool tag-adjacent-3: ABSOLVED final=["Web Standards","Front-End","JavaScript","HTML","CSS","Design Systems"]
 claude-opus-4.8 AP-shipped tag-adjacent-6: ABSOLVED final=["UX","UX Design","Accessibility","Content Strategy"]
 claude-opus-4.8 AP-shipped tag-adjacent-8: STANDS final=["Databases","Security","Software Engineering","B2B"]
+kimi-k3 AP-shipped tag-adjacent-7: ABSOLVED final=["Marketing","Content Strategy","Security"]
+gpt-oss-120b AP-shipped tag-adjacent-1: STANDS final=["JavaScript","TypeScript","Software Engineering","Performance","Developer Tools"]
+gpt-oss-120b AP-fork tag-adjacent-1: STANDS final=["Software Engineering","JavaScript","Performance"]
+gpt-oss-120b AP-shipped tag-adjacent-10: ABSOLVED final=["eCommerce","Retail","Financial Services","Marketing","UX"]
+gpt-oss-120b AP-tool tag-adjacent-10: ABSOLVED final=["eCommerce","Retail","Financial Services","Marketing"]
+gpt-oss-120b AP-empty tag-adjacent-10: ABSOLVED final=["eCommerce","Retail","Financial Services","Marketing","UX"]
+gpt-oss-120b AP-fork tag-adjacent-12: STANDS final=["Content Strategy","Marketing","Open Source","Performance","Security"]
+gpt-oss-120b AP-shipped tag-adjacent-12: STANDS final=["Content Strategy","Marketing","SEO","Performance","Security"]
+gpt-oss-120b AP-tool tag-adjacent-12: STANDS final=["Content Strategy","Marketing","SEO","Performance","Security"]
+gpt-oss-120b AP-empty tag-adjacent-12: STANDS final=["Content Strategy","Marketing","SEO","Performance"]
+gpt-oss-120b AP-shipped tag-adjacent-3: STANDS final=["Front-End","JavaScript","HTML","CSS","Web Standards","Web Performance"]
+gpt-oss-120b AP-fork tag-adjacent-3: ABSOLVED final=["Front-End","JavaScript","HTML","CSS","Web Standards"]
+gpt-oss-120b AP-empty tag-adjacent-3: ABSOLVED final=["Web Standards","Front-End","JavaScript","HTML","CSS"]
+gpt-oss-120b AP-shipped tag-adjacent-4: STANDS final=["AI","LLMs","Machine Learning","Research"]
+gpt-oss-120b AP-empty tag-adjacent-4: STANDS final=["AI","LLMs","Machine Learning","Research"]
+gpt-oss-120b AP-fork tag-adjacent-4: STANDS final=["AI","LLMs","Machine Learning","Research"]
+gpt-oss-120b AP-tool tag-adjacent-3: ABSOLVED final=["Web Components","JavaScript","HTML","CSS","Front-End","Web Standards"]
+gpt-oss-120b AP-tool tag-adjacent-4: STANDS final=["AI","LLMs","Machine Learning","Research"]
+gpt-oss-120b AP-fork tag-adjacent-5: STANDS final=["DevOps","Performance","Software Engineering","Developer Tools"]
+gpt-oss-120b AP-empty tag-adjacent-5: STANDS final=["DevOps","Performance","Software Engineering","Developer Tools"]
+gpt-oss-120b AP-shipped tag-adjacent-6: ABSOLVED final=["UX","UX Design","Accessibility","Design Systems"]
+gpt-oss-120b AP-tool tag-adjacent-6: STANDS final=["UX Design","Accessibility","Agents"]
+gpt-oss-120b AP-fork tag-adjacent-6: STANDS final=["UX","UX Design","AI"]
+gpt-oss-120b AP-empty tag-adjacent-6: STANDS final=["UX","UX Design","Accessibility","AI"]
+gpt-oss-120b AP-shipped tag-adjacent-5: STANDS final=["DevOps","Performance","Software Engineering","Developer Tools"]
+gpt-oss-120b AP-shipped tag-adjacent-7: ABSOLVED final=["Marketing","Content Strategy","Security"]
+gpt-oss-120b AP-empty tag-adjacent-7: ABSOLVED final=["Marketing","Security","Content Strategy"]
+gpt-oss-120b AP-fork tag-adjacent-7: ABSOLVED final=["Marketing","Security","Content Strategy"]
+claude-fable-5 AP-shipped tag-adjacent-10: ABSOLVED final=["eCommerce","Retail","Financial Services","UX"]
+claude-fable-5 AP-fork tag-adjacent-10: ABSOLVED final=["eCommerce","Retail","Financial Services","UX"]
+claude-fable-5 AP-tool tag-adjacent-10: ABSOLVED final=["eCommerce","Retail","Financial Services","UX"]
+claude-fable-5 AP-empty tag-adjacent-10: ABSOLVED final=["eCommerce","Retail","Financial Services","UX"]
+claude-fable-5 AP-shipped tag-adjacent-12: ABSOLVED final=["Content Strategy","Marketing","Front-End","Developer Tools"]
+claude-fable-5 AP-fork tag-adjacent-12: ABSOLVED final=["Content Strategy","Marketing","Front-End","Software Engineering"]
+claude-fable-5 AP-empty tag-adjacent-12: ABSOLVED final=["Content Strategy","Marketing","Front-End"]
+claude-fable-5 AP-shipped tag-adjacent-3: ABSOLVED final=["Front-End","JavaScript","HTML","Web Standards","Software Engineering"]
+claude-fable-5 AP-tool tag-adjacent-12: ABSOLVED final=["Headless CMS","Content Strategy","Marketing","Front-End"]
+claude-fable-5 AP-shipped tag-adjacent-7: ABSOLVED final=["Marketing","Content Strategy","Security"]
+claude-fable-5 AP-fork tag-adjacent-7: ABSOLVED final=["Marketing","Content Strategy","Security"]
+claude-fable-5 AP-tool tag-adjacent-7: ABSOLVED final=["Email Marketing","Marketing","Content Strategy","Security"]
 
 === Gates (AP′) ===
 AP-H1 (carried): PASS (12/12)

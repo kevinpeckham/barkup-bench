@@ -13,6 +13,21 @@ AP-shipped: covered 12/12, trap 12/12, adjacent 6/12, foreign empty 12/12 | tags
 AP-fork: covered 11/12, trap 12/12, adjacent 8/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
 AP-empty: covered 12/12, trap 12/12, adjacent 8/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
 AP-tool: covered 12/12, trap 12/12, adjacent 9/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0 | mints 4/4 attempts
+--- kimi-k3 ---
+AP-shipped: covered 12/12, trap 12/12, adjacent 11/12, foreign empty 10/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-fork: covered 12/12, trap 12/12, adjacent 12/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-empty: covered 12/12, trap 12/12, adjacent 12/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-tool: covered 11/12, trap 12/12, adjacent 12/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0 | mints 25/25 attempts
+--- gpt-oss-120b ---
+AP-shipped: covered 12/12, trap 12/12, adjacent 4/12, foreign empty 0/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-fork: covered 12/12, trap 12/12, adjacent 5/12, foreign 7/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-empty: covered 12/12, trap 12/12, adjacent 5/12, foreign 10/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-tool: covered 12/12, trap 12/12, adjacent 7/12, foreign 11/12 | tags_list 48/48 | warned 0 | invented-cells 0 | mints 18/18 attempts
+--- claude-fable-5 ---
+AP-shipped: covered 12/12, trap 12/12, adjacent 8/12, foreign empty 10/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-fork: covered 12/12, trap 12/12, adjacent 9/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-empty: covered 12/12, trap 12/12, adjacent 10/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0
+AP-tool: covered 12/12, trap 12/12, adjacent 9/12, foreign 12/12 | tags_list 48/48 | warned 0 | invented-cells 0 | mints 24/24 attempts
 
 === Mint anatomy (AP-tool) ===
 gemini-3.5-flash tag-covered-7 [covered]: minted ["Headless CMS"] → final ["Security","DevOps","Headless CMS"]
@@ -39,11 +54,61 @@ claude-sonnet-4.5 tag-uncovered-8 [foreign]: minted ["Cooking","Recipes","DIY"] 
 claude-opus-4.8 tag-adjacent-1 [adjacent]: minted ["GraphQL"] → final ["GraphQL","Performance","Software Engineering","Databases"]
 claude-opus-4.8 tag-adjacent-7 [adjacent]: minted ["Email Marketing"] → final ["Email Marketing","Content Strategy","Marketing"]
 claude-opus-4.8 tag-uncovered-1 [foreign]: minted ["Digital Illustration","Digital Art"] → final ["Digital Illustration","Digital Art"]
+kimi-k3 tag-covered-7 [covered]: minted ["Headless CMS"] → final ["Security","Headless CMS"]
+kimi-k3 tag-adjacent-1 [adjacent]: minted ["GraphQL"] → final ["GraphQL","Performance","Databases"]
+kimi-k3 tag-adjacent-12 [adjacent]: minted ["Headless CMS"] → final ["Headless CMS","Content Strategy","Marketing"]
+kimi-k3 tag-adjacent-6 [adjacent]: minted ["Voice Interfaces"] → final ["Voice Interfaces","UX Design","Accessibility"]
+kimi-k3 tag-uncovered-1 [foreign]: minted ["Illustration"] → final ["Illustration"]
+kimi-k3 tag-adjacent-8 [adjacent]: minted ["Postgres"] → final ["Postgres","Databases","Security"]
+kimi-k3 tag-uncovered-10 [foreign]: minted ["Photography"] → final ["Photography"]
+kimi-k3 tag-uncovered-11 [foreign]: minted ["Running","Fitness"] → final ["Running","Fitness"]
+kimi-k3 tag-uncovered-12 [foreign]: minted ["Woodworking"] → final ["Woodworking"]
+kimi-k3 tag-uncovered-2 [foreign]: minted ["Wildflowers","Hiking","Nature"] → final ["Wildflowers","Hiking","Nature"]
+kimi-k3 tag-uncovered-3 [foreign]: minted ["Baking"] → final ["Baking"]
+kimi-k3 tag-uncovered-4 [foreign]: minted ["Beekeeping"] → final ["Beekeeping"]
+kimi-k3 tag-uncovered-5 [foreign]: minted ["Boat Restoration","Sailing","DIY"] → final ["Boat Restoration","Sailing","DIY"]
+kimi-k3 tag-uncovered-6 [foreign]: minted ["History","Urban Planning","Architecture"] → final ["History","Urban Planning","Architecture"]
+kimi-k3 tag-uncovered-7 [foreign]: minted ["Birding"] → final ["Birding"]
+kimi-k3 tag-uncovered-8 [foreign]: minted ["Cooking"] → final ["Cooking"]
+kimi-k3 tag-uncovered-9 [foreign]: minted ["Community Gardens","Community"] → final ["Community Gardens","Community"]
+gpt-oss-120b tag-adjacent-3 [adjacent]: minted ["Web Components"] → final ["Web Components","JavaScript","HTML","CSS","Front-End","Web Standards"]
+gpt-oss-120b tag-adjacent-7 [adjacent]: minted ["Email Deliverability"] → final ["Email Deliverability","Content Strategy","Marketing"]
+gpt-oss-120b tag-uncovered-1 [foreign]: minted ["Digital Illustration","Watercolor"] → final ["Digital Illustration","Watercolor"]
+gpt-oss-120b tag-uncovered-10 [foreign]: minted ["Photography"] → final ["Photography"]
+gpt-oss-120b tag-uncovered-11 [foreign]: minted ["Running","Fitness","Marathon"] → final null
+gpt-oss-120b tag-uncovered-12 [foreign]: minted ["Woodworking"] → final ["Woodworking"]
+gpt-oss-120b tag-uncovered-2 [foreign]: minted ["Alpine Wildflowers","Hiking"] → final ["Alpine Wildflowers","Hiking","Education"]
+gpt-oss-120b tag-uncovered-3 [foreign]: minted ["Sourdough","Baking"] → final ["Sourdough","Baking"]
+gpt-oss-120b tag-uncovered-4 [foreign]: minted ["Urban Beekeeping"] → final ["Urban Beekeeping"]
+gpt-oss-120b tag-uncovered-5 [foreign]: minted ["Boat Restoration"] → final ["Boat Restoration"]
+gpt-oss-120b tag-uncovered-6 [foreign]: minted ["Municipal Fountains"] → final ["Municipal Fountains","Research"]
+gpt-oss-120b tag-uncovered-8 [foreign]: minted ["Cooking"] → final ["Cooking"]
+gpt-oss-120b tag-uncovered-9 [foreign]: minted ["Community Gardens"] → final ["Community Gardens"]
+claude-fable-5 tag-adjacent-1 [adjacent]: minted ["GraphQL"] → final ["GraphQL","Software Engineering","Performance"]
+claude-fable-5 tag-adjacent-12 [adjacent]: minted ["Headless CMS"] → final ["Headless CMS","Content Strategy","Marketing","Front-End"]
+claude-fable-5 tag-adjacent-5 [adjacent]: minted ["Kubernetes"] → final ["Kubernetes","DevOps","Performance"]
+claude-fable-5 tag-adjacent-7 [adjacent]: minted ["Email Marketing"] → final ["Email Marketing","Marketing","Content Strategy","Security"]
+claude-fable-5 tag-adjacent-8 [adjacent]: minted ["PostgreSQL"] → final ["PostgreSQL","Databases","Security"]
+claude-fable-5 tag-uncovered-1 [foreign]: minted ["Illustration","Digital Art"] → final ["Illustration","Digital Art"]
+claude-fable-5 tag-uncovered-10 [foreign]: minted ["Photography"] → final ["Photography"]
+claude-fable-5 tag-uncovered-11 [foreign]: minted ["Running","Fitness"] → final ["Running","Fitness"]
+claude-fable-5 tag-uncovered-12 [foreign]: minted ["Woodworking"] → final ["Woodworking"]
+claude-fable-5 tag-uncovered-2 [foreign]: minted ["Outdoors","Hiking"] → final ["Outdoors","Hiking"]
+claude-fable-5 tag-uncovered-3 [foreign]: minted ["Baking"] → final ["Baking"]
+claude-fable-5 tag-uncovered-4 [foreign]: minted ["Sustainability"] → final ["Sustainability"]
+claude-fable-5 tag-uncovered-5 [foreign]: minted ["Sailing","Boat Restoration"] → final ["Sailing","Boat Restoration"]
+claude-fable-5 tag-uncovered-6 [foreign]: minted ["Urban Design","History"] → final ["Urban Design","History"]
+claude-fable-5 tag-uncovered-7 [foreign]: minted ["Birding"] → final ["Birding"]
+claude-fable-5 tag-uncovered-8 [foreign]: minted ["Cooking","Recipes"] → final ["Cooking","Recipes"]
+claude-fable-5 tag-uncovered-9 [foreign]: minted ["Community","Urban Gardening"] → final ["Community","Urban Gardening"]
 
 === AP-shipped foreign distribution ===
 gemini-3.5-flash: empty 7/12, canonical-generalized 5, invented 0
 claude-sonnet-4.5: empty 7/12, canonical-generalized 5, invented 0
 claude-opus-4.8: empty 12/12, canonical-generalized 0, invented 0
+kimi-k3: empty 10/12, canonical-generalized 2, invented 0
+gpt-oss-120b: empty 0/12, canonical-generalized 12, invented 0
+claude-fable-5: empty 10/12, canonical-generalized 2, invented 0
 
 === Gates ===
 AP-H1 (opus shipped foreign empty ≥10/12): PASS (12/12)

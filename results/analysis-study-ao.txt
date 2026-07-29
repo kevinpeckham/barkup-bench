@@ -10,6 +10,18 @@ AO-warnings-only: clean 16/36 (covered 7/12, trap 9/12, uncovered 0/12) | empty 
 AO-bare: clean 0/36 (covered 0/12, trap 0/12, uncovered 0/12) | empty 0 | tool 0 | warned 0 → clean-after 0
 AO-shipped: clean 24/36 (covered 12/12, trap 12/12, uncovered 0/12) | empty 12 | tool 36 | warned 0 → clean-after 0
 AO-warnings-only: clean 24/36 (covered 12/12, trap 12/12, uncovered 0/12) | empty 1 | tool 0 | warned 36 → clean-after 24
+--- kimi-k3 ---
+AO-bare: clean 0/36 (covered 0/12, trap 0/12, uncovered 0/12) | empty 0 | tool 0 | warned 0 → clean-after 0
+AO-shipped: clean 26/36 (covered 12/12, trap 12/12, uncovered 2/12) | empty 10 | tool 36 | warned 0 → clean-after 0
+AO-warnings-only: clean 18/36 (covered 7/12, trap 11/12, uncovered 0/12) | empty 7 | tool 0 | warned 36 → clean-after 18
+--- gpt-oss-120b ---
+AO-bare: clean 0/36 (covered 0/12, trap 0/12, uncovered 0/12) | empty 0 | tool 0 | warned 0 → clean-after 0
+AO-shipped: clean 36/36 (covered 12/12, trap 12/12, uncovered 12/12) | empty 0 | tool 36 | warned 1 → clean-after 1
+AO-warnings-only: clean 1/36 (covered 1/12, trap 0/12, uncovered 0/12) | empty 0 | tool 0 | warned 36 → clean-after 1
+--- claude-fable-5 ---
+AO-bare: clean 0/36 (covered 0/12, trap 0/12, uncovered 0/12) | empty 0 | tool 0 | warned 0 → clean-after 0
+AO-shipped: clean 26/36 (covered 12/12, trap 12/12, uncovered 2/12) | empty 10 | tool 36 | warned 0 → clean-after 0
+AO-warnings-only: clean 18/36 (covered 9/12, trap 9/12, uncovered 0/12) | empty 1 | tool 0 | warned 36 → clean-after 18
 
 === Gates ===
 AO-H1 (drift anchor): PASS
