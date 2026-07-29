@@ -2588,6 +2588,72 @@ sub-frontier stretching onto wholly-foreign topics, the minimal
 empty text is sufficient for that job on all tiers, and no text is
 needed on the frontier tier, which already refuses.
 
+## Addendum (2026-07-29): Study AP′ — the re-registered answer key (GATE PASS; the independent key absolves the models and convicts the registration, with five honest exceptions)
+
+Pre-registered in [docs/BRIEF-AP-PRIME.md](docs/BRIEF-AP-PRIME.md):
+a re-scoring protocol, not a fresh experiment — AP's 576 frozen raw
+cells re-scored under the BYTE-IDENTICAL adjacent conformance rule
+against an answer key authored by editors who never saw the model
+outputs. Three fresh contexts (opus-4.8, haiku-4.5 as the
+non-test-model editor, gemini-3.5-flash) each judged the 24
+adjacent + foreign tasks from title, summary, and catalog alone —
+no class labels, no study context; a tag entered the key on a
+2-of-3 vote; Kevin's registered strike/add review approved the
+merged key unchanged. Epistemic status disclosed in the brief:
+corrected measurement with mitigated (not eliminated) hindsight.
+One harness artifact, disclosed: elicitation run 1 rendered catalog
+entries as "- AI (other)" and editors copied the parenthetical,
+voiding their votes on exact-name matching; run 2 (names only) is
+the source, run 1 preserved. Cost: 72 elicitation calls, cents.
+
+**Verdict: STUDY GATE PASS.** AP′-H2 on opus: fork-text adjacent
+10/12 — exactly at the pre-registered bar — with foreign empty
+12/12 unchanged; H1, H3, H4 carried and re-confirmed from the same
+records. The AP interpretation stands corrected end-to-end.
+
+- **The key is independently wider, and not uniformly.** The 2-of-3
+  merge widened nine of twelve adjacent sets (adding exactly the
+  tags the models had chosen: `UX` on checkout conversion, `CSS` on
+  web components, `Security` on DMARC deliverability, `Front-End`
+  on headless CMS) but TIGHTENED two (Kubernetes lost
+  `Software Engineering`; feature flags lost `Developer Tools` and
+  `Testing`) — evidence of judgment, not generosity.
+- **28 of 33 v1 misses absolved; 5 stand.** The standing misses are
+  real over-generalizations by the models, now confirmed by
+  independent editors: sonnet's `AI` on voice interfaces (3 cells)
+  and opus's `B2B` on Postgres row-level security and
+  `Web Performance` on a headless-CMS comparison (1 cell each).
+  Adjacent conformance pooled across arms: gemini 43→45/48, sonnet
+  36→41/48, opus 31→39/48.
+- **The foreign probe validates the class split, 11/12.** Every
+  editor majority returned the empty set on eleven wholly-foreign
+  tasks. The exception is published as registered: "Birdsong
+  Identification by Ear" drew a majority `Education` set — that
+  task's classification is flagged contested (its AP scoring
+  stands; the flag is interpretive, and notably the models that
+  stretched a tag onto it in AP chose `Education` too).
+- **AP′-H5, the wording contrast: a tie.** Under the locked key,
+  fork text and empty text both score 10/12 on opus adjacent (11 vs
+  11 on gemini, 10 vs 11 on sonnet). The fork text's
+  nearest-general affordance adds nothing measurable anywhere — so
+  the SHIP CANDIDATE is the shorter empty text ("Only use tags that
+  genuinely fit the article. If no canonical tag genuinely fits,
+  return an empty tags list — do not stretch loosely-related tags
+  and do not invent new ones."), which also closed the foreign
+  branch 12/12 on all three tiers in AP. Wording pick is the
+  product's; both sentences are measured.
+
+**What ships and what closes.** Per the pre-registered
+interpretation table: the guidance sentence is validated for the
+`tags_list` description on the shipped tier (replicator's product
+decision on timing and wording); `tag_create`'s record is unchanged
+(discipline-safe, tier-gated-or-approved if it ever ships); and the
+solo-authoring lesson is confirmed as the sole cause of AP's FAIL.
+Standing protocol change for this family: acceptance-set
+registrations are now authored by independent multi-editor passes
+with a mechanical merge — never by the analyst alone. The AO
+protocol-lesson thread that opened this family is closed.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
