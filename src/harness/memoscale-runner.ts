@@ -212,7 +212,39 @@ export type MemoIntegrityArm =
 	| "AK-eviction"
 	| "AL-fence"
 	| "AM-control"
-	| "AM-invite";
+	| "AM-invite"
+	| "AR-headroom"
+	| "AR-truecap";
+
+/**
+ * Study AR (docs/BRIEF-AR.md): the single experimental variable is a
+ * capacity STATE line rendered into the memo block header, after the
+ * PRECEDENCE sentence. Templates frozen in the brief; {count} is the
+ * live note count. The headroom figure is honest: the ported handler
+ * accepts over-length updates and evicts to the 20-note storage cap.
+ */
+export const AR_HEADROOM_TEMPLATE =
+	"Notes: {count} in use · an update may include up to 24 notes.";
+export const AR_TRUECAP_TEMPLATE =
+	"Notes: {count} in use · an update may include up to 20 notes.";
+
+const BLOCK_HEADER_END = "keep the note unless the user retracts it).\n";
+
+/** The memo block an arm renders (AR's one variable). */
+export function blockForArm(
+	arm: MemoIntegrityArm,
+	notes: SessionNote[],
+): string {
+	const block = formatSessionNotesBlockV2(notes);
+	if (arm !== "AR-headroom" && arm !== "AR-truecap") return block;
+	const template =
+		arm === "AR-headroom" ? AR_HEADROOM_TEMPLATE : AR_TRUECAP_TEMPLATE;
+	const line = template.replace("{count}", String(notes.length));
+	if (!block.includes(BLOCK_HEADER_END)) {
+		throw new Error("memo block header anchor not found — port drift?");
+	}
+	return block.replace(BLOCK_HEADER_END, `${BLOCK_HEADER_END}${line}\n`);
+}
 
 /** The BRIEF-AL fence sentence, verbatim. Do not edit without a new brief. */
 export const AL_FENCE_SENTENCE =
@@ -249,7 +281,9 @@ function armRunsEviction(arm: MemoIntegrityArm): boolean {
 		arm === "AK-eviction" ||
 		arm === "AL-fence" ||
 		arm === "AM-control" ||
-		arm === "AM-invite"
+		arm === "AM-invite" ||
+		arm === "AR-headroom" ||
+		arm === "AR-truecap"
 	);
 }
 
@@ -439,7 +473,7 @@ export async function runMemoIntegrityTask(
 		conditionF.systemPrompt +
 		VIEW_RULES +
 		`\n\n${promptRuleForArm(arm)}` +
-		formatSessionNotesBlockV2(task.notes);
+		blockForArm(arm, task.notes);
 	const view = serializeView(task.tree, task.focusIds, "minimal");
 	const messages: ModelMessage[] = [
 		{
