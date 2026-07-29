@@ -1,0 +1,11 @@
+# Study AR-prime re-score (docs/BRIEF-AR-PRIME.md) — frozen studyar records, comparative no-harm conjunct
+
+fable-5: prunes c3/h0, goal-loss c3/h0, landing h40/40 | H1′ conjuncts: prunes 0<=3 ok, goal-loss 0<=3 ok, landing 40>=38 ok
+kimi-k3: prunes c8/h7, goal-loss c8/h8, landing h39/40 | H1′ conjuncts: prunes 7<=8 ok, goal-loss 8<=8 ok, landing 39>=38 ok
+sonnet-4.5: prunes c18/h0, goal-loss c18/h0, landing h40/40
+gemini-3.5-flash: prunes c15/h0, goal-loss c15/h0, landing h40/40
+
+AR′-H1 (comparative no-harm, both swap candidates): PASS
+AR-H2 (carried, unchanged): FAIL — pooled control prunes 11/80, p=.227 (intact baseline; effect absent on the swap candidates)
+AR-H3 (carried, unchanged): PASS
+STUDY GATE (AR′): FAIL— H2 stands; corrected reading: no-harm established, swap-candidate effect absent; the headroom line joins the measured shelf (sonnet/gemini-class) and stays unshipped for the tier-swap package

@@ -2887,6 +2887,27 @@ re-characterized: not cap-obedience but lossy consolidation —
 any future mitigation targets consolidation fidelity, not capacity
 beliefs. Cost inside the $15–30 fence.
 
+## Addendum (2026-07-29): Study AR′ — the comparative conjunct (re-score as disclosed: no-harm established, effect absent, gate stands FAIL)
+
+Pre-registered in [docs/BRIEF-AR-PRIME.md](docs/BRIEF-AR-PRIME.md)
+with its epistemic status stated plainly (a deterministic
+recomputation whose outcome the analyst could predict; the value is
+the corrected formal record, as in AP′). One change: AR-H1's
+goal-loss conjunct becomes comparative (headroom ≤ contemporaneous
+control). On the frozen records: AR′-H1 PASSES on both swap
+candidates (fable 0 ≤ 3; kimi 8 ≤ 8, prunes 7 ≤ 8, landing 39/40);
+AR-H2 and the study gate stand as published (pooled p = .227,
+intact baseline — kimi's losses are arm-independent). Corrected
+formal reading, now on record: the headroom line is
+no-harm-established on both successor tiers, its effect on them is
+absent (fable had almost nothing to fix; kimi's exposure is
+intrinsic lossy consolidation), and it remains unshipped for the
+tier-swap package while joining the measured shelf for
+sonnet/gemini-class dispositions, where it is total
+(18/40 → 0/40 and 15/40 → 0/40). Standing protocol change adopted:
+no-harm conditions register comparatively unless the absolute bound
+is itself the claim.
+
 ## Prior art
 
 Aider's edit-format benchmarks (whole-file vs diff formats measurably
