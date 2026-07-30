@@ -2915,3 +2915,41 @@ change success rates — consistent with our E-vs-rewrite results) and
 the Berkeley Function-Calling Leaderboard (granular tool-call
 reliability varies sharply by model — a phenomenon our correction
 suggests should itself be audited for history-construction artifacts).
+
+
+## Regression note (2026-07-30): haiku-4.5 through the 13-gate suite — 10/13, and the reds map cleanly onto surface requirements
+
+Run for the lj-website site-chat-agent decision (the retrieval half
+was measured in the sibling aeo-bench series; this is the
+conversation-half check). `results/regression/anthropic_claude-haiku-4.5-20260730.txt`,
+2.86M in + 77K out ≈ $3.25.
+
+**10 green** including several surprises at this tier: memo-scale
+passes CLEAN with goal-safe eviction 10/10 (haiku over-sends at the
+cap edge like opus — the disposition kimi-k3 and fable-5 lack),
+ask-calibration passes, anaphora-hatch passes, dialect/views/search/
+focus-solve/echo/memo-block/memo-agent all green.
+
+**3 red:** ask-hatch (asked on 29/45 provably-unsolvable cells vs
+≥43 — a silent-guess residue on the patch-shaped construction,
+though with zero false asks and zero silent wrong patches on the
+solvable side), precedence (countermands honored 12/12 and zero
+violations, but satisfy-both 0/12 — haiku picks one reading of a
+rule-instruction conflict instead of satisfying both), and
+standing-pack (20/24 vs ≥22 on brand-pack fact+rule cells, zero
+contamination).
+
+**The read, per surface.** For replicator's document-editing chat
+surfaces: haiku-4.5 does not ship past three red gates, per the
+standing procedure — the silent-guess residue alone is
+disqualifying there. For the prospective lj-website Q&A agent, the
+failing constructions either do not apply (no patch channel, no
+memo-steering requirement) or have a measured mitigation already in
+the design: the aeo-bench series showed haiku uses a structured
+not-on-site answer channel perfectly (372 + 288 cells, zero
+invented facts, zero protocol misses), which is this surface's
+analog of the ask hatch. Requirement carried into the agent design:
+the structured channel is load-bearing, not optional. The
+satisfy-both and standing-pack softness are watch items if the
+agent ever gains a styleguide-conflict surface or a large standing
+context pack.

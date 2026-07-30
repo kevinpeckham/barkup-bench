@@ -1,0 +1,59 @@
+
+# regression-gate summary — anthropic/claude-haiku-4.5 (run 20260730)
+# thresholds registered in docs/REGRESSION.md — never adjusted post-hoc
+
+PASS        dialect — Anchored-patch dialect (condition F, main-corpus slice)
+            protects: apply_template_patch funnel (every editing surface) (source: Study F/AD)
+            ok  solved: 17 vs >=17/20
+PASS        views — HTML focused views at ~1000 nodes (FVH, xxxl)
+            protects: get_template_view at the >=300-node threshold (source: Study I/J/AD)
+            ok  solved: 15 vs >=13/15
+PASS        search — Search-then-patch grounding (N-search slice)
+            protects: find_nodes content search (source: Study N/AD)
+            ok  solved: 13 vs >=11/15
+PASS        focus-solve — Focus-ids contract, solvable cells (U-view2 construction)
+            protects: view scope as a correctness contract (U fences, v3.182.0) (source: Study U/AC/AD)
+            ok  solved: 45 vs >=43/45
+            ok  silent wrong patches: 0 vs <=2/45
+FAIL        ask-hatch — NEED-INFO escape hatch fires and calibrates (AC-rule)
+            protects: ask-path prompt rules (v3.191.0) (source: Study AC)
+            RED asked on unsolvable: 29 vs >=43/45
+            ok  false asks on solvable: 0 vs <=2/45
+            ok  solved on solvable: 45 vs >=43/45
+PASS        echo — Last-edit echo carries anaphora (X-lastedit)
+            protects: lastEditEcho (v3.184.0) (source: Study X)
+            ok  anaphora steps: 47 vs >=45/48
+            ok  ordinary steps: 92 vs >=92/96
+PASS        memo-block — Session-notes block carries callbacks (T-notes slice)
+            protects: sessionNotes prompt block (v3.183.0) (source: Study T)
+            ok  callback steps: 40 vs >=38/40
+PASS        memo-agent — Agent-maintained memo extraction (W-agent slice)
+            protects: update_session_notes tool loop (v3.183.0) (source: Study W)
+            ok  callback steps: 35 vs >=32/36
+FAIL        precedence — PRECEDENCE clause: countermands honored, steering intact (AB-clause)
+            protects: formatSessionNotesBlockV2 precedence clause (v3.188.1) (source: Study AB)
+            ok  countermands honored: 12 vs >=10/12
+            RED satisfy-both on rule-instruction: 0 vs >=10/12
+            ok  violations: 0 vs <=0/24
+FAIL        standing-pack — Standing brand pack: facts, rules, zero contamination (Z-full slice)
+            protects: per-org Context block + buildCachedSystem (v3.185.0) (source: Study Z)
+            RED fact+rule cells passed: 20 vs >=22/24
+            ok  contamination events: 0 vs <=0/24
+PASS        memo-scale — Memo at scale: recall from a full memo + lossless full-replace
+            protects: sessionNotes at the 20-note cap + applySessionNotesUpdate eviction (v3.213.0) (source: Study AH+AK)
+            ok  recall from a 20-note memo: 15 vs >=13/15
+            ok  clean full-replace at 19 notes: 10 vs >=9/10
+            ok  goal-safe eviction at the K=20 cap edge: 10 vs >=9/10
+            ok  goals evicted by the pipeline: 0 vs <=0/10
+PASS        ask-calibration — Ask calibration: zero tax on precise requests, ceiling on missing info
+            protects: ask-path rules calibration (v3.191.0, AE ladder) (source: Study AE)
+            ok  L0 solved: 15 vs >=13/15
+            ok  L0 false asks: 0 vs <=1/15
+            ok  L4 asked: 13 vs >=13/15
+PASS        anaphora-hatch — Anaphora hatch: asks on carrier-less discourse gaps, none on ordinary steps
+            protects: NEED-INFO seatbelt behind the echo (AG construction) (source: Study AG)
+            ok  anaphora cells asked: 18 vs >=17/24
+            ok  ordinary false asks: 0 vs <=3/48
+
+suite: 10/13 gates pass
+tokens: 2,861,387 in + 77,428 out
