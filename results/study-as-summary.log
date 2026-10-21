@@ -1,0 +1,26 @@
+Study AS — 12 items, 16 scored pages
+
+Per item:
+  t1-event-flyer     ok   regions= 7 reuse=2 build=5 fb=0  169s p0 0.572→0.615 (2 iter)
+  t1-memo            ok   regions= 6 reuse=0 build=6 fb=0  133s p0 0.688→0.688 (1 iter, reverted)
+  t1-menu            ok   regions= 8 reuse=0 build=8 fb=0  162s p0 0.754→0.754 (1 iter, reverted)
+  t1-press-release   ok   regions= 9 reuse=0 build=9 fb=0  208s p0 0.690→0.698 (2 iter, reverted)
+  t2-agenda          ok   regions= 3 reuse=1 build=2 fb=0  154s p0 0.443→0.490 (2 iter, reverted)
+  t2-newsletter      ok   regions= 6 reuse=2 build=4 fb=0  175s p0 0.609→0.640 (2 iter, reverted)
+  t2-product-sheet   ok   regions= 6 reuse=2 build=4 fb=0  141s p0 0.379→0.379 (1 iter, reverted)
+  t2-stat-onepager   ok   regions= 9 reuse=0 build=9 fb=0  250s p0 0.530→0.570 (2 iter, reverted)
+  t3-annual-report   ok   regions=10 reuse=3 build=7 fb=0  338s p0 0.002→0.005 (2 iter, reverted); p1 0.592→0.643 (2 iter, reverted)
+  t3-brochure        ok   regions=11 reuse=3 build=8 fb=0  315s p0 0.417→0.422 (2 iter, reverted); p1 0.591→0.591 (1 iter, reverted)
+  t3-case-study      ok   regions=11 reuse=2 build=9 fb=0  369s p0 0.574→0.639 (2 iter, reverted); p1 0.671→0.698 (2 iter, reverted)
+  t3-prospectus      ok   regions=15 reuse=1 build=14 fb=0  349s p0 0.628→0.628 (1 iter, reverted); p1 0.654→0.659 (2 iter, reverted)
+
+Per tier:
+  T1: 4 items, 4 pages — median initial 0.689, median final 0.693, reuse rate 0.07
+  T2: 4 items, 4 pages — median initial 0.486, median final 0.530, reuse rate 0.21
+  T3: 4 items, 8 pages — median initial 0.591, median final 0.634, reuse rate 0.19
+
+Registered gates:
+  G1 completion     PASS — 12/12 completed (need ≥ 11)
+  G2 fidelity       FAIL — median all 0.634 (≥ 0.700), T1 0.693 (≥ 0.800)
+  G3 refinement     FAIL — keep-best violations: none; median uplift 0.007 over 16 corrected pages (≥ +0.050)
+  G4 build integrity PASS — 0/85 fallbacks (0.000 ≤ 0.100)
