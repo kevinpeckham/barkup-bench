@@ -3043,3 +3043,83 @@ external process kill interrupted the run after item 5
 the item re-ran clean, and no scored record from the killed
 attempt was kept. Per-cell token cost was not instrumented
 (disclosed in the brief); wall-clock is reported instead.
+
+## Addendum (2026-10-21): Study AT — the AS interventions measured (G1/G4/G5 PASS, G2/G3 FAIL — and the G2 failure corrects Study AS's own story: the re-branding penalty is concentrated, not pervasive)
+
+Pre-registered in [docs/BRIEF-AT.md](docs/BRIEF-AT.md) against the
+frozen AS corpus, paired page-by-page with the frozen AS records.
+Two arms on replicator v3.272.0 (`123ddc0`): AT-brand (default
+org-theme import — isolates the structure-judged verify loop +
+color-fenced critic) and AT-match ("Match source colors" —
+palette-derived theme + token-scoped style channel). 24 items,
+32 scored pages, 24/24 completions, 0/168 fallback builds, zero
+invariant violations, cleanup spotless including the 12 imported
+themes. Raw: `results/raw/study-at/{brand,match}/` (local, per
+convention); analyzer summary committed.
+
+**Gate verdicts: AT-G1 PASS (12/12 + 12/12), AT-G2 FAIL (4/16),
+AT-G3 FAIL (both arms, narrowly), AT-G4 PASS (0 fallbacks),
+AT-G5 PASS (brand median 0.618 vs AS 0.634, within −0.03).**
+
+The informative failure is AT-G2, because it corrects the
+interpretation Study AS published. AS read its fidelity gap as
+"genuine layout deficits CONFLATED with a pervasive re-branding
+penalty." AT registered the recovery hypothesis implied by that
+reading — match-colors should beat the AS baseline on ≥ 12/16
+pages — and reality returned 4/16 (10/16 against the
+contemporaneous brand arm, the cleaner pairing; run-to-run build
+stochasticity makes cross-run pairs noisy, AR's
+register-comparative lesson biting again). The re-branding
+penalty is real but CONCENTRATED: on the 15 light-background
+pages, org-theme vs source palette differ by small appearance
+deltas (±0.01–0.07); only the dark full-bleed cover was
+catastrophic — and it STAYED 0.002 in the match arm. Diagnosis of
+that cell: palette extraction was flawless (#0d2a20 background,
+#d7b54a gold — the theme carries exactly the right colors), but
+NOTHING PAINTS THE PAGE SURFACE with them; the imported widgets
+sit on a white page, and page-background painting is an
+assembly-level decision that does not exist. The named next step
+is deterministic, not a study: when a source page's extracted
+background is non-white, `buildPdfPageAst` should set the page
+root's background (theme-token class) at assemble time — under
+match-colors unambiguously, under org-theme as a product-policy
+choice (a dark-paper document arguably wants `bg-dark-1` even
+re-branded). Until that ships, "Match source colors" changes
+accents and tints, not page surfaces — honest UI copy should not
+promise more. Net correction to the AS story: THE DOMINANT
+RESIDUAL GAP IS LAYOUT/DENSITY, not color policy.
+
+AT-G3 (verify effectiveness on the metric that now judges it)
+missed its registered bar on both arms — median structure uplift
++0.017 (brand) / +0.026 (match) vs ≥ +0.03 — an honest miss
+against a bar guessed with no prior structure-uplift data. The
+comparative picture is still a clear improvement over AS's loop:
+2.4–3.7× the median uplift AS managed on ITS judging metric
+(+0.007), kept corrections on 11–12/16 pages (AS: corrections
+survived on 1 page in 16), max kept gains +0.112/+0.098, zero
+keep-best violations, and the metric split demonstrably working —
+the dark page's layout improved 0.626→0.738 (brand arm) while its
+appearance sat at 0.007: exactly the decoupling the design
+wanted. Verify wall-clock share eased only slightly (41%/39% vs
+AS's 43%): the min-gain stop rarely fired because first-iteration
+gains were mostly either kept-and-large or reverted. AT-G5's PASS
+closes the main risk of the metric swap: judging by structure did
+not visibly spend appearance under unchanged color policy.
+
+Fidelity overall is unchanged (medians 0.634 AS / 0.618 brand /
+0.634 match) — expected: Waves 1–4 fixed measurement, loop
+economics, and policy options, not layout generation. Roadmap
+order after AT: (1) the deterministic page-background paint at
+assemble (closes the one catastrophic cell and is the match
+arm's missing payoff); (2) decompose/build-stage layout fidelity
+(T2's multi-region flattening — initial structure scores of
+0.48–0.55 on compositional pages are where the real headroom
+lives); (3) re-register the G3 bar once (1)–(2) give the loop
+pages whose errors it can actually fix.
+
+Disclosures: the Wave 3 smoke (one page, seen before
+registration) was disclosed in the brief; gate AT-G2's threshold
+was set under the AS-narrative assumption the study then refuted
+— which is the system working, not a flaw. The runner's keep-best
+assertion was switched to the structure pair BEFORE registration
+(the AS records' semantics untouched).

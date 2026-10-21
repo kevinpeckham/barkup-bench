@@ -1,0 +1,29 @@
+Study AT — paired pages (appearance final: AS → AT-brand → AT-match; structure init→final per arm)
+
+  t1-event-flyer     p0  AS 0.615 → brand 0.620 → match 0.658   | struct brand 0.616→0.616  match 0.614→0.696
+  t1-memo            p0  AS 0.688 → brand 0.669 → match 0.736   | struct brand 0.669→0.669  match 0.668→0.739
+  t1-menu            p0  AS 0.754 → brand 0.771 → match 0.747   | struct brand 0.665→0.720  match 0.663→0.691
+  t1-press-release   p0  AS 0.698 → brand 0.671 → match 0.685   | struct brand 0.561→0.568  match 0.586→0.586
+  t2-agenda          p0  AS 0.490 → brand 0.452 → match 0.441   | struct brand 0.501→0.521  match 0.528→0.528
+  t2-newsletter      p0  AS 0.640 → brand 0.654 → match 0.638   | struct brand 0.496→0.526  match 0.500→0.506
+  t2-product-sheet   p0  AS 0.379 → brand 0.347 → match 0.364   | struct brand 0.548→0.551  match 0.540→0.589
+  t2-stat-onepager   p0  AS 0.570 → brand 0.515 → match 0.543   | struct brand 0.475→0.475  match 0.504→0.529
+  t3-annual-report   p0  AS 0.005 → brand 0.007 → match 0.002   | struct brand 0.626→0.738  match 0.626→0.660
+  t3-annual-report   p1  AS 0.643 → brand 0.616 → match 0.629   | struct brand 0.446→0.485  match 0.447→0.493
+  t3-brochure        p0  AS 0.422 → brand 0.437 → match 0.403   | struct brand 0.637→0.669  match 0.577→0.675
+  t3-brochure        p1  AS 0.591 → brand 0.560 → match 0.577   | struct brand 0.483→0.483  match 0.511→0.520
+  t3-case-study      p0  AS 0.639 → brand 0.601 → match 0.637   | struct brand 0.521→0.618  match 0.567→0.648
+  t3-case-study      p1  AS 0.698 → brand 0.671 → match 0.687   | struct brand 0.613→0.627  match 0.657→0.657
+  t3-prospectus      p0  AS 0.628 → brand 0.682 → match 0.630   | struct brand 0.516→0.564  match 0.517→0.517
+  t3-prospectus      p1  AS 0.659 → brand 0.621 → match 0.665   | struct brand 0.571→0.571  match 0.604→0.627
+
+Medians — appearance final: AS 0.634, brand 0.618, match 0.634
+Medians — structure final: brand 0.569, match 0.608
+
+Registered gates:
+  AT-G1 completion       PASS — brand 12/12, match 12/12 (need ≥ 11 each)
+  AT-G2 fidelity recovery FAIL — match beats AS on 4/16 pages (need ≥ 12; losses 12, ties 0)
+  AT-G3 verify (brand)    FAIL — violations: none; median structure uplift 0.017 over 16 pages (≥ +0.030)
+  AT-G3 verify (match)    FAIL — violations: none; median structure uplift 0.026 over 16 pages (≥ +0.030)
+  AT-G4 build integrity   PASS — brand 0/84, match 0/84 fallbacks (≤ 10%)
+  AT-G5 brand non-regress PASS — brand median 0.618 vs AS 0.634 (tolerance −0.030)
