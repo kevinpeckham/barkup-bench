@@ -2953,3 +2953,93 @@ the structured channel is load-bearing, not optional. The
 satisfy-both and standing-pack softness are watch items if the
 agent ever gains a styleguide-conflict surface or a large standing
 context pack.
+
+## Addendum (2026-10-21): Study AS — the PDF→template pipeline, measured (G1/G4 PASS: the machinery is robust; G2/G3 FAIL: fidelity on foreign designs caps at the re-branding boundary and the verify loop barely moves the needle)
+
+Pre-registered in [docs/BRIEF-AS.md](docs/BRIEF-AS.md) — the
+series' first whole-system study: replicator's shipped six-stage
+PDF→template reconstruction pipeline (v3.269.1/`87f30a8`, all five
+LLM stages on `anthropic/claude-fable-5.1`), run against a frozen
+12-item corpus of agent-designed foreign PDFs (3 tiers, 16 scored
+pages), one item at a time with full artifact cleanup between
+items. Raw records in `results/raw/study-as/`. Spend landed under
+the envelope (~46 min total pipeline wall-clock).
+
+**Gate verdicts: G1 PASS, G2 FAIL, G3 FAIL, G4 PASS — published
+as measured.**
+
+The machinery gates passed emphatically. G1: 12/12 items completed
+all six stages — zero pipeline errors, zero transport retries
+needed in scored cells. G4: **0 fallback widgets in 85 builds** —
+every generated widget validated through the lint/correction loop
+on the first try or within it. The keep-best invariant held on all
+16 pages (G3a clean), and the cleanup contract left zero rows,
+zero blobs, zero skipped-org warnings across 14 cleanup
+invocations (12 items + 2 orphan sweeps after an external
+process kill mid-run; the killed item re-ran from scratch).
+
+The quality gates failed, and the decomposition is the finding:
+
+- **G2 fidelity** — median final 0.634 overall (registered bar
+  0.700), T1 median 0.693 (bar 0.800). Per tier: T1 0.689→0.693,
+  T2 0.486→0.530, T3 0.591→0.634 (median initial→final). The
+  development anecdote (0.75/0.75) did NOT replicate on foreign
+  designs — and the single most diagnostic cell says why:
+  `t3-annual-report` p0, a full-bleed dark-green cover page,
+  scored **0.002**. The pipeline's brand-compliance lint forces
+  theme tokens, so a foreign palette is deliberately re-branded —
+  the block-similarity metric then reads the entire page as
+  mismatch. The dev PDF scored 0.75 because it was ALREADY in the
+  org's brand. G2's number therefore conflates two different
+  gaps: genuine layout/density deficits (real, visible in T2's
+  0.486 initials — multi-region compositions flatten) and an
+  intentional design-policy penalty (re-branding). The metric
+  measures "pixel-faithful reproduction"; the product promises
+  "recreate in OUR brand." Those were the same thing for the dev
+  PDF and are different things for every foreign design.
+- **G3 refinement** — median uplift +0.007 over 16 corrected
+  pages (bar +0.050); 15/16 pages ended with their last correction
+  REVERTED by keep-best. The verify loop applied 66 critic
+  findings across 27 iterations and consumed **43% of total
+  pipeline wall-clock (19.9 of 46.1 min)** to produce nearly
+  nothing. Contrast the dev PDF: initials 0.34/0.53 (gross layout
+  errors present → corrections moved blocks → +0.22/+0.41). On
+  this corpus initials are higher (median 0.60) and the residual
+  error is STYLE (palette, backgrounds, typography, density) —
+  which the critic's anchored-patch corrections (layout-scoped by
+  design) cannot address, so keep-best correctly rejects round
+  after round. The loop is doing its job; it's aimed at the wrong
+  error class for this corpus.
+
+Descriptive reads: reuse rate was low everywhere (T1 0.07, T2
+0.21, T3 0.19 — a foreign-design corpus against the SecureLogix
+catalog mostly builds new widgets, as expected), two-page T3 items
+showed no page-2 degradation (final p1 > p0 in all 4 items), and
+stage wall-clock splits build 17.3 min / verify 19.9 min /
+decompose 6.0 min / match 2.7 min.
+
+**Implications for replicator (roadmap, not regression):** (1) the
+highest-leverage improvement is palette/background fidelity —
+either theme-from-source (derive a document theme from the PDF's
+palette instead of forcing the org default) or an explicit
+re-branding disclosure in the product UI; the 0.002 cell is the
+argument in one number. (2) The verify stage should either gain a
+style-correction channel (background/typography ops, not just
+layout patches) or skip correction when the critic's findings are
+style-class — at 43% of wall-clock, two reverted iterations per
+page is the pipeline's single largest cost for its smallest
+return. (3) G2's bar itself needs a successor metric: a
+layout-only similarity (edge/structure-based, palette-blind) would
+separate the two gaps this study had to disentangle narratively.
+A follow-up study re-registering against that metric — plus any
+theme-from-source work — is the natural Study AT.
+
+Harness disclosures: the corpus was authored by an LLM agent to a
+registered spec and accepted on visual review before any scored
+run (two items were sent back for page-overflow fixes BEFORE
+registration; nothing changed after the first scored cell). An
+external process kill interrupted the run after item 5
+(`t2-product-sheet` mid-verify); its partial artifacts were swept,
+the item re-ran clean, and no scored record from the killed
+attempt was kept. Per-cell token cost was not instrumented
+(disclosed in the brief); wall-clock is reported instead.
