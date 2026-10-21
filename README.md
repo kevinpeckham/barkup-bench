@@ -9,8 +9,8 @@ It began as one study comparing the
 authoring dialect, edited by whole-tree rewrite) against JSON with
 granular mutation tools. It has grown into forty-six studies
 covering interfaces, tree size, partial context, retrieval, session
-memory, multi-target edits, qualitative rewrites, and model tier
-maps. Every utility in the
+memory, multi-target edits, qualitative rewrites, model tier maps,
+and a first whole-system study of a shipped pipeline. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
