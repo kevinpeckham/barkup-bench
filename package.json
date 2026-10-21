@@ -32,6 +32,7 @@
 		"ajv": "^8.20.0",
 		"fast-check": "^3.23.0",
 		"linkedom": "^0.18.5",
+		"playwright": "1.61.1",
 		"typescript": "^5.7.0",
 		"varlock": "^1.9.0"
 	},

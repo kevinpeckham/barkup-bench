@@ -1,0 +1,62 @@
+[
+	{
+		"bytes": 45934,
+		"sha256": "a8887bf541cbe951b74b3ab8098517351bae68b943c261f6bb0629c6ee788fa2",
+		"slug": "t1-event-flyer"
+	},
+	{
+		"bytes": 27705,
+		"sha256": "56832c99c87bf225443840588cf99115ecbd5115cd291f9b84148a7e7279e823",
+		"slug": "t1-memo"
+	},
+	{
+		"bytes": 40244,
+		"sha256": "64e2d03cfea711ead4b5fb67898a35f05bc5869478d34b60536f649a3cd05b0d",
+		"slug": "t1-menu"
+	},
+	{
+		"bytes": 32137,
+		"sha256": "c9849790edbab0aad5fb4ab4756a91b40eead766a2b3c8091c8606fb926f8d34",
+		"slug": "t1-press-release"
+	},
+	{
+		"bytes": 62108,
+		"sha256": "5d7af02a1a93bee8fde8adacd5c6cab6c61c7607255384f95f5476e995cef438",
+		"slug": "t2-agenda"
+	},
+	{
+		"bytes": 58680,
+		"sha256": "32cb93333f2f1d8c52e0ba1feb08b2f8d8609ae176cb0c5a55bb3b173ccff86f",
+		"slug": "t2-newsletter"
+	},
+	{
+		"bytes": 35635,
+		"sha256": "08d12a64c5cfaacfa64ecb765ed3e8674ebf93f3dd2aade899988aa759b8c76d",
+		"slug": "t2-product-sheet"
+	},
+	{
+		"bytes": 57577,
+		"sha256": "9c5183e67968b99439a9822de01917ae75b902d0bc6a8358b161716e36da5f25",
+		"slug": "t2-stat-onepager"
+	},
+	{
+		"bytes": 61775,
+		"sha256": "867fd9280f6077492cb80667f004d26ad59f259615253c472e544c27f9064d9b",
+		"slug": "t3-annual-report"
+	},
+	{
+		"bytes": 75189,
+		"sha256": "8957a5f759d044d530ac36842de72c4c0f8f2e3808af276ad77512b114aa3cc8",
+		"slug": "t3-brochure"
+	},
+	{
+		"bytes": 67897,
+		"sha256": "593ec33b14da3d968feffa8d2f466fe329fbe1a70a0a7042644e19065c8565ca",
+		"slug": "t3-case-study"
+	},
+	{
+		"bytes": 74154,
+		"sha256": "32e56a63056b96e5b31e546bf27d9d19d5febc0beb8226709f25b182728541ca",
+		"slug": "t3-prospectus"
+	}
+]

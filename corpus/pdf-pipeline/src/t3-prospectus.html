@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stonebridge Growth Partners — Fund III Prospectus Summary</title>
+<style>
+  @page { size: letter; margin: 0; }
+  html, body {
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body {
+    font-family: "Book Antiqua", Palatino, Georgia, serif;
+    color: #26221c;
+    background: #ffffff;
+  }
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    box-sizing: border-box;
+    padding: 0.8in 0.9in;
+    background: #fdfcf9;
+  }
+  .page-1 { page-break-after: always; }
+  .title-block {
+    text-align: center;
+    border-top: 3px solid #6e5a36;
+    border-bottom: 3px solid #6e5a36;
+    padding: 0.35in 0;
+    margin-bottom: 0.4in;
+  }
+  .title-block .firm {
+    font-size: 10pt;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: #6e5a36;
+    margin-bottom: 14px;
+  }
+  .title-block h1 {
+    font-size: 24pt;
+    font-weight: normal;
+    margin: 0 0 10px 0;
+    color: #2c2415;
+  }
+  .title-block .sub {
+    font-style: italic;
+    font-size: 11pt;
+    color: #7c6f58;
+  }
+  .title-block .docdate {
+    font-family: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #a2947a;
+    margin-top: 14px;
+  }
+  .body-grid { display: flex; gap: 0.35in; }
+  .prose { flex: 2; }
+  .prose-cols {
+    column-count: 2;
+    column-gap: 0.26in;
+    font-size: 9.3pt;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  .prose-cols p { margin: 0 0 10px 0; }
+  .prose h2 {
+    font-family: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+    font-size: 9.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #6e5a36;
+    margin: 0 0 14px 0;
+  }
+  .facts {
+    flex: 0.95;
+    background: #efe8d8;
+    border: 1px solid #d8cbab;
+    padding: 20px 20px;
+    box-sizing: border-box;
+    align-self: flex-start;
+  }
+  .facts h2 {
+    font-family: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #574624;
+    margin: 0 0 14px 0;
+    border-bottom: 1px solid #b9a87f;
+    padding-bottom: 8px;
+  }
+  .fact { margin-bottom: 13px; }
+  .fact .k {
+    font-family: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+    font-size: 7.4pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8a7850;
+  }
+  .fact .v { font-size: 10.5pt; color: #2c2415; margin-top: 2px; }
+  .legal {
+    margin-top: 0.4in;
+    border-top: 1px solid #d8cbab;
+    padding-top: 10px;
+    font-size: 7pt;
+    line-height: 1.5;
+    color: #9a8d72;
+  }
+  /* page 2 */
+  .p2-head {
+    font-family: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #a2947a;
+    border-bottom: 2px solid #6e5a36;
+    padding-bottom: 8px;
+    margin-bottom: 0.35in;
+  }
+  h2.sect {
+    font-size: 16pt;
+    font-weight: normal;
+    color: #2c2415;
+    margin: 0 0 0.28in 0;
+  }
+  .team {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.28in;
+    margin-bottom: 0.45in;
+  }
+  .person { display: flex; gap: 16px; }
+  .avatar {
+    flex: none;
+    width: 0.72in; height: 0.72in;
+    border-radius: 50%;
+    background: #6e5a36;
+    color: #f3ecd9;
+    font-family: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+    font-size: 17pt;
+    font-weight: bold;
+    text-align: center;
+    line-height: 0.72in;
+  }
+  .person:nth-child(even) .avatar { background: #9a7b34; }
+  .person h3 { margin: 0; font-size: 11.5pt; color: #2c2415; }
+  .person .role {
+    font-family: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+    font-size: 7.8pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8a7850;
+    margin: 3px 0 7px 0;
+  }
+  .person p { margin: 0; font-size: 8.7pt; line-height: 1.55; color: #4d4436; }
+  h3.mile-head {
+    font-family: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #6e5a36;
+    margin: 0 0 14px 0;
+  }
+  .milestones { list-style: none; margin: 0 0 0.45in 0; padding: 0; }
+  .milestones li {
+    display: flex;
+    gap: 16px;
+    padding: 9px 0;
+    border-bottom: 1px dotted #c9ba95;
+    font-size: 9.4pt;
+    line-height: 1.5;
+  }
+  .milestones .yr {
+    flex: none;
+    width: 0.65in;
+    font-family: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+    font-weight: bold;
+    color: #6e5a36;
+  }
+  .contact-strip {
+    background: #2c2415;
+    color: #e9e0ca;
+    margin: 0 -0.9in -0.8in -0.9in;
+    padding: 0.3in 0.9in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 0.08em;
+  }
+</style>
+</head>
+<body>
+  <div class="page page-1">
+    <div class="title-block">
+      <div class="firm">Stonebridge Growth Partners</div>
+      <h1>Fund III — Regional Manufacturing Renewal</h1>
+      <div class="sub">A summary prospectus for qualified investors</div>
+      <div class="docdate">Confidential &middot; Issued April 2026 &middot; Supplement No. 1</div>
+    </div>
+    <div class="body-grid">
+      <div class="prose">
+        <h2>Investment Thesis</h2>
+        <div class="prose-cols">
+          <p>
+            Stonebridge Growth Partners invests in family-owned precision manufacturers
+            at the moment of generational transition. Across the upper Midwest, an
+            estimated 3,100 machine shops, toolmakers, and specialty fabricators are led
+            by owners over the age of sixty, most without an identified successor. These
+            are profitable, quietly indispensable businesses — suppliers of record to
+            aerospace, medical-device, and grid-equipment programs — whose order books
+            routinely extend further than their ownership plans.
+          </p>
+          <p>
+            Fund III continues the strategy of its predecessors: acquire controlling
+            interests in eight to eleven such companies, retain and incentivize the
+            operating teams, and invest in the automation and certifications that unlock
+            the next tier of contracts. We do not relocate plants, we do not pursue
+            roll-up synergies at the cost of customer relationships, and we have never
+            re-sold a portfolio company to a competitor of its own customers.
+          </p>
+          <p>
+            Funds I and II acquired fifteen companies on this model. Thirteen remain
+            under Stonebridge ownership today; aggregate revenue across the portfolio
+            has grown 9.4 percent annually since acquisition, and every plant operates
+            in its original county. Two companies have been sold — both to their own
+            management teams, financed in part by the fund, which we consider the
+            thesis working as designed.
+          </p>
+          <p>
+            Fund III targets commitments of $240 million, with a hard cap of $275
+            million. The general partners commit a minimum of four percent of the
+            fund's total. Detailed terms, risk factors, and audited track-record
+            schedules appear in the full offering memorandum, which this summary does
+            not replace.
+          </p>
+        </div>
+      </div>
+      <div class="facts">
+        <h2>Key Facts</h2>
+        <div class="fact"><div class="k">Target fund size</div><div class="v">$240M (cap $275M)</div></div>
+        <div class="fact"><div class="k">Strategy</div><div class="v">Control buyouts, precision manufacturing</div></div>
+        <div class="fact"><div class="k">Portfolio target</div><div class="v">8–11 companies, $8–40M revenue</div></div>
+        <div class="fact"><div class="k">Geography</div><div class="v">Upper Midwest, 300-mile radius of Harwick</div></div>
+        <div class="fact"><div class="k">Fund term</div><div class="v">10 years + two 1-year extensions</div></div>
+        <div class="fact"><div class="k">GP commitment</div><div class="v">Minimum 4% of total commitments</div></div>
+        <div class="fact"><div class="k">First close</div><div class="v">Expected September 2026</div></div>
+      </div>
+    </div>
+    <div class="legal">
+      This summary is furnished on a confidential basis to a limited number of qualified
+      investors and does not constitute an offer to sell securities. Any offer is made
+      solely through the Fund III Private Placement Memorandum. Past performance of Funds
+      I and II is not a guarantee of future results. All companies, persons, and figures
+      herein are fictional and presented for design evaluation only.
+    </div>
+  </div>
+
+  <div class="page page-2">
+    <div class="p2-head">
+      <span>Stonebridge Growth Partners &middot; Fund III Summary</span>
+      <span>Page 2 of 2</span>
+    </div>
+    <h2 class="sect">The Investment Committee</h2>
+    <div class="team">
+      <div class="person">
+        <div class="avatar">EH</div>
+        <div>
+          <h3>Eleanor Hargrove</h3>
+          <div class="role">Managing Partner</div>
+          <p>Founded Stonebridge in 2014 after sixteen years operating her family's
+          bearing works in Harwick, which she sold to its employees. Chairs the
+          committee and leads succession negotiations personally.</p>
+        </div>
+      </div>
+      <div class="person">
+        <div class="avatar">DO</div>
+        <div>
+          <h3>Desmond Okafor</h3>
+          <div class="role">Partner, Operations</div>
+          <p>Former plant director at two tier-one aerospace suppliers. Runs the
+          fund's automation program; his retrofit playbook has been applied at
+          eleven portfolio plants without a single lost customer qualification.</p>
+        </div>
+      </div>
+      <div class="person">
+        <div class="avatar">MR</div>
+        <div>
+          <h3>Marta Reyes-Lindqvist</h3>
+          <div class="role">Partner, Capital &amp; Finance</div>
+          <p>Two decades in middle-market credit at Fenchurch Bank, where she built
+          the equipment-finance desk. Structures every acquisition and manages
+          lender relationships across the portfolio.</p>
+        </div>
+      </div>
+      <div class="person">
+        <div class="avatar">JT</div>
+        <div>
+          <h3>Jun Tanaka</h3>
+          <div class="role">Principal, Research</div>
+          <p>Leads sourcing and sector research. Maintains the fund's census of
+          3,100 regional manufacturers and the succession-signal model that has
+          originated nine of the last eleven acquisitions.</p>
+        </div>
+      </div>
+    </div>
+    <h3 class="mile-head">Firm Milestones</h3>
+    <ul class="milestones">
+      <li><span class="yr">2014</span><span>Firm founded in Harwick; Fund I closes at $58M with seven family-office commitments.</span></li>
+      <li><span class="yr">2017</span><span>First management-led exit: Calder Gauge &amp; Tool sold to its operating team at 2.3× invested capital.</span></li>
+      <li><span class="yr">2020</span><span>Fund II closes at $140M; automation retrofit program formalized under Desmond Okafor.</span></li>
+      <li><span class="yr">2023</span><span>Portfolio-wide AS9100 certification initiative completed; aerospace revenue share reaches 38%.</span></li>
+      <li><span class="yr">2026</span><span>Fund III launched; succession census expanded to cover six states and 3,100 companies.</span></li>
+    </ul>
+    <div class="contact-strip">
+      <span>Stonebridge Growth Partners LLC &middot; 12 Foundry Square, Harwick, WI</span>
+      <span>investors@stonebridgegp.example &middot; (608) 555-0190</span>
+    </div>
+  </div>
+</body>
+</html>

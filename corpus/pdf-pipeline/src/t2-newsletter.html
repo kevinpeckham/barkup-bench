@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Elevation — Studio Merrow Quarterly</title>
+<style>
+  @page { size: letter; margin: 0; }
+  html, body {
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    color: #191919;
+    background: #ffffff;
+  }
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    box-sizing: border-box;
+    padding: 0.6in 0.7in;
+  }
+  .nameplate {
+    text-align: center;
+    border-bottom: 4px double #191919;
+    padding-bottom: 14px;
+    margin-bottom: 8px;
+  }
+  .nameplate h1 {
+    font-size: 40pt;
+    margin: 0;
+    letter-spacing: 0.02em;
+    font-weight: normal;
+  }
+  .nameplate h1 .thin { font-style: italic; }
+  .nameplate .motto {
+    font-size: 9pt;
+    font-style: italic;
+    color: #555555;
+    margin-top: 4px;
+  }
+  .issue-bar {
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #191919;
+    padding: 6px 2px;
+    margin-bottom: 0.32in;
+    color: #333333;
+  }
+  .content { display: flex; gap: 0.35in; }
+  .main { flex: 2.1; }
+  .headline {
+    font-size: 21pt;
+    line-height: 1.15;
+    margin: 0 0 6px 0;
+    font-weight: bold;
+  }
+  .deck {
+    font-size: 11pt;
+    font-style: italic;
+    color: #4a4a4a;
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+  .byline {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    margin-bottom: 14px;
+  }
+  .story {
+    column-count: 2;
+    column-gap: 0.28in;
+    column-rule: 1px solid #d9d9d9;
+    font-size: 9.5pt;
+    line-height: 1.55;
+    text-align: justify;
+  }
+  .story p { margin: 0 0 10px 0; }
+  .story p:first-child::first-letter {
+    font-size: 30pt;
+    float: left;
+    line-height: 0.85;
+    padding: 2px 6px 0 0;
+    font-weight: bold;
+  }
+  .sidebar {
+    flex: 1;
+    background: #eee9df;
+    padding: 20px 18px;
+    box-sizing: border-box;
+    align-self: flex-start;
+  }
+  .sidebar h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin: 0 0 12px 0;
+    border-bottom: 2px solid #191919;
+    padding-bottom: 7px;
+  }
+  .toc { list-style: none; margin: 0 0 22px 0; padding: 0; }
+  .toc li {
+    font-size: 9.5pt;
+    line-height: 1.4;
+    padding: 8px 0;
+    border-bottom: 1px dotted #b5ab96;
+  }
+  .toc li:last-child { border-bottom: none; }
+  .toc .pg {
+    float: right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 8.5pt;
+  }
+  .pullquote {
+    border-top: 3px solid #191919;
+    border-bottom: 3px solid #191919;
+    padding: 14px 4px;
+    font-size: 12.5pt;
+    font-style: italic;
+    line-height: 1.45;
+    text-align: center;
+  }
+  .pullquote .who {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 7.5pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #6b6250;
+  }
+  .footer {
+    margin-top: 0.35in;
+    border-top: 1px solid #191919;
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 7.5pt;
+    color: #777777;
+    letter-spacing: 0.06em;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="nameplate">
+      <h1>The <span class="thin">Elevation</span></h1>
+      <div class="motto">Notes on buildings, cities, and the people who draw them &middot; Studio Merrow Architects</div>
+    </div>
+    <div class="issue-bar">
+      <span>Vol. VIII &middot; No. 2</span>
+      <span>Spring Quarter 2026</span>
+      <span>Published from Fenwick Yards, Calloway City</span>
+    </div>
+    <div class="content">
+      <div class="main">
+        <h2 class="headline">The Grain Exchange Gets a Second Century</h2>
+        <div class="deck">After eleven years of false starts, the 1907 landmark reopens in September as a public market, archive, and 220 apartments — with its trading floor intact.</div>
+        <div class="byline">By Henrietta Marsh &middot; Senior Associate, Adaptive Reuse Practice</div>
+        <div class="story">
+          <p>
+            When our survey team first walked the Calloway Grain Exchange in 2015, the
+            trading floor was ankle-deep in pigeon guano and the famous laylight — four
+            hundred panes of amber glass — had lost nearly a third of its panels to a
+            decade of hail seasons. What the building had not lost was its structure: a
+            riveted steel frame, generously overbuilt in the fashion of its era, that our
+            engineers rated capable of carrying five stories more than it ever had.
+          </p>
+          <p>
+            That surplus capacity became the project's financial engine. By transferring
+            the unused load allowance into a slender residential bar along the rail-yard
+            elevation, the development consortium could fund a full restoration of the
+            trading hall without a single public-facing square foot of it becoming
+            leasable office space. The hall instead returns to the city as a covered
+            market, its original oak trading posts refitted as vendor stalls.
+          </p>
+          <p>
+            The archive occupies the old weighing vaults below grade. Climate control
+            there posed the project's hardest detailing problem: the vault walls could
+            not be furred out without destroying the stenciled tally marks left by three
+            generations of grain inspectors, so conditioning runs through the floor — a
+            plenum assembly our team developed with Harwick Mechanical and has since
+            documented for open use by other preservation practices.
+          </p>
+          <p>
+            Residents begin moving in the first week of September; the market opens for
+            the fall harvest. The laylight's missing panes were recast this winter by
+            the Oleander Glassworks from sand sourced at the original quarry. On a clear
+            afternoon the floor turns the color of wheat — which is, of course, the point.
+          </p>
+        </div>
+      </div>
+      <div class="sidebar">
+        <h2>In This Issue</h2>
+        <ul class="toc">
+          <li>The Grain Exchange gets a second century <span class="pg">1</span></li>
+          <li>Studio notebook: three details we rebuilt after site visits <span class="pg">3</span></li>
+          <li>Fenwick Yards masterplan clears design review <span class="pg">4</span></li>
+          <li>A field guide to Calloway's terracotta facades <span class="pg">6</span></li>
+          <li>New faces: four hires across both studios <span class="pg">7</span></li>
+        </ul>
+        <div class="pullquote">
+          &ldquo;Preservation isn't keeping a building the way it was. It's keeping it
+          in the habit of mattering.&rdquo;
+          <span class="who">Olive Merrow, Founding Principal — 1962</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <span>&copy; 2026 Studio Merrow Architects LLP</span>
+      <span>Subscriptions: elevation@studiomerrow.example</span>
+      <span>Page 1 of 8</span>
+    </div>
+  </div>
+</body>
+</html>

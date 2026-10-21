@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tidewater Climate Trust — 2025 Annual Report</title>
+<style>
+  @page { size: letter; margin: 0; }
+  html, body {
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #1d2b25;
+    background: #ffffff;
+  }
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .page-1 { page-break-after: always; background: #0d2b21; color: #f1ede1; }
+  .hero { padding: 1.1in 0.9in 0.6in 0.9in; }
+  .org-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+    font-size: 9.5pt;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #9cc3a9;
+    margin-bottom: 0.9in;
+  }
+  .year {
+    font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+    font-size: 64pt;
+    font-weight: bold;
+    color: #d8b64a;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero h1 {
+    font-size: 30pt;
+    font-weight: normal;
+    font-style: italic;
+    margin: 0 0 0.55in 0;
+    color: #f1ede1;
+    max-width: 5.8in;
+    line-height: 1.2;
+  }
+  .mission {
+    border-left: 4px solid #d8b64a;
+    padding-left: 22px;
+    max-width: 5.4in;
+  }
+  .mission .label {
+    font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #9cc3a9;
+    margin-bottom: 10px;
+  }
+  .mission p { font-size: 13pt; line-height: 1.6; margin: 0; }
+  .stat-band {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    display: flex;
+    background: #0a221a;
+    border-top: 1px solid #27493c;
+  }
+  .stat {
+    flex: 1;
+    padding: 0.42in 0.4in;
+    border-right: 1px solid #27493c;
+  }
+  .stat:last-child { border-right: none; }
+  .stat .n {
+    font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+    font-size: 27pt;
+    font-weight: bold;
+    color: #d8b64a;
+  }
+  .stat .d {
+    font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    color: #b9cfbf;
+    margin-top: 7px;
+  }
+  /* ---------- page 2 ---------- */
+  .page-2 { padding: 0.75in 0.85in; background: #ffffff; }
+  .p2-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 3px solid #0d2b21;
+    padding-bottom: 10px;
+    margin-bottom: 0.32in;
+  }
+  .p2-head h2 { font-size: 17pt; font-weight: normal; margin: 0; color: #0d2b21; }
+  .p2-head .folio {
+    font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7e8c84;
+  }
+  .letter {
+    column-count: 2;
+    column-gap: 0.32in;
+    font-size: 10pt;
+    line-height: 1.62;
+    margin-bottom: 0.35in;
+  }
+  .letter p { margin: 0 0 11px 0; }
+  .letter .sig { font-style: italic; color: #41584d; }
+  h3.fin-title {
+    font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+    font-size: 10pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #0d2b21;
+    margin: 0 0 12px 0;
+  }
+  .fin { width: 100%; border-collapse: collapse; margin-bottom: 0.3in; }
+  .fin th {
+    font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: right;
+    color: #ffffff;
+    background: #0d2b21;
+    padding: 8px 12px;
+  }
+  .fin th:first-child { text-align: left; }
+  .fin td {
+    font-size: 9.5pt;
+    padding: 9px 12px;
+    text-align: right;
+    border-bottom: 1px solid #d9e2dc;
+  }
+  .fin td:first-child { text-align: left; color: #2e4038; }
+  .fin tr:nth-child(even) td { background: #f2f6f3; }
+  .fin .pos { color: #1f6e43; font-weight: bold; }
+  .fin .neg { color: #9a3b22; font-weight: bold; }
+  .p2-footer {
+    border-top: 1px solid #c4d1c9;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+    font-size: 7.5pt;
+    color: #7e8c84;
+    letter-spacing: 0.06em;
+  }
+</style>
+</head>
+<body>
+  <div class="page page-1">
+    <div class="hero">
+      <div class="org-row">
+        <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+          <circle cx="17" cy="17" r="16" fill="none" stroke="#d8b64a" stroke-width="1.6"/>
+          <path d="M5 21 q6 -5 12 0 t12 0" fill="none" stroke="#9cc3a9" stroke-width="2"/>
+          <path d="M5 26 q6 -5 12 0 t12 0" fill="none" stroke="#9cc3a9" stroke-width="2" opacity="0.55"/>
+        </svg>
+        Tidewater Climate Trust
+      </div>
+      <div class="year">2025</div>
+      <h1>Annual Report — Holding the Line Where the Land Meets the Sea</h1>
+      <div class="mission">
+        <div class="label">Our Mission</div>
+        <p>
+          We restore and permanently protect the salt marshes, oyster reefs, and tidal
+          forests of the Meridian Coast — the living infrastructure that shields
+          two hundred miles of communities from storms while drawing carbon into
+          centuries-old mud.
+        </p>
+      </div>
+    </div>
+    <div class="stat-band">
+      <div class="stat">
+        <div class="n">6,140</div>
+        <div class="d">Acres of salt marsh restored or placed under permanent easement in 2025 — our largest single-year total</div>
+      </div>
+      <div class="stat">
+        <div class="n">18 mi</div>
+        <div class="d">Of living shoreline constructed with partner towns, replacing failing bulkheads across four counties</div>
+      </div>
+      <div class="stat">
+        <div class="n">$11.2M</div>
+        <div class="d">Deployed into coastal projects, with 84 cents of every dollar going directly to restoration work</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page page-2">
+    <div class="p2-head">
+      <h2>A Letter from the Executive Director</h2>
+      <div class="folio">Tidewater Climate Trust &middot; 2025 Annual Report &middot; p. 2</div>
+    </div>
+    <div class="letter">
+      <p>
+        Dear friends of the coast — I write this from the observation deck at Half-Moon
+        Sound, where five years ago we planted the first test plots of smooth cordgrass
+        into what was then a drowned and eroding pasture. This October, a juvenile
+        sturgeon was recorded in the restored channel for the first time in forty years.
+        It is the kind of result that does not fit neatly in a spreadsheet, and the kind
+        that explains every number that does.
+      </p>
+      <p>
+        2025 asked a great deal of this organization. Two named storms crossed the
+        Meridian Coast within three weeks of each other in September. Our living
+        shoreline sites — all eighteen miles of them — came through with repairable
+        damage, while adjacent hardened shorelines saw four bulkhead failures. The
+        comparison was not lost on the county commissions: three of the four affected
+        towns have since signed restoration agreements for 2026.
+      </p>
+      <p>
+        We also closed the largest conservation transaction in our history, the 2,300-acre
+        Pelletier Marsh easement, after a four-year negotiation. I want to thank the
+        Pelletier family for choosing permanence over three competing development offers,
+        and our land-protection team for the patience that made the choice possible.
+      </p>
+      <p>
+        Financially, the Trust ends the year stronger than it began. Contributions grew
+        nineteen percent, our first federal resilience grant arrived on schedule, and the
+        board approved a reserve policy that now covers seven months of operations. The
+        figures at right are drawn from our audited statements, available in full on our
+        website. On behalf of all forty-one staff — thank you for keeping faith with the
+        slow, stubborn work of restoration.
+      </p>
+      <p class="sig">— Dr. Camille Okafor, Executive Director, Port Meridian</p>
+    </div>
+    <h3 class="fin-title">Financial Highlights (audited, in thousands)</h3>
+    <table class="fin">
+      <tr><th>Line Item</th><th>FY24</th><th>FY25</th><th>Change</th></tr>
+      <tr><td>Contributions &amp; grants</td><td>$8,940</td><td>$10,620</td><td class="pos">+18.8%</td></tr>
+      <tr><td>Government resilience awards</td><td>$1,275</td><td>$2,410</td><td class="pos">+89.0%</td></tr>
+      <tr><td>Program spending — restoration</td><td>$7,180</td><td>$9,405</td><td class="pos">+31.0%</td></tr>
+      <tr><td>Administration &amp; fundraising</td><td>$1,610</td><td>$1,790</td><td class="neg">+11.2%</td></tr>
+      <tr><td>Operating reserve (months)</td><td>4.1</td><td>7.0</td><td class="pos">+2.9</td></tr>
+      <tr><td>Net assets, end of year</td><td>$14,320</td><td>$17,955</td><td class="pos">+25.4%</td></tr>
+    </table>
+    <div class="p2-footer">
+      <span>Tidewater Climate Trust is a 501(c)(3) organization &middot; EIN 83-0000000 (fictional)</span>
+      <span>Full audited statements: tidewatertrust.example/financials</span>
+    </div>
+  </div>
+</body>
+</html>

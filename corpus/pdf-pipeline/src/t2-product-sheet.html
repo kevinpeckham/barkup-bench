@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aurelia Pulse One — Product Sheet</title>
+<style>
+  @page { size: letter; margin: 0; }
+  html, body {
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body {
+    font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+    color: #223038;
+    background: #ffffff;
+  }
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero {
+    background: linear-gradient(120deg, #0b5563 0%, #11808f 70%, #16a3a8 100%);
+    color: #ffffff;
+    padding: 0.65in 0.8in 0.55in 0.8in;
+  }
+  .brandline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #a7e3e0;
+    margin-bottom: 0.35in;
+  }
+  .hero h1 {
+    font-size: 32pt;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.01em;
+  }
+  .hero .valueprop {
+    font-size: 13pt;
+    line-height: 1.45;
+    max-width: 5.8in;
+    color: #d9f3f1;
+  }
+  .badge-row { margin-top: 0.3in; display: flex; gap: 10px; }
+  .badge {
+    border: 1px solid #7fd4cd;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 8.5pt;
+    letter-spacing: 0.08em;
+    color: #d9f3f1;
+  }
+  .columns {
+    flex: 1;
+    display: flex;
+    gap: 0.45in;
+    padding: 0.5in 0.8in;
+  }
+  .col-features { flex: 1.15; }
+  .col-specs { flex: 1; }
+  h2 {
+    font-size: 11pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #0b5563;
+    border-bottom: 2px solid #16a3a8;
+    padding-bottom: 7px;
+    margin: 0 0 18px 0;
+  }
+  .feature { display: flex; gap: 12px; margin-bottom: 18px; }
+  .feature .dot {
+    flex: none;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: #e0f4f3;
+    border: 2px solid #16a3a8;
+    color: #0b5563;
+    font-weight: bold;
+    font-size: 11pt;
+    text-align: center;
+    line-height: 26px;
+  }
+  .feature h3 { margin: 0 0 3px 0; font-size: 10.5pt; color: #10404b; }
+  .feature p { margin: 0; font-size: 9pt; line-height: 1.5; color: #4b5d66; }
+  .specs { width: 100%; border-collapse: collapse; }
+  .specs td {
+    font-size: 9pt;
+    padding: 8px 6px;
+    border-bottom: 1px solid #d7e5e6;
+    vertical-align: top;
+  }
+  .specs tr:nth-child(odd) { background: #f2f9f9; }
+  .specs td.k { font-weight: bold; color: #0b5563; width: 42%; }
+  .cta {
+    background: #10303a;
+    color: #ffffff;
+    padding: 0.35in 0.8in;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cta .msg { font-size: 12pt; font-weight: bold; }
+  .cta .msg span { display: block; font-size: 9pt; font-weight: normal; color: #9fc6c9; margin-top: 4px; }
+  .cta .button {
+    background: #f4a932;
+    color: #10303a;
+    font-weight: bold;
+    font-size: 10.5pt;
+    padding: 12px 26px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero">
+      <div class="brandline">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+          <circle cx="13" cy="13" r="12" fill="#ffffff"/>
+          <path d="M4 14 h4 l2-5 3 9 2.5-6 1.5 2 h5" fill="none" stroke="#11808f" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        Aurelia Health Devices
+      </div>
+      <h1>Aurelia Pulse One</h1>
+      <div class="valueprop">
+        Continuous cardiac telemetry for post-discharge recovery — a wearable patch that
+        streams clinician-grade rhythm data for 14 days on a single charge, with no app
+        setup required from the patient.
+      </div>
+      <div class="badge-row">
+        <div class="badge">FDA 510(k) cleared</div>
+        <div class="badge">IP67 water resistant</div>
+        <div class="badge">Cellular — no phone needed</div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="col-features">
+        <h2>Why Care Teams Choose Pulse One</h2>
+        <div class="feature">
+          <div class="dot">1</div>
+          <div>
+            <h3>Zero-touch onboarding</h3>
+            <p>The patch pairs itself over an embedded cellular link the moment it is
+            applied. Discharge nurses report median setup time of 90 seconds per patient.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="dot">2</div>
+          <div>
+            <h3>Arrhythmia triage built in</h3>
+            <p>On-device classification flags AF, pauses, and sustained tachycardia, so
+            your monitoring team reviews events — not fourteen days of raw strips.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="dot">3</div>
+          <div>
+            <h3>EHR-native reporting</h3>
+            <p>End-of-wear summaries arrive as structured documents in Epic and Oracle
+            Health worklists, signed and ready for billing within 24 hours.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="dot">4</div>
+          <div>
+            <h3>Patients forget it's there</h3>
+            <p>At 11 grams with a breathable hydrogel adhesive, Pulse One holds a 96%
+            full-duration wear-compliance rate across 40,000 completed studies.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-specs">
+        <h2>Specifications</h2>
+        <table class="specs">
+          <tr><td class="k">Wear duration</td><td>Up to 14 days, single application</td></tr>
+          <tr><td class="k">Channels</td><td>Single-lead ECG, 250 Hz sampling</td></tr>
+          <tr><td class="k">Weight</td><td>11 g including adhesive frame</td></tr>
+          <tr><td class="k">Dimensions</td><td>74 × 33 × 7.6 mm</td></tr>
+          <tr><td class="k">Connectivity</td><td>LTE-M with 72-hour offline buffer</td></tr>
+          <tr><td class="k">Battery</td><td>Sealed 315 mAh, no charging during wear</td></tr>
+          <tr><td class="k">Water rating</td><td>IP67 — showering approved</td></tr>
+          <tr><td class="k">Detection classes</td><td>AF, flutter, pause &gt; 3 s, VT, bradycardia</td></tr>
+          <tr><td class="k">Report turnaround</td><td>Preliminary in 2 h, final within 24 h</td></tr>
+          <tr><td class="k">Ordering</td><td>Catalog AP1-214, boxes of 10</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="msg">
+        Start a 20-patient pilot in under two weeks.
+        <span>Clinical liaison teams available in all 50 states &middot; aureliahealth.example/pulse-one</span>
+      </div>
+      <div class="button">REQUEST A DEMO</div>
+    </div>
+  </div>
+</body>
+</html>
