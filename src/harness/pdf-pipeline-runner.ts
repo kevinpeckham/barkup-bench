@@ -31,6 +31,10 @@ export interface VerifyReport {
 	finalScore: number;
 	findingsApplied: number;
 	initialScore: number;
+	/** Present since replicator v3.270.0 — the palette-blind structure
+	 * score pair that gates/judges the verify loop. */
+	initialStructureScore?: number;
+	finalStructureScore?: number;
 	iterations: number;
 	reverted: boolean;
 }
@@ -387,7 +391,15 @@ export async function runStudyAsItem(
 			}
 			const report = result.body.report as VerifyReport;
 			record.verify[String(page.index)] = report;
-			if (report.finalScore < report.initialScore) {
+			// Keep-best invariant on the metric that JUDGES the loop: the
+			// structure pair when present (v3.270.0+ — appearance may then
+			// legitimately drop on a kept structure gain), else appearance.
+			const invariantHolds =
+				report.finalStructureScore != null &&
+				report.initialStructureScore != null
+					? report.finalStructureScore >= report.initialStructureScore
+					: report.finalScore >= report.initialScore;
+			if (!invariantHolds) {
 				record.invariantViolations.push(`${slug} p${page.index}`);
 			}
 		}
