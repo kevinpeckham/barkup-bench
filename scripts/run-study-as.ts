@@ -35,7 +35,10 @@ import { tierOf } from "../src/harness/study-as-stats";
 
 const BENCH_ROOT = resolve(import.meta.dir, "..");
 const CORPUS_DIR = `${BENCH_ROOT}/corpus/pdf-pipeline`;
-const RESULTS_DIR = `${BENCH_ROOT}/results/raw/study-as`;
+// Overridable so smoke tests / follow-up studies never clobber the
+// frozen Study AS raw records.
+const RESULTS_DIR =
+	process.env.STUDY_AS_RESULTS_DIR ?? `${BENCH_ROOT}/results/raw/study-as`;
 const PILOT_SLUGS = ["t1-event-flyer", "t3-case-study"];
 const DEFAULT_ORG_ID = "org-zMHZz-wQJegq5LHcHZA-E"; // SecureLogix
 
@@ -81,6 +84,7 @@ async function main() {
 	);
 	const config: RunnerConfig = {
 		baseUrl: process.env.STUDY_AS_BASE_URL ?? "http://localhost:5183",
+		...(args.includes("--match-colors") ? { matchSourceColors: true } : {}),
 		orgId: process.env.STUDY_AS_ORG_ID ?? DEFAULT_ORG_ID,
 		previewToken: resolvePreviewToken(),
 		replicatorDir,

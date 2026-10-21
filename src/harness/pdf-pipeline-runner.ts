@@ -65,6 +65,8 @@ export interface RunnerConfig {
 	previewToken: string;
 	orgId: string;
 	replicatorDir: string;
+	/** Send matchSourceColors=1 at start (theme-from-source, v3.271.0). */
+	matchSourceColors?: boolean;
 }
 
 interface PipelineState {
@@ -73,6 +75,7 @@ interface PipelineState {
 	decisions: Record<string, { action: string; widgetId?: string }>;
 	builtWidgets: Record<string, { fallback: boolean; widgetId: string }>;
 	createdPages: Record<string, string>;
+	importedThemeId?: string;
 	[key: string]: unknown;
 }
 
@@ -167,6 +170,7 @@ async function cleanupItem(
 		pipelineId?: string | undefined;
 		templateId?: string | undefined;
 		pageIds: string[];
+		themeIds?: string[];
 		widgetIds: string[];
 	},
 ): Promise<Record<string, unknown>> {
@@ -265,6 +269,7 @@ export async function runStudyAsItem(
 		// ── start ──
 		const form = new FormData();
 		form.set("action", "start");
+		if (config.matchSourceColors) form.set("matchSourceColors", "1");
 		form.set(
 			"file",
 			new File([pdfBytes as unknown as Blob], `AS-${slug}.pdf`, {
@@ -400,6 +405,7 @@ export async function runStudyAsItem(
 					pageIds: Object.values(state.createdPages ?? {}),
 					pipelineId: state.pipelineId,
 					templateId: record.templateId || undefined,
+					themeIds: state.importedThemeId ? [state.importedThemeId] : [],
 					widgetIds: Object.values(state.builtWidgets ?? {}).map(
 						(b) => b.widgetId,
 					),
