@@ -14,7 +14,7 @@ and a first whole-system study of a shipped pipeline. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active.** More than 36,000 scored runs across 8 models,
+**Status: active.** More than 36,000 scored runs across 9 models,
 published as found. The series so far includes two major corrections
 and several self-refutations, kept deliberately.
 
@@ -85,7 +85,9 @@ bun run scripts/analyze-study-<x>.ts # its committed analysis
 Scored runs are resumable JSONL keyed by (task, condition, model).
 If you reproduce, extend, or refute any of this, we want the issue.
 
-Sibling series: [aeo-bench](https://github.com/kevinpeckham/aeo-bench),
-the same discipline pointed at website agent readiness.
+Sibling series: [aeo-bench](https://github.com/kevinpeckham/aeo-bench)
+(the same discipline pointed at website agent readiness) and
+[stem-bench](https://github.com/kevinpeckham/stem-bench) (pointed at
+the AI features of stem-shovel).
 
 MIT © Kevin Peckham
