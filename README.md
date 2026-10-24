@@ -7,14 +7,14 @@ edit typed trees (page layouts, document templates, CMS content)?
 It began as one study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach (HTML as an
 authoring dialect, edited by whole-tree rewrite) against JSON with
-granular mutation tools. It has grown into forty-seven studies
+granular mutation tools. It has grown into forty-eight studies
 covering interfaces, tree size, partial context, retrieval, session
 memory, multi-target edits, qualitative rewrites, model tier maps,
 and a first whole-system study of a shipped pipeline. Every utility in the
 [`@kevinpeckham/barkup`](https://www.npmjs.com/package/@kevinpeckham/barkup)
 package traces back to a study here.
 
-**Status: active.** More than 36,000 scored runs across 9 models,
+**Status: active.** More than 36,000 scored runs across 10 models,
 published as found. The series so far includes two major corrections
 and several self-refutations, kept deliberately.
 
