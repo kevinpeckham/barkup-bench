@@ -3123,3 +3123,50 @@ was set under the AS-narrative assumption the study then refuted
 — which is the system working, not a flaw. The runner's keep-best
 assertion was switched to the structure pair BEFORE registration
 (the AS records' semantics untouched).
+
+## Addendum (2026-10-24): Study AU — the match-stage engine A/B (Phase-1 GATE FAIL at 67.6% agreement: Jev is not a drop-in judge — it holds a systematically looser reuse policy; fable stays, Phase 2 unrun)
+
+Pre-registered in [docs/BRIEF-AU.md](docs/BRIEF-AU.md). Phase 1
+replayed the frozen AT-brand decompose outputs (12 items, 16 pages,
+102 judged regions) against the current catalog and judged every page
+with BOTH engines fresh on byte-identical text-only inputs — the
+shipped fable-5.1 match judge vs Jev (typesafe-ai/jev-1.14.0) as one
+typed choice per region with a build sentinel, identical deterministic
+guards on both. Raw: `results/raw/study-au/phase1.json`; console log
+committed as `results/study-au-phase1.log`.
+
+**AU-G1 FAIL: action agreement 0.676 vs the registered ≥ 0.85.** Per
+the registered decision rule, Phase 2 (full-pipeline arm) does not
+run and fable-5.1 remains the match default.
+
+The texture of the failure is the useful part. The disagreement is
+almost perfectly ONE-DIRECTIONAL: of 33 disagreements, 31 are
+Jev-reuse-where-fable-builds (Jev reuse rate 45.1% vs fable's 16.7%),
+and when both engines say reuse they chose the SAME widget 15/15
+(exact-widget agreement 1.00). Jev is not noisy — its extra reuses
+carry median p = 0.71 — it simply holds a looser matching policy:
+nearly half its extra reuses (15/31) are heading-class regions
+matched to a generic heading widget, where fable's "judge by PURPOSE,
+not shape — do not stretch a loose match" rule (present in BOTH
+engines' inputs) makes fable decline. Two reverse cases exist
+(fable-reuse/Jev-build, Jev p ≈ 0.45–0.53 — its low-confidence zone).
+Replay-protocol validation: fable-today agreed with the AT-recorded
+decisions on 99.0% of regions despite two days of catalog drift —
+the offline replay is sound, and fable is highly self-consistent.
+
+Economics for the record (why the question was worth asking): Jev
+judged pages in 196ms mean vs fable's 9,580ms (49×), and the entire
+16-page sweep cost ~$0.003 of Jev input vs ~$1.50 of fable.
+
+What this does NOT settle (named, not run — it would need its own
+registration): whether Jev's permissive policy produces BETTER
+pipelines. Fable built 85 widgets across Study AS; if generic-heading
+reuse is actually fine, the strict policy over-builds at real cost.
+Answering that means a full-pipeline arm scored on downstream
+structure/appearance — exactly the Phase 2 this study's gate
+deliberately declined to fund on a failed interchangeability check.
+A future study could re-ask the question as "which POLICY is right"
+rather than "is the engine interchangeable". Until then: the
+replicator-side `PDF_MATCH_ENGINE` switch and `jevMatchJudgeResponse`
+ship DORMANT (default fable, guards identical) as the re-test
+apparatus.
