@@ -7,7 +7,7 @@ edit typed trees (page layouts, document templates, CMS content)?
 It began as one study comparing the
 [barkup](https://github.com/kevinpeckham/barkup) approach (HTML as an
 authoring dialect, edited by whole-tree rewrite) against JSON with
-granular mutation tools. It has grown into forty-eight studies
+granular mutation tools. It has grown into forty-nine studies
 covering interfaces, tree size, partial context, retrieval, session
 memory, multi-target edits, qualitative rewrites, model tier maps,
 and a first whole-system study of a shipped pipeline. Every utility in the
