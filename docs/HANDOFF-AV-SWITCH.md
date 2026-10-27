@@ -24,10 +24,11 @@ as AU's apparatus anticipated.
 > Decisions taken by Kevin 2026-10-27: stage-first rollout; the routed guard
 > in care item 1 is a follow-up, not a gate; rollback watched via existing ops
 > signals (Sentry, prod-data-audit, pipeline verify) plus care item 3's
-> telemetry. Measured at v3.293.3 on
-the AS corpus: 40.9% fewer widgets built, match stage ×13 faster
-end-to-end (sub-second per page), pipeline −24% wall-clock, stage model
-cost ~1000× lower.
+> telemetry.
+
+Measured at v3.293.3 on the AS corpus: 40.9% fewer widgets built, match
+stage ×13 faster end-to-end (sub-second per page), pipeline −24%
+wall-clock, stage model cost ~1000× lower.
 
 ## Care items the texture suggests (not gates, judgment calls)
 
