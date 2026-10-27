@@ -1,0 +1,25 @@
+Study AV — 12 fable / 12 jev items, commit(s): cd6ea69
+AV-fable: completed 12/12, regions 106, reuse 18 (17.0%), build 88, fallback 0 (0.0%), match 161s, total 42.7min, median structure 0.574
+AV-jev  : completed 12/12, regions 106, reuse 54 (50.9%), build 52, fallback 0 (0.0%), match 12s, total 32.3min, median structure 0.571
+
+Gates:
+  AV-G1 completion: fable 12/12 PASS, jev 12/12 PASS
+  AV-G2 build integrity: fable 0.0% PASS, jev 0.0% PASS
+  AV-G3 fidelity no-harm: median Δstructure (jev − fable) = -0.014 over 16 pages → PASS
+
+Per-tier paired medians (jev − fable):
+  T1: Δ -0.042 over 4 pages (fable 0.647 → jev 0.605)
+  T2: Δ 0.008 over 4 pages (fable 0.535 → jev 0.528)
+  T3: Δ -0.014 over 8 pages (fable 0.587 → jev 0.577)
+
+Divergent pages (|Δ| > 0.05):
+  t1-memo p0: fable 0.640 vs jev 0.529 (Δ -0.111)
+  t3-case-study p0: fable 0.686 vs jev 0.608 (Δ -0.078)
+  t3-annual-report p1: fable 0.530 vs jev 0.479 (Δ -0.052)
+  t1-event-flyer p0: fable 0.711 vs jev 0.660 (Δ -0.050)
+  t2-agenda p0: fable 0.528 vs jev 0.597 (Δ +0.068)
+
+Economics:
+  match wall-clock: fable 161s vs jev 12s (×13.0)
+  total wall-clock: fable 42.7min vs jev 32.3min
+  widgets built: fable 88 vs jev 52 (40.9% fewer)

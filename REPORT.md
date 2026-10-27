@@ -3124,6 +3124,60 @@ was set under the AS-narrative assumption the study then refuted
 assertion was switched to the structure pair BEFORE registration
 (the AS records' semantics untouched).
 
+## Addendum (2026-10-27): Study AV — which matching policy is right? (ALL GATES PASS: the permissive policy is measured safe; recommend switching the match default to Jev)
+
+Pre-registered in [docs/BRIEF-AV.md](docs/BRIEF-AV.md) (adopted from
+PROPOSAL-AV; run by the stem-bench analyst on a pinned worktree
+instance at v3.293.3/`cd6ea69`, both arms the same commit — no version
+split). Two full AS-corpus arms differing only in `PDF_MATCH_ENGINE`;
+the registered harness smoke validated the endpoint across the
+SvelteKit 3 migration, and the engine-plumbing stop rule was satisfied
+decisively by the match-stage latency fingerprint (fable 4.2–16.8 s
+per page vs Jev 231–670 ms). Raw: `results/raw/study-av/{fable,jev}/`
+(local per convention); analyzer summary committed. Spend ≈ $37 of the
+$70 fence. Operational note, disclosed: three external kills of the
+bench's background runners interrupted the jev arm twice mid-item; no
+scored record was affected, interrupted items re-ran from scratch, and
+the two abandoned staging folders were swept (`--apply`) at teardown.
+
+**AV-G1 PASS (12/12 both arms), AV-G2 PASS (zero fallbacks in 140
+builds), AV-G3 PASS (median paired Δstructure jev − fable = −0.014
+over 16 pages, bound −0.03).** Per the registered decision rule the
+recommendation is to switch the match stage's default engine to Jev,
+shipped as a normal versioned change with the env switch retained as
+rollback.
+
+AU's offline policies reproduced end to end: fable reused 17.0% of
+106 regions, Jev 50.9% — and the downstream cost of that permissiveness
+is measured at a median −0.014 structure, inside the no-harm bound.
+The economics: 40.9% fewer widgets built (52 vs 88), match wall-clock
+×13 lower (161 s → 12 s corpus-wide), total pipeline time −24%
+(42.7 → 32.3 min), and the stage's model cost drops from ~$1.50 to
+~$0.003 per corpus pass.
+
+Honest texture beneath the gate: the cost is not uniform. T2 — the
+tier AU's heading-class anatomy pointed at — is where Jev is most
+equal (Δ +0.008, and t2-agenda is the corpus's one POSITIVE
+divergence: +0.068 with 9/10 regions reused). The real casualties sit
+elsewhere: t1-memo −0.111 (the one page clearly past the bound on its
+own), t3-case-study −0.078, with T1's four pages the weakest tier
+(Δ −0.042). Prediction scorecard: 1 right (the gate passes for the
+registered reason); 2 half-right (40.9% fewer builds inside the
+predicted band, but the match speedup is ×13 end-to-end, not the ~45×
+extrapolated from AU's offline timing); 3 WRONG in an instructive
+direction — divergence did not concentrate in T2 at all, the
+composition tier absorbed stretched matches best and the simple T1
+pages paid most, suggesting a loose match hurts exactly where a page
+has few regions to hide it; 4 right (the dark page paired normally at
+the shared commit). The routed arm stays unfunded per registration:
+with AV-G3 green it is moot, though t1-memo's −0.111 is the cell a
+future routing threshold would target.
+
+Disclosure: the analyst registered and ran this study and is Claude
+Fable 5; the fable arm's judge is claude-fable-5.1. All scores are the
+pipeline's own committed mechanical metrics; no analyst judgment
+enters any score.
+
 ## Addendum (2026-10-24): Study AU — the match-stage engine A/B (Phase-1 GATE FAIL at 67.6% agreement: Jev is not a drop-in judge — it holds a systematically looser reuse policy; fable stays, Phase 2 unrun)
 
 Pre-registered in [docs/BRIEF-AU.md](docs/BRIEF-AU.md). Phase 1
