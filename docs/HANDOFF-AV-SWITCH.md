@@ -8,9 +8,23 @@ this is the actionable summary plus the care items the data suggests.
 
 All gates passed (12/12 completion both arms, zero fallbacks in 140
 builds, median paired Δstructure −0.014 against the −0.03 bound), so:
-**flip `PDF_MATCH_MODEL`'s effective default to the Jev engine** — ship
-as a normal versioned change, keep `PDF_MATCH_ENGINE` as the rollback
-switch, exactly as AU's apparatus anticipated. Measured at v3.293.3 on
+**flip the match engine's effective default to Jev** — ship as a normal
+versioned change, keep `PDF_MATCH_ENGINE` as the rollback switch, exactly
+as AU's apparatus anticipated.
+
+> **Correction (2026-10-27).** An earlier revision of this line said to flip
+> `PDF_MATCH_MODEL`. That is the wrong symbol: `PDF_MATCH_MODEL`
+> (`matchPdfPageWidgets.server.ts:24`) is the fable *model id* and has nothing
+> to do with engine selection. The engine is chosen at line 207 on
+> `PDF_MATCH_ENGINE_ENV` (line 30). No measured claim in this handoff changes
+> — only the instruction. The executable version, including the agreed
+> two-release rollout (stage first), the rollback trigger and the test
+> updates, lives in replicator at
+> `docs/superpowers/specs/2026-10-27-pdf-match-jev-default-design.md`.
+> Decisions taken by Kevin 2026-10-27: stage-first rollout; the routed guard
+> in care item 1 is a follow-up, not a gate; rollback watched via existing ops
+> signals (Sentry, prod-data-audit, pipeline verify) plus care item 3's
+> telemetry. Measured at v3.293.3 on
 the AS corpus: 40.9% fewer widgets built, match stage ×13 faster
 end-to-end (sub-second per page), pipeline −24% wall-clock, stage model
 cost ~1000× lower.
