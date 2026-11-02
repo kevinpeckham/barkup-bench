@@ -1,0 +1,2948 @@
+{
+	"version": 1,
+	"stamp": "run2",
+	"cells": [
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.17.4",
+			"usage": "drizzle-app-wiring",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": null,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": false
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "drizzle-app-wiring",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": null,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": false
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.17.4",
+			"usage": "drizzle-app-wiring",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": null,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": false
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "shared-execute",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "fresh-client-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "batch-per-statement",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "on-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "interactive-transaction",
+			"pragmaArm": "off-prior-execute",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "drizzle-app-wiring",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": null,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": false
+			}
+		}
+	],
+	"firstConnection": [
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 4,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 4,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 4,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 4,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 5,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 5,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 5,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 5,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 6,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 6,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 6,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "engine",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 6,
+			"reading": {
+				"pragma": 0,
+				"cascade": false,
+				"setNull": false,
+				"violationRejected": false,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 1,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 2,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 3,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 4,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 4,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 4,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 4,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 5,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 5,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 5,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 5,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-1",
+			"pragmaArm": "none",
+			"rep": 6,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-2",
+			"pragmaArm": "none",
+			"rep": 6,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-3",
+			"pragmaArm": "none",
+			"rep": 6,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		},
+		{
+			"kind": "libsql",
+			"client": "0.18.0",
+			"usage": "connection-4",
+			"pragmaArm": "none",
+			"rep": 6,
+			"reading": {
+				"pragma": 1,
+				"cascade": true,
+				"setNull": true,
+				"violationRejected": true,
+				"coherent": true,
+				"pragmaPredicts": true
+			}
+		}
+	]
+}
