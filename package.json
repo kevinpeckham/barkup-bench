@@ -34,7 +34,10 @@
 		"linkedom": "^0.18.5",
 		"playwright": "1.61.1",
 		"typescript": "^5.7.0",
-		"varlock": "^1.9.0"
+		"varlock": "^1.9.0",
+		"libsql-client-0174": "npm:@libsql/client@0.17.4",
+		"libsql-client-0180": "npm:@libsql/client@0.18.0",
+		"drizzle-orm": "0.45.4"
 	},
 	"engines": {
 		"node": ">=18"
