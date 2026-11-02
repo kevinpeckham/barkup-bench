@@ -3224,3 +3224,66 @@ rather than "is the engine interchangeable". Until then: the
 replicator-side `PDF_MATCH_ENGINE` switch and `jevMatchJudgeResponse`
 ship DORMANT (default fable, guards identical) as the re-test
 apparatus.
+
+## Addendum (2026-11-02): Study AW — does Turso enforce foreign keys? (ALL GATES PASS, and the two database kinds behave OPPOSITELY: classic libsql always enforces, the engine defaults OFF with a database-persistent pragma)
+
+The two-app contradiction from the 2026-10-30 handoff, measured on
+throwaway sandbox databases (docs/BRIEF-AW.md; registered b718e0b; two
+harness fixes before any data — regional hostnames, and the engine kind
+is creatable only through the CLI's `--tursodb`, the platform API has no
+engine parameter). 148 matrix cells (kind × client 0.17.4/0.18.0 × four
+usages × three pragma arms × 3 reps, plus drizzle-as-the-apps-wire-it)
+and 48 first-connection probes across 12 fresh databases. Zero errors,
+zero model spend, every database destroyed.
+
+**AW-G1 PASS (coherence):** in all 148 cells the three behaviors —
+cascade, set null, violation rejection — move together. **AW-G2 PASS
+(the pragma predicts):** in every steady-state cell the
+`PRAGMA foreign_keys` reading predicted the behavior exactly. The
+pragma never lies; the apps' ASSUMPTIONS about it did. **AW-G3 PASS
+(determinism):** no cell flapped across repetitions.
+
+**The finding: the kinds are opposites.**
+
+- **Classic libsql kind:** `foreign_keys` reads 1 and enforces on every
+  connection, every usage, both clients — and `PRAGMA foreign_keys =
+  OFF` does NOT stick (reads back 1, still enforces), even inside an
+  interactive transaction. Enforcement is on and effectively immutable.
+- **Engine (TursoDB/MVCC) kind:** `foreign_keys` reads 0 and does NOT
+  enforce — no cascade, no set-null, violating inserts accepted — on
+  the first connection and every later one (6 fresh databases × 4
+  connections: all 0/unenforced; NOT a cold-start artifact). But
+  `PRAGMA foreign_keys = ON` STICKS AT THE DATABASE LEVEL: set through
+  one connection, it read 1 and enforced through every subsequent fresh
+  connection, both clients, including the fresh-client-per-statement
+  usage where the pragma and the probe never share a connection.
+  (Durability across engine restarts/idle is unmeasured — the one open
+  question.)
+
+**Predictions, scored honestly: 1 of 3 plus the disclosed limit.**
+P1 REFUTED — enforcement is not on by default on the engine kind, so
+the bench predicted the wrong winner. P2 REFUTED — the engine's
+first-connection reads 0 AND does not enforce; Replicator's
+"cold-start reporting artifact" does not exist. P3 half-right — a
+prior-execute pragma sticks (the stateless-HTTP worry was wrong), but
+on the engine it sticks database-wide, which is stronger than
+predicted. P4 stands as a limit: September's database kind was never
+recorded.
+
+**Both apps explained by one mechanism.** Replicator's verdict probe
+ran `PRAGMA foreign_keys = ON` before testing the cascade (the
+inconsistency the handoff flagged), and on an engine database that ON
+persisted — so its "six subsequent fresh connections read 1" was its
+own probe's footprint, and its verdict note ("the application sets the
+pragma nowhere and does not need to") misdescribes evidence produced
+WITH the pragma set. Stem Shovel's September observation — pragma 0,
+onDelete rules never fired — is exactly the engine kind's default
+behavior. Its 441 lines of hand-written cascades are load-bearing on
+an engine database, redundant on a classic one.
+
+**The exposure:** Replicator runs engine databases in production since
+2026-10-24 with 159 FK actions and no pragma anywhere in the app. Per
+this study, those actions are unenforced unless some probe already
+flipped each database's persistent setting. The handoff
+(docs/HANDOFF-AW-FK.md) carries the one-line check and the remediation
+options for both app agents.
