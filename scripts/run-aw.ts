@@ -48,14 +48,25 @@ interface Db {
 }
 
 async function createDb(name: string, engineFlag: boolean): Promise<Db> {
-	const body: Record<string, unknown> = { name, group };
-	// The engine kind if the API supports the flag; recorded empirically either way.
-	if (engineFlag) body.engine = true;
-	const createdRes = (await api(`/organizations/${org}/databases`, { method: "POST", body: JSON.stringify(body) })) as {
-		database?: { Hostname?: string };
-	};
-	const hostname = createdRes.database?.Hostname;
-	if (!hostname) throw new Error(`no Hostname in creation response for ${name}`);
+	let hostname: string | undefined;
+	if (engineFlag) {
+		// The platform API has no engine parameter (checked 2026-11-02); the
+		// CLI's --tursodb flag is the only creation route for the engine kind.
+		const cli = Bun.spawnSync(
+			[`${process.env.HOME}/.turso/turso`, "db", "create", name, "--group", group!, "--tursodb", "--wait"],
+			{ env: { ...process.env, TURSO_API_TOKEN: token } },
+		);
+		if (cli.exitCode !== 0) throw new Error(`turso db create --tursodb: ${cli.stderr.toString().slice(0, 200)}`);
+		const got = (await api(`/organizations/${org}/databases/${name}`)) as { database?: { Hostname?: string } };
+		hostname = got.database?.Hostname;
+	} else {
+		const createdRes = (await api(`/organizations/${org}/databases`, {
+			method: "POST",
+			body: JSON.stringify({ name, group }),
+		})) as { database?: { Hostname?: string } };
+		hostname = createdRes.database?.Hostname;
+	}
+	if (!hostname) throw new Error(`no Hostname for ${name}`);
 	const tok = (await api(`/organizations/${org}/databases/${name}/auth/tokens`, { method: "POST" })) as { jwt: string };
 	return { name, url: `libsql://${hostname}`, authToken: tok.jwt, kind: "unknown" };
 }
