@@ -51,9 +51,13 @@ async function createDb(name: string, engineFlag: boolean): Promise<Db> {
 	const body: Record<string, unknown> = { name, group };
 	// The engine kind if the API supports the flag; recorded empirically either way.
 	if (engineFlag) body.engine = true;
-	await api(`/organizations/${org}/databases`, { method: "POST", body: JSON.stringify(body) });
+	const createdRes = (await api(`/organizations/${org}/databases`, { method: "POST", body: JSON.stringify(body) })) as {
+		database?: { Hostname?: string };
+	};
+	const hostname = createdRes.database?.Hostname;
+	if (!hostname) throw new Error(`no Hostname in creation response for ${name}`);
 	const tok = (await api(`/organizations/${org}/databases/${name}/auth/tokens`, { method: "POST" })) as { jwt: string };
-	return { name, url: `libsql://${name}-${org}.turso.io`, authToken: tok.jwt, kind: "unknown" };
+	return { name, url: `libsql://${hostname}`, authToken: tok.jwt, kind: "unknown" };
 }
 
 async function destroyDb(name: string): Promise<void> {
