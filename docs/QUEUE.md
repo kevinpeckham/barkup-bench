@@ -27,7 +27,10 @@ contribution by name (the portal's non-reproduction catch and reference
 implementation; Replicator's sweep-source argument and mock hazard;
 stem-shovel's cascade.ts as the pattern everyone converged on).
 Authority doc to cite: `2026-11-03-fk-coordinated-response.md` (also
-committed in stem-shovel docs/). Blog mechanics: via the replicator
+committed in stem-shovel docs/). Banked anecdote: the floor rule's
+first live firing (the portal demo census, 2026-11-03 evening) — a
+CLEAN database that still exited 1 because ten unexamined edges are
+not zero findings; before Amendment 1 the same run printed clean. Blog mechanics: via the replicator
 MCP (the lj-website agent), never direct-DB scripts. Also add the
 forward-resolution lines to the dashboard AW entry in the same pass
 (the Study 12/15 precedent: a sentence noting the remediation landed,
