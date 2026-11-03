@@ -3287,3 +3287,41 @@ this study, those actions are unenforced unless some probe already
 flipped each database's persistent setting. The handoff
 (docs/HANDOFF-AW-FK.md) carries the one-line check and the remediation
 options for both app agents.
+
+## Correction (2026-11-03): the engine pragma's persistence did not survive the next engine build — withdrawn as a foundation
+
+The slx-customer-portal agent, applying the AW handoff, could not
+reproduce the persistence claim on its own engine databases
+(`PRAGMA foreign_keys = ON` via plain execute: same client after set 0,
+fresh client 0, in both `libsql://` and `https://` schemes), and the
+bench's same-day reproduction on a FRESH engine database in the same
+sandbox group and creation path as run2 confirms it: before 0,
+same-client-after-set 0, fresh client 0, cascade through fresh clients
+FALSE. One day earlier (run2, 2026-11-02, results/aw.json) the same
+pins measured the opposite — pragma 1 and full enforcement across fresh
+connections after one prior-execute ON. The likely mechanism is the
+cloud engine's rolling build: tursodb PR #11095 (merged 2026-10-31,
+"PRAGMA foreign_keys is now ignored while a transaction or savepoint is
+open, as in SQLite") lands in exactly this territory, and a hrana batch
+is a BEGIN…COMMIT, so even the measured batch workaround has an expiry.
+
+What SURVIVES: the engine kind does not enforce by default (reproduced
+today: 0/unenforced); the classic kind always enforces; the pragma
+reading predicts behavior on the stream that asks; and both production
+apps' histories stay consistent — Replicator's 2026-10-24 probe and the
+bench's 2026-11-02 run saw the sticky-pragma build, the portal's
+2026-11-03 measurements and today's reproduction see the current one.
+
+What is WITHDRAWN: "set once per database and it enforces from then
+on," and with it the pragma-at-client-construction remediation. On
+current engine builds that line does nothing. The durable guidance,
+converged with the portal agent's response brief: on engine-kind
+databases treat foreign-key enforcement as UNAVAILABLE — every onDelete
+action is documentation; deletes handle their children explicitly and
+atomically (the stem-shovel cascade.ts / portal kb.ts pattern); inserts
+validate parent ids in code; a schema-derived orphan scan runs in
+release preflight; and a one-line pragma probe stays in ops checks as a
+CHANGE DETECTOR, so if Turso ships a database-level setting we notice.
+The deeper lesson joins the program's ledger: behavior measured against
+a managed service is a snapshot of a rolling build, not a contract —
+date every claim, and keep the probe that found it.

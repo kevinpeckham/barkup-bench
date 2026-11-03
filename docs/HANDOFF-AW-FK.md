@@ -82,3 +82,35 @@ the engine kind the default is already off.
   databases, only the CLI's `--tursodb` can).
 - Predictions scored: the bench called P1 wrong (it predicted steady
   enforcement everywhere) and says so in the report.
+
+---
+
+## CORRECTION (2026-11-03) — read this before acting on the above
+
+The remediation "(a) run `PRAGMA foreign_keys = ON` at client
+construction" is WITHDRAWN. The slx-customer-portal agent could not
+reproduce the pragma's persistence on its engine databases, and the
+bench's same-day fresh-database reproduction confirms the engine build
+has moved (likely tursodb PR #11095): on current builds a
+prior-execute ON does not carry to the next statement, even on the
+same client, and the batch workaround will stop working as that PR's
+semantics (pragma ignored inside transactions) roll out. The engine
+default remains unenforced — so for Replicator the exposure STANDS and
+is now harder to fix than one pragma line:
+
+- Treat every onDelete action as documentation on engine databases.
+- The durable fix is explicit child handling on every parent delete
+  (stem-shovel's cascade.ts is the worked example at scale: deepest
+  first, one atomic batch) plus parent-id validation on inserts.
+- Keep a schema-derived orphan scan (stem-shovel's sweep-orphans.ts
+  derives it from Drizzle metadata) in release preflight.
+- Keep a `PRAGMA foreign_keys` reading in ops checks purely as a
+  change detector.
+- The orphan question is unchanged and still urgent: deletes since the
+  2026-10-24 cutover ran without enforcement; sweep for orphans
+  regardless of which remediation lands.
+
+Full anatomy: REPORT.md, "Correction (2026-11-03)". The portal agent's
+response brief (~/projects/_handoffs/2026-11-03-customer-portal-
+foreign-keys-RESPONSE.md) is the convergent recommendation and worth
+reading whole.
