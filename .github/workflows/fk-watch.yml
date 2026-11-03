@@ -43,6 +43,8 @@ jobs:
             echo
             echo "Full output:"
             cat watch.out
+            echo
+            echo "Next steps: read the SIGNAL lines; re-run bun scripts/fk-watch.ts locally (with sandbox credentials for the behavior probe); act per Study AW's correction (REPORT.md) and the portal exchange; then bun scripts/fk-watch.ts --update and commit the new baseline."
             echo "WATCHEOF"
           } >> "$GITHUB_OUTPUT"
           exit 0
@@ -58,9 +60,7 @@ jobs:
           else
             gh issue create --repo "$GITHUB_REPOSITORY" \
               --title "fk-watch signal: the Turso/Drizzle ground moved" \
-              --body "$BODY
-
-Next steps: read the SIGNAL lines; re-run \`bun scripts/fk-watch.ts\` locally (with sandbox credentials for the behavior probe); act per Study AW's correction (REPORT.md) and the portal exchange; then \`bun scripts/fk-watch.ts --update\` and commit the new baseline."
+              --body "$BODY"
           fi
       - name: Fail visibly if the watch itself crashed
         if: steps.watch.outputs.code != '0' && steps.watch.outputs.code != '2'
