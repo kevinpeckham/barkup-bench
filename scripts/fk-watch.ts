@@ -34,6 +34,11 @@ const dz = (await (await fetch("https://registry.npmjs.org/drizzle-orm")).json()
 };
 const latest = dz["dist-tags"].latest ?? "";
 const latestExports = Object.keys(dz.versions[latest]?.exports ?? {});
+// Floor assertions (the Replicator agent's rule: zero findings from zero
+// inspected is a broken instrument, not a pass). A malformed registry
+// response must fail loudly, never read as "no signal".
+if (!latest || latestExports.length < 5)
+	throw new Error(`floor: drizzle-orm registry response looks broken (latest=${JSON.stringify(latest)}, ${latestExports.length} exports)`);
 now.drizzleLatest = latest;
 now.drizzleLatestHasTursoExport = latestExports.some((e) => e.includes("tursodatabase"));
 if (now.drizzleLatestHasTursoExport && !state.drizzleLatestHasTursoExport)
@@ -43,6 +48,7 @@ const sls = (await (await fetch("https://registry.npmjs.org/@tursodatabase%2fser
 	"dist-tags"?: Record<string, string>;
 };
 const slsLatest = sls["dist-tags"]?.latest ?? "";
+if (!slsLatest) throw new Error("floor: @tursodatabase/serverless registry response has no latest tag");
 now.serverlessLatest = slsLatest;
 const major = (v: string) => Number(v.split(".")[0] ?? 0);
 if (slsLatest && major(slsLatest) !== major(state.serverlessLatest ?? "0"))
@@ -53,6 +59,9 @@ try {
 	const doc = (await (await fetch("https://docs.turso.tech/sql-reference/pragmas")).text())
 		.toLowerCase()
 		.replace(/\s+/g, " ");
+	// Floor: a WAF page or stub must not read as "the sentence is gone".
+	if (doc.length < 10000 || !doc.includes("foreign"))
+		throw new Error(`floor: pragmas doc response looks broken (${doc.length} chars)`);
 	now.pragmasOffByDefault = doc.includes("off by default");
 	if (state.pragmasOffByDefault && !now.pragmasOffByDefault)
 		signals.push("SIGNAL: Turso's pragmas doc no longer says foreign keys are off by default — the default may have changed; re-probe before believing either way.");
@@ -76,8 +85,9 @@ if (token && org && group) {
 		return r.json();
 	};
 	try {
+		const tursoBin = Bun.which("turso") ?? `${process.env.HOME}/.turso/turso`;
 		const cli = Bun.spawnSync(
-			[`${process.env.HOME}/.turso/turso`, "db", "create", name, "--group", group, "--tursodb", "--wait"],
+			[tursoBin, "db", "create", name, "--group", group, "--tursodb", "--wait"],
 			{ env: { ...process.env, TURSO_API_TOKEN: token } },
 		);
 		if (cli.exitCode !== 0) throw new Error(cli.stderr.toString().slice(0, 120));
