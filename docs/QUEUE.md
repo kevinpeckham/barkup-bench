@@ -55,6 +55,6 @@ locally.
 
 ## 3. Housekeeping riding along with either item
 
-- The research hub tiles say "scored model runs" while the totals now
-  include mechanical zero-model cells (Study 16's 95, AW's 196) — a
-  two-word prose fix on the lj-website dashboard, flagged 2026-11-02.
+- DONE 2026-11-03 (rode along with Study 16b's downstream, lj-website
+  b1362ba): "scored model runs" → "scored runs" in five places; the
+  static historical claim in about.json left as-is deliberately.
