@@ -1,0 +1,68 @@
+name: fk-watch
+
+# Study AW's standing tripwire (scripts/fk-watch.ts): weekly check that
+# the Turso/Drizzle ground has not moved — drizzle-orm@latest gaining the
+# tursodatabase driver, @tursodatabase/serverless major bumps, and the
+# pragmas doc's off-by-default sentence. The engine BEHAVIOR probe runs
+# only when the three TURSO_* secrets are configured; without them the
+# npm + doc signals still run. On a signal, one issue is opened (or the
+# open one is commented), never a silent failure.
+
+on:
+  schedule:
+    - cron: "47 13 * * 1"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.2.0
+        with:
+          bun-version: latest
+      - name: Run the watch
+        id: watch
+        env:
+          TURSO_API_TOKEN: ${{ secrets.TURSO_API_TOKEN }}
+          TURSO_SANDBOX_ORG: ${{ secrets.TURSO_SANDBOX_ORG }}
+          TURSO_SANDBOX_GROUP: ${{ secrets.TURSO_SANDBOX_GROUP }}
+        run: |
+          set +e
+          bun scripts/fk-watch.ts | tee watch.out
+          code=${PIPESTATUS[0]}
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          {
+            echo "body<<WATCHEOF"
+            grep "SIGNAL:" watch.out || true
+            echo
+            echo "Full output:"
+            cat watch.out
+            echo "WATCHEOF"
+          } >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Open or update the signal issue
+        if: steps.watch.outputs.code == '2'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BODY: ${{ steps.watch.outputs.body }}
+        run: |
+          existing=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "fk-watch signal in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --repo "$GITHUB_REPOSITORY" --body "$BODY"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" \
+              --title "fk-watch signal: the Turso/Drizzle ground moved" \
+              --body "$BODY
+
+Next steps: read the SIGNAL lines; re-run \`bun scripts/fk-watch.ts\` locally (with sandbox credentials for the behavior probe); act per Study AW's correction (REPORT.md) and the portal exchange; then \`bun scripts/fk-watch.ts --update\` and commit the new baseline."
+          fi
+      - name: Fail visibly if the watch itself crashed
+        if: steps.watch.outputs.code != '0' && steps.watch.outputs.code != '2'
+        run: |
+          echo "fk-watch exited ${{ steps.watch.outputs.code }} (crash, not signal)"; exit 1

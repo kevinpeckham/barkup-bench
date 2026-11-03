@@ -1,0 +1,13 @@
+{
+	"note": "Baseline for scripts/fk-watch.ts (Study AW's standing tripwire). Update with --update after acting on a signal.",
+	"updated": "2026-11-03",
+	"drizzleLatest": "0.45.4",
+	"drizzleLatestHasTursoExport": false,
+	"serverlessLatest": "1.4.1",
+	"pragmasOffByDefault": true,
+	"probe": {
+		"cascadeThroughFreshClients": false,
+		"defaultPragma": 0,
+		"pragmaSticksAcrossClients": false
+	}
+}
