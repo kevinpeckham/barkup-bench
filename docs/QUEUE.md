@@ -5,6 +5,17 @@ the start of any bench session; remove items when delivered.
 
 ## 1. Follow-up article: "Three Agents, One Rule" (working title)
 
+**DONE 2026-11-04.** Trigger verified fired: portal 0.37.1 shipped, and
+Replicator's steps 1–3 landed in their Amendment-2/3 amended form
+(guard v3.314.0 + the `refused` state v3.316.0; daily fk-probe workflow
+v3.315.0; handlers for every parent the app actually deletes v3.317.0,
+org/user refused per the DECISION; fk-coverage test green 8/8 on
+2026-11-04). Article drafted via the replicator MCP for Kevin's voice
+pass: id `dE25zMsaGHfPpKkF7D1hy`, slug `three-agents-one-rule`, preview
+/blog/preview/1fx_HhgW1UhINsRt. Dashboard AW entry gained the
+"Resolution (2026-11-04)" block (lj-website 9d416b6). Original trigger
+text kept below for the record.
+
 **Trigger:** BOTH of —
 - the customer portal ships its FK plan (version 0.37.1 in
   slx-customer-portal's CHANGELOG; the plan is
