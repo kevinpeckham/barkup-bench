@@ -79,9 +79,13 @@ Small lever, worst possible place to cut. So AY waits for a trigger instead
 of running on priors.
 
 **Trigger:** EITHER —
-- Replicator ships per-turn `thinking_tokens` telemetry in chat-logs (the
-  providerMetadata path; suggested in the reply) and it shows a guarded
-  surface spending materially on thinking in production, OR
+- ARMED 2026-11-04 (Replicator ACK, v3.329.0): every chat surface now
+  writes per-step `thinking` into `chat_session.step_timings_json`
+  (providerMetadata path, `readStepProviderUsage`; undefined = not
+  recorded, 0 = recorded with no thinking; only the latest turn per
+  session is stored, so it samples turns). The trigger fires when a
+  query over that column on production traffic shows a guarded surface
+  spending materially on thinking, OR
 - the next model/tier swap: the swap's gate run carries an `effort: low` arm
   in the same pass (one extra suite of marginal cost; Kevin's go-ahead per
   the spend gates).
