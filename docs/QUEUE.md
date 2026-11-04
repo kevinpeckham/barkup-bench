@@ -56,7 +56,42 @@ secrets are configured on the repo; until then quiet weeks are
 established by running `bunx varlock run -- bun scripts/fk-watch.ts`
 locally.
 
-## 3. Housekeeping riding along with either item
+## 3. Study AY: thinking effort on the guarded surfaces
+
+**Origin:** Replicator's proposal
+`_handoffs/2026-11-04-replicator-thinking-effort-PROPOSAL.md` and the bench
+reply `…-REPLY.md` (2026-11-04). Phase 0 is already answered from the
+committed 2026-10-21 fable-5.1 gate baseline at zero cost: thinking fired on
+42/852 calls, 9,459/98,449 output tokens (10%), concentrated in the
+precedence (71%) and standing-pack (54%) gates — the spec-conflict behaviors.
+Small lever, worst possible place to cut. So AY waits for a trigger instead
+of running on priors.
+
+**Trigger:** EITHER —
+- Replicator ships per-turn `thinking_tokens` telemetry in chat-logs (the
+  providerMetadata path; suggested in the reply) and it shows a guarded
+  surface spending materially on thinking in production, OR
+- the next model/tier swap: the swap's gate run carries an `effort: low` arm
+  in the same pass (one extra suite of marginal cost; Kevin's go-ahead per
+  the spend gates).
+
+**Shape:** the regression-gate suite on `claude-fable-5-1` at
+`effort: low` (and `medium` if low reds), thresholds unchanged, paired
+against the committed default-effort baseline; any red gate keeps that
+surface on the default. PDF pipeline is a separate, costlier arm (AS/AT
+frozen corpus) and only runs if the chat tier clears.
+
+**Design notes (measured 2026-11-04):** `temperature` is IGNORED on Claude
+5-family models through the gateway (AI SDK warning observed) — the runner's
+`temperature: 0` is inert there, so run-to-run variance includes sampling +
+thinking-length variance; power the arms accordingly. Thinking attribution:
+ai v7 maps `outputTokenDetails.reasoningTokens` correctly (fable-5.1 probe:
+867 out / 862 reasoning); ai v6 reads 0 there and only
+`providerMetadata.anthropic.usage.output_tokens_details.thinking_tokens` is
+true. Any study depending on thinking counts must include an instrument
+cell: a known thinking-triggering prompt must read > 0 before arms run.
+
+## 4. Housekeeping riding along with either item
 
 - DONE 2026-11-03 (rode along with Study 16b's downstream, lj-website
   b1362ba): "scored model runs" → "scored runs" in five places; the
