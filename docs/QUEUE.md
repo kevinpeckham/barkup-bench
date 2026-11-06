@@ -85,7 +85,14 @@ of running on priors.
   recorded, 0 = recorded with no thinking; only the latest turn per
   session is stored, so it samples turns). The trigger fires when a
   query over that column on production traffic shows a guarded surface
-  spending materially on thinking, OR
+  spending materially on thinking. "Materially" was defined 2026-11-06,
+  before any data existed, in
+  `_handoffs/2026-11-06-replicator-thinking-telemetry-QUERY-ASK.md`:
+  thinking ≥ 15% of output tokens over ≥ 50 sampled turns on a guarded
+  surface (the fable-5.1 gate baseline reads 10% bench-wide). The
+  Replicator agent was asked (and notified in-session, Kevin's
+  go-ahead 2026-11-06) to run the query on or after 2026-11-18 and
+  drop a `…-thinking-telemetry-RESULT.md` in the handoff directory, OR
 - the next model/tier swap: the swap's gate run carries an `effort: low` arm
   in the same pass (one extra suite of marginal cost; Kevin's go-ahead per
   the spend gates).
