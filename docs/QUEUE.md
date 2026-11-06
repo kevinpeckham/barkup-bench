@@ -91,8 +91,15 @@ of running on priors.
   thinking ≥ 15% of output tokens over ≥ 50 sampled turns on a guarded
   surface (the fable-5.1 gate baseline reads 10% bench-wide). The
   Replicator agent was asked (and notified in-session, Kevin's
-  go-ahead 2026-11-06) to run the query on or after 2026-11-18 and
-  drop a `…-thinking-telemetry-RESULT.md` in the handoff directory, OR
+  go-ahead 2026-11-06) and ACCEPTED the ask same day
+  (`…-thinking-telemetry-QUERY-ACK.md`) with one window correction:
+  v3.329.0 recorded thinking but no output tokens, so v3.330.0
+  (4db9bbd) added per-step `output` (Anthropic raw output_tokens,
+  thinking included — consistent with the Phase 0 denominator) and the
+  ratio covers traffic from 2026-11-06 on. The query, already dry-run
+  on dev, runs on or after **2026-11-20** (prod read needs Kevin's
+  authorization that day) and lands as
+  `…-thinking-telemetry-RESULT.md` with a computed `triggerFires`, OR
 - the next model/tier swap: the swap's gate run carries an `effort: low` arm
   in the same pass (one extra suite of marginal cost; Kevin's go-ahead per
   the spend gates).
