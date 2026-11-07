@@ -1,0 +1,16 @@
+
+
+## Current template markup
+```html
+<section data-type="page" id="pg-1" data-label="Bench Landing">
+<div data-type="block" id="blk-hero" data-name="hero" data-label="Hero">
+<div data-type="text-atom" id="txt-headline" data-name="headline" data-max-length="60" data-text-element-tag="h1"></div>
+<div data-type="widget-slot" id="slot-hero" data-name="hero-slot" data-label="Hero widget" data-default-widget-id=""></div>
+</div>
+<div data-type="block" id="blk-features" data-name="features" data-label="Features">
+<div data-type="widget-slot" id="slot-feature-a" data-name="feature-a" data-label="Feature A"></div>
+<div data-type="widget-slot" id="slot-feature-b" data-name="feature-b" data-label="Feature B"></div>
+<div data-type="text-atom" id="txt-blurb" data-name="blurb" data-max-length="120"></div>
+</div>
+</section>
+```

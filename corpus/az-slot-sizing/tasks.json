@@ -1,0 +1,130 @@
+{
+	"note": "Study AZ task set (docs/BRIEF-AZ.md). 18 single-turn template-chat requests over corpus/az-slot-sizing/markup.html, registered before any scored run. Buckets: S = sizing-explicit (expected ops must match exactly), D = distractor/control (required ops plus a no-sizing-attribute rule), T = legacy-constraint trap (graded on dead data-required-widget-width writes).",
+	"tasks": [
+		{
+			"id": "S1",
+			"bucket": "S",
+			"request": "Make the Feature A slot half width.",
+			"expected": [
+				{ "op": "set-attribute", "id": "slot-feature-a", "key": "data-slot-span", "value": "half" }
+			]
+		},
+		{
+			"id": "S2",
+			"bucket": "S",
+			"request": "Give the hero widget slot a fixed height of 320 pixels.",
+			"expected": [
+				{ "op": "set-attribute", "id": "slot-hero", "key": "data-slot-height-px", "value": "320" }
+			]
+		},
+		{
+			"id": "S3",
+			"bucket": "S",
+			"request": "Make the Feature B slot a third of the row wide.",
+			"expected": [
+				{ "op": "set-attribute", "id": "slot-feature-b", "key": "data-slot-span", "value": "third" }
+			]
+		},
+		{
+			"id": "S4",
+			"bucket": "S",
+			"request": "Set the hero slot to span the full width.",
+			"expected": [
+				{ "op": "set-attribute", "id": "slot-hero", "key": "data-slot-span", "value": "full" }
+			]
+		},
+		{
+			"id": "S5",
+			"bucket": "S",
+			"request": "Make the Feature A slot two thirds wide and the Feature B slot a third wide.",
+			"expected": [
+				{ "op": "set-attribute", "id": "slot-feature-a", "key": "data-slot-span", "value": "two-thirds" },
+				{ "op": "set-attribute", "id": "slot-feature-b", "key": "data-slot-span", "value": "third" }
+			]
+		},
+		{
+			"id": "S6",
+			"bucket": "S",
+			"request": "Give both feature slots a fixed height of 200 pixels.",
+			"expected": [
+				{ "op": "set-attribute", "id": "slot-feature-a", "key": "data-slot-height-px", "value": "200" },
+				{ "op": "set-attribute", "id": "slot-feature-b", "key": "data-slot-height-px", "value": "200" }
+			]
+		},
+		{
+			"id": "D1",
+			"bucket": "D",
+			"request": "Rename the Features block's label to 'Main features'.",
+			"required": [
+				{ "op": "set-attribute", "id": "blk-features", "key": "data-label", "value": "Main features" }
+			]
+		},
+		{
+			"id": "D2",
+			"bucket": "D",
+			"request": "Set the headline's max length to 90.",
+			"required": [
+				{ "op": "set-attribute", "id": "txt-headline", "key": "data-max-length", "value": "90" }
+			]
+		},
+		{
+			"id": "D3",
+			"bucket": "D",
+			"request": "Move the blurb text above Feature A.",
+			"required": [{ "op": "move", "id": "txt-blurb", "before": "slot-feature-a" }]
+		},
+		{
+			"id": "D4",
+			"bucket": "D",
+			"request": "Remove the Feature B slot.",
+			"required": [{ "op": "remove", "id": "slot-feature-b" }]
+		},
+		{
+			"id": "D5",
+			"bucket": "D",
+			"request": "Change the hero slot's label to 'Primary widget'.",
+			"required": [
+				{ "op": "set-attribute", "id": "slot-hero", "key": "data-label", "value": "Primary widget" }
+			]
+		},
+		{
+			"id": "D6",
+			"bucket": "D",
+			"request": "Swap the order of the two feature slots.",
+			"requiredAny": [
+				[{ "op": "move", "id": "slot-feature-b", "before": "slot-feature-a" }],
+				[{ "op": "move", "id": "slot-feature-a", "after": "slot-feature-b" }]
+			]
+		},
+		{
+			"id": "T1",
+			"bucket": "T",
+			"request": "Constrain the hero slot to accept only full-width widgets."
+		},
+		{
+			"id": "T2",
+			"bucket": "T",
+			"request": "Make the Feature A slot only fit half-width widgets."
+		},
+		{
+			"id": "T3",
+			"bucket": "T",
+			"request": "Restrict the Feature B slot to widgets designed for a third of the row."
+		},
+		{
+			"id": "T4",
+			"bucket": "T",
+			"request": "Only full-width header widgets should fit the hero slot."
+		},
+		{
+			"id": "T5",
+			"bucket": "T",
+			"request": "Limit both feature slots to half-width widgets."
+		},
+		{
+			"id": "T6",
+			"bucket": "T",
+			"request": "The hero slot should only accept widgets that are two thirds wide."
+		}
+	]
+}
