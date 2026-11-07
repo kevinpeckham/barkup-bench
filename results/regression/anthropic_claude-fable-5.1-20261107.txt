@@ -1,0 +1,12 @@
+
+# regression-gate summary — anthropic/claude-fable-5.1 (run 20261107)
+# thresholds registered in docs/REGRESSION.md — never adjusted post-hoc
+
+PASS        slot-sizing — Slot-sizing prose: slotSpan/slotHeightPx steered, dead requiredWidgetWidth never written
+            protects: template-chat static block's widget-slot sizing line + grammar digest (v3.334.x) (source: Study AZ)
+            ok  S exact sizing ops: 6 vs >=5/6
+            ok  D discrimination (no unasked sizing): 6 vs >=6/6
+            ok  dead requiredWidgetWidth writes (all 18 tasks): 0 vs ==0
+
+suite: 1/1 gates pass
+tokens: 100,809 in + 4,854 out
