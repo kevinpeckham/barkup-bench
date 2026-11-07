@@ -3325,3 +3325,67 @@ CHANGE DETECTOR, so if Turso ships a database-level setting we notice.
 The deeper lesson joins the program's ledger: behavior measured against
 a managed service is a snapshot of a rolling build, not a contract —
 date every claim, and keep the probe that found it.
+
+## Addendum (2026-11-07): Study AZ — the slot-sizing static block (AZ-G2 PASS: the corrected prose is perfect across the board; AZ-G1 FAIL by the letter: one dead-attribute write under the stale prose, so ship v3.334.0 WITH the correction, not before it)
+
+The Replicator agent's ask (handoff 2026-11-07): v3.334.0 changes the
+template-chat static block's grammar digest (widget-slot row gains
+`slotHeightPx, slotSpan`) while the widget-slot prose line still
+advertises `data-required-widget-width` — an attribute the release
+removes. Premise corrected first: the 13 regression gates do not carry
+that text (they protect those surfaces through the bench's own
+registered constructions), so the instrument is a dedicated slice —
+the REAL static block extracted via replicator's own
+`buildTemplateEditorPromptSegments` (dev `14e05af`, main `856656d`,
+identity deltas pinned by test), 18 registered tasks x 3 arms, 54
+fable-5.1 calls, the verbatim `apply_template_patch` tool port.
+
+**Amendment 1 (defective-instrument rule, before any re-run):** the
+first run exposed a registration defect in the fixture — expected ops
+spelled keys in the `data-*` serialization while the production patch
+channel applies camelCase (the static block's own worked example writes
+`{"attributes":{"maxLength":60}}`). The run is preserved as
+`results/studyaz-defective-run1.json` with its void numbers disclosed
+in the brief; keys were corrected, censuses count both spellings,
+values/tasks/gates untouched; full re-run.
+
+**Results (results/studyaz.json):**
+
+| Arm | S (sizing) exact | D (control) | T dead writes |
+|---|---|---|---|
+| A0 (main) | 0/6 — attrs unknown; improvised wrappers or asked | 6/6 | 0 (run 1: 2) |
+| A (dev digest) | 3/6 — height yes, span asked twice | 6/6 | 1 |
+| B (corrected prose) | **6/6** | **6/6** | **0** |
+
+- **AZ-G2 PASS.** Arm B is perfect: every sizing request lands as the
+  exact registered op (`slotSpan`/`slotHeightPx`, right node, right
+  enum value), every control edit is clean with zero sizing-attribute
+  invention, and zero writes to the removed attribute in 12 of 12 T
+  cells across both runs. The registered text is the ask's proposed
+  wording VERBATIM — no change needed.
+- **AZ-G1 FAIL, by the letter.** Arm A's T4 wrote `requiredWidgetWidth`
+  (a silent no-op in the app) alongside the correct role constraint;
+  the gate requires dead writes <= A0's, and A0 wrote none this run.
+  The anatomy acquits the digest delta: the dead attribute is invited
+  by the stale prose line BOTH arms carry (the defective run saw A0
+  write it twice), and with temperature inert on fable-5.1 this class
+  fires stochastically wherever that line exists. The gate still means
+  what it says: dev-as-is is not certified safe.
+- The digest alone is half a feature: naming `slotHeightPx` in the
+  attrs row got height requests through (A/S2, A/S6), but span
+  requests made the model ask or improvise — the prose clause is what
+  teaches usage (B's 6/6).
+
+**Prediction scorecard:** (1) "AZ-G1 passes" — WRONG, failed via one
+dead write; (2) "AZ-G2 passes with S 6/6" — RIGHT; (3) "A0 and A >= 2
+dead T-writes each, B zero" — HALF (A0 2 in the void run then 0, A 1;
+B 0 always); (4) "spend <= $1.50" — the amended re-run alone fits
+(~300k in / 26k out), the study total with the defective run is ~2x
+that, inside the $5 fence.
+
+**Verdict delivered to the Replicator agent (handoff REPLY):** do not
+ship Arm A alone; ship v3.334.0 with the corrected prose line (Arm B)
+in the same release. Deliverable 3: yes — the slice deserves to
+persist; once B's text is in dev, a `slot-sizing` gate over this
+corpus (S >= 5/6, D 6/6, dead = 0, ~$0.3/run) can join the regression
+manifest by dated amendment.
