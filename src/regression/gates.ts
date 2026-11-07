@@ -400,6 +400,42 @@ export const GATES: GateDef[] = [
 			);
 		},
 	},
+	{
+		// Amendment 2026-11-07: promised in the slot-sizing REPLY to the
+		// Replicator agent, registered once the corrected widget-slot prose
+		// landed in replicator dev (65d4a27d).
+		id: "slot-sizing",
+		title:
+			"Slot-sizing prose: slotSpan/slotHeightPx steered, dead requiredWidgetWidth never written",
+		protects:
+			"template-chat static block's widget-slot sizing line + grammar digest (v3.334.x)",
+		sourceStudy: "AZ",
+		expectedRecords: 18,
+		evaluate: (records) => {
+			const az = (r: TaskRunRecord) => String(detail(r).az ?? "");
+			const s = records.filter((r) => az(r) === "S");
+			const d = records.filter((r) => az(r) === "D");
+			const dead = records.reduce(
+				(sum, r) => sum + Number(detail(r).deadWrites ?? 0),
+				0,
+			);
+			return result(
+				"slot-sizing",
+				"Slot-sizing prose: slotSpan/slotHeightPx steered, dead requiredWidgetWidth never written",
+				records.length < 18,
+				[
+					atLeast("S exact sizing ops", successCount(s), 5, 6),
+					atLeast("D discrimination (no unasked sizing)", successCount(d), 6, 6),
+					{
+						name: "dead requiredWidgetWidth writes (all 18 tasks)",
+						value: dead,
+						threshold: "==0",
+						pass: dead === 0,
+					},
+				],
+			);
+		},
+	},
 ];
 
 export function gateById(id: string): GateDef {

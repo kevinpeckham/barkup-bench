@@ -42,6 +42,11 @@ import { runSession } from "../src/harness/session-runner.js";
 import { runStandingTask } from "../src/harness/standing-runner.js";
 import type { GateResult } from "../src/regression/gates.js";
 import { GATES, gateById } from "../src/regression/gates.js";
+import {
+	SLOT_SIZING_CONDITION,
+	loadSlotSizingTasks,
+	runSlotSizingTask,
+} from "../src/regression/slot-sizing.js";
 
 process.env.BENCH_MAX_OUTPUT_TOKENS = "60000";
 
@@ -387,6 +392,20 @@ function buildAnaphoraHatchCells(): Cell[] {
 		}));
 }
 
+function buildSlotSizingCells(): Cell[] {
+	const tasks = loadSlotSizingTasks();
+	const done = loadExistingKeys(rawPath("slot-sizing"));
+	return tasks
+		.filter(
+			(t) => !done.has(`${t.id}::${SLOT_SIZING_CONDITION}::${model}::parity`),
+		)
+		.map((task) => ({
+			key: task.id,
+			label: `${task.id} × ${SLOT_SIZING_CONDITION}`,
+			run: async () => [await runSlotSizingTask(task, model)],
+		}));
+}
+
 const BUILDERS: Record<string, () => Cell[]> = {
 	dialect: buildDialectCells,
 	views: buildViewsCells,
@@ -401,6 +420,7 @@ const BUILDERS: Record<string, () => Cell[]> = {
 	"memo-scale": buildMemoScaleCells,
 	"ask-calibration": buildAskCalibrationCells,
 	"anaphora-hatch": buildAnaphoraHatchCells,
+	"slot-sizing": buildSlotSizingCells,
 };
 
 // Pack-grouped protocols (Z and AB cache layouts) run their cells

@@ -63,6 +63,7 @@ in corpus order."
 | `memo-scale` | sessionNotes at the 20-note cap + `applySessionNotesUpdate` eviction (v3.213.0) | AH recall-at-N=20 + integrity-at-K=19 slices + AK eviction-at-K=20 slice (AH+AK) | 35 | recall ≥13/15; clean full-replace ≥9/10; K=20 goal-safe ≥9/10 with zero goals evicted |
 | `ask-calibration` | ask-path calibration on the AE ladder (v3.191.0) | AE-rule on L0 precise + L4 missing-info (AE) | 30 | L0 solved ≥13/15, false asks ≤1; L4 asked ≥13/15 |
 | `anaphora-hatch` | the NEED-INFO seatbelt behind the echo | AG-stateless-hatch, first 6 anaphora sessions (AG) | 72 steps | anaphora asked ≥17/24; ordinary false asks ≤3 |
+| `slot-sizing` | template-chat widget-slot sizing prose + grammar digest (v3.334.x) | Study AZ's 18-task slice on the SHIPPED static block (AZ) | 18 | S exact ≥5/6; D 6/6; dead `requiredWidgetWidth` writes = 0 |
 
 Threshold provenance: each minimum sits at or just below the WORST
 result any passing tier recorded in the source study (e.g. `search`
@@ -107,6 +108,29 @@ a hard zero on goals evicted by the pipeline (AK-H1's 19/19
 contract, mechanical). The client-prune residue AK documented is
 model behavior below the frontier and is deliberately not gated —
 the baseline model is opus, where prunes measured 0/10.
+
+
+### Amendment (2026-11-07)
+
+New gate `slot-sizing`, promised to the Replicator agent in the
+2026-11-07 slot-sizing REPLY (handoff:
+`~/projects/_handoffs/2026-11-07-replicator-template-chat-slot-sizing-prompt-REPLY.md`)
+and registered now that the corrected widget-slot prose has landed in
+replicator dev (65d4a27d, `fix(template-chat): replace stale
+required-widget-width guidance with slot span/height (Study AZ)`).
+Construction: Study AZ's 18 registered tasks (S1–S6 exact sizing ops,
+D1–D6 discrimination, T1–T6 traps) against the SHIPPED static block —
+`corpus/az-slot-sizing/static-shipped.txt`, re-extracted from
+replicator dev at the pin by the study's method and verified
+byte-identical to the study's green Arm B (the dynamic block is
+unchanged); the `apply_template_patch` port's description is unchanged
+from 14e05af through 65d4a27d. Thresholds exactly as promised in the
+REPLY: S exact ≥ 5/6, D 6/6, dead `requiredWidgetWidth` writes = 0
+across all 18 tasks (Arm B measured 6/6, 6/6, 0; the one-task S
+allowance mirrors the suite's single-cell-flake tolerance; the dead
+zero is hard because Study AZ's dead write was the defect being
+gated). ≈ $0.3/run. Runner: `src/regression/slot-sizing.ts`;
+evaluator in `src/regression/gates.ts`, unit-tested.
 
 ## Reading a result
 

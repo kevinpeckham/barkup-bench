@@ -288,3 +288,48 @@ describe("anaphora-hatch gate", () => {
 		expect(gate.evaluate(agRecords(22, 4)).pass).toBe(false);
 	});
 });
+
+describe("slot-sizing gate (amendment 2026-11-07)", () => {
+	const gate = gateById("slot-sizing");
+	const cells = (opts: { sPass?: number; dPass?: number; dead?: number }) => {
+		const { sPass = 6, dPass = 6, dead = 0 } = opts;
+		const rows: TaskRunRecord[] = [];
+		for (let i = 0; i < 6; i++)
+			rows.push(
+				record({ taskId: `S${i}`, success: i < sPass, detail: { az: "S", deadWrites: 0 } }),
+			);
+		for (let i = 0; i < 6; i++)
+			rows.push(
+				record({ taskId: `D${i}`, success: i < dPass, detail: { az: "D", deadWrites: 0 } }),
+			);
+		for (let i = 0; i < 6; i++)
+			rows.push(
+				record({
+					taskId: `T${i}`,
+					success: i > 0 || dead === 0,
+					detail: { az: "T", deadWrites: i === 0 ? dead : 0 },
+				}),
+			);
+		return rows;
+	};
+
+	it("passes at the Arm B ceiling and at S 5/6", () => {
+		expect(gate.evaluate(cells({})).pass).toBe(true);
+		expect(gate.evaluate(cells({ sPass: 5 })).pass).toBe(true);
+	});
+
+	it("fails below S 5/6, below D 6/6, and on any dead write", () => {
+		expect(gate.evaluate(cells({ sPass: 4 })).pass).toBe(false);
+		expect(gate.evaluate(cells({ dPass: 5 })).pass).toBe(false);
+		const deadResult = gate.evaluate(cells({ dead: 1 }));
+		expect(deadResult.pass).toBe(false);
+		expect(
+			deadResult.checks.find((c) => c.name.startsWith("dead"))?.pass,
+		).toBe(false);
+	});
+
+	it("marks short runs incomplete", () => {
+		const r = gate.evaluate(cells({}).slice(0, 12));
+		expect(r.incomplete).toBe(true);
+	});
+});
