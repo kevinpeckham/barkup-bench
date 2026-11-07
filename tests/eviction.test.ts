@@ -50,7 +50,11 @@ describe("evictSessionNotesToFit (v3.213.0 port)", () => {
 	it("evicts repeatedly until the list fits", () => {
 		const input = memo(15, 5, 3); // 23 notes
 		const { evicted, notes } = evictSessionNotesToFit(input);
-		expect(evicted).toEqual([note("fact", 0), note("fact", 1), note("fact", 2)]);
+		expect(evicted).toEqual([
+			note("fact", 0),
+			note("fact", 1),
+			note("fact", 2),
+		]);
 		expect(notes.length).toBe(MAX_SESSION_NOTES);
 	});
 

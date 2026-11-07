@@ -17,7 +17,7 @@ describe("gradeExact (S bucket)", () => {
 		{
 			op: "set-attribute",
 			id: "slot-feature-a",
-			key: "data-slot-span",
+			key: "slotSpan",
 			value: "half",
 		},
 	];
@@ -28,7 +28,7 @@ describe("gradeExact (S bucket)", () => {
 					{
 						op: "set-attribute",
 						id: "slot-feature-a",
-						key: "data-slot-span",
+						key: "slotSpan",
 						value: "half",
 					},
 				],
@@ -41,7 +41,7 @@ describe("gradeExact (S bucket)", () => {
 					{
 						op: "set-attribute",
 						id: "slot-hero",
-						key: "data-slot-height-px",
+						key: "slotHeightPx",
 						value: 320,
 					},
 				],
@@ -49,7 +49,7 @@ describe("gradeExact (S bucket)", () => {
 					{
 						op: "set-attribute",
 						id: "slot-hero",
-						key: "data-slot-height-px",
+						key: "slotHeightPx",
 						value: "320",
 					},
 				],
@@ -63,7 +63,7 @@ describe("gradeExact (S bucket)", () => {
 					{
 						op: "set-attribute",
 						id: "slot-feature-b",
-						key: "data-slot-span",
+						key: "slotSpan",
 						value: "half",
 					},
 				],
@@ -76,7 +76,7 @@ describe("gradeExact (S bucket)", () => {
 					{
 						op: "set-attribute",
 						id: "slot-feature-a",
-						key: "data-slot-span",
+						key: "slotSpan",
 						value: "third",
 					},
 				],
@@ -89,7 +89,7 @@ describe("gradeExact (S bucket)", () => {
 					{
 						op: "set-attribute",
 						id: "slot-feature-a",
-						key: "data-slot-span",
+						key: "slotSpan",
 						value: "half",
 					},
 					{
@@ -108,13 +108,13 @@ describe("gradeExact (S bucket)", () => {
 			{
 				op: "set-attribute",
 				id: "slot-feature-a",
-				key: "data-slot-span",
+				key: "slotSpan",
 				value: "two-thirds",
 			},
 			{
 				op: "set-attribute",
 				id: "slot-feature-b",
-				key: "data-slot-span",
+				key: "slotSpan",
 				value: "third",
 			},
 		];
@@ -124,13 +124,13 @@ describe("gradeExact (S bucket)", () => {
 					{
 						op: "set-attribute",
 						id: "slot-feature-b",
-						key: "data-slot-span",
+						key: "slotSpan",
 						value: "third",
 					},
 					{
 						op: "set-attribute",
 						id: "slot-feature-a",
-						key: "data-slot-span",
+						key: "slotSpan",
 						value: "two-thirds",
 					},
 				],
@@ -143,7 +143,7 @@ describe("gradeExact (S bucket)", () => {
 					{
 						op: "set-attribute",
 						id: "slot-feature-a",
-						key: "data-slot-span",
+						key: "slotSpan",
 						value: "two-thirds",
 					},
 				],
@@ -200,7 +200,7 @@ describe("sizing and dead-attribute censuses", () => {
 			{
 				op: "set-attribute",
 				id: "slot-hero",
-				key: "data-required-widget-width",
+				key: "requiredWidgetWidth",
 				value: "full",
 			},
 			{ op: "set-attribute", id: "slot-hero", key: "data-label", value: "x" },
@@ -209,7 +209,7 @@ describe("sizing and dead-attribute censuses", () => {
 				node: {
 					type: "widget-slot",
 					id: "new-1",
-					attributes: { "data-slot-span": "half" },
+					attributes: { slotSpan: "half" },
 				},
 				parentId: "blk-hero",
 			},

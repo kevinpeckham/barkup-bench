@@ -29,7 +29,11 @@ describe("the fkProbe instrument detects both states on a known-semantics local 
 			await c.execute("PRAGMA foreign_keys = ON");
 			expect(await readPragma(c)).toBe(1);
 			const r = await probeEnforcement(c, "aw");
-			expect([r.cascade, r.setNull, r.violationRejected]).toEqual([true, true, true]);
+			expect([r.cascade, r.setNull, r.violationRejected]).toEqual([
+				true,
+				true,
+				true,
+			]);
 			expect(r.coherent).toBe(true);
 			expect(r.pragmaPredicts).toBe(true);
 			c.close();
@@ -39,7 +43,11 @@ describe("the fkProbe instrument detects both states on a known-semantics local 
 			await c.execute("PRAGMA foreign_keys = OFF");
 			expect(await readPragma(c)).toBe(0);
 			const r = await probeEnforcement(c, "aw");
-			expect([r.cascade, r.setNull, r.violationRejected]).toEqual([false, false, false]);
+			expect([r.cascade, r.setNull, r.violationRejected]).toEqual([
+				false,
+				false,
+				false,
+			]);
 			expect(r.coherent).toBe(true);
 			expect(r.pragmaPredicts).toBe(true);
 			c.close();

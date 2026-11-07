@@ -245,7 +245,12 @@ describe("ask-calibration gate", () => {
 				record({
 					detail: {
 						level: 0,
-						outcome: i < l0Asked ? "asked" : i < l0Asked + l0Solved ? "solved" : "invalid",
+						outcome:
+							i < l0Asked
+								? "asked"
+								: i < l0Asked + l0Solved
+									? "solved"
+									: "invalid",
 					},
 				}),
 			),
@@ -273,9 +278,7 @@ describe("anaphora-hatch gate", () => {
 					detail: { anaphora: "amend", asked: i < asked },
 				}),
 			),
-			...repeat(48, (i) =>
-				record({ detail: { asked: i < falseAsks } }),
-			),
+			...repeat(48, (i) => record({ detail: { asked: i < falseAsks } })),
 		];
 	}
 	it("passes at the AG band and fails below the bar or on tax", () => {

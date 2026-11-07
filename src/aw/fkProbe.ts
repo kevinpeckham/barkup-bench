@@ -91,14 +91,20 @@ export async function probeEnforcement(
 	}
 
 	// set null: deleting p2 should null c1.owner_id.
-	await c.execute({ sql: `DELETE FROM ${prefix}_parent WHERE id = ?`, args: ["p2"] });
+	await c.execute({
+		sql: `DELETE FROM ${prefix}_parent WHERE id = ?`,
+		args: ["p2"],
+	});
 	const owner = await c.execute(
 		`SELECT owner_id FROM ${prefix}_child WHERE id = 'c1'`,
 	);
 	const setNull = owner.rows.length === 1 && owner.rows[0]?.owner_id === null;
 
 	// cascade: deleting p1 should remove c1.
-	await c.execute({ sql: `DELETE FROM ${prefix}_parent WHERE id = ?`, args: ["p1"] });
+	await c.execute({
+		sql: `DELETE FROM ${prefix}_parent WHERE id = ?`,
+		args: ["p1"],
+	});
 	const left = await c.execute(
 		`SELECT count(*) AS n FROM ${prefix}_child WHERE id = 'c1'`,
 	);
@@ -114,5 +120,12 @@ export async function probeEnforcement(
 			: pragma === 1
 				? enforced.every(Boolean)
 				: enforced.every((x) => !x);
-	return { pragma, cascade, setNull, violationRejected, coherent, pragmaPredicts };
+	return {
+		pragma,
+		cascade,
+		setNull,
+		violationRejected,
+		coherent,
+		pragmaPredicts,
+	};
 }

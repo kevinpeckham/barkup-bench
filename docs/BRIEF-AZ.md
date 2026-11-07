@@ -110,6 +110,28 @@ well under $1.50.
    write the dead attribute on >= 2 of 6 T tasks; B writes it 0 times.
 4. Spend <= $1.50.
 
+## Amendment 1 (2026-11-07, before any re-run; defective-instrument rule)
+
+The first scored run (54 calls, preserved as
+`results/studyaz-defective-run1.json`) exposed a registration defect in
+the FIXTURE, not the model: the registered expected/required ops spelled
+attribute keys in the `data-*` kebab serialization, but the production
+patch channel applies CAMELCASE keys (barkup `set-attribute` writes
+`op.key` verbatim into node attributes; the static block's own worked
+example inserts `{"attributes":{"maxLength":60}}`, tested to apply).
+Every model attribute op in the run was camelCase. The same defect made
+the dead-write census miss `requiredWidgetWidth` (A0/T5 wrote it twice,
+counted 0). Numbers as seen under the defective grader: S 0/6 on every
+arm, D 3/6 on every arm, T dead writes 0 everywhere; AZ-G1 "PASS",
+AZ-G2 "FAIL" — all void.
+
+Fix, per the registered intent ("the op the production channel
+applies"): expected/required keys corrected to camelCase (`slotSpan`,
+`slotHeightPx`, `label`, `maxLength`); SIZING/DEAD censuses count both
+spellings. Expected VALUES, task texts, arms, gates and thresholds are
+untouched. Re-registered by commit; full re-run (another 54 calls,
+still inside the $5 fence).
+
 ## Disclosure
 
 Analyst Claude Fable 5; measured model claude-fable-5.1 (same family;

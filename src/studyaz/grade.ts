@@ -17,13 +17,16 @@ export interface AzOp {
 
 /** The three sizing-family attribute keys the D rule forbids inventing. */
 export const SIZING_KEYS = [
+	"slotSpan",
+	"slotHeightPx",
+	"requiredWidgetWidth",
 	"data-slot-span",
 	"data-slot-height-px",
 	"data-required-widget-width",
 ];
 
 /** The attribute v3.334.0 removed; writes to it are silent no-ops in the app. */
-export const DEAD_KEY = "data-required-widget-width";
+export const DEAD_KEYS = ["requiredWidgetWidth", "data-required-widget-width"];
 
 function normValue(v: unknown): string {
 	return String(v).trim();
@@ -104,5 +107,5 @@ export function sizingWrites(ops: AzOp[]): number {
 
 /** Count of writes to the removed attribute (silent no-ops in the app). */
 export function deadWrites(ops: AzOp[]): number {
-	return writtenKeys(ops).filter((k) => k === DEAD_KEY).length;
+	return writtenKeys(ops).filter((k) => DEAD_KEYS.includes(k)).length;
 }

@@ -1,12 +1,12 @@
 {
-	"note": "Study AZ task set (docs/BRIEF-AZ.md). 18 single-turn template-chat requests over corpus/az-slot-sizing/markup.html, registered before any scored run. Buckets: S = sizing-explicit (expected ops must match exactly), D = distractor/control (required ops plus a no-sizing-attribute rule), T = legacy-constraint trap (graded on dead data-required-widget-width writes).",
+	"note": "Study AZ task set (docs/BRIEF-AZ.md). 18 single-turn template-chat requests over corpus/az-slot-sizing/markup.html, registered before any scored run; Amendment 1 (2026-11-07) corrected attribute keys to the camelCase form the production patch channel applies. Buckets: S = sizing-explicit (expected ops must match exactly), D = distractor/control (required ops plus a no-sizing-attribute rule), T = legacy-constraint trap (graded on dead data-required-widget-width writes).",
 	"tasks": [
 		{
 			"id": "S1",
 			"bucket": "S",
 			"request": "Make the Feature A slot half width.",
 			"expected": [
-				{ "op": "set-attribute", "id": "slot-feature-a", "key": "data-slot-span", "value": "half" }
+				{ "op": "set-attribute", "id": "slot-feature-a", "key": "slotSpan", "value": "half" }
 			]
 		},
 		{
@@ -14,7 +14,7 @@
 			"bucket": "S",
 			"request": "Give the hero widget slot a fixed height of 320 pixels.",
 			"expected": [
-				{ "op": "set-attribute", "id": "slot-hero", "key": "data-slot-height-px", "value": "320" }
+				{ "op": "set-attribute", "id": "slot-hero", "key": "slotHeightPx", "value": "320" }
 			]
 		},
 		{
@@ -22,7 +22,7 @@
 			"bucket": "S",
 			"request": "Make the Feature B slot a third of the row wide.",
 			"expected": [
-				{ "op": "set-attribute", "id": "slot-feature-b", "key": "data-slot-span", "value": "third" }
+				{ "op": "set-attribute", "id": "slot-feature-b", "key": "slotSpan", "value": "third" }
 			]
 		},
 		{
@@ -30,7 +30,7 @@
 			"bucket": "S",
 			"request": "Set the hero slot to span the full width.",
 			"expected": [
-				{ "op": "set-attribute", "id": "slot-hero", "key": "data-slot-span", "value": "full" }
+				{ "op": "set-attribute", "id": "slot-hero", "key": "slotSpan", "value": "full" }
 			]
 		},
 		{
@@ -38,8 +38,8 @@
 			"bucket": "S",
 			"request": "Make the Feature A slot two thirds wide and the Feature B slot a third wide.",
 			"expected": [
-				{ "op": "set-attribute", "id": "slot-feature-a", "key": "data-slot-span", "value": "two-thirds" },
-				{ "op": "set-attribute", "id": "slot-feature-b", "key": "data-slot-span", "value": "third" }
+				{ "op": "set-attribute", "id": "slot-feature-a", "key": "slotSpan", "value": "two-thirds" },
+				{ "op": "set-attribute", "id": "slot-feature-b", "key": "slotSpan", "value": "third" }
 			]
 		},
 		{
@@ -47,8 +47,8 @@
 			"bucket": "S",
 			"request": "Give both feature slots a fixed height of 200 pixels.",
 			"expected": [
-				{ "op": "set-attribute", "id": "slot-feature-a", "key": "data-slot-height-px", "value": "200" },
-				{ "op": "set-attribute", "id": "slot-feature-b", "key": "data-slot-height-px", "value": "200" }
+				{ "op": "set-attribute", "id": "slot-feature-a", "key": "slotHeightPx", "value": "200" },
+				{ "op": "set-attribute", "id": "slot-feature-b", "key": "slotHeightPx", "value": "200" }
 			]
 		},
 		{
@@ -56,7 +56,7 @@
 			"bucket": "D",
 			"request": "Rename the Features block's label to 'Main features'.",
 			"required": [
-				{ "op": "set-attribute", "id": "blk-features", "key": "data-label", "value": "Main features" }
+				{ "op": "set-attribute", "id": "blk-features", "key": "label", "value": "Main features" }
 			]
 		},
 		{
@@ -64,7 +64,7 @@
 			"bucket": "D",
 			"request": "Set the headline's max length to 90.",
 			"required": [
-				{ "op": "set-attribute", "id": "txt-headline", "key": "data-max-length", "value": "90" }
+				{ "op": "set-attribute", "id": "txt-headline", "key": "maxLength", "value": "90" }
 			]
 		},
 		{
@@ -84,7 +84,7 @@
 			"bucket": "D",
 			"request": "Change the hero slot's label to 'Primary widget'.",
 			"required": [
-				{ "op": "set-attribute", "id": "slot-hero", "key": "data-label", "value": "Primary widget" }
+				{ "op": "set-attribute", "id": "slot-hero", "key": "label", "value": "Primary widget" }
 			]
 		},
 		{
