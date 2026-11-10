@@ -67,6 +67,8 @@ secrets are configured on the repo; until then quiet weeks are
 established by running `bunx varlock run -- bun scripts/fk-watch.ts`
 locally.
 
+**Readings:** 2026-11-10 quiet (behavior probe ran: cascade through fresh clients false, default pragma 0, pragma does not stick across clients; drizzle 0.45.4, serverless 1.4.1) = quiet week 1 of 2. Next reading due on or after 2026-11-17; if quiet, AX registers.
+
 ## 3. Study AY: thinking effort on the guarded surfaces
 
 **Origin:** Replicator's proposal
