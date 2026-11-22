@@ -39,3 +39,13 @@ before every commit. Conventional commits; never mention AI assistance in
 commits. Env: `AI_GATEWAY_API_KEY` in `.env.local` (gitignored — never
 commit env files; note the gitignore's glob patterns exist because a
 leading-space filename once evaded an exact match in a sibling repo).
+
+## Agent tooling
+
+What an agent gets in this repository is declared here, not in anyone's
+personal Claude Code settings:
+
+- `.mcp.json`: MCP servers: `varlock-docs-mcp` (Varlock's documentation: read it before changing `.env.schema` or how the environment is loaded)
+- `.claude/settings.json`: the approval of those servers
+
+Add or remove a tool by editing these files in a pull request.
