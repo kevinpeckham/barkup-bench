@@ -1,0 +1,4 @@
+{
+	"$schema": "./node_modules/fallow/schema.json",
+	"entry": ["scripts/**/*.{ts,mjs}", "tests/**/*.test.ts"]
+}
