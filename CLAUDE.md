@@ -40,6 +40,16 @@ commits. Env: `AI_GATEWAY_API_KEY` in `.env.local` (gitignored — never
 commit env files; note the gitignore's glob patterns exist because a
 leading-space filename once evaded an exact match in a sibling repo).
 
+
+## Fallow (a report, never a reason)
+
+`bun run dead-code`, `bun run dupes`, `bun run health` and `bun run audit`
+run Fallow (`.fallowrc.json` names the scripts and tests as entry points).
+Read what it says about shared code in `src/`. It is never grounds to change
+anything a study registered: prompts, conditions, corpus and graders are
+fixed by their commit, and the duplication Fallow reports between study
+scripts is each study carrying its own copy. Nothing gates on Fallow here.
+
 ## Agent tooling
 
 What an agent gets in this repository is declared here, not in anyone's
